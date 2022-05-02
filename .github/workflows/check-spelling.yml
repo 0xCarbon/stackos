@@ -1,0 +1,54 @@
+# This is workflow for spell checking
+# The configs for this spell check can be find at /.github/actions/spelling
+name: Spell Checking
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+  issue_comment:
+    types: [created]
+
+jobs:
+  # This workflow contains a single job called "spelling"
+  spelling:
+    name: Spell checking
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: checkout-merge
+        if: "contains(github.event_name, 'pull_request')"
+        uses: actions/checkout@v2
+        with:
+          ref: refs/pull/${{github.event.pull_request.number}}/merge
+      - name: checkout
+        if: ${{ github.event_name == 'push' ||
+          (
+          contains(github.event.comment.body, '@check-spelling-bot apply')
+          ) }}
+        uses: actions/checkout@v2
+      - uses: check-spelling/check-spelling@main
+        id: spelling
+        if: ${{ github.event_name != 'issue_comment' ||
+          (
+          contains(github.event.comment.body, '@check-spelling-bot apply')
+          ) }}
+        with:
+          # Extra dictionaries to verify words
+          extra_dictionaries: cspell:cpp/cpp.txt
+            cspell:css/css.txt
+            cspell:html/html.txt
+            cspell:npm/npm.txt
+            cspell:fullstack/fullstack.txt
+            cspell:filetypes/filetypes.txt
+            cspell:java/java.txt
+            cspell:rust/rust.txt
+            cspell:golang/go.txt
+            cspell:django/django.txt
+            cspell:csharp/csharp.txt
+            cspell:aws/aws.txt
+          experimental_apply_changes_via_bot: 1
+          # Uncomment if wants check spell of file names
+          # check_file_names: 1
