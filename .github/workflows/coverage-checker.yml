@@ -1,0 +1,54 @@
+name: Code Coverage
+
+on: 
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Run tests
+      - run: npm install
+      - run: npm install --save-dev typescript @types/react @types/node @cypress/code-coverage @cypress/instrument-cra
+      - run: npm run build
+      - run: npm run start &
+      - run: npm run cypress
+
+      # Generate coverage report
+      - name: Coverage report
+        uses: slavcodev/coverage-monitor-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          coverage_path: "coverage/clover.xml"
+          threshold_alert: 35
+          threshold_warning: 50
+          threshold_metric: "lines"
+          comment_footer: false
+
+      # Checks if the coverage has reached the minimum limit  
+      - uses: themichaelhall/check-code-coverage@v1
+        with:
+          report: coverage/clover.xml
+          required-percentage: 75
