@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Layout } from '@/components';
+import SectionTechnology from '@/components/home/section-technology';
 // import { useAccount } from 'wagmi';
 
 const Home: NextPage = () => (
@@ -13,7 +14,7 @@ const Home: NextPage = () => (
     <Layout>
       asdasdasd
       {/* HERO SECTION - JUST DEPLOY */}
-      {/* TECHONOLOGY */}
+      <SectionTechnology />
       {/* DEVELOPERS */}
       {/* GOVERNANCE */}
       {/* PARTNERSHIPS */}
