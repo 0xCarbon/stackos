@@ -8,7 +8,9 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
-    fontFamily: {},
+    fontFamily: {
+      Inter: ['Inter', 'sans-serif'],
+    },
     extend: {
       colors: {
         'main-green': '#AAFF00',

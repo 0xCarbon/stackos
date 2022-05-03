@@ -1,15 +1,62 @@
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+import { MdMenu } from 'react-icons/md';
 
-const Header = () => (
-  <header>
-    <div className="text-white flex flex-row justify-center items-center px-24 py-16 child:flex-1">
-      <Link href="/technology">Technology</Link>
-      <Link href="/developers">Developers</Link>
-      <Link href="/governance">Governance</Link>
-      <Link href="/partners">Partners</Link>
-      <Link href="/token">Token</Link>
-    </div>
-  </header>
-);
+const Header = () => {
+  // Window width state
+  const [isMediumScreen, setIsMediumScreen] = useState<boolean>();
+
+  // Function to get screen type
+  const updateMedia = () => {
+    setIsMediumScreen(window.innerWidth < 1024);
+  };
+
+  useEffect(() => {
+    setIsMediumScreen(window.innerWidth < 770);
+    // Define a window listener to run the updateMedia function when the window changes
+    window.addEventListener('resize', updateMedia, { passive: true });
+    return () => window.removeEventListener('resize', updateMedia);
+  }, []);
+
+  return (
+    <header>
+      <div className="flex flex-row bg-[#1F2937] lg:bg-transparent justify-between items-center px-4 py-4 lg:px-10 lg:py-16 2xl:justify-center text-white font-medium text-xl duration-500">
+        <div className="relative w-36 h-8 lg:w-36 lg:h-8 xl:w-40 xl:h-10 2xl:w-48 2xl:h-12 xl:mr-2 2xl:mr-16 duration-500">
+          <Image width={152} height={32} layout="responsive" src="/stackos-logo.svg" />
+        </div>
+        {isMediumScreen ? (
+          <MdMenu size={24} color="#D1D5DB" />
+        ) : (
+          <>
+            {/* <div className="flex w-auto justify-between flex-row child:mr-10 2xl:child:mr-14"> */}
+            <Link href="/technology">
+              <a className="2xl:mr-14">Technology</a>
+            </Link>
+            <Link href="/developers">
+              <a className="2xl:mr-14">Developers</a>
+            </Link>
+            <Link href="/governance">
+              <a className="2xl:mr-14">Governance</a>
+            </Link>
+            <Link href="/partners">
+              <a className="2xl:mr-14">Partners</a>
+            </Link>
+            <Link href="/token">
+              <a>Token</a>
+            </Link>
+            {/* </div> */}
+
+            <div className="flex items-center xl:ml-56 2xl:ml-[24rem] justify-center px-4 2xl:px-6 py-2 border border-main-green rounded-md text-main-green text-sm">
+              <a target="_blank" href="https://app.stackos.io/" rel="noreferrer">
+                Deploy Now
+              </a>
+            </div>
+          </>
+        )}
+      </div>
+    </header>
+  );
+};
 
 export default Header;
