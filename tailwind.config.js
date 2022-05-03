@@ -1,10 +1,25 @@
 module.exports = {
-  content: [
-    './pages/**/*.{html,js,jsx,tsx}',
-    './components/**/*.{html,js,jsx,tsx}',
-  ],
+  content: ['./src/pages/**/*.{html,js,jsx,ts,tsx}', './src/components/**/*.{html,js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
+    fontFamily: {},
+    extend: {
+      colors: {
+        'main-green': '#AAFF00',
+        'main-blue': '#111827',
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    ({ addVariant }) => {
+      addVariant('child', '& > *');
+      addVariant('child-hover', '& > *:hover');
+    },
+  ],
 };
