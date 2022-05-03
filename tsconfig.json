@@ -14,9 +14,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "@/components": ["src/components"]
+      "@/*": ["./src/*"]
     },
     "types": ["cypress"]
   },
