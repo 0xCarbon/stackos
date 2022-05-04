@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout } from '@/components';
-// import { useAccount } from 'wagmi';
 
 const Home: NextPage = () => (
   <>
@@ -20,5 +20,13 @@ const Home: NextPage = () => (
     </Layout>
   </>
 );
+
+export async function getStaticProps({ locale }: { locale: any }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'header'])),
+    },
+  };
+}
 
 export default Home;
