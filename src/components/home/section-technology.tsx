@@ -13,7 +13,9 @@ const SectionTechnology = () => {
 
   return (
     <div className="w-full flex flex-col justify-center items-center text-center">
-      <span className="text-[#F4F4F4] font-extrabold text-4xl mb-9">Developers</span>
+      <h2 className="text-[#F4F4F4] font-extrabold text-4xl lg:text-6xl xl:text-6xl 2xl:text-6xl mb-9">
+        Developers
+      </h2>
       <span className="text-white font-normal text-base sm:max-w-md md:max-w-md lg:max-w-lg xl:max-w-lg 2xl:max-w-xl mb-3">
         StackOS is a cross-chain open protocol, connecting developers with decentralized compute
         power through a no-code, UI-based application deployment engine.
