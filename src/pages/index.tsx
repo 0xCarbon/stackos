@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Layout } from '@/components';
+import SectionGovernance from '@/components/home/section-governance';
 // import { useAccount } from 'wagmi';
 
 const Home: NextPage = () => (
@@ -15,7 +16,7 @@ const Home: NextPage = () => (
       {/* HERO SECTION - JUST DEPLOY */}
       {/* TECHONOLOGY */}
       {/* DEVELOPERS */}
-      {/* GOVERNANCE */}
+      <SectionGovernance />
       {/* PARTNERSHIPS */}
       {/* TOKEN */}
     </Layout>
