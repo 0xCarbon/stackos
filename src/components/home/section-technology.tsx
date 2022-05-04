@@ -12,7 +12,7 @@ const SectionTechnology = () => {
   const subtitle2 = 'Enjoy easy deployment on a decentralized, anonymous and secure cloud.';
 
   return (
-    <div className="w-full flex flex-col justify-center items-center text-center">
+    <div className="w-full flex flex-col justify-center items-center text-center py-20">
       <h2 className="text-[#F4F4F4] font-extrabold text-4xl lg:text-6xl xl:text-6xl 2xl:text-6xl mb-9">
         Developers
       </h2>
