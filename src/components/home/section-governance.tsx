@@ -2,7 +2,7 @@ import { Separator } from '@radix-ui/react-separator';
 import { BiLinkExternal } from 'react-icons/bi';
 
 const SectionGovernance = () => (
-  <div className="flex flex-col justify-start py-20">
+  <div className="flex flex-col justify-start mx-5 py-20">
     <div className="flex flex-row justify-start items-center mb-9">
       <Separator className="h-10 w-[5px] lg:w-2 xl:w-2 2xl:w-[10px] bg-main-green" />
       <h2 className="text-[#D9D9D9] font-extrabold text-4xl lg:text-6xl xl:text-6xl 2xl:text-6xl mx-5">
