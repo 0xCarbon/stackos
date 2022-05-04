@@ -17,6 +17,9 @@ module.exports = {
         'main-green': '#AAFF00',
         'main-blue': '#111827',
       },
+      backgroundImage: {
+        'hero-bg': 'url(/assets/hero-background.svg)',
+      },
     },
   },
   plugins: [
