@@ -2,6 +2,9 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout } from '@/components';
+import SectionTechnology from '@/components/home/section-technology';
+import SectionGovernance from '@/components/home/section-governance';
+// import { useAccount } from 'wagmi';
 
 const Home: NextPage = () => (
   <>
@@ -12,9 +15,9 @@ const Home: NextPage = () => (
     </Head>
     <Layout>
       {/* HERO SECTION - JUST DEPLOY */}
-      {/* TECHONOLOGY */}
+      <SectionTechnology />
       {/* DEVELOPERS */}
-      {/* GOVERNANCE */}
+      <SectionGovernance />
       {/* PARTNERSHIPS */}
       {/* TOKEN */}
     </Layout>
@@ -24,7 +27,7 @@ const Home: NextPage = () => (
 export async function getStaticProps({ locale }: { locale: any }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'header'])),
+      ...(await serverSideTranslations(locale, ['common', 'header', 'footer'])),
     },
   };
 }
