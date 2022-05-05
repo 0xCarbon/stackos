@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import React from 'react';
 import type { AppProps } from 'next/app';
 import { Provider } from 'wagmi';
+import { appWithTranslation } from 'next-i18next';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,4 +12,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
