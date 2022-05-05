@@ -1,8 +1,6 @@
 /* eslint-disable import/extensions */
 import { BiLinkExternal } from 'react-icons/bi';
 import { Separator } from '@radix-ui/react-separator';
-import lorem from '@/assets/home/lorem.svg';
-import ipsum from '@/assets/home/ipsum.svg';
 import { Card } from '@/components';
 
 const SectionTechnology = () => {
@@ -26,8 +24,8 @@ const SectionTechnology = () => {
         <Separator className="w-[100px] lg:w-[132px] 2xl:w-[160px] h-px bg-main-green" />
       </div>
       <div className="flex flex-col justify-center items-center md:flex-row sm:child:mb-10">
-        <Card src={lorem} title={title} subtitle={subtitle1} />
-        <Card src={ipsum} title={title} subtitle={subtitle2} />
+        <Card src="/assets/home/lorem.svg" title={title} subtitle={subtitle1} />
+        <Card src="/assets/home/ipsum.svg" title={title} subtitle={subtitle2} />
       </div>
     </div>
   );
