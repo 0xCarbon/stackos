@@ -5,20 +5,16 @@ import { useTranslation } from 'next-i18next';
 import { MdMenu } from 'react-icons/md';
 
 const Header = () => {
-  // Hook for translation
   const { t } = useTranslation('header');
 
-  // Window width state
   const [isMediumScreen, setIsMediumScreen] = useState<boolean>();
 
-  // Function to get screen type
   const updateMedia = () => {
     setIsMediumScreen(window.innerWidth < 1024);
   };
 
   useEffect(() => {
     setIsMediumScreen(window.innerWidth < 770);
-    // Define a window listener to run the updateMedia function when the window changes
     window.addEventListener('resize', updateMedia, { passive: true });
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
@@ -49,7 +45,7 @@ const Header = () => {
               <a>{t('HEADER_TOKEN')}</a>
             </Link>
 
-            <div className="flex items-center xl:ml-56 2xl:ml-[24rem] justify-center px-4 2xl:px-6 py-2 border border-main-green rounded-md text-main-green text-sm">
+            <div className="flex font-Inter items-center xl:ml-56 2xl:ml-[24rem] justify-center px-4 2xl:px-6 py-2 border border-main-green rounded-md text-main-green text-sm">
               <a target="_blank" href="https://app.stackos.io/" rel="noreferrer">
                 {t('HEADER_DEPLOY_BUTTON')}
               </a>
