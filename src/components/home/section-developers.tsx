@@ -22,7 +22,7 @@ const SectionDevelopers = () => {
         </div>
         <Separator className="w-[100px] lg:w-[132px] 2xl:w-[160px] h-px bg-main-green" />
       </div>
-      <div className="flex flex-col justify-center items-center md:flex-row sm:child:mb-10">
+      <div className="flex flex-col justify-center items-center md:flex-row child:mb-10">
         <Card src="/assets/home/lorem.svg" title={title} subtitle={subtitle1} />
         <Card src="/assets/home/ipsum.svg" title={title} subtitle={subtitle2} />
       </div>

@@ -16,7 +16,7 @@ const SectionHero = () => (
         <br />
         Decentralized. Hassle-free. Enterprise Grade.
       </span>
-      <div className="flex space-x-[1.5rem]">
+      <div className="flex space-x-[1.5rem] child:font-medium">
         <button
           type="button"
           className="bg-main-green text-main-blue lg:text-[1.3rem] rounded-[0.4rem] px-[2.3rem] lg:px-[3rem] py-[0.9rem] lg:py-[1.3rem]"
