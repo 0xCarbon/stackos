@@ -11,6 +11,9 @@ const Home: NextPage = () => (
     <Head>
       <title>StackOS</title>
       <meta name="description" content="StackOS landing page" />
+      <meta name="theme-color" content="#111827" />
+      <link rel="manifest" href="/manifest.json" />
+      <link rel="apple-touch-icon" href="/stackos-logo.svg" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Layout>

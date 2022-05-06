@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import { BiLinkExternal } from 'react-icons/bi';
 import { Separator } from '@radix-ui/react-separator';
 import { Card } from '@/components';
