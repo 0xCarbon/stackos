@@ -3,7 +3,7 @@ import { BsGithub, BsTwitter, BsDribbble } from 'react-icons/bs';
 import { useTranslation } from 'next-i18next';
 
 const Footer = () => {
-  const { t } = useTranslation('footer');
+  const { t } = useTranslation();
 
   return (
     <div className="mt-auto">

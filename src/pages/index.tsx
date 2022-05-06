@@ -4,7 +4,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout } from '@/components';
 import SectionTechnology from '@/components/home/section-technology';
 import SectionGovernance from '@/components/home/section-governance';
-// import { useAccount } from 'wagmi';
+import SectionHero from '@/components/home/section-hero';
+import SectionToken from '@/components/home/section-token';
+import SectionPartnerships from '@/components/home/section-partnerships';
 
 const Home: NextPage = () => (
   <>
@@ -17,12 +19,15 @@ const Home: NextPage = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Layout>
+      <SectionHero />
       {/* HERO SECTION - JUST DEPLOY */}
       <SectionTechnology />
       {/* DEVELOPERS */}
       <SectionGovernance />
       {/* PARTNERSHIPS */}
+      <SectionPartnerships />
       {/* TOKEN */}
+      <SectionToken />
     </Layout>
   </>
 );
