@@ -11,15 +11,6 @@
 }
 
 @layer components {
-  .home-learn-more-container-btn {
-    @apply text-main-green flex flex-col justify-start hover:cursor-pointer mb-14 lg:mb-20 duration-500;
-  }
-  .home-learn-more-btn-text {
-    @apply mx-2 font-normal text-sm lg:text-xl duration-500;
-  }
-  .home-learn-more-btn-separator {
-    @apply ml-[0.1rem] w-[6.35rem] lg:w-[8.95rem] h-px bg-main-green duration-700;
-  }
   .home-token-notes-container {
     @apply flex flex-row mb-14 lg:mb-16 2xl:mb-20 mr-8 md:mr-14 2xl:mr-24 items-center duration-500;
   }

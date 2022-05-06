@@ -1,6 +1,6 @@
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
-import { BiLinkExternal } from 'react-icons/bi';
+import LearnMore from './LoadMore';
 
 const SectionPartnerShips = () => {
   const { t } = useTranslation();
@@ -16,13 +16,7 @@ const SectionPartnerShips = () => {
       <p className="text-white font-normal text-base text-right mb-3 lg:mb-6 2xl:mb-10 lg:text-xl max-w-xl lg:max-w-2xl 2xl:max-w-3xl duration-500 ">
         {t('HOME_PARTNERSHIPS_DESCRIPTION')}
       </p>
-      <div className="home-learn-more-container-btn">
-        <div className="flex flex-row items-end mb-2 duration-500">
-          <BiLinkExternal className="duration-500 text-xl lg:text-3xl" color="#AAFF00" />
-          <p className="home-learn-more-btn-text">{t('HOME_LEARN_MORE_BUTTON')}</p>
-        </div>
-        <Separator className="home-learn-more-btn-separator" />
-      </div>
+      <LearnMore />
     </div>
   );
 };

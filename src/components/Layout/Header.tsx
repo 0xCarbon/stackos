@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    setIsMediumScreen(window.innerWidth < 770);
+    setIsMediumScreen(window.innerWidth < 1024);
     window.addEventListener('resize', updateMedia, { passive: true });
     return () => window.removeEventListener('resize', updateMedia);
   }, []);

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Separator } from '@radix-ui/react-separator';
-import { BiLinkExternal } from 'react-icons/bi';
+import LearnMore from './LoadMore';
 
 const SectionGovernance = () => {
   const { t } = useTranslation();
@@ -15,13 +15,7 @@ const SectionGovernance = () => {
         StackOS is a cross-chain open protocol, connecting developers with decentralized compute
         power through a no-code, UI-based application deployment engine.
       </span>
-      <div className="home-learn-more-container-btn">
-        <div className="flex flex-row justify-start items-center mb-1 text-sm lg:text-lg 2xl:text-xl">
-          <BiLinkExternal className="duration-500 text-xl lg:text-3xl" color="#AAFF00" />
-          <p className="home-learn-more-btn-text">{t('HOME_LEARN_MORE_BUTTON')}</p>
-        </div>
-        <Separator className="home-learn-more-btn-separator" />
-      </div>
+      <LearnMore />
     </div>
   );
 };
