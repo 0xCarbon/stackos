@@ -23,7 +23,13 @@ const Header = () => {
     <header>
       <div className="flex flex-row bg-[#1F2937] lg:bg-transparent justify-between items-center px-4 py-4 lg:px-10 lg:py-16 2xl:justify-center text-white font-medium text-xl duration-500">
         <div className="relative w-36 h-8 lg:w-36 lg:h-8 xl:w-40 xl:h-10 2xl:w-48 2xl:h-12 xl:mr-2 2xl:mr-16 duration-500">
-          <Image width={152} height={32} layout="responsive" src="/stackos-logo.svg" />
+          <Image
+            width={152}
+            height={32}
+            layout="responsive"
+            src="/stackos-logo.svg"
+            alt="stackos logo"
+          />
         </div>
         {isMediumScreen ? (
           <MdMenu size={24} color="#D1D5DB" />

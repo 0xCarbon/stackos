@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "analyze": "source-map-explorer .next/static/**/*.js",
     "build": "next build",
+    "build:analyze": "npm run build && npm run analyze",
     "start": "next start",
     "lint": "next lint",
     "cypress": "cypress run",
@@ -22,6 +24,7 @@
     "babel-plugin-istanbul": "^6.1.1",
     "next": "^12.1.6",
     "next-i18next": "^11.0.0",
+    "next-pwa": "^5.5.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-i18next": "^11.16.7",
@@ -57,7 +60,9 @@
     "postcss-import": "^14.1.0",
     "postcss-preset-env": "^7.4.3",
     "prettier": "2.6.2",
+    "source-map-explorer": "^2.5.2",
     "tailwindcss": "^3.0.24",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.3",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }

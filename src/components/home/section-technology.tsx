@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import { useTranslation } from 'react-i18next';
 import { Card } from '@/components';
 import LearnMore from './LearnMore';
