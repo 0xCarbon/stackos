@@ -21,13 +21,10 @@ const Home: NextPage = () => (
     </Head>
     <Layout>
       <SectionHero />
-      {/* HERO SECTION - JUST DEPLOY */}
       <SectionTechnology />
       <SectionDevelopers />
       <SectionGovernance />
-      {/* PARTNERSHIPS */}
       <SectionPartnerships />
-      {/* TOKEN */}
       <SectionToken />
     </Layout>
   </>

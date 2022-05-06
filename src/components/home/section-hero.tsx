@@ -1,8 +1,8 @@
 import { Separator } from '@radix-ui/react-separator';
+import Image from 'next/image';
 
 const SectionHero = () => (
   <div className="flex text-white relative p-[1.2rem] lg:p-[1.5rem] 2xl:p-[80px] mt-[50px] lg:mt-[150px] 2xl:mt-[170px]">
-    {/* left section */}
     <div className="flex flex-col">
       <div>
         <h1 className=" leading-none text-[2rem] lg:text-[4rem] font-extrabold">
@@ -43,10 +43,9 @@ const SectionHero = () => (
         </div>
       </div>
     </div>
-    {/* images section */}
-    {/* <div className="w-[100%] h-[300%] right-[-19%] top-[-100%] absolute">
-      <Image src="/assets/hero-background.svg" layout="fill" />
-    </div> */}
+    <div className="absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-7.5rem] md:right-[-3rem] lg:right-[-7.5rem] xl:right-[1rem] lg:top-[-3.5rem] 2xl:top-[-1.5rem] duration-500">
+      <Image src="/assets/home/hero-background.svg" layout="fill" />
+    </div>
   </div>
 );
 
