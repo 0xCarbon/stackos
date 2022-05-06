@@ -5,7 +5,8 @@ import { Layout } from '@/components';
 import SectionTechnology from '@/components/home/section-technology';
 import SectionGovernance from '@/components/home/section-governance';
 import SectionHero from '@/components/home/section-hero';
-// import { useAccount } from 'wagmi';
+import SectionToken from '@/components/home/section-token';
+import SectionPartnerships from '@/components/home/section-partnerships';
 
 const Home: NextPage = () => (
   <>
@@ -21,7 +22,9 @@ const Home: NextPage = () => (
       {/* DEVELOPERS */}
       <SectionGovernance />
       {/* PARTNERSHIPS */}
+      <SectionPartnerships />
       {/* TOKEN */}
+      <SectionToken />
     </Layout>
   </>
 );
