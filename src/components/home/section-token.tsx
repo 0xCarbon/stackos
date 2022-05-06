@@ -2,7 +2,7 @@ import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import { BiGlobe } from 'react-icons/bi';
 import { HiOutlineAnnotation, HiOutlineLightningBolt } from 'react-icons/hi';
-import LearnMore from './LoadMore';
+import LearnMore from './LearnMore';
 
 const SectionToken = () => {
   const { t } = useTranslation();

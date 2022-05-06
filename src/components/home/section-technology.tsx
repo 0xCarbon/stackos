@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import { useTranslation } from 'react-i18next';
 import { Card } from '@/components';
-import LearnMore from './LoadMore';
+import LearnMore from './LearnMore';
 
 const SectionTechnology = () => {
   const { t } = useTranslation();

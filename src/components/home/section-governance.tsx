@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Separator } from '@radix-ui/react-separator';
-import LearnMore from './LoadMore';
+import LearnMore from './LearnMore';
 
 const SectionGovernance = () => {
   const { t } = useTranslation();
