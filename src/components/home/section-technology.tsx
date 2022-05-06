@@ -1,9 +1,12 @@
 /* eslint-disable import/extensions */
+import { useTranslation } from 'react-i18next';
 import { BiLinkExternal } from 'react-icons/bi';
 import { Separator } from '@radix-ui/react-separator';
 import { Card } from '@/components';
 
 const SectionTechnology = () => {
+  const { t } = useTranslation();
+
   const title = 'Lorem Ipsum';
   const subtitle1 =
     'Stake a minimum amount of tokens to get extra voting power to govern the StackOS decentralized cloud.';
@@ -16,12 +19,12 @@ const SectionTechnology = () => {
         StackOS is a cross-chain open protocol, connecting developers with decentralized compute
         power through a no-code, UI-based application deployment engine.
       </span>
-      <div className="text-main-green flex flex-col justify-center items-center hover:cursor-pointer mb-14">
+      <div className="home-learn-more-container-btn">
         <div className="flex flex-row justify-center items-center mb-1 text-sm lg:text-lg 2xl:text-xl">
-          <BiLinkExternal color="#AAFF00" />
-          <span className="ml-3">Learn more</span>
+          <BiLinkExternal className="duration-500 text-xl lg:text-3xl" color="#AAFF00" />
+          <p className="home-learn-more-btn-text">{t('HOME_LEARN_MORE_BUTTON')}</p>
         </div>
-        <Separator className="w-[100px] lg:w-[132px] 2xl:w-[160px] h-px bg-main-green" />
+        <Separator className="home-learn-more-btn-separator" />
       </div>
       <div className="flex flex-col justify-center items-center md:flex-row sm:child:mb-10">
         <Card src="/assets/home/lorem.svg" title={title} subtitle={subtitle1} />

@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { MdMenu } from 'react-icons/md';
 
 const Header = () => {
-  const { t } = useTranslation('header');
+  const { t } = useTranslation();
 
   const [isMediumScreen, setIsMediumScreen] = useState<boolean>();
 
