@@ -1,5 +1,3 @@
-import { BiLinkExternal } from 'react-icons/bi';
-import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@/components';
 import LearnMore from './LearnMore';
