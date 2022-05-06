@@ -6,7 +6,7 @@ on:
   push:
     branches: [main, development]
   pull_request:
-    branches: [main, development]
+    branches: [development]
   issue_comment:
     types: [created]
 
