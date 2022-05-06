@@ -8,11 +8,17 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
-    fontFamily: {},
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+      serif: ['Inter', 'serif'],
+    },
     extend: {
       colors: {
         'main-green': '#AAFF00',
         'main-blue': '#111827',
+      },
+      backgroundImage: {
+        'hero-bg': 'url(/assets/hero-background.svg)',
       },
     },
   },
