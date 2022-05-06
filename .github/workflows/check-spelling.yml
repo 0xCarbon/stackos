@@ -4,9 +4,9 @@ name: Spell Checking
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [main, dev]
+    branches: [main, development]
   pull_request:
-    branches: [main, dev]
+    branches: [main, development]
   issue_comment:
     types: [created]
 

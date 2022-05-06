@@ -1,12 +1,11 @@
 name: Code Coverage
 
-on: 
+on:
   pull_request:
-    branches: [main, dev]
+    branches: [main, development]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -41,13 +40,13 @@ jobs:
         uses: slavcodev/coverage-monitor-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          coverage_path: "coverage/clover.xml"
+          coverage_path: 'coverage/clover.xml'
           threshold_alert: 35
           threshold_warning: 50
-          threshold_metric: "lines"
+          threshold_metric: 'lines'
           comment_footer: false
 
-      # Checks if the coverage has reached the minimum limit  
+      # Checks if the coverage has reached the minimum limit
       - uses: themichaelhall/check-code-coverage@v1
         with:
           report: coverage/clover.xml
