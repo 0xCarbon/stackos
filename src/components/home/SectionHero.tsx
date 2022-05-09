@@ -6,46 +6,46 @@ const SectionHero = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex text-white relative p-[1.2rem] lg:p-[1.5rem] 2xl:p-[80px] mt-[50px] lg:mt-[150px] 2xl:mt-[170px]">
+    <div className="flex text-white relative mt-16 lg:mt-40 2xl:mt-44">
       <div className="flex flex-col">
         <div>
-          <h1 className="leading-none text-[2rem] lg:text-[4rem] font-extrabold">
+          <h1 className="leading-none text-4xl lg:text-6xl font-extrabold">
             {t('HOME_HERO_TITLE1')}
             <br />
             <span className="text-main-green font-extrabold">{t('HOME_HERO_TITLE2')}</span>
           </h1>
         </div>
-        <span className="text-[1rem] lg:text-[1.5rem] font-normal mt-[2rem] mb-[1.5rem] lg:mb-[2.6rem]">
+        <span className="text-base lg:text-xl font-normal my-10">
           {t('HOME_HERO_SUBTITLE1')}
           <br />
           {t('HOME_HERO_SUBTITLE2')}
         </span>
-        <div className="flex space-x-[1.5rem] child:font-medium">
+        <div className="flex space-x-4 child:font-medium">
           <button
             type="button"
-            className="bg-main-green text-main-blue lg:text-[1.3rem] rounded-[0.4rem] px-[2.3rem] lg:px-[3rem] py-[0.9rem] lg:py-[1.3rem]"
+            className="bg-main-green text-main-blue lg:text-lg rounded-md px-9 py-3 lg:px-10 lg:py-4"
           >
             {t('HOME_HERO_BUTTON1')}
           </button>
           <button
             type="button"
-            className="bg-main-green text-main-blue lg:text-[1.3rem] rounded-[0.4rem] px-[2.3rem] lg:px-[3rem] py-[0.9rem] lg:py-[1.3rem]"
+            className="bg-main-green text-main-blue lg:text-lg rounded-md px-9 py-3 lg:px-10 lg:py-4"
           >
             {t('HOME_HERO_BUTTON2')}
           </button>
         </div>
-        <div className="flex mt-[4rem] 2xl:mt-[160px]">
-          <Separator className="w-[3px] bg-main-green mr-[2rem]" />
+        <div className="flex mt-12 lg:mt-16 2xl:mt-40">
+          <Separator className="w-[3px] bg-main-green mr-8" />
           <div className="flex flex-col">
-            <span className="font-semibold text-[2rem] lg:text-[2.5rem] lg:font-normal">+1,4k</span>
+            <span className="font-semibold text-3xl lg:text-4xl lg:font-normal">+1,4k</span>
             <span className="font-light text-[1rem] lg:text-[1.5rem]">
               {t('HOME_HERO_DEPLOYS')}
             </span>
           </div>
-          <Separator className="w-[3px] bg-main-green mr-[2rem] ml-[3rem]" />
+          <Separator className="w-[3px] bg-main-green mr-8 ml-12" />
           <div className="flex flex-col">
-            <span className="font-semibold text-[2rem] lg:text-[2.5rem] lg:font-normal">+40M</span>
-            <span className="font-light text-[1rem] lg:text-[1.5rem]">{t('HOME_HERO_SERVES')}</span>
+            <span className="font-semibold text-3xl lg:text-4xl lg:font-normal">+40M</span>
+            <span className="font-light text-base lg:text-2xl">{t('HOME_HERO_SERVES')}</span>
           </div>
         </div>
       </div>
