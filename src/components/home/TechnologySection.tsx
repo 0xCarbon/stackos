@@ -2,11 +2,11 @@ import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import LearnMore from './LearnMore';
 
-const SectionTechnology = () => {
+const TechnologySection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col justify-end items-end px-5 py-20">
+    <div className="flex flex-col justify-end items-end mt-28 lg:mt-52 2xl:mt-56 py-20">
       <div className="flex flex-row justify-end items-center mb-9 child:duration-500">
         <div className="justify-end flex flex-col space-y-3">
           <h2 className="text-[#D9D9D9] font-light text-sm lg:text-4xl mx-5 text-right">
@@ -26,4 +26,4 @@ const SectionTechnology = () => {
   );
 };
 
-export default SectionTechnology;
+export default TechnologySection;

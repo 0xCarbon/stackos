@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { Separator } from '@radix-ui/react-separator';
 
-const SectionHero = () => {
+const HeroSection = () => {
   const { t } = useTranslation();
 
   return (
@@ -61,4 +61,4 @@ const SectionHero = () => {
   );
 };
 
-export default SectionHero;
+export default HeroSection;

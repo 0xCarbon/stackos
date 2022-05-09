@@ -2,11 +2,11 @@ import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import LearnMore from './LearnMore';
 
-const SectionPartnerShips = () => {
+const PartnershipsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col justify-end items-end px-5 py-20">
+    <div className="flex flex-col justify-end items-end py-20">
       <div className="flex flex-row justify-end items-center mb-9 child:duration-500">
         <h2 className="text-[#D9D9D9] font-extrabold text-4xl lg:text-6xl mx-5">
           {t('HOME_PARTNERSHIPS_TITLE')}
@@ -21,4 +21,4 @@ const SectionPartnerShips = () => {
   );
 };
 
-export default SectionPartnerShips;
+export default PartnershipsSection;
