@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t-[1px] text-white text-xs md:text-sm pb-28 lg:pb-52 pt-4 md:pt-8 md:mt-8 lg:mt-14 2xl:mt-10 text-center">
+      <div className="border-t-[1px] text-white text-xs md:text-sm pb-28 lg:pb-52 mt-4 pt-4 md:pt-8 md:mt-8 lg:mt-14 2xl:mt-10 text-center">
         <span>{t('FOOTER_COPYRIGHT')}</span>
       </div>
     </div>

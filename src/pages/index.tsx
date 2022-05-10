@@ -2,12 +2,12 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout } from '@/components';
-import SectionDevelopers from '@/components/home/DevelopersSection';
-import SectionGovernance from '@/components/home/GovernanceSection';
-import SectionTechnology from '@/components/home/TechnologySection';
-import SectionHero from '@/components/home/HeroSection';
-import SectionToken from '@/components/home/TokenSection';
-import SectionPartnerships from '@/components/home/PartnershipsSection';
+import DevelopersSection from '@/components/home/DevelopersSection';
+import GovernanceSection from '@/components/home/GovernanceSection';
+import TechnologySection from '@/components/home/TechnologySection';
+import HeroSection from '@/components/home/HeroSection';
+import TokenSection from '@/components/home/TokenSection';
+import PartnershipsSection from '@/components/home/PartnershipsSection';
 
 const Home: NextPage = () => (
   <>
@@ -20,12 +20,12 @@ const Home: NextPage = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Layout>
-      <SectionHero />
-      <SectionTechnology />
-      <SectionDevelopers />
-      <SectionGovernance />
-      <SectionPartnerships />
-      <SectionToken />
+      <HeroSection />
+      <TechnologySection />
+      <DevelopersSection />
+      <GovernanceSection />
+      <PartnershipsSection />
+      <TokenSection />
     </Layout>
   </>
 );
