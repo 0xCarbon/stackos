@@ -7,7 +7,7 @@ const HeroSection = () => {
 
   return (
     <div className="flex text-white relative mt-16 lg:mt-40 2xl:mt-44">
-      <div className="flex flex-col">
+      <div className="z-10 flex flex-col">
         <div>
           <h1 className="leading-none text-4xl lg:text-6xl font-extrabold">
             {t('HOME_HERO_TITLE1')}
