@@ -18,7 +18,7 @@ module.exports = {
         'main-blue': '#111827',
       },
       backgroundImage: {
-        'hero-bg': 'url(/assets/hero-background.svg)',
+        'carousel-circle': "url('/assets/home/carousel-circle.svg')",
       },
     },
   },
