@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <header>
-      <div className="flex flex-row bg-[#1F2937] lg:bg-transparent justify-between items-center px-4 py-4 lg:px-10 lg:py-16 2xl:justify-center text-white font-medium text-xl duration-500">
+      <div className="flex flex-row bg-[#1F2937] lg:bg-transparent justify-between items-center px-5 md:px-7 py-4 lg:px-10 2xl:px-20 lg:py-16 2xl:justify-center text-white font-medium text-xl duration-500">
         <div className="relative w-36 h-8 lg:w-36 lg:h-8 xl:w-40 xl:h-10 2xl:w-48 2xl:h-12 xl:mr-2 2xl:mr-16 duration-500">
           <Image
             width={152}
@@ -51,7 +51,7 @@ const Header = () => {
               <a>{t('HEADER_TOKEN')}</a>
             </Link>
 
-            <div className="flex font-Inter items-center xl:ml-56 2xl:ml-[24rem] justify-center px-4 2xl:px-6 py-2 border border-main-green rounded-md text-main-green text-sm">
+            <div className="flex font-Inter items-center xl:ml-56 2xl:ml-auto justify-center px-4 2xl:px-6 py-2 border border-main-green rounded-md text-main-green text-sm">
               <a target="_blank" href="https://app.stackos.io/" rel="noreferrer">
                 {t('HEADER_DEPLOY_BUTTON')}
               </a>

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Card } from '@/components';
 import LearnMore from './LearnMore';
 
-const SectionDevelopers = () => {
+const DevelopersSection = () => {
   const { t } = useTranslation();
 
   return (
@@ -30,4 +30,4 @@ const SectionDevelopers = () => {
   );
 };
 
-export default SectionDevelopers;
+export default DevelopersSection;
