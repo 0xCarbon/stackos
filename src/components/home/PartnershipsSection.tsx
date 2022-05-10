@@ -8,7 +8,7 @@ import LearnMore from './LearnMore';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const partners = [
-  { id: 1, image: '/assets/home/partner-pinknode.svg', link: 'https://pinknode.io/' },
+  { id: 1, image: '/assets/home/partner-pinknode.svg', link: 'test' },
   { id: 2, image: '/assets/home/partner-identomat.svg', link: 'https://identomat.com/' },
   { id: 3, image: '/assets/home/partner-tapit.svg', link: 'https://www.tapit.kr/' },
   { id: 4, image: '/assets/home/partner-murall.svg', link: 'https://murall.art/home' },
@@ -63,7 +63,7 @@ const PartnershipsSection = () => {
       </p>
       <LearnMore />
 
-      <div className="flex flx-row w-full items-center justify-end child:duration-500">
+      <div className="flex w-full items-center justify-end child:duration-500">
         <IoIosArrowBack
           onClick={() => handlePrevItem()}
           className="m-2 2xl:m-10 cursor-pointer hidden"
