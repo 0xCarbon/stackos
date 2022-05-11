@@ -10,7 +10,7 @@ const Header = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-[#1F2937] lg:bg-transparent overflow-hidden">
+    <header className="bg-[#1F2937] lg:bg-transparent overflow-hidden">
       <Popover>
         <div className="px-5 md:px-7 py-4 lg:px-10 2xl:px-20 lg:py-16 duration-500">
           <nav
@@ -19,9 +19,9 @@ const Header = () => {
           >
             <div className="flex items-center flex-1 lg:absolute lg:inset-y-0 lg:left-0">
               <div className="flex items-center justify-between w-full lg:w-auto">
-                <a href="">
-                  <span className="sr-only">Workflow</span>
-                  <div className="w-36 h-8 lg:w-36 lg:h-8 xl:w-40 xl:h-10 2xl:w-48 2xl:h-12 xl:mr-2 2xl:mr-16 duration-500">
+                <Link href="/">
+                  <a className="w-36 h-8 lg:w-36 lg:h-8 xl:w-40 xl:h-10 2xl:w-48 2xl:h-12 xl:mr-2 2xl:mr-16 duration-500">
+                    <span className="sr-only">Workflow</span>
                     <Image
                       width={152}
                       height={32}
@@ -29,8 +29,8 @@ const Header = () => {
                       src="/stackos-logo.svg"
                       alt="stackos logo"
                     />
-                  </div>
-                </a>
+                  </a>
+                </Link>
                 <div className="-mr-2 flex items-center lg:hidden">
                   <Popover.Button className="bg-[#1F2937] rounded-md p-2 inline-flex items-center justify-center text-[#D1D5DB] hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
                     <span className="sr-only">Open main menu</span>
@@ -74,18 +74,17 @@ const Header = () => {
           >
             <div className="rounded-lg shadow-md bg-[#1F2937] ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="px-5 pt-4 flex items-center justify-between">
-                <a
-                  href=""
-                  className="w-36 h-8 lg:w-36 lg:h-8 xl:w-40 xl:h-10 2xl:w-48 2xl:h-12 xl:mr-2 2xl:mr-16 duration-500"
-                >
-                  <Image
-                    width={152}
-                    height={32}
-                    layout="responsive"
-                    src="/stackos-logo.svg"
-                    alt="stackos logo"
-                  />
-                </a>
+                <Link href="/">
+                  <a className="w-36 h-8 lg:w-36 lg:h-8 xl:w-40 xl:h-10 2xl:w-48 2xl:h-12 xl:mr-2 2xl:mr-16 duration-500">
+                    <Image
+                      width={152}
+                      height={32}
+                      layout="responsive"
+                      src="/stackos-logo.svg"
+                      alt="stackos logo"
+                    />
+                  </a>
+                </Link>
                 <div className="-mr-2">
                   <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
                     <span className="sr-only">Close menu</span>
@@ -116,7 +115,7 @@ const Header = () => {
           </Popover.Panel>
         </Transition>
       </Popover>
-    </div>
+    </header>
   );
 };
 
