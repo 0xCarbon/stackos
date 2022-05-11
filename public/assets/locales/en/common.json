@@ -41,5 +41,9 @@
   "HOME_HERO_BUTTON1": "Deploy Now",
   "HOME_HERO_BUTTON2": "Buy $STACK",
   "HOME_HERO_DEPLOYS": "Deployed Apps",
-  "HOME_HERO_SERVES": "Pages served"
+  "HOME_HERO_SERVES": "Pages served",
+  "TECHNOLOGY_HERO_TITLE": "Technology",
+  "TECHNOLOGY_HERO_DESCRIPTION": "StackOS is a cross-chain open protocol, connecting developers with decentralized compute power through a no-code, UI-based application deployment engine.",
+  "TECHNOLOGY_HERO_BUTTON": "Start Here",
+  "TECHNOLOGY_HERO_SUBTITLE": "Built for Agility."
 }

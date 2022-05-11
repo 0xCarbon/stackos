@@ -1,6 +1,6 @@
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
-import LearnMore from './LearnMore';
+import { LearnMore } from '@/components';
 
 const TechnologySection = () => {
   const { t } = useTranslation();

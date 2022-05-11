@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Card, LearnMore } from '@/components';
 
-const DevelopersSection = () => {
+const DecentralizedSection = () => {
   const { t } = useTranslation();
 
   return (
@@ -29,4 +29,4 @@ const DevelopersSection = () => {
   );
 };
 
-export default DevelopersSection;
+export default DecentralizedSection;
