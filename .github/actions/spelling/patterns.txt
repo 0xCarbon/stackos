@@ -352,17 +352,18 @@ posthog\.init\((['"])phc_[^"',]+\g{-1},
 # macOS temp folders
 /var/folders/\w\w/[+\w]+/(?:T|-Caches-)/
 
+# Our examples
 # ignore hex colors
 (?:[\\0][xX]|\\u|[uU]\+|#x?|\%23)[0-9a-fA-FgGrR_]{2,}(?:[uUlL]{0,3}|u\d+)\b
 
 # ignore imports
 import(?:["'\s]*([\w*{}\n, ]+)from\s*)?["'\s]*([@\w/_-]+)["'\s]*;?
 
-# ignore U;RL's
+# ignore URL's
 https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)
 
 # ignore tag's in jsx
 ^(<[a-zA-Z0-9]*?) 
 
-$ ignore file paths
+# ignore file paths
 ^((\.\./|[a-zA-Z0-9_/\-\\])*\.[a-zA-Z0-9]+)$
