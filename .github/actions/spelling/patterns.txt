@@ -356,7 +356,7 @@ posthog\.init\((['"])phc_[^"',]+\g{-1},
 (?:[\\0][xX]|\\u|[uU]\+|#x?|\%23)[0-9a-fA-FgGrR_]{2,}(?:[uUlL]{0,3}|u\d+)\b
 
 # ignore imports
-import [-a-zA-Z0-9+] from '[-a-zA-Z0-9]'
+import(?:["'\s]*([\w*{}\n, ]+)from\s*)?["'\s]*([@\w/_-]+)["'\s]*;?
 
 # ignore URL's
 https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)
