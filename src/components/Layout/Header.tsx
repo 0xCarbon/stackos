@@ -72,7 +72,7 @@ const Header = () => {
             focus
             className="absolute z-50 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden"
           >
-            <div className="shadow-md bg-[#1F2937] ring-1 ring-black ring-opacity-5 overflow-hidden">
+            <div className="rounded-lg shadow-md bg-[#1F2937] ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="px-5 pt-4 flex items-center justify-between">
                 <a
                   href=""
@@ -108,7 +108,7 @@ const Header = () => {
                 target="_blank"
                 href="https://app.stackos.io/"
                 rel="noreferrer"
-                className="flex items-center xl:ml-56 2xl:ml-auto justify-center px-4 2xl:px-6 py-2 border border-main-green rounded-md text-main-green text-sm"
+                className="flex items-center justify-center my-4 px-4 py-2 border border-main-green rounded-md text-main-green text-sm"
               >
                 {t('HEADER_DEPLOY_BUTTON')}
               </a>
