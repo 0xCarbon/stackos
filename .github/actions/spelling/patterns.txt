@@ -358,5 +358,5 @@ posthog\.init\((['"])phc_[^"',]+\g{-1},
 # ignore imports
 import [-a-zA-Z0-9+] from '[-a-zA-Z0-9]'
 
-# ignore links
-https://*
+# ignore URL's
+https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)
