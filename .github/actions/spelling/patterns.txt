@@ -7,7 +7,7 @@
 (?:[\\0][xX]|\\u|[uU]\+|#x?|\%23)[0-9a-fA-FgGrR_]{2,}(?:[uUlL]{0,3}|u\d+)\b
 
 # ignore imports
-import*
+import [-a-zA-Z0-9+] from '[-a-zA-Z0-9]'
 
 # ignore links
 https://*
