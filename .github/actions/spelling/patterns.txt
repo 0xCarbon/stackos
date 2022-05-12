@@ -364,5 +364,5 @@ https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0
 # ignore tag's in jsx
 ^(<[a-zA-Z0-9]*?) \b
 
-$ ignore file paths
+# ignore file paths
 ^(.+)\/([^\/]+)$
