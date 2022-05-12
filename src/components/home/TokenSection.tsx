@@ -1,7 +1,6 @@
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
-import { BiGlobe } from 'react-icons/bi';
-import { HiOutlineAnnotation, HiOutlineLightningBolt } from 'react-icons/hi';
+import ExplainCard from '../ExplainCard';
 import LearnMore from './LearnMore';
 
 const TokenSection = () => {
@@ -21,42 +20,13 @@ const TokenSection = () => {
       <LearnMore />
 
       <div className="flex flex-row flex-wrap">
-        <div className="home-token-notes-container">
-          <div className="home-token-notes-square">
-            <BiGlobe className="duration-500 text-[2rem] lg:text-[2.4rem]" color="#111827" />
-          </div>
-          <p className="home-token-notes-text">{t('HOME_TOKEN_NOTE_DESCRIPTION')}</p>
-        </div>
-        <div className="home-token-notes-container">
-          <div className="home-token-notes-square">
-            <HiOutlineAnnotation
-              className="duration-500 text-[2rem] lg:text-[2.4rem]"
-              color="#111827"
-            />
-          </div>
-          <p className="home-token-notes-text">{t('HOME_TOKEN_NOTE_DESCRIPTION')}</p>
-        </div>
+        <ExplainCard iconName="globe" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
+        <ExplainCard iconName="annotation" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
       </div>
 
       <div className="flex flex-row flex-wrap">
-        <div className="home-token-notes-container">
-          <div className="home-token-notes-square">
-            <HiOutlineLightningBolt
-              className="duration-500 text-[2rem] lg:text-[2.4rem]"
-              color="#111827"
-            />
-          </div>
-          <p className="home-token-notes-text">{t('HOME_TOKEN_NOTE_DESCRIPTION')}</p>
-        </div>
-        <div className="home-token-notes-container">
-          <div className="home-token-notes-square">
-            <HiOutlineLightningBolt
-              className="duration-500 text-[2rem] lg:text-[2.4rem]"
-              color="#111827"
-            />
-          </div>
-          <p className="home-token-notes-text">{t('HOME_TOKEN_NOTE_DESCRIPTION')}</p>
-        </div>
+        <ExplainCard iconName="bolt" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
+        <ExplainCard iconName="bolt" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
       </div>
     </div>
   );
