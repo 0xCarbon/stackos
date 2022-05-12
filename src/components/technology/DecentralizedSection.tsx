@@ -22,7 +22,7 @@ const DecentralizedSection = () => {
         />
         <TiPlus className="text-4xl my-5 xl:mx-10" color="#AAFF00" />
         <Card
-          src="/assets/home/phone.svg"
+          src="/assets/home/phone.jpg"
           title={t('TECHNOLOGY_DECENTRALIZED_CARD2')}
           subtitle={t('TECHNOLOGY_DECENTRALIZED_CARD2_TEXT')}
         />
