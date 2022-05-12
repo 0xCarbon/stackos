@@ -3,3 +3,12 @@
 
 # ignore tag's in jsx
 ^(<[a-zA-Z0-9]*?) \b
+
+# ignore file paths
+^((\.\./|[a-zA-Z0-9_/\-\\])*\.[a-zA-Z0-9]+)$\b
+
+# ignore imports
+import(?:["'\s]*([\w*{}\n, ]+)from\s*)?["'\s]*([@\w/_-]+)["'\s]*;?\b
+
+# ignore URL's
+https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)\b
