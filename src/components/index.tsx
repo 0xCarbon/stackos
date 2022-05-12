@@ -3,4 +3,4 @@
 export { default as Layout } from './Layout/index';
 export { default as Card } from './Card';
 export { default as LearnMore } from './LearnMore';
-export { default as ZeroButton } from './ZeroButton';
+export { default as StackOSButton } from './StackOSButton';

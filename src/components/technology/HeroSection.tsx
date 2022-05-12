@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import ZeroButton from '@/components/ZeroButton';
+import StackOSButton from '@/components/StackOSButton';
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -15,14 +15,14 @@ const HeroSection = () => {
         <span className="text-white font-normal text-xl">{t('TECHNOLOGY_HERO_DESCRIPTION')}</span>
       </div>
       <div className="lg:hidden flex flex-row justify-between items-end">
-        <ZeroButton>{t('TECHNOLOGY_HERO_BUTTON')}</ZeroButton>
+        <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
         <span className="text-white font-light text-4xl">{t('TECHNOLOGY_HERO_SUBTITLE')}</span>
       </div>
       <div className="hidden lg:flex lg:flex-col lg:items-end">
         <span className="text-white font-light text-5xl mt-4 mb-14">
           {t('TECHNOLOGY_HERO_SUBTITLE')}
         </span>
-        <ZeroButton>{t('TECHNOLOGY_HERO_BUTTON')}</ZeroButton>
+        <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
       </div>
     </div>
   );

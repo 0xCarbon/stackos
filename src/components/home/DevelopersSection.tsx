@@ -13,7 +13,7 @@ const DevelopersSection = () => {
         {t('HOME_DEVELOPERS_DESCRIPTION')}
       </span>
       <LearnMore />
-      <div className="flex flex-col justify-center items-center md:flex-row child:mb-10">
+      <div className="flex flex-col justify-center items-center md:flex-row child:mb-10 child:md:mx-4 child:lg:mx-28 child:xl:mx-28 child:2xl:mx-28">
         <Card
           src="/assets/home/lorem.svg"
           title={t('HOME_DEVELOPERS_CARD_TITLE')}
