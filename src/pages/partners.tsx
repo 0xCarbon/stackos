@@ -1,8 +1,9 @@
-import { Layout } from '@/components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { Layout } from '@/components';
 import PartnersMainSection from '@/components/partners/PartnersMainSection';
+import PartnersBenefitsSection from '@/components/partners/PartnersBenefitsSection';
 
 const Partners: NextPage = () => (
   <>
@@ -16,6 +17,7 @@ const Partners: NextPage = () => (
     </Head>
     <Layout>
       <PartnersMainSection />
+      <PartnersBenefitsSection />
     </Layout>
   </>
 );

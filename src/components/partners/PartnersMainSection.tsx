@@ -1,5 +1,5 @@
 const PartnersMainSection = () => (
-  <div className="flex flex-col mt-16">
+  <div className="flex flex-col mt-20">
     <h1 className="text-white text-4xl lg:text-6xl font-extrabold">
       <span className="text-main-green">Partner </span>
       with StackOS
