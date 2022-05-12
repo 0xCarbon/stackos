@@ -45,5 +45,17 @@
   "TECHNOLOGY_HERO_TITLE": "Technology",
   "TECHNOLOGY_HERO_DESCRIPTION": "StackOS is a cross-chain open protocol, connecting developers with decentralized compute power through a no-code, UI-based application deployment engine.",
   "TECHNOLOGY_HERO_BUTTON": "Start Here",
-  "TECHNOLOGY_HERO_SUBTITLE": "Built for Agility."
+  "TECHNOLOGY_HERO_SUBTITLE": "Built for Agility.",
+  "TECHNOLOGY_AGILITY_TITLE": "Agility",
+  "TECHNOLOGY_AGILITY_DESCRIPTION": "StackOS is a cross-chain open protocol, connecting developers with decentralized compute power through a no-code, UI-based application deployment engine.",
+  "TECHNOLOGY_AGILITY_FEATURE1": "In-built CI/CD Platform",
+  "TECHNOLOGY_AGILITY_FEATURE1_TEXT": "Providing a complete Continuous Integration and Continous Deployment (CI/CD) suite tailored to your needs",
+  "TECHNOLOGY_AGILITY_FEATURE2": "Managed Infrastructure",
+  "TECHNOLOGY_AGILITY_FEATURE2_TEXT": "StackOS natively provides managed DevOps experience to offload the management of the compute infrastructure",
+  "TECHNOLOGY_AGILITY_FEATURE3": "Interoperable",
+  "TECHNOLOGY_AGILITY_FEATURE3_TEXT": "You can deploy any application under the sun on the StackOS protocol using BSC and ETH chains",
+  "TECHNOLOGY_AGILITY_FEATURE4": "Supporting Docker Images",
+  "TECHNOLOGY_AGILITY_FEATURE4_TEXT": "Enjoy the ability to use all existing and publicly available Docked Images for an easy deployment process",
+  "TECHNOLOGY_AGILITY_FEATURE5": "Private Testnet",
+  "TECHNOLOGY_AGILITY_FEATURE5_TEXT": "Test your dApps privately on your own private testnet of Ethereum, BSC, NEO, and other popular blockchains"
 }
