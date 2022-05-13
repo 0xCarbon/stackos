@@ -40,19 +40,10 @@ const HeroSection = () => {
         <div className="absolute w-[12.8rem] h-[12.8rem] right-[-10rem] top-[22.2rem] md:right-[2rem] lg:right-[-7.5rem] lg:top-[22.5rem] xl:right-[-8rem] xl:top-[23rem] 2xl:right-[0.5rem] 2xl:top-[24rem] duration-500">
           <Image src="/assets/governance/circle-3.svg" alt="circle 3" layout="fill" priority />
         </div>
-        <div className="absolute w-[3rem] h-[3rem] right-[22rem] top-[100rem] lg:right-[22rem] lg:top-[19.5rem] xl:right-[22rem] xl:top-[23rem] 2xl:right-[33.5rem] 2xl:top-[26rem] duration-500">
+        <div className="absolute w-[3rem] h-[3rem] right-[22rem] top-[130rem] lg:right-[22rem] lg:top-[19.5rem] xl:right-[22rem] xl:top-[23rem] 2xl:right-[33.5rem] 2xl:top-[26rem] duration-500">
           <Image src="/assets/governance/circle-4.svg" alt="circle 3" layout="fill" priority />
         </div>
       </div>
-
-      {/* <div className="absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-7.5rem] md:right-[-3rem] lg:right-[-7.5rem] xl:right-[1rem] lg:top-[-3.5rem] 2xl:top-[-1.5rem] duration-500"> */}
-      {/* <Image
-          src="/assets/home/hero-background.svg"
-          alt="hero background"
-          layout="fill"
-          priority
-        /> */}
-      {/* </div> */}
     </div>
   );
 };

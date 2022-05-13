@@ -4,39 +4,33 @@ import { BiGlobe, BiBlock } from 'react-icons/bi';
 import { Trans } from 'react-i18next';
 
 interface Props {
-  iconName: string;
+  iconName?: keyof Icons;
   description: string;
 }
 
-const ExplainCard: React.FC<Props> = ({ iconName, description }) => {
-  let icon;
-  switch (iconName) {
-    case 'annotation':
-      icon = (
-        <HiOutlineAnnotation
-          className="duration-500 text-[2rem] lg:text-[2.4rem]"
-          color="#111827"
-        />
-      );
-      break;
+interface Icons {
+  annotation: React.ReactElement;
+  globe: React.ReactElement;
+  bolt: React.ReactElement;
+  default: React.ReactElement;
+}
 
-    case 'globe':
-      icon = <BiGlobe className="duration-500 text-[2rem] lg:text-[2.4rem]" color="#111827" />;
-      break;
+const ExplainCard: React.FC<Props> = ({ iconName = 'default', description }) => {
+  const icons: Icons = {
+    annotation: (
+      <HiOutlineAnnotation className="duration-500 text-[2rem] lg:text-[2.4rem]" color="#111827" />
+    ),
+    globe: <BiGlobe className="duration-500 text-[2rem] lg:text-[2.4rem]" color="#111827" />,
+    bolt: (
+      <HiOutlineLightningBolt
+        className="duration-500 text-[2rem] lg:text-[2.4rem]"
+        color="#111827"
+      />
+    ),
+    default: <BiBlock className="duration-500 text-[2rem] lg:text-[2.4rem]" color="#111827" />,
+  };
 
-    case 'bolt':
-      icon = (
-        <HiOutlineLightningBolt
-          className="duration-500 text-[2rem] lg:text-[2.4rem]"
-          color="#111827"
-        />
-      );
-      break;
-
-    default:
-      icon = <BiBlock className="duration-500 text-[2rem] lg:text-[2.4rem]" color="#111827" />;
-      break;
-  }
+  const icon = icons[iconName];
 
   return (
     <div className="flex flex-row items-center duration-500">
@@ -49,5 +43,7 @@ const ExplainCard: React.FC<Props> = ({ iconName, description }) => {
     </div>
   );
 };
+
+ExplainCard.defaultProps = { iconName: 'default' };
 
 export default ExplainCard;
