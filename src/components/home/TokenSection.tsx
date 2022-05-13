@@ -1,7 +1,7 @@
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import ExplainCard from '../ExplainCard';
-import LearnMore from './LearnMore';
+import { LearnMore } from '@/components';
 
 const TokenSection = () => {
   const { t } = useTranslation();

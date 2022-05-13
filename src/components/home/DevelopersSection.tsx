@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Card } from '@/components';
-import LearnMore from './LearnMore';
+import { Card, LearnMore } from '@/components';
 
 const DevelopersSection = () => {
   const { t } = useTranslation();
@@ -14,7 +13,7 @@ const DevelopersSection = () => {
         {t('HOME_DEVELOPERS_DESCRIPTION')}
       </span>
       <LearnMore />
-      <div className="mt-16 flex flex-col justify-center items-center md:flex-row child:mb-10">
+      <div className="mt-16 flex flex-col justify-center items-center md:flex-row child:mb-10 child:md:mx-4 child:lg:mx-28 child:xl:mx-28 child:2xl:mx-28">
         <Card
           src="/assets/home/lorem.svg"
           title={t('HOME_DEVELOPERS_CARD_TITLE')}
