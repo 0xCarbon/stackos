@@ -2,7 +2,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Layout } from '@/components';
-import PartnersMainSection from '@/components/partners/PartnersMainSection';
+import PartnersHeroSection from '@/components/partners/PartnersHeroSection';
 import PartnersBenefitsSection from '@/components/partners/PartnersBenefitsSection';
 
 const Partners: NextPage = () => (
@@ -16,7 +16,7 @@ const Partners: NextPage = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Layout>
-      <PartnersMainSection />
+      <PartnersHeroSection />
       <PartnersBenefitsSection />
     </Layout>
   </>

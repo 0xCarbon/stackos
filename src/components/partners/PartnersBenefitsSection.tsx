@@ -27,7 +27,7 @@ const PartnersBenefitsSection = () => (
           tile="4"
           title="Make your apps Unstoppable"
           description="Once deployed on StackOS, your apps can never go down. Ever."
-          colStart="2"
+          colStart="3"
         />
         <BenefitsCard
           tile="5"
