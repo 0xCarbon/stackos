@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Carousel } from 'react-responsive-carousel';
 import partners from '@/components/home/helpers';
-import LearnMore from './LearnMore';
+import { LearnMore } from '@/components';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const PartnershipsSection = () => {
@@ -41,7 +41,7 @@ const PartnershipsSection = () => {
   }
 
   return (
-    <div className="flex flex-col justify-end items-end py-20">
+    <div className="mt-16 flex flex-col justify-end items-end py-20">
       <div className="flex flex-row justify-end items-center mb-9 child:duration-500">
         <h2 className="text-[#D9D9D9] font-extrabold text-4xl lg:text-6xl mx-5">
           {t('HOME_PARTNERSHIPS_TITLE')}
@@ -53,7 +53,7 @@ const PartnershipsSection = () => {
       </p>
       <LearnMore />
 
-      <div className="flex w-full items-center justify-end child:duration-500">
+      <div className="mt-16 flex w-full items-center justify-end child:duration-500">
         <IoIosArrowBack
           onClick={() => handlePrevItem()}
           className="m-2 2xl:m-10 cursor-pointer hidden"

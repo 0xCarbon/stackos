@@ -6,7 +6,7 @@ const LearnMore = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="text-main-green flex flex-col justify-start hover:cursor-pointer mb-14 lg:mb-20 duration-500">
+    <div className="text-main-green flex flex-col justify-start hover:cursor-pointer duration-500">
       <div className="flex flex-row items-end mb-2 duration-500">
         <BiLinkExternal className="duration-500 text-xl lg:text-3xl" color="#AAFF00" />
         <p className="mx-2 font-normal text-sm lg:text-xl duration-500">
