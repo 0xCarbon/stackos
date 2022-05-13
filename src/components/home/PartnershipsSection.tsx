@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Carousel } from 'react-responsive-carousel';
 import partners from '@/components/home/helpers';
-import LearnMore from './LearnMore';
+import { LearnMore } from '@/components';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const PartnershipsSection = () => {
