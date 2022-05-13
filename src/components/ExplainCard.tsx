@@ -1,6 +1,7 @@
 import React from 'react';
 import { HiOutlineAnnotation, HiOutlineLightningBolt } from 'react-icons/hi';
 import { BiGlobe, BiBlock } from 'react-icons/bi';
+import { Trans } from 'react-i18next';
 
 interface Props {
   iconName: string;
@@ -38,11 +39,13 @@ const ExplainCard: React.FC<Props> = ({ iconName, description }) => {
   }
 
   return (
-    <div className="flex flex-row mb-12 lg:mb-16 2xl:mb-20 mr-8 md:mr-14 2xl:mr-24 items-center duration-500">
-      <div className="flex bg-main-green rounded-md w-14 h-14 md:w-16 md:h-16 lg:w-[5.4rem] lg:h-[5.4rem] items-center justify-center mr-5 duration-500">
+    <div className="flex flex-row items-center duration-500">
+      <div className="flex bg-main-green rounded-md min-w-[3.5rem] h-14 md:min-w-[4rem] md:h-16 lg:min-w-[5.4rem] lg:h-[5.4rem] items-center justify-center mr-5 duration-500">
         {icon}
       </div>
-      <p className="text-white w-[10rem] lg:w-[14.75rem] duration-500">{description}</p>
+      <p className="text-white xl:text-xl w-auto duration-500">
+        <Trans>{description}</Trans>
+      </p>
     </div>
   );
 };

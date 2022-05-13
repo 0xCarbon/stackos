@@ -50,7 +50,7 @@
   "GOVERNANCE_EXPLAIN_TITLE": "Governance Explained",
   "GOVERNANCE_EXPLAIN_DESCRIPTION": "By becoming a governor, community members can actively participate in governing the StackOS protocol. There are two types of governors depending on the number of tokens staked: Node Apprentice and Node Authority.<br />What type of governor you are determines the voting power on nodes, burn rates per resource purchase transaction, marketing actions and other network matter, and determines also the height of annual yield in the governor pool.<br />Governors will play a fundamental role in the StackOS protocol and its to be released DAO.<br />Community members actively governing will receive annual yield and a share of profit from the usage of the cloud in STACK!",
   "GOVERNANCE_EXPLAIN_SUBTITLE": "How it works:",
-  "GOVERNANCE_EXPLAIN_CARD_DESCRIPTION1": "Earn share profits and rewards",
-  "GOVERNANCE_EXPLAIN_CARD_DESCRIPTION2": "Actively govern the infrastructure",
+  "GOVERNANCE_EXPLAIN_CARD_DESCRIPTION1": "Earn share profits and<br />rewards",
+  "GOVERNANCE_EXPLAIN_CARD_DESCRIPTION2": "Actively govern the<br />infrastructure",
   "GOVERNANCE_EXPLAIN_CARD_DESCRIPTION3": "Supporting the community"
 }
