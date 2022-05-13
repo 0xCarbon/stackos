@@ -14,7 +14,7 @@ const DecentralizedSection = () => {
         {t('TECHNOLOGY_DECENTRALIZED_DESCRIPTION')}
       </span>
       <LearnMore />
-      <div className="flex flex-col lg:flex-row justify-center items-center">
+      <div className="mt-16 flex flex-col lg:flex-row justify-center items-center">
         <Card
           src="/assets/home/ipsum.svg"
           title={t('TECHNOLOGY_DECENTRALIZED_CARD1')}
