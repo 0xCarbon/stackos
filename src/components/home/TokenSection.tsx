@@ -1,7 +1,6 @@
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
-import { BiGlobe } from 'react-icons/bi';
-import { HiOutlineAnnotation, HiOutlineLightningBolt } from 'react-icons/hi';
+import ExplainCard from '../ExplainCard';
 import { LearnMore } from '@/components';
 
 const TokenSection = () => {
@@ -19,43 +18,23 @@ const TokenSection = () => {
         {t('HOME_TOKEN_DESCRIPTION')}
       </p>
       <LearnMore />
+      <div className="flex flex-col justify-around h-full md:h-[20rem] lg:h-[27rem]">
+        <div className="flex flex-row mt-20 2xl:mt-16 flex-wrap md:h-30 lg:h-44 md:space-x-16 2xl:space-x-32">
+          <div className="w-[16rem] lg:w-[18.8rem] xl:w-[21.8rem] mb-10">
+            <ExplainCard iconName="globe" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
+          </div>
+          <div className="w-[16rem] lg:w-[18.8rem] xl:w-[21.8rem] mb-10">
+            <ExplainCard iconName="annotation" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
+          </div>
+        </div>
 
-      <div className="flex flex-row flex-wrap">
-        <div className="home-token-notes-container">
-          <div className="home-token-notes-square">
-            <BiGlobe className="duration-500 text-[2rem] lg:text-[2.4rem]" color="#111827" />
+        <div className="flex flex-row flex-wrap md:h-30 lg:h-44 md:space-x-16 2xl:space-x-32">
+          <div className="w-[16rem] lg:w-[18.8rem] xl:w-[21.8rem] mb-10">
+            <ExplainCard iconName="bolt" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
           </div>
-          <p className="home-token-notes-text">{t('HOME_TOKEN_NOTE_DESCRIPTION')}</p>
-        </div>
-        <div className="home-token-notes-container">
-          <div className="home-token-notes-square">
-            <HiOutlineAnnotation
-              className="duration-500 text-[2rem] lg:text-[2.4rem]"
-              color="#111827"
-            />
+          <div className="w-[16rem] lg:w-[18.8rem] xl:w-[21.8rem] mb-10">
+            <ExplainCard iconName="bolt" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
           </div>
-          <p className="home-token-notes-text">{t('HOME_TOKEN_NOTE_DESCRIPTION')}</p>
-        </div>
-      </div>
-
-      <div className="flex flex-row flex-wrap">
-        <div className="home-token-notes-container">
-          <div className="home-token-notes-square">
-            <HiOutlineLightningBolt
-              className="duration-500 text-[2rem] lg:text-[2.4rem]"
-              color="#111827"
-            />
-          </div>
-          <p className="home-token-notes-text">{t('HOME_TOKEN_NOTE_DESCRIPTION')}</p>
-        </div>
-        <div className="home-token-notes-container">
-          <div className="home-token-notes-square">
-            <HiOutlineLightningBolt
-              className="duration-500 text-[2rem] lg:text-[2.4rem]"
-              color="#111827"
-            />
-          </div>
-          <p className="home-token-notes-text">{t('HOME_TOKEN_NOTE_DESCRIPTION')}</p>
         </div>
       </div>
     </div>

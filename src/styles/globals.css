@@ -9,15 +9,3 @@
     font-family: 'Inter';
   }
 }
-
-@layer components {
-  .home-token-notes-container {
-    @apply flex flex-row mb-14 lg:mb-16 2xl:mb-20 mr-8 md:mr-14 2xl:mr-24 items-center duration-500;
-  }
-  .home-token-notes-square {
-    @apply flex bg-main-green rounded-md w-14 h-14 md:w-16 md:h-16 lg:w-[5.4rem] lg:h-[5.4rem] items-center justify-center mr-5 duration-500;
-  }
-  .home-token-notes-text {
-    @apply text-white text-sm md:text-base w-[10rem] lg:w-[14.75rem] duration-500;
-  }
-}
