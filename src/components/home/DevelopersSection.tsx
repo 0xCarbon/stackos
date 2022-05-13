@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Card } from '@/components';
-import LearnMore from './LearnMore';
+import { Card, LearnMore } from '@/components';
 
 const DevelopersSection = () => {
   const { t } = useTranslation();
