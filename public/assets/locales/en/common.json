@@ -76,5 +76,22 @@
   "TECHNOLOGY_DECENTRALIZED_CARD2": "Open Protocol",
   "TECHNOLOGY_DECENTRALIZED_CARD2_TEXT": "Enjoy the flexibility of an open source protocol that can enable you to deploy any application under the sun (including back-end, front-end,  and blockchain nodes).",
   "TECHNOLOGY_DECENTRALIZED_CARD3": "Decentralized Cloud",
-  "TECHNOLOGY_DECENTRALIZED_CARD3_TEXT": "Providing you with an everlasting trustless, secure and anonymous deployment engine provided by cluster operators around the world."
+  "TECHNOLOGY_DECENTRALIZED_CARD3_TEXT": "Providing you with an everlasting trustless, secure and anonymous deployment engine provided by cluster operators around the world.",
+  "PARTNERS_HERO_SPAN_TITLE": "Partner ",
+  "PARTNERS_HERO_TITLE": "with StackOS",
+  "PARTNERS_HERO_DESCRIPTION": "Join the fastest-growing DeCloud ecosystem",
+  "PARTNERS_HERO_BUTTON": "Become a Partner",
+  "PARTNERS_BENEFITS_TITLE": "Benefits",
+  "PARTNERS_BENEFITS_DESCRIPTION": "StackOS can bring you all this",
+  "PARTNERS_BENEFITS_CARD1_TITLE": "Anonymous Deployment",
+  "PARTNERS_BENEFITS_CARD1_DESCRIPTION": "Deploy your applications anonymously. No sign-ups, no hassle.",
+  "PARTNERS_BENEFITS_CARD2_TITLE": "True Decentralization",
+  "PARTNERS_BENEFITS_CARD2_DESCRIPTION": "Make your apps truly decentralized by deploying on StackOS.",
+  "PARTNERS_BENEFITS_CARD3_TITLE": "Super-fast Deployment",
+  "PARTNERS_BENEFITS_CARD3_DESCRIPTION": "Deploy your applications within a few minutes with no-code UI.",
+  "PARTNERS_BENEFITS_CARD4_TITLE": "Make your apps Unstoppable",
+  "PARTNERS_BENEFITS_CARD4_DESCRIPTION": "Once deployed on StackOS, your apps can never go down. Ever.",
+  "PARTNERS_BENEFITS_CARD5_TITLE": "Marketing Benefits",
+  "PARTNERS_BENEFITS_CARD5_DESCRIPTION": "As a partner, you can leverage StackOS' large community to display your incredible app."
 }
+
