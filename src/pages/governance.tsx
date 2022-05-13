@@ -8,8 +8,8 @@ import ExplainSection from '@/components/governance/ExplainSection';
 const Governance: NextPage = () => (
   <>
     <Head>
-      <title>StackOS</title>
-      <meta name="description" content="StackOS landing page" />
+      <title>StackOS - Governance</title>
+      <meta name="description" content="StackOS governance" />
       <meta name="theme-color" content="#111827" />
       <link rel="manifest" href="/manifest.json" />
       <link rel="apple-touch-icon" href="/stackos-logo.svg" />

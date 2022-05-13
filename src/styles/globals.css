@@ -9,9 +9,3 @@
     font-family: 'Inter';
   }
 }
-
-@layer components {
-  .home-token-notes-container {
-    @apply flex flex-row mb-14 lg:mb-16 2xl:mb-20 mr-8 md:mr-14 2xl:mr-24 items-center duration-500;
-  }
-}
