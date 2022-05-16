@@ -6,7 +6,7 @@ const HeroSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex text-white relative mt-16 lg:mt-40 2xl:mt-44">
+    <div className="flex text-white relative mt-16 lg:mt-24 2xl:mt-28">
       <div className="z-10 flex flex-col">
         <div>
           <h1 className="leading-none text-4xl lg:text-6xl font-extrabold">
@@ -49,7 +49,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-7.5rem] md:right-[-3rem] lg:right-[-7.5rem] xl:right-[1rem] lg:top-[-3.5rem] 2xl:top-[-1.5rem] duration-500">
+      <div className="absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-9.5rem] md:right-[-4.5rem] top-[-0.5rem] lg:right-[-14rem] xl:right-[-2.5rem] lg:top-[-5.5rem] 2xl:top-[-7rem] 2xl:right-[-7rem] duration-500">
         <Image
           src="/assets/home/hero-background.svg"
           alt="hero background"
