@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
-const PartnersHeroSection = () => {
+const HeroSection = () => {
   const { t } = useTranslation();
 
   return (
@@ -21,17 +21,9 @@ const PartnersHeroSection = () => {
           {t('PARTNERS_HERO_BUTTON')}
         </button>
       </div>
-      <div className="lg:hidden absolute w-[30rem] h-[20rem] top-10 -right-14 md:right-14 duration-500">
+      <div className="absolute w-[30rem] lg:w-[40rem] h-[20rem] lg:h-[58rem] top-10 lg:-top-[20rem] -right-14 md:right-14 lg:left-[40rem] duration-500">
         <Image
-          src="/assets/partners/hero-bg-partners-sm.svg"
-          alt="background image"
-          layout="fill"
-          priority
-        />
-      </div>
-      <div className="hidden lg:inline absolute w-[40rem] h-[58rem] left-[40rem] -top-[20rem] duration-500">
-        <Image
-          src="/assets/partners/hero-bg-partners-lg.svg"
+          src="/assets/partners/hero-bg-partners.svg"
           alt="background image"
           layout="fill"
           priority
@@ -41,4 +33,4 @@ const PartnersHeroSection = () => {
   );
 };
 
-export default PartnersHeroSection;
+export default HeroSection;

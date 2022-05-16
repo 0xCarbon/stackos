@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import BenefitsCard from './BenefitsCard';
 
-const PartnersBenefitsSection = () => {
+const BenefitsSection = () => {
   const { t } = useTranslation();
 
   return (
@@ -46,17 +46,9 @@ const PartnersBenefitsSection = () => {
           </div>
         </div>
       </div>
-      <div className="lg:hidden absolute w-[150rem] md:w-[150rem] h-[80rem] top-[27rem] -left-[60rem]  duration-500">
+      <div className="absolute w-[85rem] md:w-[100rem] lg:w-[60rem] xl:w-[65rem] 2xl-[80rem] h-[60rem] lg:h-[58rem] top-[38rem] lg:top-[5rem] xl:top-[4rem] -left-[3rem] md:-left-[7rem] lg:-left-[14rem] xl:-left-[10rem] 2xl:-left-[13rem] duration-500">
         <Image
-          src="/assets/partners/benefits-bg-partners-sm.svg"
-          alt="background image"
-          layout="fill"
-          priority
-        />
-      </div>
-      <div className="hidden lg:inline absolute w-[60rem] xl:w-[65rem] 2xl:w-[80rem] h-[58rem] -left-[14rem] xl:-left-[10rem] 2xl:-left-[13rem] top-[5rem] xl:top-[4rem] duration-500">
-        <Image
-          src="/assets/partners/benefits-bg-partners-lg.svg"
+          src="/assets/partners/benefits-bg-partners.svg"
           alt="background image"
           layout="fill"
           priority
@@ -66,4 +58,4 @@ const PartnersBenefitsSection = () => {
   );
 };
 
-export default PartnersBenefitsSection;
+export default BenefitsSection;
