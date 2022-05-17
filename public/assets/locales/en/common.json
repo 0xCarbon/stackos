@@ -92,6 +92,12 @@
   "PARTNERS_BENEFITS_CARD4_TITLE": "Make your apps Unstoppable",
   "PARTNERS_BENEFITS_CARD4_DESCRIPTION": "Once deployed on StackOS, your apps can never go down. Ever.",
   "PARTNERS_BENEFITS_CARD5_TITLE": "Marketing Benefits",
-  "PARTNERS_BENEFITS_CARD5_DESCRIPTION": "As a partner, you can leverage StackOS' large community to display your incredible app."
+  "PARTNERS_BENEFITS_CARD5_DESCRIPTION": "As a partner, you can leverage StackOS' large community to display your incredible app.",
+  "DEVELOPERS_HERO_SPAN_TITLE": "Already deployed ",
+  "DEVELOPERS_HERO_TITLE": "on StackOS",
+  "DEVELOPERS_HERO_DESCRIPTION1": "No-Code and No-Signup cloud.",
+  "DEVELOPERS_HERO_DESCRIPTION2": "Decentralized. Hassle-free. Enterprise Grade.",
+  "DEVELOPERS_HERO_NUMBER": "60M",
+  "DEVELOPERS_HERO_DEPLOYS": "Deploys"
 }
 
