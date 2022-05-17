@@ -2,9 +2,9 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Layout } from '@/components';
-import DecentralizedSection from '@/components/token/DecentralizedSection';
+import FaqSection from '@/components/token/FaqSection';
 import HeroSection from '@/components/token/HeroSection';
-import AgilitySection from '@/components/token/AgilitySection';
+import TradeSection from '@/components/token/TradeSection';
 
 const Token: NextPage = () => (
   <>
@@ -18,8 +18,8 @@ const Token: NextPage = () => (
     </Head>
     <Layout>
       <HeroSection />
-      <AgilitySection />
-      <DecentralizedSection />
+      <TradeSection />
+      <FaqSection />
     </Layout>
   </>
 );
