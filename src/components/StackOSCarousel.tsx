@@ -36,7 +36,7 @@ const StackOSCarousel = () => {
   }
 
   return (
-    <>
+    <div className="flex items-center">
       <IoIosArrowBack
         onClick={() => handlePrevItem()}
         className="m-2 2xl:m-10 cursor-pointer hidden"
@@ -79,7 +79,7 @@ const StackOSCarousel = () => {
         color="#FFF"
         size={isMobileScreen ? 45 : 60}
       />
-    </>
+    </div>
   );
 };
 

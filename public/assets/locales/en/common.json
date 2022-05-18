@@ -98,6 +98,12 @@
   "DEVELOPERS_HERO_DESCRIPTION1": "No-Code and No-Signup cloud.",
   "DEVELOPERS_HERO_DESCRIPTION2": "Decentralized. Hassle-free. Enterprise Grade.",
   "DEVELOPERS_HERO_NUMBER": "60M",
-  "DEVELOPERS_HERO_DEPLOYS": "Deploys"
+  "DEVELOPERS_HERO_DEPLOYS": "Deploys",
+  "DEVELOPERS_DEPLOY1": "Deploy and ",
+  "DEVELOPERS_DEPLOY1_SPAN": "Save",
+  "DEVELOPERS_DEPLOY_DESCRIPTION1": "Skip the high costs and time wasted on set-ups and ongoing infrastructure maintenance. Simply use our no-code UI to quickly deploy your apps and test them on private testnets.",
+  "DEVELOPERS_DEPLOY_OR": "or",
+  "DEVELOPERS_DEPLOY2_SPAN": "Earn",
+  "DEVELOPERS_DEPLOY_DESCRIPTION2": "Skip the high costs and time wasted on set-ups and ongoing infrastructure maintenance. Simply use our no-code UI to quickly deploy your apps and test them on private testnets."
 }
 

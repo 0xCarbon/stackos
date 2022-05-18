@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Layout } from '@/components';
 import HeroSection from '@/components/developers/HeroSection';
+import DeployOptionsSection from '@/components/developers/DeployOptionsSection';
 
 const Developers: NextPage = () => (
   <>
@@ -16,6 +17,7 @@ const Developers: NextPage = () => (
     </Head>
     <Layout>
       <HeroSection />
+      <DeployOptionsSection />
     </Layout>
   </>
 );
