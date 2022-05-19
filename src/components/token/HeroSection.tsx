@@ -2,9 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { useAccount, useConnect, useDisconnect, useEnsAvatar, useEnsName, useNetwork } from 'wagmi';
 
 // import Image from 'next/image';
-import { StackOSButton } from '@/components';
+import { HiSwitchVertical } from 'react-icons/hi';
+import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSInput } from '@/components';
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+
   const { data: account } = useAccount();
   const { data: ensAvatar } = useEnsAvatar({ addressOrName: account?.address });
   const { data: ensName } = useEnsName({ address: account?.address });
@@ -13,13 +16,29 @@ const HeroSection = () => {
   const { activeChain, chains, isLoading, pendingChainId, switchNetwork } = useNetwork();
   console.log(chains);
   console.log(activeChain);
+  console.log(account);
 
-  const { t } = useTranslation();
+  const ETHEREUM = 1;
+  const BSC = 56;
+  const POLYGON = 137;
+
+  const ethereumChain = chains.find((chain) => chain.id === ETHEREUM);
+  const binanceChain = chains.find((chain) => chain.id === BSC);
+  const polygonChain = chains.find((chain) => chain.id === POLYGON);
+
+  const metamask = connectors[0];
+
+  const dropdownOptions = [
+    { title: 'Ethereum', subtitle: 'Uniswap (v2)', icon: 'uniswap', ...ethereumChain },
+    { title: 'Polygon', subtitle: 'Dfyn', icon: 'dfyn', ...polygonChain },
+    { title: 'BSC', subtitle: 'PancakeSwap (v2)', icon: 'pancakeswap', ...binanceChain },
+  ];
+  console.log(dropdownOptions);
 
   return (
-    <div className="relative flex mt-16 mb-80 lg:mb-48">
+    <div className="relative flex mt-16 mb-28 lg:mb-48">
       <div className="z-10 flex flex-col w-full justify-start lg:flex-row lg:child:flex-1 duration-500">
-        <div className="lg:flex lg:flex-col duration-500 mb-14">
+        <div className="lg:flex lg:flex-col duration-500 mb-20">
           <div className="flex flex-row justify-start items-center mb-9">
             <h1 className="text-white font-extrabold text-6xl">
               {t('TOKEN_HERO_TITLE1')}
@@ -28,10 +47,42 @@ const HeroSection = () => {
           </div>
           <p className="text-white font-normal text-xl max-w-lg">{t('TOKEN_HERO_DESCRIPTION')}</p>
         </div>
-        <div className="lg:hidden flex flex-row justify-center items-center duration-500">
-          {/* <StackOSButton>BSC</StackOSButton> */}
+        <div className="lg:hidden flex flex-col justify-center items-center duration-500">
+          <StackOSDropdown
+            className="w-32 h-12 bg-main-green flex flex-row justify-center items-center rounded"
+            dropdownOptions={dropdownOptions}
+            header="Select a Token"
+          >
+            <StackOSIcon className="h-5 w-5" iconName="pancakeswap" />
+            <span className="text-[#111827] font-medium text-base ml-2 mr-3">BSC</span>
+          </StackOSDropdown>
+          <div className="mt-20 p-4 bg-[#1F2937] rounded-md">
+            <p className="text-[#F9FAFB] font-semibold text-xl mb-8">Buy STACK</p>
+            <StackOSInput dropdownOptions={dropdownOptions} />
+            <div className="relative z-10 h-1 flex flex-row justify-center items-center">
+              <HiSwitchVertical color="#84CC16" size={20} />
+            </div>
+            <StackOSInput />
+            <div className="flex flex-row justify-center items-center mt-6 w-full">
+              {account?.address ? (
+                <div className="w-full child:w-full" onClick={() => disconnect()}>
+                  <StackOSButton>Buy STACK</StackOSButton>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
+                  onClick={() => connect(metamask)}
+                >
+                  {isConnecting && metamask.id === pendingConnector?.id
+                    ? 'Connecting Wallet...'
+                    : 'Connect Wallet'}
+                </button>
+              )}
+            </div>
+          </div>
 
-          <StackOSButton>
+          {/* <StackOSButton>
             {account ? (
               <div>
                 <img src={ensAvatar} alt="ENS Avatar" />
@@ -72,11 +123,43 @@ const HeroSection = () => {
                 {isLoading && pendingChainId === x.id && ' (switching)'}
               </button>
             ))}
+          </div> */}
+        </div>
+        <div className="hidden lg:flex lg:flex-col lg:items-end duration-500">
+          <StackOSDropdown
+            className="w-32 h-12 bg-main-green flex flex-row justify-center items-center rounded"
+            dropdownOptions={dropdownOptions}
+            header="Select a Token"
+          >
+            <StackOSIcon className="h-5 w-5" iconName="pancakeswap" />
+            <span className="text-[#111827] font-medium text-base ml-2 mr-3">BSC</span>
+          </StackOSDropdown>
+          <div className="mt-20 p-4 bg-[#1F2937] rounded-md">
+            <p className="text-[#F9FAFB] font-semibold text-xl mb-8">Buy STACK</p>
+            <StackOSInput dropdownOptions={dropdownOptions} />
+            <div className="relative z-10 h-1 flex flex-row justify-center items-center">
+              <HiSwitchVertical color="#84CC16" size={20} />
+            </div>
+            <StackOSInput />
+            <div className="flex flex-row justify-center items-center mt-6 w-full">
+              {account?.address ? (
+                <div className="w-full child:w-full" onClick={() => disconnect()}>
+                  <StackOSButton>Buy STACK</StackOSButton>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
+                  onClick={() => connect(metamask)}
+                >
+                  {isConnecting && metamask.id === pendingConnector?.id
+                    ? 'Connecting Wallet...'
+                    : 'Connect Wallet'}
+                </button>
+              )}
+            </div>
           </div>
         </div>
-        {/* <div className="hidden lg:flex lg:flex-col lg:items-end duration-500">
-          <StackOSButton>BSC</StackOSButton>
-        </div> */}
       </div>
       {/* <div className="absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-12rem] md:right-[-3rem] lg:right-[-30rem] xl:right-[-10rem] 2xl:right-[-1rem] lg:top-[-3.5rem] 2xl:top-[-4.5rem] duration-500">
         <Image
