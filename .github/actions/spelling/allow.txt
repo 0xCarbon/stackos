@@ -33,3 +33,4 @@ blockchains
 Continous
 draggable
 testnet
+testnets
