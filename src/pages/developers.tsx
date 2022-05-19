@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { Layout } from '@/components';
 import HeroSection from '@/components/developers/HeroSection';
 import DeployOptionsSection from '@/components/developers/DeployOptionsSection';
+import WhyStackOSSection from '@/components/developers/WhyStackOSSection';
 
 const Developers: NextPage = () => (
   <>
@@ -18,6 +19,7 @@ const Developers: NextPage = () => (
     <Layout>
       <HeroSection />
       <DeployOptionsSection />
+      <WhyStackOSSection />
     </Layout>
   </>
 );

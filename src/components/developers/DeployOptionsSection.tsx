@@ -5,7 +5,7 @@ const DeployOptionsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative">
+    <div className="relative mt-10">
       <div className="flex flex-col lg:flex-row text-white text-center items-center justify-center">
         <div className="max-w-[33rem] lg:max-w-[23rem]">
           <h2 className="text-[2.75rem] xl:text-[2.625rem] font-extrabold mb-11 lg:mb-9">
@@ -25,7 +25,7 @@ const DeployOptionsSection = () => {
           <p className="text-xl font-normal">{t('DEVELOPERS_DEPLOY_DESCRIPTION2')}</p>
         </div>
       </div>
-      <div className="absolute flex w-[35rem] h-[15rem] top-[13.5rem] md:left-14 lg:top-16 lg:left-48 xl:top-5 xl:left-80 2xl:left-[26rem]">
+      <div className="absolute flex w-[35rem] h-[15rem] top-[13.5rem] lg:top-16 xl:top-5 right-0 left-0 mr-auto ml-auto">
         <Image src="/assets/developers/deploys-bg-developers.svg" layout="fill" />
       </div>
     </div>

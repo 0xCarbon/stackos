@@ -104,6 +104,14 @@
   "DEVELOPERS_DEPLOY_DESCRIPTION1": "Skip the high costs and time wasted on set-ups and ongoing infrastructure maintenance. Simply use our no-code UI to quickly deploy your apps and test them on private testnets.",
   "DEVELOPERS_DEPLOY_OR": "or",
   "DEVELOPERS_DEPLOY2_SPAN": "Earn",
-  "DEVELOPERS_DEPLOY_DESCRIPTION2": "Skip the high costs and time wasted on set-ups and ongoing infrastructure maintenance. Simply use our no-code UI to quickly deploy your apps and test them on private testnets."
+  "DEVELOPERS_DEPLOY_DESCRIPTION2": "Skip the high costs and time wasted on set-ups and ongoing infrastructure maintenance. Simply use our no-code UI to quickly deploy your apps and test them on private testnets.",
+  "DEVELOPERS_WHY_SPAN_TITLE": "Why choose ",
+  "DEVELOPERS_WHY_TITLE": "StackOS",
+  "DEVELOPERS_WHY_EXPLAIN1": "Deploy any application under the sun",
+  "DEVELOPERS_WHY_EXPLAIN2": "User an intuitive no-code deployment UI",
+  "DEVELOPERS_WHY_EXPLAIN3": "Utilize Docker Images",
+  "DEVELOPERS_WHY_EXPLAIN4": "Enjoy low cost",
+  "DEVELOPERS_WHY_EXPLAIN5": "Cut DevOps coasts with managed infrastructure",
+  "DEVELOPERS_WHY_EXPLAIN6": "Stay Anonymous"
 }
 
