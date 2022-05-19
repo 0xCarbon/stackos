@@ -34,9 +34,8 @@
   "HOME_DEVELOPERS_CARD_SUBTITLE2": "Enjoy easy deployment on a decentralized, anonymous and secure cloud.",
   "HOME_GOVERNANCE_TITLE": "Governance",
   "HOME_GOVERNANCE_DESCRIPTION": "StackOS is a cross-chain open protocol, connecting developers with decentralized compute power through a no-code, UI-based application deployment engine.",
-  "HOME_HERO_TITLE1": "Just",
-  "HOME_HERO_TITLE2": "deploy.",
-  "HOME_HERO_SUBTITLE1": "No-Code and No-Signup cloud.",
+  "HOME_HERO_TITLE": "Infrastructure for web3",
+  "HOME_HERO_SUBTITLE1": "Decentralized cloud services, web3 for web3.",
   "HOME_HERO_SUBTITLE2": "Decentralized. Hassle-free. Enterprise Grade.",
   "HOME_HERO_BUTTON1": "Deploy Now",
   "HOME_HERO_BUTTON2": "Buy $STACK",
@@ -114,4 +113,3 @@
   "DEVELOPERS_WHY_EXPLAIN5": "Cut DevOps coasts with managed infrastructure",
   "DEVELOPERS_WHY_EXPLAIN6": "Stay Anonymous"
 }
-
