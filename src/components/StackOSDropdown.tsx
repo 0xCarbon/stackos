@@ -7,16 +7,23 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-let selected = 56;
-
 type Props = {
-  dropdownOptions?: Array<any>;
+  selected: number;
+  dropdownOptions: Array<any>;
   className?: string;
   children?: ReactNode;
   header?: string;
+  onChangeSelection: (value: any) => void;
 };
 
-const StackOSDropdown = ({ children, dropdownOptions, className, header }: Props) => (
+const StackOSDropdown = ({
+  selected,
+  children,
+  dropdownOptions,
+  className,
+  header,
+  onChangeSelection,
+}: Props) => (
   <Menu as="div" className="relative inline-block text-left">
     <div className={className}>
       <Menu.Button className="flex items-center">
@@ -49,9 +56,7 @@ const StackOSDropdown = ({ children, dropdownOptions, className, header }: Props
                     active || selected === item.id ? 'bg-[#374151]' : '',
                     'relative rounded-md text-white group flex items-start px-4 py-2 text-sm cursor-pointer'
                   )}
-                  onClick={() => {
-                    selected = item.id;
-                  }}
+                  onClick={() => onChangeSelection(item.id)}
                 >
                   <p className="text-main-green">{active}</p>
                   <StackOSIcon className="mr-3" iconName={item.icon} />
@@ -77,7 +82,6 @@ const StackOSDropdown = ({ children, dropdownOptions, className, header }: Props
 );
 
 StackOSDropdown.defaultProps = {
-  dropdownOptions: [],
   className: '',
   children: null,
   header: undefined,

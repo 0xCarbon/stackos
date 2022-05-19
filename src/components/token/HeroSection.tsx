@@ -1,7 +1,16 @@
 import { useTranslation } from 'react-i18next';
-import { useAccount, useConnect, useDisconnect, useEnsAvatar, useEnsName, useNetwork } from 'wagmi';
+import {
+  Connector,
+  useAccount,
+  useConnect,
+  useDisconnect,
+  useEnsAvatar,
+  useEnsName,
+  useNetwork,
+} from 'wagmi';
 
 // import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { HiSwitchVertical } from 'react-icons/hi';
 import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSInput } from '@/components';
 
@@ -14,26 +23,42 @@ const HeroSection = () => {
   const { connect, connectors, isConnecting, pendingConnector } = useConnect();
   const { disconnect } = useDisconnect();
   const { activeChain, chains, isLoading, pendingChainId, switchNetwork } = useNetwork();
-  console.log(chains);
-  console.log(activeChain);
-  console.log(account);
 
-  const ETHEREUM = 1;
-  const BSC = 56;
-  const POLYGON = 137;
+  const [metamask, setMetamask] = useState<Connector<any, any>>();
+  const [dropdownOptions, setDropdownOptions] = useState<Array<any>>([]);
+  const [selected, setSelected] = useState<any>({
+    id: 56,
+    title: 'BSC',
+    icon: 'pancakeswap',
+  });
 
-  const ethereumChain = chains.find((chain) => chain.id === ETHEREUM);
-  const binanceChain = chains.find((chain) => chain.id === BSC);
-  const polygonChain = chains.find((chain) => chain.id === POLYGON);
+  useEffect(() => {
+    const ETHEREUM = 1;
+    const BSC = 56;
+    const POLYGON = 137;
 
-  const metamask = connectors[0];
+    const ethereumChain = chains.find((chain) => chain.id === ETHEREUM);
+    const binanceChain = chains.find((chain) => chain.id === BSC);
+    const polygonChain = chains.find((chain) => chain.id === POLYGON);
 
-  const dropdownOptions = [
-    { title: 'Ethereum', subtitle: 'Uniswap (v2)', icon: 'uniswap', ...ethereumChain },
-    { title: 'Polygon', subtitle: 'Dfyn', icon: 'dfyn', ...polygonChain },
-    { title: 'BSC', subtitle: 'PancakeSwap (v2)', icon: 'pancakeswap', ...binanceChain },
-  ];
-  console.log(dropdownOptions);
+    setMetamask(connectors[0]);
+
+    setDropdownOptions([
+      { title: 'Ethereum', subtitle: 'Uniswap (v2)', icon: 'uniswap', ...ethereumChain },
+      { title: 'Polygon', subtitle: 'Dfyn', icon: 'dfyn', ...polygonChain },
+      { title: 'BSC', subtitle: 'PancakeSwap (v2)', icon: 'pancakeswap', ...binanceChain },
+    ]);
+  }, [chains, connectors]);
+
+  async function handleChangeSelection(value: any) {
+    setSelected(dropdownOptions.find((option) => option.id === value));
+
+    if (!activeChain) {
+      await connect(metamask);
+    }
+
+    switchNetwork?.(value);
+  }
 
   return (
     <div className="relative flex mt-16 mb-28 lg:mb-48">
@@ -49,12 +74,14 @@ const HeroSection = () => {
         </div>
         <div className="lg:hidden flex flex-col justify-center items-center duration-500">
           <StackOSDropdown
-            className="w-32 h-12 bg-main-green flex flex-row justify-center items-center rounded"
-            dropdownOptions={dropdownOptions}
+            className="w-full h-12 px-2 bg-main-green flex flex-row justify-center items-center rounded"
             header="Select a Token"
+            selected={selected.id}
+            dropdownOptions={dropdownOptions}
+            onChangeSelection={(value) => handleChangeSelection(value)}
           >
-            <StackOSIcon className="h-5 w-5" iconName="pancakeswap" />
-            <span className="text-[#111827] font-medium text-base ml-2 mr-3">BSC</span>
+            <StackOSIcon className="h-5 w-5" iconName={selected.icon} />
+            <span className="text-[#111827] font-medium text-base ml-2 mr-3">{selected.title}</span>
           </StackOSDropdown>
           <div className="mt-20 p-4 bg-[#1F2937] rounded-md">
             <p className="text-[#F9FAFB] font-semibold text-xl mb-8">Buy STACK</p>
@@ -74,7 +101,7 @@ const HeroSection = () => {
                   className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
                   onClick={() => connect(metamask)}
                 >
-                  {isConnecting && metamask.id === pendingConnector?.id
+                  {isConnecting && metamask?.id === pendingConnector?.id
                     ? 'Connecting Wallet...'
                     : 'Connect Wallet'}
                 </button>
@@ -127,12 +154,14 @@ const HeroSection = () => {
         </div>
         <div className="hidden lg:flex lg:flex-col lg:items-end duration-500">
           <StackOSDropdown
-            className="w-32 h-12 bg-main-green flex flex-row justify-center items-center rounded"
-            dropdownOptions={dropdownOptions}
+            className="w-full h-12 px-2 bg-main-green flex flex-row justify-center items-center rounded"
             header="Select a Token"
+            selected={selected.id}
+            dropdownOptions={dropdownOptions}
+            onChangeSelection={(value) => handleChangeSelection(value)}
           >
-            <StackOSIcon className="h-5 w-5" iconName="pancakeswap" />
-            <span className="text-[#111827] font-medium text-base ml-2 mr-3">BSC</span>
+            <StackOSIcon className="h-5 w-5" iconName={selected.icon} />
+            <span className="text-[#111827] font-medium text-base ml-2 mr-3">{selected.title}</span>
           </StackOSDropdown>
           <div className="mt-20 p-4 bg-[#1F2937] rounded-md">
             <p className="text-[#F9FAFB] font-semibold text-xl mb-8">Buy STACK</p>
@@ -152,7 +181,7 @@ const HeroSection = () => {
                   className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
                   onClick={() => connect(metamask)}
                 >
-                  {isConnecting && metamask.id === pendingConnector?.id
+                  {isConnecting && metamask?.id === pendingConnector?.id
                     ? 'Connecting Wallet...'
                     : 'Connect Wallet'}
                 </button>
