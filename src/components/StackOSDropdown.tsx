@@ -4,14 +4,21 @@ import { Menu, Transition } from '@headlessui/react';
 import { BiCheck, BiChevronDown } from 'react-icons/bi';
 import StackOSIcon from './StackOSIcon';
 
-type Props = {
+interface Token {
+  id: number;
+  title: string;
+  icon: string;
+  subtitle?: string;
+}
+
+interface Props {
   selected: number;
-  dropdownOptions: Array<any>;
+  dropdownOptions: any;
   className?: string;
   children?: ReactNode;
   header?: string;
-  onChangeSelection: (value: any) => void;
-};
+  onChangeSelection: (value: number) => void;
+}
 
 const StackOSDropdown = ({
   selected,

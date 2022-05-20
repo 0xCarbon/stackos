@@ -2,14 +2,21 @@
 import { useEffect, useState } from 'react';
 import StackOSDropdown from './StackOSDropdown';
 
-type Props = {
+interface Token {
+  id: number;
+  title: string;
+  icon: string;
+  subtitle?: string;
+}
+
+interface Props {
   selected?: number;
-  dropdownOptions?: Array<any>;
-  onChangeSelection?: (value: any) => void;
-};
+  dropdownOptions?: any;
+  onChangeSelection?: (value: number) => void;
+}
 
 const StackOSInput = ({ dropdownOptions, selected = 0, onChangeSelection = () => null }: Props) => {
-  const [selectedOption, setSelectedOption] = useState<any>();
+  const [selectedOption, setSelectedOption] = useState<Token>();
 
   useEffect(() => {
     setSelectedOption(dropdownOptions?.find((option) => option.id === selected));
