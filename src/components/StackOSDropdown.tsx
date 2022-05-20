@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Fragment, ReactNode } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { BiCheck, BiChevronDown } from 'react-icons/bi';
@@ -80,11 +81,5 @@ const StackOSDropdown = ({
     </Transition>
   </Menu>
 );
-
-StackOSDropdown.defaultProps = {
-  className: '',
-  children: null,
-  header: undefined,
-};
 
 export default StackOSDropdown;

@@ -38,6 +38,7 @@
       }
     ],
     "react/prop-types": 0,
+    "react/require-default-props": 0,
     "import/no-cycle": "off",
     "import/prefer-default-export": 1,
     "import/no-unresolved": 0,

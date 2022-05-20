@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useTranslation } from 'react-i18next';
 import { Connector, useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi';
 
@@ -5,6 +6,18 @@ import { Connector, useAccount, useConnect, useDisconnect, useNetwork } from 'wa
 import { useEffect, useState } from 'react';
 import { HiSwitchVertical } from 'react-icons/hi';
 import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSInput } from '@/components';
+
+interface Token {
+  id: number;
+  title: string;
+  icon: string;
+}
+
+interface Tokens {
+  Ethereum: Token[];
+  Polygon: Token[];
+  BSC: Token[];
+}
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -29,30 +42,25 @@ const HeroSection = () => {
     { title: 'BSC', subtitle: 'PancakeSwap (v2)', icon: 'pancakeswap', ...binanceChain },
   ];
 
-  const [tokenOptions, setTokenOptions] = useState<Array<any>>([
+  const [tokenOptions, setTokenOptions] = useState<Token[]>([
     { id: 1, title: 'ETH', icon: 'eth' },
     { id: 2, title: 'USDC', icon: 'usdc' },
     { id: 3, title: 'USDT', icon: 'usdt' },
     { id: 43, title: 'WETH', icon: 'weth' },
   ]);
-  const [networkSelected, setNetworkSelected] = useState<any>({
+  const [networkSelected, setNetworkSelected] = useState<Token>({
     id: 56,
     title: 'BSC',
     icon: 'pancakeswap',
   });
   const [tokenSelected, setTokenSelected] = useState<any>({ id: 1, title: 'ETH', icon: 'eth' });
-  console.log(activeChain);
-  console.log(account);
 
   useEffect(() => {
-    if (activeChain?.id !== networkSelected?.id) {
-      setNetworkSelected(networkOptions.find((option) => option.id === activeChain?.id));
-    }
-    console.log('teste123');
-  }, [activeChain?.id, networkOptions, networkSelected?.id]);
+    teste();
+  }, []);
 
   useEffect(() => {
-    const tokens = {
+    const tokens: Tokens = {
       Ethereum: [
         { id: 1, title: 'ETH', icon: 'eth' },
         { id: 2, title: 'USDC', icon: 'usdc' },
@@ -72,21 +80,27 @@ const HeroSection = () => {
       ],
     };
 
-    setTokenOptions(tokens[networkSelected.title]);
+    setTokenOptions(tokens[networkSelected.title as keyof Tokens]);
   }, [networkSelected]);
 
   async function onChangeNetwork(value: any) {
-    setNetworkSelected(networkOptions.find((option) => option.id === value));
-
     if (!activeChain) {
       await connect(metamask);
     }
 
-    switchNetwork?.(value);
+    await switchNetwork?.(value);
+
+    setNetworkSelected(networkOptions.find((option) => option.id === value) as Token);
   }
 
   function onChangeToken(value: any) {
     setTokenSelected(tokenOptions.find((option) => option.id === value));
+  }
+
+  function teste() {
+    if (activeChain && activeChain?.id !== networkSelected?.id) {
+      setNetworkSelected(networkOptions.find((option) => option.id === activeChain?.id) as Token);
+    }
   }
 
   return (
@@ -143,64 +157,28 @@ const HeroSection = () => {
               )}
             </div>
           </div>
-
-          {/* <StackOSButton>
-            {account ? (
-              <div>
-                <img src={ensAvatar} alt="ENS Avatar" />
-                <div>{ensName ? `${ensName} (${account.address})` : account.address}</div>
-                <div>{account?.connector?.name}</div>
-                <button type="button" onClick={() => disconnect()}>
-                  Disconnect
-                </button>
-              </div>
-            ) : (
-              <div>
-                {connectors.map((connector) => (
-                  <button
-                    type="button"
-                    disabled={!connector.ready}
-                    key={connector.id}
-                    onClick={() => connect(connector)}
-                  >
-                    {connector.name}
-                    {!connector.ready && ' (unsupported)'}
-                    {isConnecting && connector.id === pendingConnector?.id && ' (connecting)'}
-                  </button>
-                ))}
-              </div>
-            )}
-          </StackOSButton>
-          <div className="bg-main-green">
-            {activeChain && <div>{activeChain.name}</div>}
-
-            {chains.map((x) => (
-              <button
-                type="button"
-                disabled={!switchNetwork || x.id === activeChain?.id}
-                key={x.id}
-                onClick={() => switchNetwork?.(x.id)}
-              >
-                {x.name}
-                {isLoading && pendingChainId === x.id && ' (switching)'}
-              </button>
-            ))}
-          </div> */}
         </div>
-        {/* <div className="hidden lg:flex lg:flex-col lg:items-end duration-500">
+
+        <div className="hidden lg:flex lg:flex-col lg:items-end duration-500">
           <StackOSDropdown
             className="w-full h-12 px-2 bg-main-green flex flex-row justify-center items-center rounded"
-            header="Select a Token"
-            networkSelected={networkSelected.id}
-            networkOptions={networkOptions}
+            header="Select a network"
+            selected={networkSelected.id}
+            dropdownOptions={networkOptions}
             onChangeSelection={(value) => onChangeNetwork(value)}
           >
             <StackOSIcon className="h-5 w-5" iconName={networkSelected.icon} />
-            <span className="text-[#111827] font-medium text-base ml-2 mr-3">{networkSelected.title}</span>
+            <span className="text-[#111827] font-medium text-base ml-2 mr-3">
+              {networkSelected.title}
+            </span>
           </StackOSDropdown>
           <div className="mt-20 p-4 bg-[#1F2937] rounded-md">
             <p className="text-[#F9FAFB] font-semibold text-xl mb-8">Buy STACK</p>
-            <StackOSInput networkOptions={networkOptions} />
+            <StackOSInput
+              dropdownOptions={tokenOptions}
+              selected={tokenSelected.id}
+              onChangeSelection={(value) => onChangeToken(value)}
+            />
             <div className="relative z-10 h-1 flex flex-row justify-center items-center">
               <HiSwitchVertical color="#84CC16" size={20} />
             </div>
@@ -223,7 +201,7 @@ const HeroSection = () => {
               )}
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
       {/* <div className="absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-12rem] md:right-[-3rem] lg:right-[-30rem] xl:right-[-10rem] 2xl:right-[-1rem] lg:top-[-3.5rem] 2xl:top-[-4.5rem] duration-500">
         <Image

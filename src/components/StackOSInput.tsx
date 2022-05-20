@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import StackOSDropdown from './StackOSDropdown';
 
@@ -7,7 +8,7 @@ type Props = {
   onChangeSelection?: (value: any) => void;
 };
 
-const StackOSInput = ({ dropdownOptions, selected, onChangeSelection }: Props) => {
+const StackOSInput = ({ dropdownOptions, selected = 0, onChangeSelection = () => null }: Props) => {
   const [selectedOption, setSelectedOption] = useState<any>();
 
   useEffect(() => {
@@ -46,11 +47,6 @@ const StackOSInput = ({ dropdownOptions, selected, onChangeSelection }: Props) =
       </div>
     </div>
   );
-};
-
-StackOSInput.defaultProps = {
-  dropdownOptions: [],
-  selected: null,
 };
 
 export default StackOSInput;
