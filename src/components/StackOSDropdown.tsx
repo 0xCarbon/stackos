@@ -3,10 +3,6 @@ import { Menu, Transition } from '@headlessui/react';
 import { BiCheck, BiChevronDown } from 'react-icons/bi';
 import StackOSIcon from './StackOSIcon';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
 type Props = {
   selected: number;
   dropdownOptions: Array<any>;
@@ -52,21 +48,25 @@ const StackOSDropdown = ({
             <Menu.Item key={item.id}>
               {({ active }) => (
                 <div
-                  className={classNames(
-                    active || selected === item.id ? 'bg-[#374151]' : '',
-                    'relative rounded-md text-white group flex items-start px-4 py-2 text-sm cursor-pointer'
-                  )}
+                  className={`
+                    ${
+                      active || selected === item.id ? 'bg-[#374151]' : ''
+                    } relative rounded-md text-white group flex items-center px-4 py-2 text-sm cursor-pointer
+                  `}
                   onClick={() => onChangeSelection(item.id)}
                 >
-                  <p className="text-main-green">{active}</p>
-                  <StackOSIcon className="mr-3" iconName={item.icon} />
+                  <StackOSIcon className="mr-3 flex items-center" iconName={item.icon} />
                   <div className="flex flex-col justify-start">
                     <span className="font-semibold">{item.title}</span>
-                    <span className="text-[#F9FAFB] font-extralight">{item.subtitle}</span>
+                    {item.subtitle && (
+                      <span className="text-[#F9FAFB] font-extralight">{item.subtitle}</span>
+                    )}
                   </div>
                   {selected === item.id && (
                     <BiCheck
-                      className="mr-3 h-5 w-5 absolute inset-y-4 right-0 items-center"
+                      className={`mr-3 h-5 w-5 absolute right-0 items-center ${
+                        item.subtitle ? 'inset-y-4' : 'inset-y-2'
+                      }`}
                       aria-hidden="true"
                       color="#AAFF00"
                     />
