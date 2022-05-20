@@ -33,7 +33,7 @@ const WhyStackOSSection = () => {
   ];
 
   return (
-    <div className="relative mt-28">
+    <div className="relative mt-28 mb-32">
       <div className="z-10">
         <h2 className="text-white text-[2.5rem] lg:text-6xl font-extrabold">
           <span className="text-main-green">{t('DEVELOPERS_WHY_SPAN_TITLE')}</span>
