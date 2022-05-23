@@ -9,7 +9,7 @@ interface Props {
   description: string;
 }
 
-export interface Icons {
+interface Icons {
   annotation: React.ReactElement;
   globe: React.ReactElement;
   bolt: React.ReactElement;
