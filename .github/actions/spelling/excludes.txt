@@ -19,3 +19,4 @@ ignore$
 ^\.github/
 \.eslintrc
 \.svg$
+^\src/components/home/helpers/hero-titles.json
