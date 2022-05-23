@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import { Separator } from '@radix-ui/react-separator';
 import titleData from './helpers/hero-titles.json';
 
@@ -13,18 +13,7 @@ const HeroSection = () => {
         <div>
           <h1 className="leading-none text-4xl lg:text-6xl font-extrabold">
             {t('HOME_HERO_TITLE')}
-            <Lottie
-              options={{
-                loop: true,
-                autoplay: true,
-                animationData: titleData,
-                rendererSettings: {
-                  preserveAspectRatio: 'xMidYMid slice',
-                },
-              }}
-              height={70}
-              width="100%"
-            />
+            <Lottie loop autoplay animationData={titleData} height={70} width="100%" />
           </h1>
         </div>
         <span className="text-base lg:text-xl font-normal my-10">
