@@ -52,7 +52,7 @@ const StackOSDropdown = ({
           </div>
         )}
         <div>
-          {dropdownOptions?.map((item) => (
+          {dropdownOptions?.map((item: any) => (
             <Menu.Item key={item.id}>
               {({ active }) => (
                 <div

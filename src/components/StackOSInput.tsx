@@ -19,7 +19,7 @@ const StackOSInput = ({ dropdownOptions, selected = 0, onChangeSelection = () =>
   const [selectedOption, setSelectedOption] = useState<Token>();
 
   useEffect(() => {
-    setSelectedOption(dropdownOptions?.find((option) => option.id === selected));
+    setSelectedOption(dropdownOptions?.find((option: any) => option.id === selected));
   }, [dropdownOptions, selected]);
 
   return (
