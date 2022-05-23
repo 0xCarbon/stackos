@@ -5,6 +5,7 @@ import { Layout } from '@/components';
 import HeroSection from '@/components/developers/HeroSection';
 import DeployOptionsSection from '@/components/developers/DeployOptionsSection';
 import WhyStackOSSection from '@/components/developers/WhyStackOSSection';
+import StackOSCarousel from '@/components/StackOSCarousel';
 
 const Developers: NextPage = () => (
   <>
@@ -18,6 +19,7 @@ const Developers: NextPage = () => (
     </Head>
     <Layout>
       <HeroSection />
+      <StackOSCarousel />
       <DeployOptionsSection />
       <WhyStackOSSection />
     </Layout>
