@@ -5,7 +5,7 @@ const DevelopersSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full flex flex-col justify-center items-center text-center py-20">
+    <div className="w-full flex flex-col justify-center items-center text-center py-20 mt-52 md:mt-[33rem] lg:mt-[40rem] xl:mt-[57rem]">
       <h2 className="text-[#F4F4F4] font-extrabold text-4xl lg:text-6xl mb-9">
         {t('HOME_DEVELOPERS_TITLE')}
       </h2>

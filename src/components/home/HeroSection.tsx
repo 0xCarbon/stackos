@@ -50,7 +50,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="sm:hidden absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-9.5rem] md:right-[-4.5rem] top-[-0.5rem] lg:right-[-14rem] xl:right-[-2.5rem] lg:top-[-5.5rem] 2xl:top-[-7rem] 2xl:right-[-7rem] duration-500">
+      <div className="sm:hidden absolute w-[30.3rem] h-[20.3rem] right-[-9.5rem] top-[-0.5rem] duration-500">
         <Image
           src="/assets/home/hero-background-sm.svg"
           alt="hero background"
