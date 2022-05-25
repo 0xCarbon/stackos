@@ -5,7 +5,7 @@ const DeployOptionsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative mt-10">
+    <div className="relative mt-32">
       <div className="flex flex-col lg:flex-row text-white text-center items-center justify-center">
         <div className="max-w-[33rem] lg:max-w-[23rem]">
           <h2 className="text-[2.75rem] xl:text-[2.625rem] font-extrabold mb-11 lg:mb-9">
