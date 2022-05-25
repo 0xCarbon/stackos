@@ -2,6 +2,7 @@ import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { StackOSButton } from '..';
+import StackOSCarousel from '../StackOSCarousel';
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -37,6 +38,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      <StackOSCarousel />
       <div className="flex w-[31.6rem] h-[31.6rem] absolute top-[5rem] md:top-6 lg:-top-28 xl:-top-26 left-16 md:left-16 lg:left-[29rem] xl:left-[45.5rem]">
         <Image src="/assets/developers/hero-bg-developers.svg" layout="fill" />
       </div>
