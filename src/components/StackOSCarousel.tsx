@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import partners from '@/components/home/helpers';
 
 const StackOSCarousel = () => {
