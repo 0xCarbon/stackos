@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="bg-[#1F2937] lg:bg-transparent overflow-hidden">
       <Popover>
-        <div className="px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20 py-4 lg:py-16 duration-500">
+        <div className="px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20 py-4 lg:py-16 lg:max-w-[60rem] xl:max-w-[71.25rem] lg:mx-auto duration-500">
           <nav
             className="relative flex items-center justify-between sm:h-10 lg:justify-center"
             aria-label="Global"
@@ -20,10 +20,10 @@ const Header = () => {
             <div className="flex items-center flex-1 lg:absolute lg:inset-y-0 lg:left-0">
               <div className="flex items-center justify-between w-full lg:w-auto">
                 <Link href="/">
-                  <a className="w-36 h-8 lg:w-36 lg:h-8 xl:w-40 xl:h-10 2xl:w-48 2xl:h-12 xl:mr-2 2xl:mr-16 duration-500">
+                  <a className="w-36 h-8 lg:w-36 lg:h-8 xl:w-40 xl:h-10 2xl:w-36 2xl:h-8 xl:mr-2 2xl:mr-16 duration-500">
                     <span className="sr-only">Workflow</span>
                     <Image
-                      width={152}
+                      width={146}
                       height={32}
                       layout="responsive"
                       src="/stackos-logo.svg"
@@ -39,7 +39,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden lg:flex lg:justify-between lg:space-x-8 2xl:space-x-14 lg:text-white lg:font-medium lg:text-xl lg:items-center">
+            <div className="hidden lg:flex lg:justify-between lg:space-x-5 2xl:space-x-9 lg:text-white lg:font-medium lg:text-xl lg:items-center">
               {menus.map((item) => (
                 <Link key={item.id} href={item.href}>
                   <a>{t(item.name)}</a>
