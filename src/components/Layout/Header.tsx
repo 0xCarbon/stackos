@@ -10,21 +10,20 @@ import useScrollListener from './helpers/useScrollListener';
 const Header = () => {
   const { t } = useTranslation();
 
-  const [navClassList, setNavClassList] = useState(false);
+  const [hiddenHeader, setHiddenHeader] = useState(false);
   const scroll = useScrollListener();
 
-  // update classList of nav on scroll
   useEffect(() => {
-    setNavClassList(false);
+    setHiddenHeader(false);
 
-    if (scroll.y > 150 && scroll.y - scroll.lastY > 0) setNavClassList(true);
+    if (scroll.y > 150 && scroll.y - scroll.lastY > 0) setHiddenHeader(true);
   }, [scroll.y, scroll.lastY]);
 
   return (
     <header
       className={`${
-        navClassList ? '-translate-y-full lg:bg-transparent' : 'lg:bg-main-blue'
-      } bg-[#1F2937]  z-50 overflow-hidden fixed top-0 w-full duration-300`}
+        hiddenHeader ? '-translate-y-full' : ''
+      } bg-[#1F2937] lg:bg-transparent lg:bg-gradient-to-b  lg:from-[#111827] lg:via-[#111827] z-50 overflow-hidden fixed top-0 w-full duration-500`}
     >
       <Popover>
         <div className="px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20 py-4 lg:py-16 lg:max-w-[60rem] xl:max-w-[71.25rem] lg:mx-auto duration-500">

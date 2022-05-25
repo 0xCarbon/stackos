@@ -8,17 +8,14 @@ export default function useScrollListener() {
     lastY: 0,
   });
 
-  // set up event listeners
   useEffect(() => {
     const handleScroll = () => {
-      setData((last) => {
-        return {
-          x: window.scrollX,
-          y: window.scrollY,
-          lastX: last.x,
-          lastY: last.y,
-        };
-      });
+      setData((last) => ({
+        x: window.scrollX,
+        y: window.scrollY,
+        lastX: last.x,
+        lastY: last.y,
+      }));
     };
 
     handleScroll();
