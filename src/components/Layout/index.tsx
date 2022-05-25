@@ -8,9 +8,11 @@ type Props = {
 
 const Layout = ({ children }: Props) => (
   <div className="overflow-hidden h-full w-full m-0 flex flex-col bg-main-blue z-0">
-    <div className="w-full max-w-screen-2x mx-auto">
+    <div className="w-full mx-auto">
       <Header />
-      <div className="px-5 md:px-7 lg:px-10 2xl:px-20">{children}</div>
+      <div className="lg:mt-56 px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20 max-w-[17.5rem] sm:max-w-[33.75rem] md:max-w-[45rem] lg:max-w-[60rem] xl:max-w-[71.25rem] mx-auto">
+        {children}
+      </div>
       <Footer />
     </div>
   </div>

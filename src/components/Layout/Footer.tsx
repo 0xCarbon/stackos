@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <div className="mt-auto">
-      <div className="flex justify-between px-5 md:px-7 lg:px-10 2xl:px-20">
+      <div className="flex justify-between px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20 max-w-[17.5rem] sm:max-w-[33.75rem] md:max-w-[45rem] lg:max-w-[60rem] xl:max-w-[71.25rem] mx-auto">
         <div className="flex flex-col text-white">
           <span className="text-3xl">{t('FOOTER_TITLE')}</span>
           <span className="text-base md:text-lg max-w-xs md:max-w-md lg:max-w-xl pt-3 pb-5  lg:pt-2 lg:pb-7">
@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t-[1px] text-white text-xs md:text-sm pb-28 lg:pb-52 mt-4 pt-4 md:pt-8 md:mt-8 lg:mt-14 2xl:mt-10 text-center">
+      <div className="border-t-[1px] text-white text-xs md:text-sm pb-4 mt-4 pt-4 md:pt-8 md:mt-8 lg:mt-14 2xl:mt-10 text-center">
         <span>{t('FOOTER_COPYRIGHT')}</span>
       </div>
     </div>
