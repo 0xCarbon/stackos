@@ -1,7 +1,6 @@
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import { LearnMore } from '@/components';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import StackOSCarousel from '../StackOSCarousel';
 
 const PartnershipsSection = () => {

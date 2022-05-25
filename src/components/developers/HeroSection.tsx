@@ -38,7 +38,10 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <StackOSCarousel />
+      <div className="w-full flex md:justify-center">
+        <StackOSCarousel />
+      </div>
+
       <div className="flex w-[31.6rem] h-[31.6rem] absolute top-[5rem] md:top-6 lg:-top-28 xl:-top-26 left-16 md:left-16 lg:left-[29rem] xl:left-[45.5rem]">
         <Image src="/assets/developers/hero-bg-developers.svg" layout="fill" />
       </div>
