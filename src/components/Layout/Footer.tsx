@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <div className="mt-auto">
-      <div className="flex justify-between px-5 md:px-7 lg:px-10 2xl:px-20">
+      <div className="flex justify-between px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20">
         <div className="flex flex-col text-white">
           <span className="text-3xl">{t('FOOTER_TITLE')}</span>
           <span className="text-base md:text-lg max-w-xs md:max-w-md lg:max-w-xl pt-3 pb-5  lg:pt-2 lg:pb-7">

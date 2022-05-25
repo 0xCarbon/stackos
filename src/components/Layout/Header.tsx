@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="bg-[#1F2937] lg:bg-transparent overflow-hidden">
       <Popover>
-        <div className="px-5 md:px-7 py-4 lg:px-10 2xl:px-20 lg:py-16 duration-500">
+        <div className="px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20 py-4 lg:py-16 duration-500">
           <nav
             className="relative flex items-center justify-between sm:h-10 lg:justify-center"
             aria-label="Global"
