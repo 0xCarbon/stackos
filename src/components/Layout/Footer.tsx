@@ -6,7 +6,7 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="hidden sm:inline mt-auto">
+    <div className="mt-auto">
       <div className="flex justify-between px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20 max-w-[17.5rem] sm:max-w-[33.75rem] md:max-w-[45rem] lg:max-w-[60rem] xl:max-w-[71.25rem] mx-auto">
         <div className="flex flex-col text-white">
           <span className="text-3xl">{t('FOOTER_TITLE')}</span>

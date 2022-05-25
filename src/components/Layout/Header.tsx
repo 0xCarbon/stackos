@@ -1,20 +1,35 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
 import menus from './helpers';
+import useScrollListener from './helpers/useScrollListener';
 
 const Header = () => {
   const { t } = useTranslation();
 
+  const [navClassList, setNavClassList] = useState(false);
+  const scroll = useScrollListener();
+
+  // update classList of nav on scroll
+  useEffect(() => {
+    setNavClassList(false);
+
+    if (scroll.y > 150 && scroll.y - scroll.lastY > 0) setNavClassList(true);
+  }, [scroll.y, scroll.lastY]);
+
   return (
-    <header className="bg-[#1F2937] lg:bg-transparent overflow-hidden">
+    <header
+      className={`${
+        navClassList ? '-translate-y-full lg:bg-transparent' : 'lg:bg-main-blue'
+      } bg-[#1F2937]  z-50 overflow-hidden fixed top-0 w-full duration-300`}
+    >
       <Popover>
         <div className="px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20 py-4 lg:py-16 lg:max-w-[60rem] xl:max-w-[71.25rem] lg:mx-auto duration-500">
           <nav
-            className="relative flex items-center justify-between sm:h-10 lg:justify-center"
+            className="flex items-center justify-between sm:h-10 lg:justify-center relative "
             aria-label="Global"
           >
             <div className="flex items-center flex-1 lg:absolute lg:inset-y-0 lg:left-0">
