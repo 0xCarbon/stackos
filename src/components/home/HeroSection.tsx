@@ -8,7 +8,7 @@ const HeroSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex text-white relative mt-28 lg:mt-24 2xl:mt-28">
+    <div className="flex text-white relative mt-14 md:mt-20 lg:mt-24 xl:mt-48">
       <div className="z-10 flex flex-col">
         <div>
           <h1 className="leading-none text-4xl lg:text-6xl font-extrabold">

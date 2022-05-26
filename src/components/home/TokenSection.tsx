@@ -8,7 +8,7 @@ const TokenSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative flex flex-col justify-start py-20">
+    <div className="relative flex flex-col justify-start sm:pt-5">
       <div className="flex flex-row justify-start items-center mb-9 child:duration-500">
         <Separator className="h-10 lg:h-14 w-[0.4rem] lg:w-2 xl:w-2 2xl:w-[0.45rem] bg-main-green" />
         <h2 className="text-[#FFFFFF] font-extrabold text-4xl lg:text-6xl mx-5">

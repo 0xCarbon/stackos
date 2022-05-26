@@ -7,7 +7,7 @@ const TechnologySection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative flex flex-col justify-end items-end mt-28 lg:mt-52 2xl:mt-56 py-20">
+    <div className="relative flex flex-col justify-end items-end mt-5 lg:mt-32 py-20">
       <div className="flex flex-row justify-end items-center mb-9 child:duration-500 z-10">
         <div className="justify-end flex flex-col space-y-3">
           <h2 className="text-[#D9D9D9] font-light text-sm lg:text-4xl mx-5 text-right">
@@ -25,7 +25,7 @@ const TechnologySection = () => {
         </p>
       </div>
       <LearnMore />
-      <div className="md:hidden absolute w-[17rem] h-[18rem] left-[1rem]  top-[-2.8rem]  duration-500">
+      <div className="md:hidden absolute w-[17rem] h-[18rem] left-[-5rem]  top-[-2rem]  duration-500">
         <Image
           src="/assets/home/technology-background1-sm.svg"
           alt="technology background"
@@ -60,7 +60,7 @@ const TechnologySection = () => {
           layout="fill"
         />
       </div>
-      <div className="absolute flex w-[18.75rem] h-[16.87rem] top-[30rem] md:w-[40rem] md:h-[36rem] md:top-[25rem] lg:w-[48.75rem] lg:h-[43.75rem] lg:top-[28rem] xl:w-[65.75rem] xl:h-[59rem] xl:top-[29rem] mx-auto right-0 left-0 duration-500">
+      <div className="absolute flex w-[18.75rem] h-[16.87rem] top-[30rem] md:w-[20rem] md:h-[18rem] md:top-[25rem] lg:w-[48.75rem] lg:h-[43.75rem] lg:top-[28rem] xl:w-[65.75rem] xl:h-[59rem] xl:top-[29rem] mx-auto right-0 left-0 duration-500">
         <Image src="/assets/home/diagram.svg" alt="technology background" layout="fill" priority />
       </div>
     </div>

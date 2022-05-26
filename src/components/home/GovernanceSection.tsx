@@ -27,7 +27,7 @@ const GovernanceSection = () => {
           layout="fill"
         />
       </div>
-      <div className="hidden md:inline absolute w-[57.9rem] lg:w-[120rem] h-[24.75rem] lg:h-[52rem] right-[-18rem] top-[9rem] duration-500">
+      <div className="hidden md:inline absolute w-[57.9rem] lg:w-[120rem] h-[24.75rem] lg:h-[52rem] right-[-18rem] top-[4rem] duration-500">
         <Image
           src="/assets/home/governance-background1-md.svg"
           alt="technology background"
