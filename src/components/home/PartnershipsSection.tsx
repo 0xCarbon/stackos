@@ -19,9 +19,9 @@ const PartnershipsSection = () => {
       </p>
       <LearnMore />
 
-      <div className="mt-16 flex w-full items-center justify-end child:duration-500">
+      <div className="mt-16 flex flex-col sm:flex-row w-full items-end sm:items-center justify-center sm:justify-end child:duration-500">
         <StackOSCarousel />
-        <div className="flex flex-col text-white">
+        <div className="hidden sm:flex flex-col text-white">
           <p className="whitespace-nowrap font-semibold text-3xl line leading-7 select-none">
             30 +
           </p>
