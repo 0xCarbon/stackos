@@ -32,13 +32,6 @@ const TechnologySection = () => {
           layout="fill"
         />
       </div>
-      <div className="hidden md:inline absolute w-[30.3rem] h-[20.3rem] left-[-5.5rem] xl:left-[4rem] top-[-0.5rem] duration-500">
-        <Image
-          src="/assets/home/technology-background1.svg"
-          alt="technology background"
-          layout="fill"
-        />
-      </div>
       <div className="lg:hidden absolute w-[15rem] h-[21rem] left-[-10rem] top-[17rem]  duration-500">
         <Image
           src="/assets/home/technology-background2-sm.svg"

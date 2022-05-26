@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import { LearnMore } from '@/components';
@@ -7,7 +8,7 @@ const PartnershipsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="mt-20 lg:mt-[26rem] flex flex-col justify-end items-end py-20">
+    <div className="relative mt-20 lg:mt-[26rem] flex flex-col justify-end items-end py-20">
       <div className="flex flex-row justify-end items-center mb-9 child:duration-500">
         <h2 className="text-[#D9D9D9] font-extrabold text-4xl lg:text-6xl mx-5">
           {t('HOME_PARTNERSHIPS_TITLE')}
@@ -27,6 +28,13 @@ const PartnershipsSection = () => {
           </p>
           <p className="font-light select-none">partners</p>
         </div>
+      </div>
+      <div className="absolute flex sm:hidden w-[40rem] h-[16.87rem] top-[-1rem] right-[-19rem] duration-500">
+        <Image
+          src="/assets/home/governance-background1-md.svg"
+          alt="technology background"
+          layout="fill"
+        />
       </div>
     </div>
   );
