@@ -19,7 +19,7 @@ const TechnologySection = () => {
         </div>
         <Separator className="h-20 lg:h-28 w-[0.4rem] lg:w-2 xl:w-2 2xl:w-[0.45rem] bg-main-green" />
       </div>
-      <div className="max-w-[30rem] lg:max-w-2xl z-10">
+      <div className="max-w-[22rem] lg:max-w-[24rem] xl:max-w-[39.5rem] z-10">
         <p className="text-white font-normal text-base text-right mb-3 lg:mb-6 2xl:mb-10 lg:text-xl max-w-xl lg:max-w-2xl 2xl:max-w-3xl duration-500 ">
           {t('HOME_TECHNOLOGY_DESCRIPTION')}
         </p>
@@ -53,14 +53,7 @@ const TechnologySection = () => {
           layout="fill"
         />
       </div>
-      <div className="hidden lg:inline absolute w-[51.5rem] h-[41rem] left-[-10rem] top-[24rem] xl:top-[42rem] xl:left-[0rem] duration-500">
-        <Image
-          src="/assets/home/technology-background4-lg.svg"
-          alt="technology background"
-          layout="fill"
-        />
-      </div>
-      <div className="absolute flex w-[18.75rem] h-[16.87rem] top-[30rem] md:w-[20rem] md:h-[18rem] md:top-[25rem] lg:w-[48.75rem] lg:h-[43.75rem] lg:top-[28rem] xl:w-[65.75rem] xl:h-[59rem] xl:top-[29rem] mx-auto right-0 left-0 duration-500">
+      <div className="absolute flex w-[18.75rem] h-[16.87rem] top-[30rem] md:w-[20rem] md:h-[18rem] md:top-[7.5rem] md:right-[22rem] lg:w-[26rem] lg:h-[24rem] lg:right-[30rem] xl:w-[29.5rem] xl:h-[27rem] xl:right-[50rem] mx-auto right-0 left-0 duration-500">
         <Image src="/assets/home/diagram.svg" alt="technology background" layout="fill" priority />
       </div>
     </div>

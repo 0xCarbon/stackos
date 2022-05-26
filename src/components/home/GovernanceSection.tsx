@@ -20,7 +20,7 @@ const GovernanceSection = () => {
         </span>
         <LearnMore />
       </div>
-      <div className="md:hidden absolute w-[22.75rem] h-[24.75rem] right-[-20rem] top-[9rem] duration-500">
+      <div className="md:hidden absolute w-[22.75rem] h-[24.75rem] right-[-20rem] top-[4rem] duration-500">
         <Image
           src="/assets/home/governance-background1-sm.svg"
           alt="technology background"
