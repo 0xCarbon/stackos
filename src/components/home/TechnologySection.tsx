@@ -25,7 +25,7 @@ const TechnologySection = () => {
         </p>
       </div>
       <LearnMore />
-      <div className="md:hidden absolute w-[17rem] h-[18rem] left-[-2.5rem]  top-[-1.7rem]  duration-500">
+      <div className="md:hidden absolute w-[17rem] h-[18rem] left-[1rem]  top-[-2.8rem]  duration-500">
         <Image
           src="/assets/home/technology-background1-sm.svg"
           alt="technology background"
@@ -39,7 +39,7 @@ const TechnologySection = () => {
           layout="fill"
         />
       </div>
-      <div className="lg:hidden absolute w-[15rem] h-[21rem] left-[-5rem] top-[17rem]  duration-500">
+      <div className="lg:hidden absolute w-[15rem] h-[21rem] left-[-10rem] top-[17rem]  duration-500">
         <Image
           src="/assets/home/technology-background2-sm.svg"
           alt="technology background"

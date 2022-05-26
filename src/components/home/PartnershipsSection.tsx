@@ -7,7 +7,7 @@ const PartnershipsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="mt-16 flex flex-col justify-end items-end py-20">
+    <div className="mt-20 lg:mt-[26rem] flex flex-col justify-end items-end py-20">
       <div className="flex flex-row justify-end items-center mb-9 child:duration-500">
         <h2 className="text-[#D9D9D9] font-extrabold text-4xl lg:text-6xl mx-5">
           {t('HOME_PARTNERSHIPS_TITLE')}

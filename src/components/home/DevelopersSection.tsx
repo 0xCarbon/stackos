@@ -15,7 +15,7 @@ const DevelopersSection = () => {
           {t('HOME_DEVELOPERS_DESCRIPTION')}
         </span>
         <LearnMore />
-        <div className="mt-16 flex flex-col justify-center items-center md:flex-row child:mb-10 child:md:mx-4 child:lg:mx-28 child:xl:mx-28 child:2xl:mx-28">
+        <div className="mt-16 flex flex-col justify-center items-center md:flex-row child:mb-10 child:md:mx-4 child:lg:mx-16 child:xl:mx-28 child:2xl:mx-28">
           <Card
             src="/assets/home/lorem.svg"
             title={t('HOME_DEVELOPERS_CARD_TITLE')}
@@ -27,13 +27,13 @@ const DevelopersSection = () => {
             subtitle={t('HOME_DEVELOPERS_CARD_SUBTITLE2')}
           />
         </div>
-        <div className="lg:hidden absolute w-[22.75rem] h-[24.75rem] left-[-8rem] top-[5rem] duration-500">
-          <Image
-            src="/assets/home/developers-background1-sm.svg"
-            alt="technology background"
-            layout="fill"
-          />
-        </div>
+      </div>
+      <div className="lg:hidden absolute w-[22.75rem] h-[24.75rem] left-[-8rem] top-[5rem] duration-500">
+        <Image
+          src="/assets/home/developers-background1-sm.svg"
+          alt="technology background"
+          layout="fill"
+        />
       </div>
       <div className="md:hidden absolute w-[19.87rem] h-[17.43rem] right-[-4rem] top-[37rem] duration-500">
         <Image
@@ -49,7 +49,7 @@ const DevelopersSection = () => {
           layout="fill"
         />
       </div>
-      <div className="md:hidden absolute w-[18.62rem] h-[19rem] right-[-1.4rem] top-[72rem] md:top-[46.5rem] duration-500">
+      <div className="md:hidden absolute w-[18.62rem] h-[19rem] right-[-3.5rem] top-[75rem] md:top-[46.5rem] duration-500">
         <Image
           src="/assets/home/developers-background4-sm.svg"
           alt="technology background"

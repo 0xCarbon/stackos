@@ -8,7 +8,7 @@ const HeroSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex text-white relative mt-16 lg:mt-24 2xl:mt-28">
+    <div className="flex text-white relative mt-28 lg:mt-24 2xl:mt-28">
       <div className="z-10 flex flex-col">
         <div>
           <h1 className="leading-none text-4xl lg:text-6xl font-extrabold">
@@ -21,16 +21,16 @@ const HeroSection = () => {
           <br />
           {t('HOME_HERO_SUBTITLE2')}
         </span>
-        <div className="flex space-x-4 child:font-medium">
+        <div className="flex space-x-4 child:font-medium child:min-w-[7rem]">
           <button
             type="button"
-            className="bg-main-green text-main-blue lg:text-lg rounded-md px-9 py-3 lg:px-10 lg:py-4"
+            className="bg-main-green text-main-blue text-sm lg:text-lg rounded-md px-4 py-3 lg:px-10 lg:py-4"
           >
             {t('HOME_HERO_BUTTON1')}
           </button>
           <button
             type="button"
-            className="bg-main-green text-main-blue lg:text-lg rounded-md px-9 py-3 lg:px-10 lg:py-4"
+            className="bg-main-green text-main-blue text-sm lg:text-lg rounded-md px-4 py-3 lg:px-10 lg:py-4"
           >
             {t('HOME_HERO_BUTTON2')}
           </button>
