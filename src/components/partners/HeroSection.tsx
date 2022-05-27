@@ -21,13 +21,8 @@ const HeroSection = () => {
           {t('PARTNERS_HERO_BUTTON')}
         </button>
       </div>
-      <div className="absolute w-[30rem] lg:w-[40rem] h-[20rem] lg:h-[58rem] top-10 lg:-top-[20rem] -right-14 md:right-14 lg:left-[40rem] duration-500">
-        <Image
-          src="/assets/partners/hero-bg-partners.svg"
-          alt="background image"
-          layout="fill"
-          priority
-        />
+      <div className="absolute w-[30rem] lg:w-[40rem] h-[20rem] lg:h-[58rem] top-10 lg:-top-[20rem] -right-60 sm:-right-14 md:right-14 lg:left-[40rem] duration-500">
+        <Image src="/assets/partners/hero-bg-partners.svg" alt="background image" layout="fill" />
       </div>
     </div>
   );

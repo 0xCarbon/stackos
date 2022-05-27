@@ -18,7 +18,9 @@ const HeroSection = () => {
         </div>
         <div className="lg:hidden flex flex-row justify-between items-end">
           <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
-          <span className="text-white font-light text-4xl">{t('TECHNOLOGY_HERO_SUBTITLE')}</span>
+          <span className="hidden sm:inline text-white font-light text-4xl">
+            {t('TECHNOLOGY_HERO_SUBTITLE')}
+          </span>
         </div>
         <div className="hidden lg:flex lg:flex-col lg:items-end">
           <span className="text-white font-light text-5xl mt-4 mb-14">
