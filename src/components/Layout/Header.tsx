@@ -53,7 +53,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden lg:flex lg:justify-between lg:space-x-5 2xl:space-x-9 lg:text-white lg:font-medium lg:text-xl lg:items-center">
+            <div className="z-50 hidden lg:flex lg:justify-between lg:space-x-5 2xl:space-x-9 lg:text-white lg:font-medium lg:text-xl lg:items-center">
               {menus.map((item) => (
                 <Link key={item.id} href={item.href}>
                   <a>{t(item.name)}</a>
