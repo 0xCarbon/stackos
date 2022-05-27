@@ -41,7 +41,7 @@ const NetworksDropdown = ({ header, className, onChangeSelection }: Props) => {
   }, [activeChain]);
 
   function onChangeNetwork(value: number) {
-    if (!activeChain) {
+    if (!activeChain || !account) {
       connect(metamask);
     }
 
@@ -51,9 +51,6 @@ const NetworksDropdown = ({ header, className, onChangeSelection }: Props) => {
   function setupNetwork() {
     if (activeChain && activeChain?.id !== networkSelected?.id) {
       setNetworkSelected(networkOptions.find((option) => option.id === activeChain?.id) as Network);
-      if (!account) {
-        connect(connectors.find((connector) => connector.id === 'metaMask'));
-      }
     }
   }
 

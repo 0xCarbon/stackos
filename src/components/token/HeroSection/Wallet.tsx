@@ -1,9 +1,12 @@
 /* eslint-disable import/extensions */
-import { useNetwork, useProvider } from 'wagmi';
+import { useAccount, useNetwork } from 'wagmi';
 import '@uniswap/widgets/fonts.css';
+import detectEthereumProvider from '@metamask/detect-provider';
+import { useEffect, useState } from 'react';
 import { SwapWidget, Theme } from '@uniswap/widgets';
 import { NetworksDropdown } from '@/components';
 import ConnectButton from '@/components/ConnectButton';
+import { CHAIN } from '../helpers';
 
 const apiKey = process.env.NEXT_PUBLIC_ALCHEMY_KEY;
 
@@ -20,15 +23,13 @@ const theme: Theme = {
   onInteractive: '#FFF',
 };
 
-const STA = '0x980111ae1B84E50222C8843e3A7a038F36Fecd2b';
-
 const TOKEN_LIST = [
   {
     name: 'USD Coin',
     address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
     symbol: 'USDC',
     decimals: 6,
-    chainId: 1,
+    chainId: CHAIN.ETHEREUM,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
   },
@@ -37,7 +38,7 @@ const TOKEN_LIST = [
     address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
     symbol: 'USDT',
     decimals: 6,
-    chainId: 1,
+    chainId: CHAIN.ETHEREUM,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
   },
@@ -46,16 +47,25 @@ const TOKEN_LIST = [
     address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
     symbol: 'WETH',
     decimals: 6,
-    chainId: 1,
+    chainId: CHAIN.ETHEREUM,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
+  },
+  {
+    name: 'STACK',
+    address: '0x56a86d648c435dc707c8405b78e2ae8eb4e60ba4',
+    symbol: 'STA',
+    decimals: 18,
+    chainId: CHAIN.ETHEREUM,
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/polygon/assets/0x56a86d648c435dc707c8405b78e2ae8eb4e60ba4/logo.png',
   },
   {
     name: 'USD Coin',
     address: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
     symbol: 'USDC',
     decimals: 6,
-    chainId: 137,
+    chainId: CHAIN.POLYGON,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/polygon/assets/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/logo.png',
   },
@@ -64,7 +74,7 @@ const TOKEN_LIST = [
     address: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
     symbol: 'USDT',
     decimals: 6,
-    chainId: 137,
+    chainId: CHAIN.POLYGON,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/polygon/assets/0xc2132D05D31c914a87C6611C10748AEb04B58e8F/logo.png',
   },
@@ -72,18 +82,41 @@ const TOKEN_LIST = [
     name: 'STACK',
     address: '0x980111ae1B84E50222C8843e3A7a038F36Fecd2b',
     symbol: 'STA',
-    decimals: 6,
-    chainId: 137,
+    decimals: 18,
+    chainId: CHAIN.POLYGON,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/polygon/assets/0x980111ae1B84E50222C8843e3A7a038F36Fecd2b/logo.png',
+  },
+  {
+    name: 'STACK',
+    address: '0x56a86d648c435dc707c8405b78e2ae8eb4e60ba4',
+    symbol: 'STA',
+    decimals: 18,
+    chainId: CHAIN.BSC,
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/polygon/assets/0x56a86d648c435dc707c8405b78e2ae8eb4e60ba4/logo.png',
   },
 ];
 
 const Wallet = () => {
   const { activeChain } = useNetwork();
-  const provider = useProvider();
-
+  const { data: account } = useAccount();
   const jsonRpcEndpoint = `${activeChain?.rpcUrls.alchemy}/${apiKey}`;
+  const [ethereumProvider, setEthereumProvider] = useState();
+  const [stackTokenAddress, setStackTokenAddress] = useState<string>();
+
+  useEffect(() => {
+    setStackTokenAddress(
+      TOKEN_LIST.find((token) => token.name === 'STACK' && token.chainId === activeChain?.id)
+        ?.address
+    );
+  }, [activeChain]);
+
+  useEffect(() => {
+    if (account) {
+      detectEthereumProvider().then((d) => setEthereumProvider(d));
+    }
+  }, [account]);
 
   return (
     <div className="w-[22.5rem]">
@@ -93,11 +126,11 @@ const Wallet = () => {
       </div>
       <div className="Uniswap">
         <SwapWidget
-          provider={provider}
+          provider={ethereumProvider}
           jsonRpcEndpoint={jsonRpcEndpoint}
           defaultInputAmount="1"
           tokenList={TOKEN_LIST}
-          defaultOutputTokenAddress={STA}
+          defaultOutputTokenAddress={stackTokenAddress}
           theme={theme}
         />
       </div>

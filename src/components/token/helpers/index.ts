@@ -13,4 +13,10 @@ const faq = [
   { id: 4, title: 'TOKEN_FAQ_ANSWER1.4' },
 ];
 
-export { features, faq };
+const CHAIN = {
+  ETHEREUM: 1,
+  POLYGON: 137,
+  BSC: 56,
+};
+
+export { features, faq, CHAIN };
