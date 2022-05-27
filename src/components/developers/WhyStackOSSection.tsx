@@ -39,7 +39,7 @@ const WhyStackOSSection = () => {
           <span className="text-main-green">{t('DEVELOPERS_WHY_SPAN_TITLE')}</span>
           {t('DEVELOPERS_WHY_TITLE')}
         </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-3 mt-10 child:my-4 lg:child:my-12 child:max-w-[15rem] md:child:max-w-[17rem] lg:child:max-w-[19rem] xl:child:max-w-[22rem] lg:child:mx-3 xl:child:mx-6 child:text-xl child:font-normal">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10 child:my-4 lg:child:my-12 child:max-w-[17rem] sm:child:max-w-[15rem] md:child:max-w-[17rem] lg:child:max-w-[19rem] xl:child:max-w-[22rem] lg:child:mx-3 xl:child:mx-6 child:text-xl child:font-normal">
           {explainCards.map((item) => (
             <div key={item.iconName}>
               <ExplainCard

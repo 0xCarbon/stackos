@@ -25,7 +25,7 @@ const DeployOptionsSection = () => {
           <p className="text-xl font-normal">{t('DEVELOPERS_DEPLOY_DESCRIPTION2')}</p>
         </div>
       </div>
-      <div className="absolute flex w-[35rem] h-[15rem] top-[13.5rem] lg:top-16 xl:top-5 right-0 left-0 mr-auto ml-auto">
+      <div className="absolute flex w-[35rem] h-[15rem] top-[21rem] left-[-8rem] sm:top-[13.5rem] lg:top-16 xl:top-5 sm:right-0 sm:left-0 sm:mx-auto">
         <Image src="/assets/developers/deploys-bg-developers.svg" layout="fill" />
       </div>
     </div>

@@ -20,7 +20,7 @@ const HeroSection = () => {
             <p>{t('DEVELOPERS_HERO_DESCRIPTION2')}</p>
           </div>
         </div>
-        <div className="flex lg:inline items-center lg:ml-52 xl:ml-56 mb-24 z-10">
+        <div className="flex flex-col sm:flex-row lg:inline sm:items-center lg:ml-52 xl:ml-56 mb-24 z-10">
           <div className="flex">
             <Separator className="w-2 bg-main-green mr-7" />
             <div>
@@ -33,7 +33,7 @@ const HeroSection = () => {
               </span>
             </div>
           </div>
-          <div className="ml-[6.5rem] lg:ml-0 lg:mt-11">
+          <div className="mt-8 sm:ml-[6.5rem] lg:ml-0 lg:mt-11">
             <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
           </div>
         </div>
