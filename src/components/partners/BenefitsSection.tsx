@@ -14,7 +14,7 @@ const BenefitsSection = () => {
         {t('PARTNERS_BENEFITS_DESCRIPTION')}
       </span>
       <div className="w-full flex justify-center items-center">
-        <div className="text-[#E5E7EB] w-full text-left grid grid-cols-2 lg:grid-cols-3">
+        <div className="text-[#E5E7EB] w-full text-left grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <BenefitsCard
             tile="1"
             title={t('PARTNERS_BENEFITS_CARD1_TITLE')}
@@ -30,14 +30,14 @@ const BenefitsSection = () => {
             title={t('PARTNERS_BENEFITS_CARD3_TITLE')}
             description={t('PARTNERS_BENEFITS_CARD3_DESCRIPTION')}
           />
-          <div className="col-start-2">
+          <div className="sm:col-start-2">
             <BenefitsCard
               tile="4"
               title={t('PARTNERS_BENEFITS_CARD4_TITLE')}
               description={t('PARTNERS_BENEFITS_CARD4_DESCRIPTION')}
             />
           </div>
-          <div className="col-span-2 lg:col-auto">
+          <div className="sm:col-span-2 lg:col-auto">
             <BenefitsCard
               tile="5"
               title={t('PARTNERS_BENEFITS_CARD5_TITLE')}
@@ -46,7 +46,7 @@ const BenefitsSection = () => {
           </div>
         </div>
       </div>
-      <div className="absolute w-[85rem] md:w-[100rem] lg:w-[60rem] xl:w-[65rem] 2xl-[80rem] h-[60rem] lg:h-[58rem] top-[38rem] lg:top-[5rem] xl:top-[4rem] -left-[3rem] md:-left-[7rem] lg:-left-[14rem] xl:-left-[10rem] 2xl:-left-[13rem] duration-500">
+      <div className="absolute w-[85rem] md:w-[100rem] lg:w-[60rem] xl:w-[65rem] h-[60rem] lg:h-[58rem] top-[70rem] sm:top-[38rem] lg:top-[5rem] xl:top-[4rem] -left-[9rem] md:-left-[15rem] lg:-left-[14rem] xl:-left-[10rem] duration-500">
         <Image
           src="/assets/partners/benefits-bg-partners.svg"
           alt="background image"
