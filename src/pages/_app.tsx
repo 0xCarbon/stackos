@@ -3,9 +3,13 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 
-import { Provider, createClient, allChains } from 'wagmi';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { createClient, allChains, WagmiConfig, configureChains } from 'wagmi';
 
+import { publicProvider } from 'wagmi/providers/public';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { providers } from 'ethers';
+
+const apiKey = process.env.NEXT_PUBLIC_ALCHEMY_KEY;
 const ETHEREUM_MAINNET = 1;
 const POLYGON_MAINNET = 137;
 
@@ -14,6 +18,7 @@ const filteredChains = allChains.filter(
 );
 
 const binanceMainnet = {
+  network: '',
   id: 56,
   name: 'Binance Smart Chain',
   nativeCurrency: {
@@ -39,6 +44,7 @@ const binanceMainnet = {
 };
 
 const binanceTestnet = {
+  network: '',
   id: 97,
   name: 'Binance Testnet',
   nativeCurrency: {
@@ -61,15 +67,20 @@ const binanceTestnet = {
   },
 };
 
+const customChains =
+  process.env.NODE_ENV === 'development' ? [...filteredChains, binanceMainnet] : [binanceTestnet];
+
+const { chains, provider } = configureChains(customChains, [publicProvider()]);
+
 const client = createClient({
   autoConnect: true,
+  provider(config) {
+    return new providers.AlchemyProvider(config.chainId, apiKey);
+  },
   connectors() {
     return [
       new MetaMaskConnector({
-        chains:
-          process.env.NODE_ENV === 'development'
-            ? [...filteredChains, binanceMainnet]
-            : [binanceTestnet],
+        chains,
       }),
     ];
   },
@@ -77,9 +88,9 @@ const client = createClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider client={client}>
+    <WagmiConfig client={client}>
       <Component {...pageProps} />
-    </Provider>
+    </WagmiConfig>
   );
 }
 

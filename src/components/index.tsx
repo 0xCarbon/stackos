@@ -7,3 +7,5 @@ export { default as StackOSButton } from './StackOSButton';
 export { default as StackOSInput } from './StackOSInput';
 export { default as StackOSDropdown } from './StackOSDropdown';
 export { default as StackOSIcon } from './StackOSIcon';
+export { default as Dropdown } from './Dropdown';
+export { default as NetworksDropdown } from './NetworksDropdown';
