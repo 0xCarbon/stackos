@@ -1,16 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable react-hooks/exhaustive-deps */
-import { chain, useNetwork, useProvider } from 'wagmi';
+/* eslint-disable import/extensions */
+import { useNetwork, useProvider } from 'wagmi';
 import '@uniswap/widgets/fonts.css';
-// import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { providers, ethers } from 'ethers';
-import { hexStripZeros } from '@ethersproject/bytes';
-import { BigNumber } from '@ethersproject/bignumber';
-import detectEthereumProvider from '@metamask/detect-provider';
 import { SwapWidget, Theme } from '@uniswap/widgets';
-import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
-import { HiSwitchVertical } from 'react-icons/hi';
 import { NetworksDropdown } from '@/components';
 import ConnectButton from '@/components/ConnectButton';
 
@@ -89,18 +80,10 @@ const TOKEN_LIST = [
 ];
 
 const Wallet = () => {
-  const { chains } = useNetwork();
-
-  const ETHEREUM = 1;
-  const BSC = 56;
-  const POLYGON = 137;
-
-  const ethereumChain = chains.find((chain) => chain.id === ETHEREUM);
-  const binanceChain = chains.find((chain) => chain.id === BSC);
-  const polygonChain = chains.find((chain) => chain.id === POLYGON);
-
-  const jsonRpcEndpoint = `${ethereumChain?.rpcUrls.alchemy}/${apiKey}`;
+  const { activeChain } = useNetwork();
   const provider = useProvider();
+
+  const jsonRpcEndpoint = `${activeChain?.rpcUrls.alchemy}/${apiKey}`;
 
   return (
     <div className="w-[22.5rem]">

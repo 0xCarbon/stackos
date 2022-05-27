@@ -6,8 +6,8 @@ import { appWithTranslation } from 'next-i18next';
 import { createClient, allChains, WagmiConfig, configureChains } from 'wagmi';
 
 import { publicProvider } from 'wagmi/providers/public';
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { providers } from 'ethers';
 
 const apiKey = process.env.NEXT_PUBLIC_ALCHEMY_KEY;
 const ETHEREUM_MAINNET = 1;
@@ -70,13 +70,18 @@ const binanceTestnet = {
 const customChains =
   process.env.NODE_ENV === 'development' ? [...filteredChains, binanceMainnet] : [binanceTestnet];
 
-const { chains, provider } = configureChains(customChains, [publicProvider()]);
+const { chains, provider } = configureChains(customChains, [
+  jsonRpcProvider({
+    rpc: (chain) => ({
+      http: `${chain.rpcUrls.alchemy}/${apiKey}`,
+    }),
+  }),
+  publicProvider(),
+]);
 
 const client = createClient({
   autoConnect: true,
-  provider(config) {
-    return new providers.AlchemyProvider(config.chainId, apiKey);
-  },
+  provider,
   connectors() {
     return [
       new MetaMaskConnector({
