@@ -23,7 +23,7 @@ const Header = () => {
     <header
       className={`${
         hiddenHeader ? '-translate-y-full' : ''
-      } bg-[#1F2937] lg:bg-transparent lg:bg-gradient-to-b  lg:from-[#111827] lg:via-[#111827] z-50 overflow-hidden lg:fixed top-0 w-full pb-14 duration-500`}
+      } bg-[#1F2937] lg:bg-transparent lg:bg-gradient-to-b  lg:from-[#111827] lg:via-[#111827] z-50 overflow-hidden lg:fixed top-0 w-full lg:pb-14 duration-500`}
     >
       <Popover>
         <div className="px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20 py-4 lg:py-16 lg:max-w-[60rem] xl:max-w-[71.25rem] lg:mx-auto duration-500">
