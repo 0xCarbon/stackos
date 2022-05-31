@@ -36,7 +36,7 @@ const DecentralizedSection = () => {
           />
         </div>
       </div>
-      <div className="hidden sm:inline absolute w-[58rem] h-[55rem] top-[24rem] -right-64 md:w-[70rem] md:h-[70rem] md:right-[-10rem] lg:w-[80rem] lg:h-[70rem] lg:right-[-10rem] duration-500">
+      <div className="hidden sm:inline absolute w-[66rem] h-[55rem] top-[24rem] -right-40 md:w-[77rem] md:h-[70rem] md:right-[-10rem] lg:w-[120rem] lg:h-[70rem] lg:right-[-20rem] xl:right-[-15rem] duration-500">
         <Image
           src="/assets/technology/technology-background2.svg"
           alt="technology background"
