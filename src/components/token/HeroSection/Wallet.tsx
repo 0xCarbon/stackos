@@ -5,9 +5,11 @@ import { useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi';
 // import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { HiSwitchVertical } from 'react-icons/hi';
-import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSInput } from '@/components';
+import { LearnMore, StackOSButton, StackOSDropdown, StackOSIcon, StackOSInput } from '@/components';
 
 import web3 from 'web3';
+import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
+import { BsArrowDownCircle } from 'react-icons/bs';
 
 interface Token {
   id: number;
@@ -49,7 +51,7 @@ const Wallet = () => {
     { title: 'BSC', subtitle: 'PancakeSwap (v2)', icon: 'pancakeswap', ...binanceChain },
   ];
 
-  const [input, setInput] = useState<number>(1);
+  const [input, setInput] = useState<number>();
 
   const [tokenOptions, setTokenOptions] = useState<Token[]>([
     { id: 1, title: 'ETH', icon: 'eth' },
@@ -233,8 +235,19 @@ const Wallet = () => {
           {networkSelected.title}
         </span>
       </StackOSDropdown>
-      <div className="mt-20 p-4 bg-[#1F2937] rounded-md">
-        <p className="text-[#F9FAFB] font-semibold text-xl mb-8">Buy STACK</p>
+      <div className="mt-20 px-4 py-6 bg-[#1F2937] rounded-md">
+        <div className="flex flex-row justify-between mb-7">
+          <a
+            href="https://app.1inch.io/"
+            target="_blank"
+            rel="noreferrer"
+            className="flex flex-row items-end mb-2 text-main-green hover:cursor-pointer"
+          >
+            <BiLinkExternal className="duration-500 text-xl" color="#AAFF00" />
+            <p className="mx-2 font-normal text-sm duration-500">By 1inch</p>
+          </a>
+          <BiCog className="hover:cursor-pointer" color="#CFCFCF" size={20} />
+        </div>
         <StackOSInput
           dropdownOptions={tokenOptions}
           selected={tokenSelected.id}
@@ -243,10 +256,14 @@ const Wallet = () => {
           onChangeInput={(value) => setInput(value)}
         />
         <div className="relative z-10 h-1 flex flex-row justify-center items-center">
-          <HiSwitchVertical color="#84CC16" size={20} />
+          <BsArrowDownCircle color="#AAFF00" size={26} />
         </div>
         <StackOSInput />
-        <div className="flex flex-row justify-center items-center mt-6 w-full">
+        <div className="flex flex-row items-end my-6 text-white">
+          <BiInfoCircle className="duration-500 text-xl lg:text-3xl" color="#CFCFCF" />
+          <p className="mx-2 font-normal text-sm lg:text-xl duration-500">Enter an amount</p>
+        </div>
+        <div className="flex flex-row justify-center items-center w-full">
           {account?.address ? (
             <div className="w-full child:w-full" onClick={() => onClickSwap()}>
               <StackOSButton>Buy STACK</StackOSButton>
@@ -256,7 +273,6 @@ const Wallet = () => {
               type="button"
               className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
               onClick={() => connect(metamask)}
-              disabled
             >
               {isConnecting && metamask?.id === pendingConnector?.id
                 ? 'Connecting Wallet...'
