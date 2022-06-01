@@ -1,15 +1,22 @@
 /* eslint-disable */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi';
+import {
+  useAccount,
+  useConnect,
+  useDisconnect,
+  useNetwork,
+  useProvider,
+  useSendTransaction,
+  useToken,
+} from 'wagmi';
 
-// import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { HiSwitchVertical } from 'react-icons/hi';
-import { LearnMore, StackOSButton, StackOSDropdown, StackOSIcon, StackOSInput } from '@/components';
+import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSInput } from '@/components';
 
-import web3 from 'web3';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
 import { BsArrowDownCircle } from 'react-icons/bs';
+import { BigNumber, ethers } from 'ethers';
+import { IoMdClose } from 'react-icons/io';
 
 interface Token {
   id: number;
@@ -25,19 +32,29 @@ interface Tokens {
 }
 
 // TODO fromTokenAddress
-const STACK_ADDRESS = '0x980111ae1B84E50222C8843e3A7a038F36Fecd2b';
+const STACK_ADDRESS = '0x6855f7bb6287F94ddcC8915E37e73a3c9fEe5CF3';
 const ETHEREUM = 1;
 const BSC = 56;
 const POLYGON = 137;
-
-const web3RpcUrl = 'https://polygon-rpc.com/';
-const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY;
 
 const Wallet = () => {
   const { data: account } = useAccount();
   const { connect, connectors, isConnecting, pendingConnector } = useConnect();
   const { disconnect } = useDisconnect();
   const { activeChain, chains, switchNetwork } = useNetwork();
+  const {
+    data: transactionResponse,
+    isIdle,
+    isError,
+    isLoading,
+    isSuccess,
+    sendTransaction,
+  } = useSendTransaction();
+  const provider = useProvider();
+  // const { data: token } = useToken({
+  //   address: '0x6855f7bb6287F94ddcC8915E37e73a3c9fEe5CF3',
+  // });
+  // console.log(token);
 
   const metamask = connectors[0];
 
@@ -52,6 +69,7 @@ const Wallet = () => {
   ];
 
   const [input, setInput] = useState<number>();
+  const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
 
   const [tokenOptions, setTokenOptions] = useState<Token[]>([
     { id: 1, title: 'ETH', icon: 'eth' },
@@ -97,7 +115,6 @@ const Wallet = () => {
   const walletAddress = account?.address;
   const broadcastApiUrl = 'https://tx-gateway.1inch.io/v1.1/' + networkSelected.id + '/broadcast';
   const apiBaseUrl = 'https://api.1inch.io/v4.0/' + networkSelected.id;
-  const Web3 = new web3(web3RpcUrl);
 
   function onChangeNetwork(value: number) {
     if (!activeChain) {
@@ -144,7 +161,21 @@ const Wallet = () => {
   }
 
   async function signAndSendTransaction(transaction) {
-    const { rawTransaction } = await Web3.eth.accounts.signTransaction(transaction, privateKey);
+    // const {rawTransaction} = await web3.eth.accounts.signTransaction(transaction, privateKey);
+    console.log(transaction);
+
+    const rawTransaction = await sendTransaction({
+      request: {
+        to: transaction.to,
+        from: transaction.from,
+        data: transaction.data,
+        gasPrice: transaction.gasPrice,
+        value: BigNumber.from(transaction.value),
+      },
+    });
+
+    console.log(rawTransaction);
+    console.log(transactionResponse); // fazer um watch dessa variavel pra chamar o broadcast
 
     return await broadCastRawTransaction(rawTransaction);
   }
@@ -161,14 +192,20 @@ const Wallet = () => {
         console.log(e);
       });
 
-    const gasLimit = await Web3.eth.estimateGas({
+    console.log(transaction);
+
+    const gasLimit = await provider.estimateGas({
       ...transaction,
       from: walletAddress,
     });
+    console.log(gasLimit);
 
+    // enviando o 'data' do transaction aqui faz o metamask ficar em loading infinito
     return {
-      ...transaction,
-      gas: gasLimit,
+      gasLimit,
+      to: transaction.to,
+      gasPrice: transaction.gasPrice,
+      value: BigNumber.from(transaction.value),
     };
   }
 
@@ -182,12 +219,12 @@ const Wallet = () => {
 
   async function onClickSwap() {
     const swapParams = {
-      fromTokenAddress: '0xb33eaad8d922b1083446dc23f610c2567fb5180f', // MATIC
+      fromTokenAddress: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', // BNB
       toTokenAddress: STACK_ADDRESS,
-      amount: input * 10 ** 18,
+      amount: 0.0001 * 10 ** 18,
       fromAddress: walletAddress,
       slippage: 1,
-      disableEstimate: false,
+      disableEstimate: true, // default false, error 400 'cannot estimate. Don't forget about miner fee. Try to leave the buffer of BNB for gas' on default
       allowPartialFill: false,
     };
 
@@ -236,50 +273,72 @@ const Wallet = () => {
         </span>
       </StackOSDropdown>
       <div className="mt-20 px-4 py-6 bg-[#1F2937] rounded-md">
-        <div className="flex flex-row justify-between mb-7">
-          <a
-            href="https://app.1inch.io/"
-            target="_blank"
-            rel="noreferrer"
-            className="flex flex-row items-end mb-2 text-main-green hover:cursor-pointer"
-          >
-            <BiLinkExternal className="duration-500 text-xl" color="#AAFF00" />
-            <p className="mx-2 font-normal text-sm duration-500">By 1inch</p>
-          </a>
-          <BiCog className="hover:cursor-pointer" color="#CFCFCF" size={20} />
-        </div>
-        <StackOSInput
-          dropdownOptions={tokenOptions}
-          selected={tokenSelected.id}
-          onChangeSelection={(value) => onChangeToken(value)}
-          value={input}
-          onChangeInput={(value) => setInput(value)}
-        />
-        <div className="relative z-10 h-1 flex flex-row justify-center items-center">
-          <BsArrowDownCircle color="#AAFF00" size={26} />
-        </div>
-        <StackOSInput />
-        <div className="flex flex-row items-end my-6 text-white">
-          <BiInfoCircle className="duration-500 text-xl lg:text-3xl" color="#CFCFCF" />
-          <p className="mx-2 font-normal text-sm lg:text-xl duration-500">Enter an amount</p>
-        </div>
-        <div className="flex flex-row justify-center items-center w-full">
-          {account?.address ? (
-            <div className="w-full child:w-full" onClick={() => onClickSwap()}>
-              <StackOSButton>Buy STACK</StackOSButton>
+        {settingsOpen ? (
+          <>
+            <div className="flex flex-row justify-between mb-7">
+              <span className="text-[#F9FAFB]">Settings</span>
+              <IoMdClose
+                className="hover:cursor-pointer"
+                color="#CFCFCF"
+                size={20}
+                onClick={() => setSettingsOpen(false)}
+              />
             </div>
-          ) : (
-            <button
-              type="button"
-              className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
-              onClick={() => connect(metamask)}
-            >
-              {isConnecting && metamask?.id === pendingConnector?.id
-                ? 'Connecting Wallet...'
-                : 'Connect Wallet'}
-            </button>
-          )}
-        </div>
+            <div>TODO</div>
+          </>
+        ) : (
+          <>
+            <div className="flex flex-row justify-between mb-7">
+              <a
+                href="https://app.1inch.io/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex flex-row items-end mb-2 text-main-green hover:cursor-pointer"
+              >
+                <BiLinkExternal className="duration-500 text-xl" color="#AAFF00" />
+                <p className="mx-2 font-normal text-sm duration-500">By 1inch</p>
+              </a>
+              <BiCog
+                className="hover:cursor-pointer"
+                color="#CFCFCF"
+                size={20}
+                onClick={() => setSettingsOpen(true)}
+              />
+            </div>
+            <StackOSInput
+              dropdownOptions={tokenOptions}
+              selected={tokenSelected.id}
+              onChangeSelection={(value) => onChangeToken(value)}
+              value={input}
+              onChangeInput={(value) => setInput(value)}
+            />
+            <div className="relative z-10 h-1 flex flex-row justify-center items-center">
+              <BsArrowDownCircle color="#AAFF00" size={26} />
+            </div>
+            <StackOSInput />
+            <div className="flex flex-row items-end my-6 text-white">
+              <BiInfoCircle className="duration-500 text-xl" color="#CFCFCF" />
+              <p className="mx-2 font-normal text-sm duration-500">Enter an amount</p>
+            </div>
+            <div className="flex flex-row justify-center items-center w-full">
+              {account?.address ? (
+                <div className="w-full child:w-full" onClick={() => onClickSwap()}>
+                  <StackOSButton>Buy STACK</StackOSButton>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
+                  onClick={() => connect(metamask)}
+                >
+                  {isConnecting && metamask?.id === pendingConnector?.id
+                    ? 'Connecting Wallet...'
+                    : 'Connect Wallet'}
+                </button>
+              )}
+            </div>
+          </>
+        )}
       </div>
     </>
   );
