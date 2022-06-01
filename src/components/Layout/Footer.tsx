@@ -22,7 +22,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex text-main-green text-2xl space-x-5 mt-7 child:p-3 child:rounded-full child:border child:border-main-green">
+        <div className="flex text-main-green text-2xl space-x-5 mt-7 md:mt-auto child:p-3 child:rounded-full child:border child:border-main-green">
           <div>
             <BsTwitter />
           </div>
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="py-6 border-t border-main-green text-center">
+      <div className="py-6 border-t border-main-green text-center mt-6">
         <p className="text-white text-sm font-normal">{t('FOOTER_COPYRIGHT')}</p>
       </div>
     </div>
