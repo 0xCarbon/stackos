@@ -1,10 +1,16 @@
-/* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
-import FlyoutItem from './FlyoutItem';
+import FlyoutItem, { Icons } from './FlyoutItem';
 
-const solutions = [
+interface Resources {
+  iconName: keyof Icons;
+  name: string;
+  description: string;
+  href: string;
+}
+
+const resources: Resources[] = [
   {
     iconName: 'discord',
     name: 'Discord',
@@ -50,18 +56,23 @@ const FlyoutNav = () => (
           leaveTo="opacity-0 translate-y-1"
         >
           <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-              <div className="relative grid gap-6 p-5 bg-dark-grey sm:gap-8 sm:p-8">
-                {solutions.map((item) => (
-                  <FlyoutItem
-                    iconName={item.iconName}
-                    name={item.name}
-                    description={item.description}
-                    href={item.href}
-                  />
-                ))}
+            {({ close }) => (
+              <div
+                onMouseLeave={() => close()}
+                className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
+              >
+                <div className="relative grid gap-6 p-5 bg-dark-grey sm:gap-8 sm:p-8">
+                  {resources.map((item) => (
+                    <FlyoutItem
+                      iconName={item.iconName}
+                      name={item.name}
+                      description={item.description}
+                      href={item.href}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </Popover.Panel>
         </Transition>
       </>
