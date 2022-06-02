@@ -35,3 +35,4 @@ Continous
 draggable
 testnet
 testnets
+WHITEPAPER
