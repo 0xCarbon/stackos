@@ -15,12 +15,16 @@ interface Props {
   onChangeSelection?: (value: number) => void;
   onChangeInput?: (value: number) => void;
   value?: number;
+  price?: number;
+  disabled?: boolean;
 }
 
 const StackOSInput = ({
   dropdownOptions,
   selected = 0,
   value,
+  price,
+  disabled,
   onChangeSelection = () => null,
   onChangeInput = () => null,
 }: Props) => {
@@ -37,14 +41,16 @@ const StackOSInput = ({
           type="number"
           name="price"
           id="price"
+          min="0"
           className="block w-full h-full pr-12 pt-2 text-white text-base outline-0 rounded-t-md"
           placeholder="0.00"
           aria-describedby="price-currency"
           value={value}
+          disabled={disabled}
           onChange={(e) => onChangeInput(Number(e.target.value))}
         />
         <div className="flex flex-row justify-start items-center w-full h-full pb-2 rounded-b-md">
-          <span className="text-[#6B7280] text-base">-</span>
+          <span className="text-[#6B7280] text-base">{price ? `~ $${price.toFixed(4)}` : '-'}</span>
         </div>
       </div>
       <div className="absolute inset-y-0 right-0 pr-3 pt-2 flex items-start">
@@ -67,12 +73,5 @@ const StackOSInput = ({
     </div>
   );
 };
-{
-  /* <div className="relative h-10 shadow-sm child:bg-[#374151] child:rounded-md">
-  <div className="flex flex-row justify-start items-center w-full h-full pl-3">
-    <span className="text-[#6B7280] text-base">-</span>
-  </div>
-</div> */
-}
 
 export default StackOSInput;
