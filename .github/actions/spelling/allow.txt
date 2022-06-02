@@ -36,3 +36,4 @@ draggable
 testnet
 testnets
 WHITEPAPER
+extralight
