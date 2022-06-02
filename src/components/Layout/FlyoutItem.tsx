@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaDiscord } from 'react-icons/fa';
 import { BiBlock } from 'react-icons/bi';
-import { GrAppsRounded } from 'react-icons/gr';
+import { HiOutlineViewGrid } from 'react-icons/hi';
 import { MdOutlineTextSnippet } from 'react-icons/md';
 
 export interface Icons {
@@ -23,7 +23,7 @@ const FlyoutItem = ({ iconName, name, description, href }: Props) => {
     discord: <FaDiscord />,
     communities: <BiBlock />,
     whitepaper: <MdOutlineTextSnippet />,
-    ambassador: <GrAppsRounded />,
+    ambassador: <HiOutlineViewGrid />,
   };
 
   const icon = icons[iconName];
@@ -32,7 +32,7 @@ const FlyoutItem = ({ iconName, name, description, href }: Props) => {
     <a
       key={name}
       href={href}
-      className="flex -m-3 p-3 text-4xl rounded-md text-white bg-dark-grey hover:bg-light-grey transition ease-in-out duration-150"
+      className="flex -m-3 p-3 text-4xl rounded-md text-main-green bg-dark-grey hover:bg-light-grey transition ease-in-out duration-150"
     >
       {icon}
       <div className="ml-5">
