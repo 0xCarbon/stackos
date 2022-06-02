@@ -35,3 +35,7 @@ Continous
 draggable
 testnet
 testnets
+flyout
+whitepaper
+whitepaper
+Flyout
