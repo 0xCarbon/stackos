@@ -9,6 +9,9 @@ import { publicProvider } from 'wagmi/providers/public';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 
+import { Provider } from 'react-redux';
+import store from '../redux/store';
+
 const apiKey = process.env.NEXT_PUBLIC_ALCHEMY_KEY;
 const ETHEREUM_MAINNET = 1;
 const POLYGON_MAINNET = 137;
@@ -94,7 +97,9 @@ const client = createClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={client}>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </WagmiConfig>
   );
 }

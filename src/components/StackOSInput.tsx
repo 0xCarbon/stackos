@@ -17,6 +17,7 @@ interface Props {
   value?: number;
   price?: number;
   disabled?: boolean;
+  showPrice?: boolean;
 }
 
 const StackOSInput = ({
@@ -25,6 +26,7 @@ const StackOSInput = ({
   value,
   price,
   disabled,
+  showPrice,
   onChangeSelection = () => null,
   onChangeInput = () => null,
 }: Props) => {
@@ -42,34 +44,42 @@ const StackOSInput = ({
           name="price"
           id="price"
           min="0"
-          className="block w-full h-full pr-12 pt-2 text-white text-base outline-0 rounded-t-md"
+          className={`block w-full h-full pr-12 text-white text-base outline-0 ${
+            showPrice ? 'rounded-t-md pt-2' : 'rounded-md py-2'
+          }`}
           placeholder="0.00"
           aria-describedby="price-currency"
           value={value}
           disabled={disabled}
           onChange={(e) => onChangeInput(Number(e.target.value))}
         />
-        <div className="flex flex-row justify-start items-center w-full h-full pb-2 rounded-b-md">
-          <span className="text-[#6B7280] text-base">{price ? `~ $${price.toFixed(4)}` : '-'}</span>
+        {showPrice && (
+          <div className="flex flex-row justify-start items-center w-full h-full pb-2 rounded-b-md">
+            <span className="text-[#6B7280] text-base">
+              {price ? `~ $${price.toFixed(4)}` : '-'}
+            </span>
+          </div>
+        )}
+      </div>
+      {showPrice && (
+        <div className="absolute inset-y-0 right-0 pr-3 pt-2 flex items-start">
+          <span className="text-[#6B7280] text-base" id="price-currency">
+            {dropdownOptions?.length ? (
+              <StackOSDropdown
+                className="text-[#D1D5DB]"
+                header="Select a Token"
+                dropdownOptions={dropdownOptions}
+                selected={selected}
+                onChangeSelection={(option) => onChangeSelection(option)}
+              >
+                <span className="pr-2 text-[#6B7280]">{selectedOption?.title}</span>
+              </StackOSDropdown>
+            ) : (
+              'STA'
+            )}
+          </span>
         </div>
-      </div>
-      <div className="absolute inset-y-0 right-0 pr-3 pt-2 flex items-start">
-        <span className="text-[#6B7280] text-base" id="price-currency">
-          {dropdownOptions?.length ? (
-            <StackOSDropdown
-              className="text-[#D1D5DB]"
-              header="Select a Token"
-              dropdownOptions={dropdownOptions}
-              selected={selected}
-              onChangeSelection={(option) => onChangeSelection(option)}
-            >
-              <span className="pr-2 text-[#6B7280]">{selectedOption?.title}</span>
-            </StackOSDropdown>
-          ) : (
-            'STA'
-          )}
-        </span>
-      </div>
+      )}
     </div>
   );
 };

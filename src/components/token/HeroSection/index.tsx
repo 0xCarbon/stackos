@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useTranslation } from 'react-i18next';
-import Wallet from './Wallet';
+import Wallet from './wallet';
 
 const HeroSection = () => {
   const { t } = useTranslation();
