@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { ReactNode, useEffect, useState } from 'react';
 import { Chain, useAccount, useConnect, useNetwork } from 'wagmi';

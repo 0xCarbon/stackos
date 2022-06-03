@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Switch } from '@headlessui/react';
 
 type Props = {
