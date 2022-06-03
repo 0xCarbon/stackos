@@ -8,7 +8,7 @@ const ExplainSection = () => {
   return (
     <div className="flex flex-col text-white relative md:px-16 lg:px-0 child:duration-500">
       <div className="z-10 flex flex-col lg:flex-row mb-24 lg:justify-between w-full">
-        <div className="flex relative flex-col mr-20 xl:w-[42.3rem] 2xl:w-[47rem]">
+        <div className="flex relative flex-col sm:mr-20 xl:w-[42.3rem] 2xl:w-[47rem]">
           <div>
             <h1 className="leading-normal text-[2.5rem] xl:text-[3.8rem] font-extrabold mb-10 duration-500">
               {t('GOVERNANCE_EXPLAIN_TITLE')}

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import { LearnMore } from '@/components';
@@ -7,7 +8,7 @@ const TokenSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col justify-start py-20">
+    <div className="relative flex flex-col justify-start sm:pt-5">
       <div className="flex flex-row justify-start items-center mb-9 child:duration-500">
         <Separator className="h-10 lg:h-14 w-[0.4rem] lg:w-2 xl:w-2 2xl:w-[0.45rem] bg-main-green" />
         <h2 className="text-[#FFFFFF] font-extrabold text-4xl lg:text-6xl mx-5">
@@ -37,6 +38,22 @@ const TokenSection = () => {
             <ExplainCard iconName="bolt" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
           </div>
         </div>
+      </div>
+      <div className="hidden md:flex lg:hidden absolute w-[18rem] h-[14rem] top-[0rem] right-[-8rem] duration-500">
+        <Image
+          src="/assets/home/token-background-md.svg"
+          alt="technology background"
+          layout="fill"
+          priority
+        />
+      </div>
+      <div className="hidden lg:flex absolute w-[69rem] h-[60rem] top-[-38rem] right-[-60rem] duration-500">
+        <Image
+          src="/assets/home/token-background-lg.svg"
+          alt="technology background"
+          layout="fill"
+          priority
+        />
       </div>
     </div>
   );

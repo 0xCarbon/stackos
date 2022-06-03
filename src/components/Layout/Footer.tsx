@@ -1,53 +1,41 @@
-import { ImFacebook2 } from 'react-icons/im';
-import { BsGithub, BsTwitter, BsDribbble } from 'react-icons/bs';
+import { BsTwitter, BsTelegram } from 'react-icons/bs';
+import { FaDiscord } from 'react-icons/fa';
 import { useTranslation } from 'next-i18next';
+import Image from 'next/image';
 
 const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="mt-auto">
-      <div className="flex justify-between px-5 md:px-7 lg:px-10 2xl:px-20">
-        <div className="flex flex-col text-white">
-          <span className="text-3xl">{t('FOOTER_TITLE')}</span>
-          <span className="text-base md:text-lg max-w-xs md:max-w-md lg:max-w-xl pt-3 pb-5  lg:pt-2 lg:pb-7">
-            {t('FOOTER_SUBTITLE')}
-          </span>
-          <div className="flex space-x-2">
-            <div className="bg-white rounded-full p-3">
-              <BsTwitter color="#3182CE" />
+    <div>
+      <div className="flex flex-col md:flex-row md:justify-between lg:mt-56 px-5 md:px-0 max-w-[23rem] sm:max-w-[33.75rem] md:max-w-[45rem] lg:max-w-[60rem] xl:max-w-[71.25rem] mx-auto">
+        <div>
+          <h1 className="text-[1.9rem] font-semibold text-main-green">{t('FOOTER_TITLE')}</h1>
+          <div className="flex text-sm font-extralight text-main-grey">
+            <div className="flex mr-4">
+              <Image src="/assets/layout/paper.svg" width={9} height={12} />
+              <p className="ml-[0.44rem]">{t('FOOTER_WHITEPAPER')}</p>
             </div>
-            <div className="bg-white rounded-full p-3">
-              <ImFacebook2 color="#63B3ED" />
-            </div>
-            <div className="bg-white rounded-full p-3">
-              <BsDribbble color="#F687B3" />
-            </div>
-            <div className="bg-white rounded-full p-3">
-              <BsGithub color="#3A71DF" />
+            <div className="flex">
+              <Image src="/assets/layout/ambassador.svg" width={10} height={12} />
+              <p className="ml-[0.44rem]">{t('FOOTER_AMBASSADOR')}</p>
             </div>
           </div>
         </div>
-        <div className="flex text-white text-xs md:text-sm space-x-10 lg:space-x-12 xl:space-x-32 2xl:space-x-56">
-          <div className="flex flex-col space-y-1 md:space-y-3 lg:space-y-2 2xl:space-y-4">
-            <span>{t('FOOTER_LINKS')}</span>
-            <span>{t('FOOTER_LINK1')}</span>
-            <span>{t('FOOTER_LINK2')}</span>
-            <span>{t('FOOTER_LINK3')}</span>
-            <span>{t('FOOTER_LINK4')}</span>
+        <div className="flex text-main-green text-2xl space-x-5 mt-7 md:mt-auto child:p-3 child:rounded-full child:border child:border-main-green">
+          <div>
+            <BsTwitter />
           </div>
-          <div className="flex flex-col space-y-1 md:space-y-3 lg:space-y-2 2xl:space-y-4">
-            <span>{t('FOOTER_RESOURCES')}</span>
-            <span>{t('FOOTER_RESOURCE1')}</span>
-            <span>{t('FOOTER_RESOURCE2')}</span>
-            <span>{t('FOOTER_RESOURCE3')}</span>
-            <span>{t('FOOTER_RESOURCE4')}</span>
+          <div>
+            <BsTelegram />
+          </div>
+          <div>
+            <FaDiscord />
           </div>
         </div>
       </div>
-
-      <div className="border-t-[1px] text-white text-xs md:text-sm pb-28 lg:pb-52 mt-4 pt-4 md:pt-8 md:mt-8 lg:mt-14 2xl:mt-10 text-center">
-        <span>{t('FOOTER_COPYRIGHT')}</span>
+      <div className="py-6 border-t border-main-green text-center mt-6">
+        <p className="text-white text-sm font-normal">{t('FOOTER_COPYRIGHT')}</p>
       </div>
     </div>
   );

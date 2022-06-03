@@ -2,6 +2,7 @@ import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { StackOSButton } from '..';
+import StackOSCarousel from '../StackOSCarousel';
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -19,7 +20,7 @@ const HeroSection = () => {
             <p>{t('DEVELOPERS_HERO_DESCRIPTION2')}</p>
           </div>
         </div>
-        <div className="flex lg:inline items-center lg:ml-52 xl:ml-56 mb-24 z-10">
+        <div className="flex flex-col sm:flex-row lg:inline sm:items-center lg:ml-52 xl:ml-56 mb-24 z-10">
           <div className="flex">
             <Separator className="w-2 bg-main-green mr-7" />
             <div>
@@ -32,11 +33,15 @@ const HeroSection = () => {
               </span>
             </div>
           </div>
-          <div className="ml-[6.5rem] lg:ml-0 lg:mt-11">
+          <div className="mt-8 sm:ml-[6.5rem] lg:ml-0 lg:mt-11">
             <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
           </div>
         </div>
       </div>
+      <div className="w-full flex md:justify-center">
+        <StackOSCarousel />
+      </div>
+
       <div className="flex w-[31.6rem] h-[31.6rem] absolute top-[5rem] md:top-6 lg:-top-28 xl:-top-26 left-16 md:left-16 lg:left-[29rem] xl:left-[45.5rem]">
         <Image src="/assets/developers/hero-bg-developers.svg" layout="fill" />
       </div>
