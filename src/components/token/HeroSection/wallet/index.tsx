@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi';
+import { useAccount, useConnect, useNetwork } from 'wagmi';
 
 import { useEffect } from 'react';
-import { ethers } from 'ethers';
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { setNetworkSelected, setStackAddress, setTokenOptions } from 'src/redux/actions/general';
 import { StackOSDropdown, StackOSIcon } from '@/components';
