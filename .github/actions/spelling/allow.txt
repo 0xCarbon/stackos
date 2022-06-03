@@ -37,3 +37,7 @@ testnet
 testnets
 WHITEPAPER
 extralight
+flyout
+whitepaper
+whitepaper
+Flyout

@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaDiscord } from 'react-icons/fa';
 import { BiBlock } from 'react-icons/bi';
-import { GrAppsRounded } from 'react-icons/gr';
-import Image from 'next/image';
+import { HiOutlineViewGrid } from 'react-icons/hi';
+import { MdOutlineTextSnippet } from 'react-icons/md';
 
 export interface Icons {
   discord: React.ReactElement;
@@ -22,8 +22,8 @@ const FlyoutItem = ({ iconName, name, description, href }: Props) => {
   const icons: Icons = {
     discord: <FaDiscord />,
     communities: <BiBlock />,
-    whitepaper: <Image src="/assets/layout/whitepaper.svg" width={17} height={23} />,
-    ambassador: <GrAppsRounded />,
+    whitepaper: <MdOutlineTextSnippet />,
+    ambassador: <HiOutlineViewGrid />,
   };
 
   const icon = icons[iconName];
@@ -32,12 +32,12 @@ const FlyoutItem = ({ iconName, name, description, href }: Props) => {
     <a
       key={name}
       href={href}
-      className="flex -m-3 p-3 text-6xl rounded-md text-black bg-dark-grey hover:bg-light-grey transition ease-in-out duration-150"
+      className="flex -m-3 p-3 text-4xl rounded-md text-main-green bg-dark-grey hover:bg-light-grey transition ease-in-out duration-150"
     >
       {icon}
-      <div>
-        <p className="text-base font-medium text-gray-900">{name}</p>
-        <p className="mt-1 text-sm text-gray-500">{description}</p>
+      <div className="ml-5">
+        <p className="text-base font-medium text-white">{name}</p>
+        <p className="mt-1 text-sm font-normal text-dark-white">{description}</p>
       </div>
     </a>
   );
