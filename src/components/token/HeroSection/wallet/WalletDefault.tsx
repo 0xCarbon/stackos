@@ -144,13 +144,13 @@ const WalletDefault = () => {
   async function buildTxForApproveTradeWithRouter(tokenAddress: any, amount: any) {
     const transaction = await fetchTransactionApproval(tokenAddress, amount, networkSelected.id);
 
-    console.log(transaction);
+    // console.log(transaction);
 
     const gasLimit = await provider.estimateGas({
       ...transaction,
       from: walletAddress,
     });
-    console.log(gasLimit);
+    // console.log(gasLimit);
 
     // enviando o 'data' do transaction aqui faz o metamask ficar em loading infinito
     return {
@@ -177,9 +177,10 @@ const WalletDefault = () => {
     if (allowance == 0) {
       // First, let's build the body of the transaction
       const transactionForSign = await buildTxForApproveTradeWithRouter(
-        swapParams.fromTokenAddress
+        swapParams.fromTokenAddress,
+        0
       );
-      console.log('Transaction for approve: ', transactionForSign);
+      //   console.log('Transaction for approve: ', transactionForSign);
 
       // Send a transaction and get its hash
       const approveTxHash = await signAndSendTransaction(transactionForSign);
