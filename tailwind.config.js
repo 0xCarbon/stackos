@@ -16,6 +16,9 @@ module.exports = {
       colors: {
         'main-green': '#AAFF00',
         'main-blue': '#111827',
+        'dark-grey': '#1F2937',
+        'light-grey': '#374151',
+        'dark-white': '#F3F4F6',
       },
       backgroundImage: {
         'carousel-circle': "url('/assets/home/carousel-circle.svg')",
