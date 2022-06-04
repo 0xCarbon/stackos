@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import ExplainCard, { Icons } from '../ExplainCard';
 
-const WhyStackOSSection = () => {
+const WhyStackOSSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   const explainCards = [
@@ -50,7 +50,10 @@ const WhyStackOSSection = () => {
           ))}
         </div>
       </div>
-      <div className="absolute w-[47.5rem] h-40 -top-9 -right-40 lg:-right-80 xl:-right-56 2xl:-right-36">
+      <div
+        style={{ transform: `translateX(-${offsetY * 0.1}px` }}
+        className="absolute w-[60rem] h-56 -top-9 right-[-30rem] lg:-right-80 xl:-right-56 2xl:-right-36 duration-500"
+      >
         <Image src="/assets/developers/why-bg-developers.svg" layout="fill" />
       </div>
     </div>
