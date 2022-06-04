@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
-const HeroSection = () => {
+const HeroSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
@@ -21,8 +21,23 @@ const HeroSection = () => {
           {t('PARTNERS_HERO_BUTTON')}
         </button>
       </div>
-      <div className="absolute w-[30rem] lg:w-[40rem] h-[20rem] lg:h-[58rem] top-10 lg:-top-[20rem] -right-60 sm:-right-14 md:right-14 lg:left-[40rem] duration-500">
-        <Image src="/assets/partners/hero-bg-partners.svg" alt="background image" layout="fill" />
+      <div
+        style={{ transform: `translate(${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
+        className="absolute w-[20rem] lg:w-[25rem] h-[13rem] lg:h-[30rem] top-[8rem] lg:top-[-8rem] right-[-2rem] sm:-right-14 md:right-14 lg:left-[38rem] duration-500"
+      >
+        <Image src="/assets/partners/hero1.svg" alt="background image" layout="fill" />
+      </div>
+      <div
+        style={{ transform: `translate(${offsetY * 0.06}px, ${offsetY * 0.06}px)` }}
+        className="absolute w-[15rem] lg:w-[20rem] h-[15rem] lg:h-[28rem] top-[9rem] lg:top-[-2rem] right-[0rem] sm:-right-14 md:right-14 lg:left-[42rem] duration-500"
+      >
+        <Image src="/assets/partners/hero2.svg" alt="background image" layout="fill" />
+      </div>
+      <div
+        style={{ transform: `translate(${offsetY * 0.1}px, ${offsetY * 0.1}px)` }}
+        className="absolute w-[10rem] lg:w-[10rem] h-[8rem] lg:h-[20rem] top-[5rem] lg:top-[-8rem] right-[-2rem] sm:-right-14 md:right-[1rem] lg:left-[53rem] duration-500"
+      >
+        <Image src="/assets/partners/hero3.svg" alt="background image" layout="fill" />
       </div>
     </div>
   );

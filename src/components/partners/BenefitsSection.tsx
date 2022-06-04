@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import BenefitsCard from './BenefitsCard';
 
-const BenefitsSection = () => {
+const BenefitsSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
@@ -46,13 +46,28 @@ const BenefitsSection = () => {
           </div>
         </div>
       </div>
-      <div className="absolute w-[85rem] md:w-[100rem] lg:w-[60rem] xl:w-[65rem] h-[60rem] lg:h-[58rem] top-[70rem] sm:top-[38rem] lg:top-[5rem] xl:top-[4rem] -left-[9rem] md:-left-[15rem] lg:-left-[14rem] xl:-left-[10rem] duration-500">
+      <div
+        style={{ transform: `translate(-${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
+        className="absolute w-[85rem] md:w-[150rem] lg:w-[60rem] xl:w-[65rem] h-[60rem] lg:h-[58rem] top-[70rem] sm:top-[38rem] lg:top-[5rem] xl:top-[4rem] -left-[4rem] md:-left-[25rem] lg:-left-[14rem] xl:-left-[10rem] duration-500"
+      >
         <Image
           src="/assets/partners/benefits-bg-partners.svg"
           alt="background image"
           layout="fill"
           priority
         />
+      </div>
+      <div
+        style={{ transform: `translate(-${offsetY * 0.03}px, ${offsetY * 0.06}px)` }}
+        className="absolute w-[3rem] md:w-[100rem] lg:w-[5rem] xl:w-[5rem] h-[3rem] lg:h-[58rem] top-[90rem] sm:top-[38rem] md:top-[60rem] lg:top-[7rem] xl:top-[4rem] left-[14rem] md:-left-[20rem] lg:-left-[4rem] xl:-left-[3rem] duration-500"
+      >
+        <Image src="/assets/partners/layer2.svg" alt="background image" layout="fill" priority />
+      </div>
+      <div
+        style={{ transform: `translate(${offsetY * 0.1}px, ${offsetY * 0.1}px)` }}
+        className="absolute w-[8rem] md:w-[100rem] lg:w-[3rem] xl:w-[3rem] h-[8rem] lg:h-[58rem] top-[95rem] sm:top-[38rem] md:top-[65rem] lg:top-[5rem] xl:top-[4rem] left-[-5rem] md:-left-[45rem] lg:left-[8rem] xl:left-[10rem] duration-500"
+      >
+        <Image src="/assets/partners/layer3.svg" alt="background image" layout="fill" priority />
       </div>
     </div>
   );
