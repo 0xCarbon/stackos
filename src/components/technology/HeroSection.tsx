@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import StackOSButton from '@/components/StackOSButton';
 
-const HeroSection = () => {
+const HeroSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
@@ -29,10 +29,37 @@ const HeroSection = () => {
           <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
         </div>
       </div>
-      <div className="absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-12rem] md:right-[-3rem] lg:right-[-30rem] xl:right-[-10rem] 2xl:right-[-1rem] lg:top-[-3.5rem] 2xl:top-[-4.5rem] duration-500">
+      <div
+        style={{ transform: `translate(${offsetY * 0.1}px, ${offsetY * 0.1}px)` }}
+        className="absolute sm:w-[25rem] sm:h-[20rem] lg:w-[40rem] lg:h-[45rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-11rem] md:right-[-3rem] lg:right-[-10rem] xl:right-[1.5rem] 2xl:right-[-28rem] top-[20rem] lg:top-[0rem] 2xl:top-[-4.5rem] duration-500"
+      >
         <Image
           draggable={false}
-          src="/assets/technology/technology-background.svg"
+          src="/assets/technology/layer1.svg"
+          alt="technology background"
+          layout="fill"
+          priority
+        />
+      </div>
+      <div
+        style={{ transform: `translate(${offsetY * 0.06}px, ${offsetY * 0.06}px)` }}
+        className="absolute sm:w-[18.18rem] sm:h-[15rem] lg:w-[29.8rem] lg:h-[24.75rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-11rem] md:right-[-3rem] lg:right-[-10rem] xl:right-[1.5rem] 2xl:right-[-28rem] top-[20rem] lg:top-[9rem] 2xl:top-[-4.5rem] duration-500"
+      >
+        <Image
+          draggable={false}
+          src="/assets/technology/layer2.svg"
+          alt="technology background"
+          layout="fill"
+          priority
+        />
+      </div>
+      <div
+        style={{ transform: `translate(${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
+        className="absolute sm:w-[18.18rem] sm:h-[15rem] lg:w-[29.8rem] lg:h-[24.75rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-11rem] md:right-[-3rem] lg:right-[-10rem] xl:right-[1.5rem] 2xl:right-[-28rem] top-[20rem] lg:top-[9rem] 2xl:top-[-4.5rem] duration-500"
+      >
+        <Image
+          draggable={false}
+          src="/assets/technology/layer3.svg"
           alt="technology background"
           layout="fill"
           priority
