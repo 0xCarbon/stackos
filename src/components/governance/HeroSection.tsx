@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useTranslation, Trans } from 'react-i18next';
 
-const HeroSection = () => {
+const HeroSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
@@ -31,16 +31,28 @@ const HeroSection = () => {
             </a>
           </div>
         </div>
-        <div className="absolute w-[14.5rem] h-[12.5rem] right-[-2rem] top-[6.2rem] md:right-[9.8rem] md:top-[5.5rem] lg:right-[23rem] lg:top-[5.5rem] xl:right-[22rem] xl:top-[7.5rem] 2xl:right-[35rem] 2xl:top-[8.5rem] duration-500">
+        <div
+          style={{ transform: `translate(${offsetY * 0.1}px, ${offsetY * 0.1}px)` }}
+          className="absolute w-[14.5rem] h-[12.5rem] right-[-2rem] top-[6.2rem] md:right-[9.8rem] md:top-[5.5rem] lg:right-[23rem] lg:top-[5.5rem] xl:right-[22rem] xl:top-[7.5rem] 2xl:right-[35rem] 2xl:top-[8.5rem] duration-500"
+        >
           <Image src="/assets/governance/circle-1.svg" alt="circle 1" layout="fill" priority />
         </div>
-        <div className="hidden sm:inline absolute w-[12.8rem] h-[12.8rem] left-[-4rem] top-[21rem] md:left-auto md:right-[27rem] md:top-[22rem] lg:right-[5rem] lg:top-[13.5rem] xl:right-[5.5rem] xl:top-[17rem] 2xl:right-[14rem] 2xl:top-[18.5rem] duration-500">
+        <div
+          style={{ transform: `translate(${offsetY * 0.06}px, -${offsetY * 0.06}px)` }}
+          className="hidden sm:inline absolute w-[12.8rem] h-[12.8rem] left-[-4rem] top-[21rem] md:left-auto md:right-[27rem] md:top-[22rem] lg:right-[5rem] lg:top-[13.5rem] xl:right-[5.5rem] xl:top-[17rem] 2xl:right-[14rem] 2xl:top-[18.5rem] duration-500"
+        >
           <Image src="/assets/governance/circle-2.svg" alt="circle 2" layout="fill" priority />
         </div>
-        <div className="absolute w-[12.8rem] h-[12.8rem] right-[-10rem] top-[22.2rem] md:right-[2rem] lg:right-[-7.5rem] lg:top-[22.5rem] xl:right-[-8rem] xl:top-[23rem] 2xl:right-[0.5rem] 2xl:top-[24rem] duration-500">
+        <div
+          style={{ transform: `translate(${offsetY * 0.1}px, ${offsetY * 0.1}px)` }}
+          className="absolute w-[12.8rem] h-[12.8rem] right-[-10rem] top-[22.2rem] md:right-[2rem] lg:right-[-7.5rem] lg:top-[22.5rem] xl:right-[-8rem] xl:top-[23rem] 2xl:right-[0.5rem] 2xl:top-[24rem] duration-500"
+        >
           <Image src="/assets/governance/circle-3.svg" alt="circle 3" layout="fill" priority />
         </div>
-        <div className="absolute w-[3rem] h-[3rem] right-[22rem] top-[130rem] lg:right-[22rem] lg:top-[19.5rem] xl:right-[22rem] xl:top-[23rem] 2xl:right-[33.5rem] 2xl:top-[26rem] duration-500">
+        <div
+          style={{ transform: `translate(-${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
+          className="absolute w-[3rem] h-[3rem] right-[22rem] top-[130rem] lg:right-[22rem] lg:top-[19.5rem] xl:right-[22rem] xl:top-[23rem] 2xl:right-[33.5rem] 2xl:top-[26rem] duration-500"
+        >
           <Image src="/assets/governance/circle-4.svg" alt="circle 3" layout="fill" priority />
         </div>
       </div>
