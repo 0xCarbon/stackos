@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { LearnMore } from '@/components';
 
-const TechnologySection = () => {
+const TechnologySection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
@@ -25,30 +25,52 @@ const TechnologySection = () => {
         </p>
       </div>
       <LearnMore />
-      <div className="md:hidden absolute w-[17rem] h-[18rem] left-[-5rem]  top-[-2rem]  duration-500">
+      <div
+        style={{ transform: `translate(${offsetY * 0.006}px, ${offsetY * 0.006}px)` }}
+        className="md:hidden absolute w-[17rem] h-[18rem] left-[-5rem] top-[-2rem] duration-200"
+      >
         <Image
-          src="/assets/home/technology-background1-sm.svg"
+          src="/assets/home/technology-background-scribbles-sm.svg"
           alt="technology background"
           layout="fill"
         />
       </div>
-      <div className="lg:hidden absolute w-[15rem] h-[21rem] left-[-10rem] top-[17rem]  duration-500">
+      <div
+        style={{ transform: `translate(-${offsetY * 0.035}px, ${offsetY * 0.035}px)` }}
+        className="md:hidden absolute w-[5.12rem] h-[5.12rem] left-[1rem] top-[4rem] duration-200"
+      >
         <Image
-          src="/assets/home/technology-background2-sm.svg"
+          src="/assets/home/technology-background-circles-sm.svg"
           alt="technology background"
           layout="fill"
         />
       </div>
-      <div className="hidden md:inline lg:hidden absolute w-[2.37rem] h-[2.37rem] left-[6rem] top-[16rem]  duration-500">
+      <div
+        style={{ transform: `translate(${offsetY * 0.006}px, -${offsetY * 0.006}px)` }}
+        className="md:hidden opacity-40 sm:opacity-100 absolute w-[15rem] h-[21rem] left-[-1rem] top-[14rem] sm:left-[-13rem] sm:top-[22rem] duration-200"
+      >
         <Image
-          src="/assets/home/technology-background2-md.svg"
+          src="/assets/home/technology-background-scribbles2-sm.svg"
           alt="technology background"
           layout="fill"
         />
       </div>
-      <div className="hidden md:inline lg:hidden absolute w-[0.7rem] h-[0.7rem] left-[15rem] top-[16rem]  duration-500">
+      <div
+        style={{ transform: `translate(${offsetY * 0.035}px, -${offsetY * 0.035}px)` }}
+        className="md:hidden absolute w-[3rem] h-[3rem] left-[-2rem] top-[20rem] sm:left-[-6rem] sm:top-[27rem] duration-200"
+      >
         <Image
-          src="/assets/home/technology-background3-md.svg"
+          src="/assets/home/technology-background-circles2-sm.svg"
+          alt="technology background"
+          layout="fill"
+        />
+      </div>
+      <div
+        style={{ transform: `translate(-${offsetY * 0.006}px, -${offsetY * 0.006}px)` }}
+        className="hidden md:inline lg:hidden absolute w-[6.25rem] h-[6.87rem] left-[-3rem] top-[10rem] duration-200"
+      >
+        <Image
+          src="/assets/home/technology-background-md.svg"
           alt="technology background"
           layout="fill"
         />
