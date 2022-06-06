@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { TiPlus } from 'react-icons/ti';
 import { Card, LearnMore } from '@/components';
 
-const DecentralizedSection = () => {
+const DecentralizedSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
@@ -36,12 +36,17 @@ const DecentralizedSection = () => {
           />
         </div>
       </div>
-      <div className="hidden sm:inline absolute w-[66rem] h-[55rem] top-[24rem] -right-40 md:w-[77rem] md:h-[70rem] md:right-[-10rem] lg:w-[120rem] lg:h-[70rem] lg:right-[-20rem] xl:right-[-15rem] duration-500">
-        <Image
-          src="/assets/technology/technology-background2.svg"
-          alt="technology background"
-          layout="fill"
-        />
+      <div
+        style={{ transform: `translate(${offsetY * 0.06}px, ${offsetY * 0.06}px)` }}
+        className="hidden sm:inline absolute w-[66rem] h-[55rem] top-[24rem] -right-40 md:w-[77rem] md:h-[70rem] md:right-[-10rem] lg:w-[120rem] lg:h-[70rem] lg:right-[-20rem] xl:right-[-15rem] duration-500"
+      >
+        <Image src="/assets/technology/layer4.svg" alt="technology background" layout="fill" />
+      </div>
+      <div
+        style={{ transform: `translate(-${offsetY * 0.05}px, ${offsetY * 0.03}px)` }}
+        className="hidden sm:inline absolute w-[7rem] h-[7rem] xl:w-[12.5rem] xl:h-[12.5rem] right-[-6rem] md:right-[-4rem] top-[60rem] duration-500"
+      >
+        <Image src="/assets/technology/layer5.svg" alt="technology background" layout="fill" />
       </div>
     </div>
   );

@@ -89,9 +89,5 @@
 <stop offset="0.388542" stop-color="#FFFFE0"/>
 <stop offset="0.591667" stop-color="#FEFCFF" stop-opacity="0"/>
 </linearGradient>
-<radialGradient id="paint17_radial_1264_1571" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1479.82 565.797) rotate(44.9947) scale(105.768)">
-<stop stop-color="#AAFF00"/>
-<stop offset="1" stop-color="#00FFE0" stop-opacity="0"/>
-</radialGradient>
 </defs>
 </svg>

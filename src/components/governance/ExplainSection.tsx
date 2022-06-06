@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Trans, useTranslation } from 'react-i18next';
 import ExplainCard from '../ExplainCard';
 
-const ExplainSection = () => {
+const ExplainSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
@@ -34,8 +34,11 @@ const ExplainSection = () => {
             <ExplainCard iconName="bolt" description={t('GOVERNANCE_EXPLAIN_CARD_DESCRIPTION3')} />
           </div>
         </div>
-        <div className="absolute w-[30rem] h-[25rem] right-[11rem] top-[30rem] md:right-[4.5rem] md:top-[25rem] lg:right-[-13.5rem] lg:top-[10rem] xl:right-[-14.5rem] xl:top-[8rem] 2xl:right-[-3.5rem] 2xl:top-[6rem] duration-500">
-          <Image src="/assets/governance/curves-1.svg" alt="circle 3" layout="fill" priority />
+        <div
+          style={{ transform: `translate(${offsetY * 0.05}px, ${offsetY * 0.05}px)` }}
+          className="absolute w-[30rem] h-[25rem] right-[11rem] top-[30rem] md:right-[4.5rem] md:top-[25rem] lg:right-[-13.5rem] lg:top-[10rem] xl:right-[-14.5rem] xl:top-[8rem] 2xl:right-[-3.5rem] 2xl:top-[6rem] duration-500"
+        >
+          <Image src="/assets/governance/curves-1.svg" alt="curves" layout="fill" priority />
         </div>
       </div>
     </div>
