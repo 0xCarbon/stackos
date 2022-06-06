@@ -27,7 +27,7 @@ const Header = () => {
       } bg-[#1F2937] lg:bg-transparent lg:bg-gradient-to-b  lg:from-[#111827] lg:via-[#111827] z-50 lg:fixed top-0 w-full lg:pb-14 duration-500`}
     >
       <Popover>
-        <div className="px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-[2.5rem] xl:px-20 py-4 lg:py-16 lg:max-w-[60rem] xl:max-w-[71.25rem] lg:mx-auto duration-500">
+        <div className="px-5 sm:px-[3.125rem] md:px-[2.125rem] lg:px-0 py-4 lg:py-16 lg:max-w-[60rem] xl:max-w-[71.25rem] lg:mx-auto duration-500">
           <nav
             className="flex items-center justify-between sm:h-10 lg:justify-center relative "
             aria-label="Global"

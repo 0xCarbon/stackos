@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { LearnMore } from '@/components';
 import StackOSCarousel from '../StackOSCarousel';
 
-const PartnershipsSection = () => {
+const PartnershipsSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
@@ -24,14 +24,17 @@ const PartnershipsSection = () => {
         <StackOSCarousel />
         <div className="hidden sm:flex flex-col text-white">
           <p className="whitespace-nowrap font-semibold text-3xl line leading-7 select-none">
-            30 +
+            60M +
           </p>
-          <p className="font-light select-none">partners</p>
+          <p className="font-light select-none">deploys</p>
         </div>
       </div>
-      <div className="absolute flex sm:hidden w-[40rem] h-[16.87rem] top-[-1rem] right-[-19rem] duration-500">
+      <div
+        style={{ transform: `translateX(-${offsetY * 0.01}px)` }}
+        className="opacity-60 absolute flex sm:hidden w-[40rem] h-[16.87rem] top-[0.1rem] right-[-18rem] duration-200"
+      >
         <Image
-          src="/assets/home/governance-background1-md.svg"
+          src="/assets/home/governance-background-scribbles-md.svg"
           alt="technology background"
           layout="fill"
         />
