@@ -2,9 +2,10 @@ import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import Lottie from 'lottie-react';
 import { Separator } from '@radix-ui/react-separator';
+import React from 'react';
 import titleData from './helpers/hero-titles.json';
 
-const HeroSection = () => {
+const HeroSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
@@ -50,17 +51,45 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="sm:hidden absolute w-[30.3rem] h-[20.3rem] right-[-9.5rem] top-[-0.5rem] duration-500">
+      <div
+        style={{ transform: `translate(-${offsetY * 0.006}px, -${offsetY * 0.006}px)` }}
+        className="sm:hidden absolute w-[30.3rem] h-[20.3rem] right-[-18rem] top-[-0.5rem] duration-200"
+      >
         <Image
-          src="/assets/home/hero-background-sm.svg"
+          src="/assets/home/hero-background-scribbles-sm.svg"
           alt="hero background"
           layout="fill"
           priority
         />
       </div>
-      <div className="hidden sm:inline absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-9.5rem] md:right-[-4.5rem] top-[-0.5rem] lg:right-[-14rem] xl:right-[-2.5rem] lg:top-[-5.5rem] 2xl:top-[-7rem] 2xl:right-[-7rem] duration-500">
+      <div
+        style={{ transform: `translate(${offsetY * 0.035}px, ${offsetY * 0.035}px)` }}
+        className="sm:hidden absolute w-[27rem] h-[15.3rem] right-[-16.5rem] top-[3rem] duration-200"
+      >
         <Image
-          src="/assets/home/hero-background.svg"
+          src="/assets/home/hero-background-circles-sm.svg"
+          alt="hero background"
+          layout="fill"
+          priority
+        />
+      </div>
+      <div
+        style={{ transform: `translate(-${offsetY * 0.006}px, -${offsetY * 0.006}px)` }}
+        className="hidden sm:inline absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[45.37rem] 2xl:h-[35.31rem] right-[-18.5rem] md:right-[-4.5rem] top-[1.5rem] lg:right-[-14rem] xl:right-[-2.5rem] lg:top-[-5.5rem] 2xl:top-[4rem] 2xl:right-[-7rem] duration-200"
+      >
+        <Image
+          src="/assets/home/hero-background-scribbles.svg"
+          alt="hero background"
+          layout="fill"
+          priority
+        />
+      </div>
+      <div
+        style={{ transform: `translate(${offsetY * 0.035}px, ${offsetY * 0.035}px)` }}
+        className="hidden sm:inline absolute w-[15rem] h-[15rem] lg:w-[28.12rem] lg:h-[25.5rem] 2xl:w-[28.62rem] 2xl:h-[25.5rem] right-[-11.5rem] md:right-[2rem] top-[5rem] lg:right-[-6rem] xl:right-[4rem] lg:top-[2rem] 2xl:top-[9.5rem] 2xl:right-[-2rem] duration-200"
+      >
+        <Image
+          src="/assets/home/hero-background-circles.svg"
           alt="hero background"
           layout="fill"
           priority

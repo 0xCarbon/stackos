@@ -55,6 +55,8 @@ const StackOSCarousel = () => {
         swipeScrollTolerance={500}
         showStatus={false}
         showIndicators={false}
+        emulateTouch={false}
+        swipeable={false}
         className="h-20 md:h-[6.5rem] lg:h-[8.5rem] 2xl:h-36 w-[15rem] md:w-[34rem] lg:w-[46rem] 2xl:w-[58rem]"
       >
         {partners.map((partner) => (
