@@ -45,7 +45,7 @@ const StackOSDropdown = ({
       leaveFrom="transform opacity-100 scale-100"
       leaveTo="transform opacity-0 scale-95"
     >
-      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#1F2937] ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-72 h-48 max-h-48 rounded-md shadow-lg bg-[#1F2937] ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
         {header && (
           <div className="px-4 py-3">
             <p className="text-[#F9FAFB] font-extralight text-base">{header}</p>
@@ -59,7 +59,7 @@ const StackOSDropdown = ({
                   className={`
                     ${
                       active || selected === item.id ? 'bg-[#374151]' : ''
-                    } relative rounded-md text-white group flex items-center px-4 py-2 text-sm cursor-pointer
+                    } relative rounded-md text-white group flex items-center px-4 py-2 my-1 text-sm cursor-pointer
                   `}
                   onClick={() => onChangeSelection(item.id)}
                 >

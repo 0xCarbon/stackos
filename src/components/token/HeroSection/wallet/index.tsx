@@ -19,8 +19,8 @@ interface Token {
 
 interface Tokens {
   Ethereum: Token[];
-  Polygon: Token[];
-  BSC: Token[];
+  'Polygon PoS': Token[];
+  'Binance Smart Chain': Token[];
 }
 
 const ETHEREUM = 1;
@@ -29,7 +29,7 @@ const POLYGON = 137;
 
 const Wallet = () => {
   const { data: account } = useAccount();
-  const { connect, connectors } = useConnect();
+  const { connect, connectors, isConnecting, pendingConnector } = useConnect();
   const { activeChain, chains, switchNetwork } = useNetwork();
 
   // const { data: token } = useToken({
@@ -48,9 +48,9 @@ const Wallet = () => {
   const polygonChain = chains.find((chain) => chain.id === POLYGON);
 
   const networkOptions = [
-    { title: 'Ethereum', subtitle: 'Uniswap (v2)', icon: 'uniswap', ...ethereumChain },
-    { title: 'Polygon', subtitle: 'Dfyn', icon: 'dfyn', ...polygonChain },
-    { title: 'BSC', subtitle: 'PancakeSwap (v2)', icon: 'pancakeswap', ...binanceChain },
+    { title: 'Binance Smart Chain', icon: 'binance', ...binanceChain },
+    { title: 'Ethereum', icon: 'ethereum', ...ethereumChain },
+    { title: 'Polygon PoS', icon: 'polygon', ...polygonChain },
   ];
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const Wallet = () => {
           address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
         },
       ],
-      Polygon: [
+      'Polygon PoS': [
         {
           id: 1,
           title: 'MATIC',
@@ -96,7 +96,7 @@ const Wallet = () => {
           address: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
         },
       ],
-      BSC: [
+      'Binance Smart Chain': [
         { id: 1, title: 'BNB', icon: 'bnb', address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' },
         {
           id: 2,
@@ -152,18 +152,40 @@ const Wallet = () => {
 
   return (
     <>
-      <StackOSDropdown
-        className="w-full h-12 px-2 bg-main-green flex flex-row justify-center items-center rounded"
-        header="Select a network"
-        selected={networkSelected.id}
-        dropdownOptions={networkOptions}
-        onChangeSelection={(value) => onChangeNetwork(value)}
-      >
-        <StackOSIcon className="h-5 w-5" iconName={networkSelected.icon} />
-        <span className="text-[#111827] font-medium text-base ml-2 mr-3">
-          {networkSelected.title}
-        </span>
-      </StackOSDropdown>
+      <div className="w-full max-w-[360px] flex flex-row gap-3 mb-5 duration-500">
+        <StackOSDropdown
+          className="w-full h-12 px-2 bg-main-green flex flex-row justify-center items-center rounded"
+          header="Select a network"
+          selected={networkSelected.id}
+          dropdownOptions={networkOptions}
+          onChangeSelection={(value) => onChangeNetwork(value)}
+        >
+          <StackOSIcon className="h-5 w-5" iconName={networkSelected.icon} />
+          <span className="text-[#111827] max-w-[90px] font-medium text-base ml-2 mr-3 whitespace-nowrap text-ellipsis overflow-hidden">
+            {networkSelected.title}
+          </span>
+        </StackOSDropdown>
+        <div className="flex flex-row justify-center items-center w-full">
+          {account?.address ? (
+            <div className="w-full gap-2 h-12 px-2 bg-[#374151] flex flex-row justify-center items-center rounded">
+              <div className="h-6 w-6 bg-main-green rounded-full" />
+              <span className="whitespace-nowrap text-ellipsis overflow-hidden text-[#FDFDFD] max-w-[120px]">
+                {account?.address}
+              </span>
+            </div>
+          ) : (
+            <button
+              type="button"
+              className="w-full bg-transparent border border-main-green text-main-green rounded-md px-2 py-3"
+              onClick={() => connect(metamask)}
+            >
+              {isConnecting && metamask?.id === pendingConnector?.id
+                ? 'Connecting Wallet...'
+                : 'Connect Wallet'}
+            </button>
+          )}
+        </div>
+      </div>
       {isSettingsOpen && <WalletSettings />}
       {!isSettingsOpen && <WalletDefault />}
     </>

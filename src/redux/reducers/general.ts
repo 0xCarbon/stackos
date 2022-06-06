@@ -21,8 +21,8 @@ const INITIAL_STATE: GeneralState = {
   stackAddress: '',
   networkSelected: {
     id: 56,
-    title: 'BSC',
-    icon: 'pancakeswap',
+    title: 'Binance Smart Chain',
+    icon: 'binance',
   },
   slippageAmount: 0.1,
 };

@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
 import { useEffect, useState } from 'react';
-import { useAccount, useConnect, useNetwork, useProvider, useSendTransaction } from 'wagmi';
+import { useAccount, useConnect, useProvider, useSendTransaction } from 'wagmi';
 import {
   setExpectedOutput,
   setFromTokenAmount,
@@ -44,12 +44,11 @@ const WalletDefault = () => {
   } = general;
 
   const { connect, connectors, isConnecting, pendingConnector } = useConnect();
-  const { activeChain } = useNetwork();
   const { data: account } = useAccount();
   const {
     data: transactionResponse,
     // isIdle,
-    // isError,
+    isError,
     isLoading: isTransactionPending,
     isSuccess: isTransactionSuccess,
     sendTransaction,
@@ -65,11 +64,13 @@ const WalletDefault = () => {
   }, [fromTokenAmount, tokenSelected]);
 
   useEffect(() => {
+    console.log(tokenOptions);
     dispatch(setTokenSelected(tokenOptions[0]));
   }, [tokenOptions]);
 
   useEffect(() => {
-    // console.log(transactionResponse);
+    console.log(transactionResponse);
+    console.log(isError);
     if (transactionResponse) getBroadCastTransaction(transactionResponse?.data, networkSelected.id);
   }, [transactionResponse]);
 
@@ -203,7 +204,7 @@ const WalletDefault = () => {
   }
 
   return (
-    <div className="mt-20 px-4 py-6 bg-[#1F2937] rounded-md w-[360px] h-[340px]">
+    <div className="px-4 py-6 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
       {isSummaryOpen ? (
         <>
           <div className="flex flex-row justify-between mb-7">

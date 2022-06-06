@@ -17,7 +17,7 @@ const WalletSettings = () => {
   }, [enabled]);
 
   return (
-    <div className="mt-20 px-4 py-6 bg-[#1F2937] rounded-md w-[360px] h-[340px]">
+    <div className="px-4 py-6 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
       <div className="flex flex-row justify-between mb-6">
         <span className="text-[#F9FAFB]">Settings</span>
         <IoMdClose
