@@ -136,8 +136,8 @@ const Wallet = () => {
 
     const stackAddresses: any = {
       Ethereum: '0x56A86d648c435DC707c8405B78e2Ae8eB4E60Ba4',
-      BSC: '0x6855f7bb6287F94ddcC8915E37e73a3c9fEe5CF3',
-      Polygon: '0x980111ae1B84E50222C8843e3A7a038F36Fecd2b',
+      'Binance Smart Chain': '0x6855f7bb6287F94ddcC8915E37e73a3c9fEe5CF3',
+      'Polygon PoS': '0x980111ae1B84E50222C8843e3A7a038F36Fecd2b',
     };
 
     // console.log(tokens[networkSelected.title as keyof Tokens]);
