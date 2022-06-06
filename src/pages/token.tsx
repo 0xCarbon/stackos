@@ -31,7 +31,7 @@ const Token: NextPage = () => {
       <Layout>
         <HeroSection offsetY={offsetY} />
         <TradeSection />
-        <FaqSection />
+        <FaqSection offsetY={offsetY} />
       </Layout>
     </>
   );
