@@ -12,7 +12,7 @@ import {
 import { StackOSDropdown, StackOSIcon } from '@/components';
 
 import WalletSettings from './WalletSettings';
-import WalletHome from './WalletHome';
+import WalletHome from './wallet-home/index';
 import WalletTokenSelect from './WalletTokenSelect';
 
 interface Token {
@@ -38,11 +38,6 @@ const Wallet = () => {
   const { connect, connectors, isConnecting, pendingConnector } = useConnect();
   const { activeChain, chains, switchNetwork } = useNetwork();
 
-  // const { data: token } = useToken({
-  //   address: '0x6855f7bb6287F94ddcC8915E37e73a3c9fEe5CF3',
-  // });
-  // console.log(token);
-  // console.log(ethers);
   const metamask = connectors[0];
 
   const dispatch = useDispatch();
@@ -140,14 +135,11 @@ const Wallet = () => {
       'Polygon PoS': '0x980111ae1B84E50222C8843e3A7a038F36Fecd2b',
     };
 
-    // console.log(tokens[networkSelected.title as keyof Tokens]);
-
     dispatch(setTokenOptions(tokens[networkSelected.title as keyof Tokens]));
     dispatch(setStackAddress(stackAddresses[networkSelected.title]));
   }, [networkSelected]);
 
   useEffect(() => {
-    console.log(tokenOptions);
     dispatch(setTokenSelected(tokenOptions[0]));
   }, [tokenOptions]);
 
@@ -172,7 +164,6 @@ const Wallet = () => {
         connect(metamask);
       }
     }
-    // console.log(account);
   }
 
   return (

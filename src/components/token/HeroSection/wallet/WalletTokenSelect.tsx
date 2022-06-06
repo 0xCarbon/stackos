@@ -1,27 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { IoMdClose } from 'react-icons/io';
-import { useEffect, useState } from 'react';
-import {
-  setSettingsStatus,
-  setSlippageAmount,
-  setTokenSelected,
-  setTokenSelectStatus,
-} from 'src/redux/actions/general';
-import { StackOSButton, StackOSIcon, StackOSInput, StackOSSwitch } from '@/components';
+import { setTokenSelected, setTokenSelectStatus } from 'src/redux/actions/general';
 import { Separator } from '@radix-ui/react-separator';
+import { StackOSIcon, StackOSInput } from '@/components';
 
 const WalletTokenSelect = () => {
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
   const { tokenOptions, tokenSelected } = general;
 
-  const [searchInput, setSearchInput] = useState();
+  // const [searchInput, setSearchInput] = useState();
 
   function onChangeToken(value: number) {
-    console.log(tokenOptions.find((option) => option.id === value));
     dispatch(setTokenSelected(tokenOptions.find((option) => option.id === value)));
-    console.log(tokenSelected);
   }
 
   return (

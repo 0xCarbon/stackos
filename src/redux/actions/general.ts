@@ -9,6 +9,10 @@ export function setTokenSelectStatus(value: boolean): GeneralActionTypes {
   return action(GeneralTypes.SET_TOKEN_SELECT_STATUS, { value });
 }
 
+export function setErrorStatus(value: boolean): GeneralActionTypes {
+  return action(GeneralTypes.SET_ERROR_STATUS, { value });
+}
+
 export function setLoading(value: boolean): GeneralActionTypes {
   return action(GeneralTypes.SET_LOADING, { value });
 }
@@ -51,4 +55,8 @@ export function setNetworkSelected(value: any): GeneralActionTypes {
 
 export function setSlippageAmount(value: number): GeneralActionTypes {
   return action(GeneralTypes.SET_SLIPPAGE_AMOUNT, { value });
+}
+
+export function setErrorMessage(value: string): GeneralActionTypes {
+  return action(GeneralTypes.SET_ERROR_MESSAGE, { value });
 }
