@@ -87,15 +87,6 @@ const TradeSection = () => {
           ))}
         </div>
       </div>
-      {/* <div className="absolute w-[30.3rem] h-[20.3rem] lg:w-[48.3rem] lg:h-[38.3rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-12rem] md:right-[-3rem] lg:right-[-30rem] xl:right-[-10rem] 2xl:right-[-1rem] lg:top-[-3.5rem] 2xl:top-[-4.5rem] duration-500">
-        <Image
-          draggable={false}
-          src="/assets/technology/technology-background.svg"
-          alt="technology background"
-          layout="fill"
-          priority
-        />
-      </div> */}
     </div>
   );
 };
