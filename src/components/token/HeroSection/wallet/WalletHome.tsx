@@ -11,6 +11,7 @@ import {
   setSettingsStatus,
   setStackPrice,
   setTokenSelected,
+  setTokenSelectStatus,
   setToTokenAmount,
 } from 'src/redux/actions/general';
 import {
@@ -26,7 +27,7 @@ import { BsArrowDownCircle } from 'react-icons/bs';
 import { StackOSInput, StackOSIcon } from '@/components';
 import StackOSButton from '../../../StackOSButton';
 
-const WalletDefault = () => {
+const WalletHome = () => {
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
   const {
@@ -64,11 +65,6 @@ const WalletDefault = () => {
   }, [fromTokenAmount, tokenSelected]);
 
   useEffect(() => {
-    console.log(tokenOptions);
-    dispatch(setTokenSelected(tokenOptions[0]));
-  }, [tokenOptions]);
-
-  useEffect(() => {
     console.log(transactionResponse);
     console.log(isError);
     if (transactionResponse) getBroadCastTransaction(transactionResponse?.data, networkSelected.id);
@@ -85,12 +81,6 @@ const WalletDefault = () => {
     disableEstimate: true, // default false, error 400 'cannot estimate. Don't forget about miner fee. Try to leave the buffer of BNB for gas' on default
     allowPartialFill: false,
   };
-
-  function onChangeToken(value: number) {
-    // console.log(tokenOptions.find((option) => option.id === value));
-    dispatch(setTokenSelected(tokenOptions.find((option) => option.id === value)));
-    // console.log(tokenSelected);
-  }
 
   const fetchQuoteData = async () => {
     // console.log(networkSelected);
@@ -292,9 +282,8 @@ const WalletDefault = () => {
           </div>
           <StackOSInput
             showPrice
-            dropdownOptions={tokenOptions}
-            selected={tokenSelected.id}
-            onChangeSelection={(value) => onChangeToken(value)}
+            optionSelected={tokenSelected}
+            onClickOption={() => dispatch(setTokenSelectStatus(true))}
             value={fromTokenAmount}
             price={fromTokenPrice}
             onChangeInput={(value) => dispatch(setFromTokenAmount(value))}
@@ -360,4 +349,4 @@ const WalletDefault = () => {
   );
 };
 
-export default WalletDefault;
+export default WalletHome;

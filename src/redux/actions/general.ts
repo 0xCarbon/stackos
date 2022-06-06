@@ -5,6 +5,10 @@ export function setSettingsStatus(value: boolean): GeneralActionTypes {
   return action(GeneralTypes.SET_SETTINGS_STATUS, { value });
 }
 
+export function setTokenSelectStatus(value: boolean): GeneralActionTypes {
+  return action(GeneralTypes.SET_TOKEN_SELECT_STATUS, { value });
+}
+
 export function setLoading(value: boolean): GeneralActionTypes {
   return action(GeneralTypes.SET_LOADING, { value });
 }

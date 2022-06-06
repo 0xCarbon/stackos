@@ -7,6 +7,7 @@ export enum GeneralTypes {
   SET_FROM_TOKEN_PRICE = '@general/SET_FROM_TOKEN_PRICE',
   SET_EXPECTED_OUTPUT = '@general/SET_EXPECTED_OUTPUT',
   SET_SETTINGS_STATUS = '@general/SET_SETTINGS_STATUS',
+  SET_TOKEN_SELECT_STATUS = '@general/SET_TOKEN_SELECT_STATUS',
   SET_TOKEN_OPTIONS = '@general/SET_TOKEN_OPTIONS',
   SET_TOKEN_SELECTED = '@general/SET_TOKEN_SELECTED',
   SET_STACK_ADDRESS = '@general/SET_STACK_ADDRESS',
@@ -16,6 +17,10 @@ export enum GeneralTypes {
 
 export interface SetSettingsStatus {
   type: GeneralTypes.SET_SETTINGS_STATUS;
+}
+
+export interface SetTokenSelectStatus {
+  type: GeneralTypes.SET_TOKEN_SELECT_STATUS;
 }
 
 export interface SetLoading {
@@ -75,6 +80,7 @@ export interface SetSlippageAmount {
 export type GeneralActionTypes =
   | SetStackPrice
   | SetSettingsStatus
+  | SetTokenSelectStatus
   | SetLoading
   | SetFromTokenAmount
   | SetToTokenAmount
@@ -94,6 +100,7 @@ export interface GeneralState {
   stackPrice: number;
   expectedOutput: number;
   isSettingsOpen: boolean;
+  isTokenSelectOpen: boolean;
   tokenOptions: any[];
   tokenSelected: any;
   stackAddress: string;

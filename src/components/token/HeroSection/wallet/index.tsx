@@ -3,11 +3,17 @@ import { useAccount, useConnect, useNetwork } from 'wagmi';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'src/redux/hooks';
-import { setNetworkSelected, setStackAddress, setTokenOptions } from 'src/redux/actions/general';
+import {
+  setNetworkSelected,
+  setStackAddress,
+  setTokenOptions,
+  setTokenSelected,
+} from 'src/redux/actions/general';
 import { StackOSDropdown, StackOSIcon } from '@/components';
 
 import WalletSettings from './WalletSettings';
-import WalletDefault from './WalletDefault';
+import WalletHome from './WalletHome';
+import WalletTokenSelect from './WalletTokenSelect';
 
 interface Token {
   id: number;
@@ -41,7 +47,7 @@ const Wallet = () => {
 
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
-  const { isSettingsOpen, networkSelected } = general;
+  const { isSettingsOpen, isTokenSelectOpen, networkSelected, tokenOptions } = general;
 
   const ethereumChain = chains.find((chain) => chain.id === ETHEREUM);
   const binanceChain = chains.find((chain) => chain.id === BSC);
@@ -56,22 +62,25 @@ const Wallet = () => {
   useEffect(() => {
     const tokens: Tokens = {
       Ethereum: [
-        { id: 1, title: 'ETH', icon: 'eth' },
+        { id: 1, title: 'ETH', subtitle: 'Ether', icon: 'eth' },
         {
           id: 2,
           title: 'USDC',
+          subtitle: 'USD Coin',
           icon: 'usdc',
           address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
         },
         {
           id: 3,
           title: 'USDT',
+          subtitle: 'Tether',
           icon: 'usdt',
           address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
         },
         {
           id: 43,
           title: 'WETH',
+          subtitle: 'Wrapped Ether',
           icon: 'weth',
           address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
         },
@@ -80,34 +89,45 @@ const Wallet = () => {
         {
           id: 1,
           title: 'MATIC',
+          subtitle: 'Polygon',
           icon: 'matic',
           address: '0x0000000000000000000000000000000000001010',
         },
         {
           id: 2,
           title: 'USDC',
+          subtitle: 'USD Coin',
           icon: 'usdc',
           address: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
         },
         {
           id: 3,
           title: 'USDT',
+          subtitle: 'Tether',
           icon: 'usdt',
           address: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
         },
       ],
       'Binance Smart Chain': [
-        { id: 1, title: 'BNB', icon: 'bnb', address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' },
+        {
+          id: 1,
+          title: 'BNB',
+          subtitle: 'Binance',
+          icon: 'bnb',
+          address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+        },
         {
           id: 2,
           title: 'BUSD',
+          subtitle: 'Binance USD',
           icon: 'busd',
           address: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
         },
-        { id: 3, title: 'USDT', icon: 'usdt' },
+        { id: 3, title: 'USDT', subtitle: 'Tether', icon: 'usdt' },
         {
           id: 43,
           title: 'WBNB',
+          subtitle: 'Wrapped BNB',
           icon: 'wbnb',
           address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
         },
@@ -125,6 +145,11 @@ const Wallet = () => {
     dispatch(setTokenOptions(tokens[networkSelected.title as keyof Tokens]));
     dispatch(setStackAddress(stackAddresses[networkSelected.title]));
   }, [networkSelected]);
+
+  useEffect(() => {
+    console.log(tokenOptions);
+    dispatch(setTokenSelected(tokenOptions[0]));
+  }, [tokenOptions]);
 
   useEffect(() => {
     setupNetwork();
@@ -187,7 +212,8 @@ const Wallet = () => {
         </div>
       </div>
       {isSettingsOpen && <WalletSettings />}
-      {!isSettingsOpen && <WalletDefault />}
+      {isTokenSelectOpen && <WalletTokenSelect />}
+      {!isSettingsOpen && !isTokenSelectOpen && <WalletHome />}
     </>
   );
 };

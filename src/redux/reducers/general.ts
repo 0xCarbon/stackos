@@ -6,6 +6,7 @@ import * as Actions from '../actions/general';
 const INITIAL_STATE: GeneralState = {
   stackPrice: 0,
   isSettingsOpen: false,
+  isTokenSelectOpen: false,
   loading: false,
   fromTokenAmount: 0,
   toTokenAmount: 0,
@@ -31,6 +32,9 @@ const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }
   switch (type) {
     case GeneralTypes.SET_SETTINGS_STATUS:
       return { ...state, isSettingsOpen: payload.value };
+
+    case GeneralTypes.SET_TOKEN_SELECT_STATUS:
+      return { ...state, isTokenSelectOpen: payload.value };
 
     case GeneralTypes.SET_LOADING:
       return { ...state, loading: payload.value };

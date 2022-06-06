@@ -4,13 +4,6 @@ import { Menu, Transition } from '@headlessui/react';
 import { BiCheck, BiChevronDown } from 'react-icons/bi';
 import StackOSIcon from './StackOSIcon';
 
-interface Token {
-  id: number;
-  title: string;
-  icon: string;
-  subtitle?: string;
-}
-
 interface Props {
   selected: number;
   dropdownOptions: any;
@@ -66,15 +59,10 @@ const StackOSDropdown = ({
                   <StackOSIcon className="mr-3 flex items-center" iconName={item.icon} />
                   <div className="flex flex-col justify-start">
                     <span className="font-semibold">{item.title}</span>
-                    {item.subtitle && (
-                      <span className="text-[#F9FAFB] font-extralight">{item.subtitle}</span>
-                    )}
                   </div>
                   {selected === item.id && (
                     <BiCheck
-                      className={`mr-3 h-5 w-5 absolute right-0 items-center ${
-                        item.subtitle ? 'inset-y-4' : 'inset-y-2'
-                      }`}
+                      className="mr-3 h-5 w-5 absolute right-0 items-center"
                       aria-hidden="true"
                       color="#AAFF00"
                     />
