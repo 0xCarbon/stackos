@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { Separator } from '@radix-ui/react-separator';
@@ -18,7 +19,11 @@ const GovernanceSection = ({ offsetY }: { offsetY: number }) => {
         <span className="text-white font-normal text-base lg:text-xl max-w-lg lg:max-w-xl mb-3 lg:mb-5">
           {t('HOME_GOVERNANCE_DESCRIPTION')}
         </span>
-        <LearnMore />
+        <Link className="z-10" href="/governance" passHref>
+          <a className="z-10">
+            <LearnMore />
+          </a>
+        </Link>
       </div>
       <div
         style={{ transform: `translate(${offsetY * 0.006}px, -${offsetY * 0.006}px)` }}

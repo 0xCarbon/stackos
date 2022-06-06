@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +19,11 @@ const TokenSection = ({ offsetY }: { offsetY: number }) => {
       <p className="text-white font-normal text-base lg:text-xl xl:text-xl 2xl:text-xl max-w-xl lg:max-w-2xl xl:max-w-2xl 2xl:max-w-3xl mb-3 lg:mb-6 2xl:mb-10 duration-500">
         {t('HOME_TOKEN_DESCRIPTION')}
       </p>
-      <LearnMore />
+      <Link className="z-10" href="/technology" passHref>
+        <a className="z-10">
+          <LearnMore />
+        </a>
+      </Link>
 
       <div className="flex flex-col justify-around h-full md:h-[20rem] lg:h-[27rem]">
         <div className="flex flex-row mt-20 2xl:mt-16 flex-wrap md:h-30 lg:h-44 md:space-x-16 2xl:space-x-32">

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +19,11 @@ const PartnershipsSection = ({ offsetY }: { offsetY: number }) => {
       <p className="text-white font-normal text-base text-right mb-3 lg:mb-6 2xl:mb-10 lg:text-xl max-w-xl lg:max-w-2xl 2xl:max-w-3xl duration-500 ">
         {t('HOME_PARTNERSHIPS_DESCRIPTION')}
       </p>
-      <LearnMore />
+      <Link className="z-10" href="/partners" passHref>
+        <a className="z-10">
+          <LearnMore />
+        </a>
+      </Link>
 
       <div className="mt-16 flex flex-col sm:flex-row w-full items-end sm:items-center justify-center sm:justify-end child:duration-500">
         <StackOSCarousel />

@@ -42,7 +42,7 @@ const HeroSection = () => {
         <StackOSCarousel />
       </div>
 
-      <div className="flex w-[31.6rem] h-[31.6rem] absolute top-[5rem] md:top-6 lg:-top-28 xl:-top-26 left-16 md:left-16 lg:left-[29rem] xl:left-[45.5rem]">
+      <div className="z-0 flex w-[28rem] h-[28rem] absolute top-[8rem] md:top-20 lg:-top-28 xl:-top-26 left-28 md:left-28 lg:left-[33rem] xl:left-[48rem]">
         <Image src="/assets/developers/hero-bg-developers.svg" layout="fill" />
       </div>
     </div>

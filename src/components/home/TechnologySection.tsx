@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Separator } from '@radix-ui/react-separator';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
@@ -24,7 +25,11 @@ const TechnologySection = ({ offsetY }: { offsetY: number }) => {
           {t('HOME_TECHNOLOGY_DESCRIPTION')}
         </p>
       </div>
-      <LearnMore />
+      <Link className="z-10" href="/technology" passHref>
+        <a className="z-10">
+          <LearnMore />
+        </a>
+      </Link>
       <div
         style={{ transform: `translate(${offsetY * 0.006}px, ${offsetY * 0.006}px)` }}
         className="md:hidden absolute w-[17rem] h-[18rem] left-[-5rem] top-[-2rem] duration-200"
