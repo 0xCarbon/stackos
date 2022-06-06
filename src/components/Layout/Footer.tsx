@@ -12,10 +12,12 @@ const Footer = () => {
         <div>
           <h1 className="text-[1.9rem] font-semibold text-main-green">{t('FOOTER_TITLE')}</h1>
           <div className="flex text-sm font-extralight text-main-grey">
-            <div className="flex mr-4">
-              <Image src="/assets/layout/paper.svg" width={9} height={12} />
-              <p className="ml-[0.44rem]">{t('FOOTER_WHITEPAPER')}</p>
-            </div>
+            <a href="https://docsend.com/view/wq7qxzjk7zsd3wph" target="blank">
+              <div className="flex mr-4">
+                <Image src="/assets/layout/paper.svg" width={9} height={12} />
+                <p className="ml-[0.44rem]">{t('FOOTER_WHITEPAPER')}</p>
+              </div>
+            </a>
             <div className="flex">
               <Image src="/assets/layout/ambassador.svg" width={10} height={12} />
               <p className="ml-[0.44rem]">{t('FOOTER_AMBASSADOR')}</p>
@@ -23,15 +25,21 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex text-main-green text-2xl space-x-5 mt-7 md:mt-auto child:p-3 child:rounded-full child:border child:border-main-green">
-          <div>
-            <BsTwitter />
-          </div>
-          <div>
-            <BsTelegram />
-          </div>
-          <div>
-            <FaDiscord />
-          </div>
+          <a href="https://twitter.com/DeployOnStackOS" target="blank">
+            <div>
+              <BsTwitter />
+            </div>
+          </a>
+          <a href="https://t.me/StackOS" target="blank">
+            <div>
+              <BsTelegram />
+            </div>
+          </a>
+          <a href="https://discord.com/invite/yRk7CdjG" target="blank">
+            <div>
+              <FaDiscord />
+            </div>
+          </a>
         </div>
       </div>
       <div className="py-6 border-t border-main-green text-center mt-6">
