@@ -12,11 +12,11 @@ const GovernanceSection = ({ offsetY }: { offsetY: number }) => {
       <div className="z-10">
         <div className="flex flex-row justify-start items-center mb-9">
           <Separator className="h-9 w-[5px] lg:w-2 lg:h-14 2xl:w-[10px] 2xl:h-16 bg-main-green" />
-          <h2 className="text-[#D9D9D9] font-extrabold text-4xl lg:text-6xl mx-5">
+          <h2 className="text-[#FFFFFF] font-extrabold text-4xl lg:text-6xl mx-5">
             {t('HOME_GOVERNANCE_TITLE')}
           </h2>
         </div>
-        <span className="text-white font-normal text-base lg:text-xl max-w-lg lg:max-w-xl mb-3 lg:mb-5">
+        <span className="flex text-white font-normal text-base lg:text-xl max-w-lg lg:max-w-xl mb-3 lg:mb-6 2xl:mb-10">
           {t('HOME_GOVERNANCE_DESCRIPTION')}
         </span>
         <Link className="z-10" href="/governance" passHref>

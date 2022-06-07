@@ -4,12 +4,12 @@ import Image from 'next/image';
 import { StackOSButton } from '..';
 import StackOSCarousel from '../StackOSCarousel';
 
-const HeroSection = () => {
+const HeroSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
     <div className="relative">
-      <div className="text-white mt-12 lg:flex">
+      <div className="text-white mt-12 lg:flex uration-500">
         <div className="max-w-md md:max-w-2xl lg:max-w-md xl:max-w-2xl mb-20 z-10">
           <h1 className="font-extrabold text-[2.5rem] xl:text-6xl mb-8">
             <span className="text-main-green ">{t('DEVELOPERS_HERO_SPAN_TITLE')}</span>
@@ -34,7 +34,9 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="mt-8 sm:ml-[6.5rem] lg:ml-0 lg:mt-11">
-            <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
+            <a href="https://docs.stackos.io" target="blank">
+              <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
+            </a>
           </div>
         </div>
       </div>
@@ -42,7 +44,10 @@ const HeroSection = () => {
         <StackOSCarousel />
       </div>
 
-      <div className="z-0 flex w-[28rem] h-[28rem] absolute top-[8rem] md:top-20 lg:-top-28 xl:-top-26 left-28 md:left-28 lg:left-[33rem] xl:left-[48rem]">
+      <div
+        style={{ transform: `translate(${offsetY * 0.035}px, -${offsetY * 0.035}px)` }}
+        className="z-0 flex w-[28rem] h-[28rem] absolute top-[8rem] md:top-20 lg:-top-28 xl:-top-26 left-28 md:left-28 lg:left-[33rem] xl:left-[48rem] duration-300"
+      >
         <Image src="/assets/developers/hero-bg-developers.svg" layout="fill" />
       </div>
     </div>

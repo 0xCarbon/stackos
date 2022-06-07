@@ -57,7 +57,7 @@ const Header = () => {
             <div className="z-50 hidden ml-5 lg:flex lg:justify-between lg:space-x-3 2xl:space-x-7 lg:text-white lg:font-medium lg:text-[1.1rem] lg:items-center">
               {menus.map((item) => (
                 <Link key={item.id} href={item.href}>
-                  <a>{t(item.name)}</a>
+                  <a className="hover:text-main-green duration-500">{t(item.name)}</a>
                 </Link>
               ))}
               <FlyoutNav />
@@ -67,7 +67,7 @@ const Header = () => {
                 target="_blank"
                 href="https://app.stackos.io/"
                 rel="noreferrer"
-                className="flex items-center xl:ml-56 2xl:ml-auto justify-center px-4 2xl:px-6 py-2 border border-main-green rounded-md text-main-green text-sm"
+                className="flex items-center xl:ml-56 2xl:ml-auto justify-center px-4 2xl:px-6 py-2 border border-main-green rounded-md text-main-green text-sm hover:bg-main-green hover:text-main-blue font-medium duration-500"
               >
                 {t('HEADER_DEPLOY_BUTTON')}
               </a>

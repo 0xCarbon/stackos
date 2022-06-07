@@ -29,7 +29,7 @@ const Developers: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <HeroSection />
+        <HeroSection offsetY={offsetY} />
         <DeployOptionsSection offsetY={offsetY} />
         <WhyStackOSSection offsetY={offsetY} />
       </Layout>

@@ -13,32 +13,38 @@ const Footer = () => {
           <h1 className="text-[1.9rem] font-semibold text-main-green">{t('FOOTER_TITLE')}</h1>
           <div className="flex text-sm font-extralight text-main-grey">
             <a href="https://docsend.com/view/wq7qxzjk7zsd3wph" target="blank">
-              <div className="flex mr-4">
+              <div className="flex mr-4 hover:text-white duration-200">
                 <Image src="/assets/layout/paper.svg" width={9} height={12} />
                 <p className="ml-[0.44rem]">{t('FOOTER_WHITEPAPER')}</p>
               </div>
             </a>
-            <div className="flex">
+            <div className="flex hover:text-white duration-200">
               <Image src="/assets/layout/ambassador.svg" width={10} height={12} />
               <p className="ml-[0.44rem]">{t('FOOTER_AMBASSADOR')}</p>
             </div>
           </div>
         </div>
         <div className="flex text-main-green text-2xl space-x-5 mt-7 md:mt-auto child:p-3 child:rounded-full child:border child:border-main-green">
-          <a href="https://twitter.com/DeployOnStackOS" target="blank">
-            <div>
-              <BsTwitter />
-            </div>
+          <a
+            className="hover:text-main-blue hover:bg-main-green duration-500"
+            href="https://twitter.com/DeployOnStackOS"
+            target="blank"
+          >
+            <BsTwitter />
           </a>
-          <a href="https://t.me/StackOS" target="blank">
-            <div>
-              <BsTelegram />
-            </div>
+          <a
+            className="hover:text-main-blue hover:bg-main-green duration-500"
+            href="https://t.me/StackOS"
+            target="blank"
+          >
+            <BsTelegram />
           </a>
-          <a href="https://discord.com/invite/yRk7CdjG" target="blank">
-            <div>
-              <FaDiscord />
-            </div>
+          <a
+            className="hover:text-main-blue hover:bg-main-green duration-500"
+            href="https://discord.com/invite/yRk7CdjG"
+            target="blank"
+          >
+            <FaDiscord />
           </a>
         </div>
       </div>

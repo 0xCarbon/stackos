@@ -21,7 +21,7 @@ const PartnersHeroSection = () => {
           {t('PARTNERS_HERO_BUTTON')}
         </button>
       </div>
-      <div className="lg:hidden absolute w-[30rem] h-[20rem] top-10 -right-14 md:right-14 duration-500">
+      <div className="lg:hidden absolute w-[30rem] h-[20rem] top-10 -right-14 md:right-14 duration-200">
         <Image
           src="/assets/partners/hero-bg-partners-sm.svg"
           alt="background image"
@@ -29,7 +29,7 @@ const PartnersHeroSection = () => {
           priority
         />
       </div>
-      <div className="hidden lg:inline absolute w-[40rem] h-[58rem] left-[40rem] -top-[20rem] duration-500">
+      <div className="hidden lg:inline absolute w-[40rem] h-[58rem] left-[40rem] -top-[20rem] duration-200">
         <Image
           src="/assets/partners/hero-bg-partners-lg.svg"
           alt="background image"
