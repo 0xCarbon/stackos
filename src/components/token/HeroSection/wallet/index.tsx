@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useAccount, useConnect, useNetwork } from 'wagmi';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import {
   setNetworkSelected,
@@ -9,7 +9,7 @@ import {
   setTokenOptions,
   setTokenSelected,
 } from 'src/redux/actions/general';
-import { StackOSDropdown, StackOSIcon } from '@/components';
+import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSModal } from '@/components';
 
 import WalletSettings from './WalletSettings';
 import WalletHome from './wallet-home/index';
@@ -37,10 +37,9 @@ const POLYGON = 137;
 
 const Wallet = () => {
   const { data: account } = useAccount();
-  const { connect, connectors, isConnecting, pendingConnector } = useConnect();
   const { activeChain, chains, switchNetwork } = useNetwork();
 
-  const metamask = connectors[0];
+  const [isModalOpen, setModalStatus] = useState(false);
 
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
@@ -69,22 +68,10 @@ const Wallet = () => {
     setupNetwork();
   }, [activeChain]);
 
-  function onChangeNetwork(value: number) {
-    if (!activeChain || !account) {
-      connect(metamask);
-    }
-
-    switchNetwork?.(value);
-  }
-
   function setupNetwork() {
     if (activeChain && activeChain?.id !== networkSelected?.id) {
       const newNetwork = networkOptions.find((option) => option.id === activeChain?.id) as Token;
       dispatch(setNetworkSelected(newNetwork));
-
-      if (!account) {
-        connect(metamask);
-      }
     }
   }
 
@@ -98,14 +85,17 @@ const Wallet = () => {
               header="Select a network"
               selected={networkSelected.id}
               dropdownOptions={networkOptions}
-              onChangeSelection={(value) => onChangeNetwork(value)}
+              onChangeSelection={(value) => switchNetwork?.(value)}
             >
               <StackOSIcon className="h-5 w-5" iconName={networkSelected.icon} />
               <span className="text-[#111827] max-w-[90px] font-medium text-base ml-2 mr-3 whitespace-nowrap text-ellipsis overflow-hidden">
                 {networkSelected.title}
               </span>
             </StackOSDropdown>
-            <div className="w-full gap-2 h-12 px-2 bg-[#374151] flex flex-row justify-center items-center rounded">
+            <div
+              className="w-full gap-2 h-12 px-2 bg-[#374151] flex flex-row justify-center items-center rounded hover:cursor-pointer"
+              onClick={() => setModalStatus(true)}
+            >
               <div className="h-6 w-6 bg-main-green rounded-full" />
               <span className="whitespace-nowrap text-ellipsis overflow-hidden text-[#FDFDFD] max-w-[120px]">
                 {account?.address}
@@ -117,6 +107,28 @@ const Wallet = () => {
       {isSettingsOpen && <WalletSettings />}
       {isTokenSelectOpen && <WalletTokenSelect />}
       {!isSettingsOpen && !isTokenSelectOpen && <WalletHome />}
+      <StackOSModal
+        size="small"
+        showModal={isModalOpen}
+        onCloseModal={() => setModalStatus(false)}
+        className="text-center text-white"
+        title={<span className="font-semibold text-xl text-[#F9FAFB]">Account</span>}
+        footer={
+          <div className="flex flex-row justify-center items-center mb-8">
+            <StackOSButton className="px-20">Change</StackOSButton>
+          </div>
+        }
+      >
+        <div className="py-6 flex flex-col justify-center items-center">
+          <div className="w-full max-w-[186px] gap-2 h-12 px-2 bg-[#374151] flex flex-row justify-center items-center rounded">
+            <div className="h-6 w-6 bg-main-green rounded-full" />
+            <span className="whitespace-nowrap text-ellipsis overflow-hidden text-[#FDFDFD] max-w-[120px]">
+              {account?.address}
+            </span>
+          </div>
+          <span className="mt-4">{`Connected with ${account?.connector?.id}`}</span>
+        </div>
+      </StackOSModal>
     </>
   );
 };

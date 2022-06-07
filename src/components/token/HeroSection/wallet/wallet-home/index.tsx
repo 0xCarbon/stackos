@@ -26,7 +26,7 @@ import {
 } from 'src/services';
 import { BigNumber } from 'ethers';
 import { BsArrowDownCircle } from 'react-icons/bs';
-import { StackOSInput, StackOSButton } from '@/components';
+import { StackOSInput, StackOSButton, StackOSModal, StackOSIcon } from '@/components';
 import WalletError from './WalletError';
 import WalletSummary from './WalletSummary';
 
@@ -53,6 +53,7 @@ const WalletHome = () => {
   const provider = useProvider();
 
   const [isSummaryOpen, setSummaryOpen] = useState(false);
+  const [isModalOpen, setModalStatus] = useState(false);
 
   const metamask = connectors[0];
 
@@ -288,7 +289,7 @@ const WalletHome = () => {
           <button
             type="button"
             className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
-            onClick={() => connect(metamask)}
+            onClick={() => setModalStatus(true)}
           >
             {isConnecting && metamask?.id === pendingConnector?.id
               ? 'Connecting Wallet...'
@@ -296,6 +297,40 @@ const WalletHome = () => {
           </button>
         )}
       </div>
+      <StackOSModal
+        showModal={isModalOpen}
+        onCloseModal={() => setModalStatus(false)}
+        className="text-center text-white"
+        title={<span className="font-semibold text-xl text-[#F9FAFB]">Connect Wallet</span>}
+        footer={
+          <div
+            className="text-center text-[#020305] px-9 py-1 rounded-md bg-[#FDFDFD] hover:cursor-pointer"
+            onClick={() => setModalStatus(false)}
+          >
+            <span>Close</span>
+          </div>
+        }
+      >
+        <div className="py-6 flex flex-col sm:flex-row justify-center items-center">
+          {connectors.map((connector) => (
+            <button
+              disabled={!connector.ready}
+              key={connector.id}
+              onClick={() => {
+                connect(connector);
+                setModalStatus(false);
+              }}
+              type="button"
+              className="px-2 py-2 mx-2 my-2 hover:bg-[#374151] duration-500 rounded-md"
+            >
+              <div className="flex flex-col justify-center items-center">
+                <StackOSIcon width={60} height={60} iconName={connector.id} />
+                <span>{connector.name}</span>
+              </div>
+            </button>
+          ))}
+        </div>
+      </StackOSModal>
     </div>
   );
 };

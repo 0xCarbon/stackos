@@ -9,3 +9,4 @@ export { default as StackOSDropdown } from './StackOSDropdown';
 export { default as StackOSIcon } from './StackOSIcon';
 export { default as Dropdown } from './Dropdown';
 export { default as StackOSSwitch } from './StackOSSwitch';
+export { default as StackOSModal } from './StackOSModal';
