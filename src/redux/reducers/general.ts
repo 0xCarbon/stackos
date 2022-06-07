@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { Reducer } from '@reduxjs/toolkit';
 import { GeneralState, GeneralTypes } from '../types';
 

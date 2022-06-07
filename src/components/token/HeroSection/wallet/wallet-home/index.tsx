@@ -100,14 +100,14 @@ const WalletHome = () => {
         dispatch(setErrorMessage(stack?.description));
       }
 
-      const tokenIn = await fetchCoinPrice(tokenSelected.title, 'usd');
+      const tokenIn = await fetchCoinPrice(tokenSelected.coin, 'usd');
 
       if (tokenIn?.statusCode >= 400) {
         dispatch(setErrorStatus(true));
         dispatch(setErrorMessage(tokenIn?.description));
       }
 
-      dispatch(setFromTokenPrice(tokenIn[tokenSelected.icon]?.usd));
+      dispatch(setFromTokenPrice(tokenIn[tokenSelected.coin]?.usd));
 
       dispatch(setStackPrice(stack?.stackos?.usd));
 

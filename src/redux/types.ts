@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
 export enum GeneralTypes {
   SET_LOADING = '@general/SET_LOADING',

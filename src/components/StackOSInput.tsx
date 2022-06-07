@@ -37,7 +37,7 @@ const StackOSInput = ({
         min="0"
         className={`block w-full h-full pr-12 text-white text-base outline-0 ${
           showPrice ? 'rounded-t-md pt-2' : 'rounded-md py-2'
-        }`}
+        } ${disabled && 'cursor-not-allowed'}`}
         placeholder="0.00"
         aria-describedby="price-currency"
         value={value}
