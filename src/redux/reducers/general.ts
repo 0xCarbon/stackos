@@ -29,6 +29,7 @@ const INITIAL_STATE: GeneralState = {
   },
   slippageAmount: 0.1,
   errorMessage: '',
+  isSummaryOpen: false,
 };
 
 const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }) => {
@@ -77,6 +78,9 @@ const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }
 
     case GeneralTypes.SET_ERROR_MESSAGE:
       return { ...state, errorMessage: payload.value };
+
+    case GeneralTypes.SET_SUMMARY_STATUS:
+      return { ...state, isSummaryOpen: payload.value };
 
     default:
       return state;

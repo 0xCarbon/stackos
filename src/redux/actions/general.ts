@@ -60,3 +60,7 @@ export function setSlippageAmount(value: number): GeneralActionTypes {
 export function setErrorMessage(value: string): GeneralActionTypes {
   return action(GeneralTypes.SET_ERROR_MESSAGE, { value });
 }
+
+export function setSummaryStatus(value: boolean): GeneralActionTypes {
+  return action(GeneralTypes.SET_SUMMARY_STATUS, { value });
+}

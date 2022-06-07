@@ -16,6 +16,7 @@ export enum GeneralTypes {
   SET_NETWORK_SELECTED = '@general/SET_NETWORK_SELECTED',
   SET_SLIPPAGE_AMOUNT = '@general/SET_SLIPPAGE_AMOUNT',
   SET_ERROR_MESSAGE = '@general/SET_ERROR_MESSAGE',
+  SET_SUMMARY_STATUS = '@general/SET_SUMMARY_STATUS',
 }
 
 export interface SetSettingsStatus {
@@ -88,6 +89,10 @@ export interface SetErrorMessage {
   type: GeneralTypes.SET_ERROR_MESSAGE;
 }
 
+export interface SetSummaryStatus {
+  type: GeneralTypes.SET_SUMMARY_STATUS;
+}
+
 export type GeneralActionTypes =
   | SetStackPrice
   | SetSettingsStatus
@@ -103,7 +108,8 @@ export type GeneralActionTypes =
   | SetStackAddress
   | SetNetworkSelected
   | SetSlippageAmount
-  | SetErrorMessage;
+  | SetErrorMessage
+  | SetSummaryStatus;
 
 export interface GeneralState {
   loading: boolean;
@@ -121,4 +127,5 @@ export interface GeneralState {
   networkSelected: any;
   slippageAmount: number;
   errorMessage: string;
+  isSummaryOpen: boolean;
 }

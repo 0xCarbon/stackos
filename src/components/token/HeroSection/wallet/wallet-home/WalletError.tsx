@@ -1,19 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useSelector } from 'src/redux/hooks';
+import { useDispatch, useSelector } from 'src/redux/hooks';
 import { BiChevronDown, BiChevronUp, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
 import { MdErrorOutline } from 'react-icons/md';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible';
 import { Separator } from '@radix-ui/react-separator';
 import { useState } from 'react';
+import { StackOSButton } from '@/components';
+import { setErrorStatus } from '../../../../../redux/actions/general';
 
 const WalletError = () => {
+  const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
   const { errorMessage } = general;
 
   const [isCollapseOpen, setIsCollapseOpen] = useState(false);
 
   return (
-    <>
+    <div>
       <div className="flex flex-row justify-between">
         <a
           href="https://app.1inch.io/"
@@ -56,7 +59,12 @@ const WalletError = () => {
           </div>
         </CollapsibleContent>
       </Collapsible>
-    </>
+      <div className="flex flex-row justify-center items-center mt-6 w-full">
+        <div className="w-full child:w-full" onClick={() => dispatch(setErrorStatus(false))}>
+          <StackOSButton className="bg-[#FDFDFD]">Dismiss</StackOSButton>
+        </div>
+      </div>
+    </div>
   );
 };
 

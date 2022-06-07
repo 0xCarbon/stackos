@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useAccount, useConnect, useNetwork } from 'wagmi';
+import { useAccount, useNetwork } from 'wagmi';
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'src/redux/hooks';

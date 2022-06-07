@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
 import { useEffect, useState } from 'react';
-import { useAccount, useConnect, useProvider, useSendTransaction } from 'wagmi';
+import { useAccount, useConnect } from 'wagmi';
 import {
   setErrorMessage,
   setErrorStatus,
@@ -13,18 +13,11 @@ import {
   setLoading,
   setSettingsStatus,
   setStackPrice,
+  setSummaryStatus,
   setTokenSelectStatus,
   setToTokenAmount,
 } from 'src/redux/actions/general';
-import {
-  createSwap,
-  fetchAllowance,
-  fetchCoinPrice,
-  fetchSwapQuote,
-  fetchTransactionApproval,
-  getBroadCastTransaction,
-} from 'src/services';
-import { BigNumber } from 'ethers';
+import { fetchCoinPrice, fetchSwapQuote } from 'src/services';
 import { BsArrowDownCircle } from 'react-icons/bs';
 import { StackOSInput, StackOSButton, StackOSModal, StackOSIcon } from '@/components';
 import WalletError from './WalletError';
@@ -45,14 +38,12 @@ const WalletHome = () => {
     networkSelected,
     slippageAmount,
     isErrorOpen,
+    isSummaryOpen,
   } = general;
 
   const { connect, connectors, isConnecting, pendingConnector } = useConnect();
   const { data: account } = useAccount();
-  const { data: transactionResponse, sendTransaction } = useSendTransaction();
-  const provider = useProvider();
 
-  const [isSummaryOpen, setSummaryOpen] = useState(false);
   const [isModalOpen, setModalStatus] = useState(false);
 
   const metamask = connectors[0];
@@ -61,17 +52,11 @@ const WalletHome = () => {
     fetchQuoteData();
   }, [fromTokenAmount, tokenSelected]);
 
-  useEffect(() => {
-    if (transactionResponse) getBroadCastTransaction(transactionResponse?.data, networkSelected.id);
-  }, [transactionResponse]);
-
-  const walletAddress = account?.address;
-
   const swapParams = {
     fromTokenAddress: tokenSelected.address,
     toTokenAddress: stackAddress,
     amount: fromTokenAmount * 10 ** 18,
-    fromAddress: walletAddress,
+    fromAddress: account?.address,
     slippage: slippageAmount,
     disableEstimate: true, // default false, error 400 'cannot estimate. Don't forget about miner fee. Try to leave the buffer of BNB for gas' on default
     allowPartialFill: false,
@@ -119,83 +104,10 @@ const WalletHome = () => {
     dispatch(setLoading(false));
   };
 
-  async function buildTxForApproveTradeWithRouter(tokenAddress: any, amount: any) {
-    const transaction = await fetchTransactionApproval(tokenAddress, amount, networkSelected.id);
-
-    if (transaction?.statusCode >= 400) {
-      dispatch(setErrorStatus(true));
-      dispatch(setErrorMessage(transaction?.description));
-    }
-
-    const gasLimit = await provider.estimateGas({
-      ...transaction,
-      from: walletAddress,
-    });
-
-    return {
-      gasLimit,
-      to: transaction.to,
-      gasPrice: transaction.gasPrice,
-      value: BigNumber.from(transaction.value),
-    };
-  }
-
-  async function handleSwap() {
-    const allowance = await fetchAllowance(
-      swapParams.fromTokenAddress,
-      walletAddress,
-      networkSelected.id
-    );
-
-    if (allowance?.statusCode >= 400) {
-      dispatch(setErrorStatus(true));
-      dispatch(setErrorMessage(allowance?.description));
-    }
-
-    if (allowance == 0) {
-      const transactionForSign = await buildTxForApproveTradeWithRouter(
-        swapParams.fromTokenAddress,
-        0
-      );
-
-      // const approveTxHash =
-      sendTransaction({
-        request: {
-          to: transactionForSign.to,
-          gasPrice: transactionForSign.gasPrice,
-          value: BigNumber.from(transactionForSign.value),
-        },
-      });
-
-      // if (approveTxHash)
-    }
-
-    const swapTransaction = await createSwap(swapParams, networkSelected.id);
-
-    // const swapTxHash =
-    sendTransaction({
-      request: {
-        to: swapTransaction.to,
-        from: swapTransaction.from,
-        data: swapTransaction.data,
-        gasPrice: swapTransaction.gasPrice,
-        value: BigNumber.from(swapTransaction.value),
-      },
-    });
-
-    // if (swapTxHash)
-  }
-
-  function onClickMainButton() {
-    if (isSummaryOpen) handleSwap();
-    else if (isErrorOpen) dispatch(setErrorStatus(false));
-    else setSummaryOpen(true);
-  }
-
   return (
     <div className="px-4 py-6 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
-      {isSummaryOpen && !isErrorOpen && <WalletSummary />}
-      {isErrorOpen && !isSummaryOpen && <WalletError />}
+      {isSummaryOpen && <WalletSummary />}
+      {isErrorOpen && <WalletError />}
       {!isSummaryOpen && !isErrorOpen && (
         <>
           <div className="flex flex-row justify-between mb-7">
@@ -269,34 +181,30 @@ const WalletHome = () => {
               </>
             )}
           </div>
+          <div className="flex flex-row justify-center items-center mt-6 w-full">
+            {account?.address ? (
+              <div className="w-full child:w-full" onClick={() => dispatch(setSummaryStatus(true))}>
+                <StackOSButton
+                  className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
+                  disabled={!fromTokenAmount || loading}
+                >
+                  Buy STACK
+                </StackOSButton>
+              </div>
+            ) : (
+              <button
+                type="button"
+                className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
+                onClick={() => setModalStatus(true)}
+              >
+                {isConnecting && metamask?.id === pendingConnector?.id
+                  ? 'Connecting Wallet...'
+                  : 'Connect Wallet'}
+              </button>
+            )}
+          </div>
         </>
       )}
-      <div className="flex flex-row justify-center items-center mt-6 w-full">
-        {account?.address ? (
-          <div className="w-full child:w-full" onClick={() => onClickMainButton()}>
-            <StackOSButton
-              className={`${isErrorOpen && 'bg-[#FDFDFD]'} ${
-                fromTokenAmount && !loading && 'text-[#020305]'
-              }`}
-              disabled={!fromTokenAmount || loading}
-            >
-              {isSummaryOpen && 'Add Tokens to Wallet'}
-              {isErrorOpen && 'Dismiss'}
-              {!isSummaryOpen && !isErrorOpen && 'Buy STACK'}
-            </StackOSButton>
-          </div>
-        ) : (
-          <button
-            type="button"
-            className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
-            onClick={() => setModalStatus(true)}
-          >
-            {isConnecting && metamask?.id === pendingConnector?.id
-              ? 'Connecting Wallet...'
-              : 'Connect Wallet'}
-          </button>
-        )}
-      </div>
       <StackOSModal
         showModal={isModalOpen}
         onCloseModal={() => setModalStatus(false)}
