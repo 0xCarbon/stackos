@@ -35,7 +35,7 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
           </div>
           <div className="mt-8 sm:ml-[6.5rem] lg:ml-0 lg:mt-11">
             <a href="https://docs.stackos.io" target="blank">
-              <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
+              <StackOSButton>{t('DEVELOPERS_HERO_BUTTON')}</StackOSButton>
             </a>
           </div>
         </div>
