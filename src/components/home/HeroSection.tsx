@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Lottie from 'lottie-react';
 import { Separator } from '@radix-ui/react-separator';
 import React from 'react';
+import Link from 'next/link';
 import titleData from './helpers/hero-titles.json';
 import StackOSButton from '../StackOSButton';
-import Link from 'next/link';
 
 const HeroSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
