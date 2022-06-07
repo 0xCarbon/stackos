@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'src/redux/hooks';
 import { IoMdClose } from 'react-icons/io';
 import { setTokenSelected, setTokenSelectStatus } from 'src/redux/actions/general';
 import { Separator } from '@radix-ui/react-separator';
+import { useEffect, useState } from 'react';
 import { StackOSIcon, StackOSInput } from '@/components';
 
 const WalletTokenSelect = () => {
@@ -10,7 +11,16 @@ const WalletTokenSelect = () => {
   const { general } = useSelector((state) => state);
   const { tokenOptions, tokenSelected } = general;
 
-  // const [searchInput, setSearchInput] = useState();
+  const [searchInput, setSearchInput] = useState('');
+  const [searchList, setSearchList] = useState(tokenOptions);
+
+  useEffect(() => {
+    const newSearchList = tokenOptions?.filter(({ title }) =>
+      title.toLowerCase().includes(searchInput.toLowerCase())
+    );
+
+    setSearchList(newSearchList);
+  }, [searchInput]);
 
   function onChangeToken(value: number) {
     dispatch(setTokenSelected(tokenOptions.find((option) => option.id === value)));
@@ -27,10 +37,16 @@ const WalletTokenSelect = () => {
           onClick={() => dispatch(setTokenSelectStatus(false))}
         />
       </div>
-      <StackOSInput />
+      <StackOSInput
+        type="text"
+        placeholder="Search for tokens"
+        iconLeft
+        value={searchInput}
+        onChangeInput={(value) => setSearchInput(value)}
+      />
       <Separator className="h-px w-full bg-[#565A69] my-4" />
       <div className="overflow-y-scroll scrollbar h-48 pr-1">
-        {tokenOptions?.map((item: any) => (
+        {searchList?.map((item: any) => (
           <div
             className={`
                     ${

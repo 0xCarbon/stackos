@@ -221,11 +221,12 @@ const WalletHome = () => {
             value={fromTokenAmount}
             price={fromTokenPrice}
             onChangeInput={(value) => dispatch(setFromTokenAmount(value))}
+            type="number"
           />
           <div className="relative z-10 h-1 flex flex-row justify-center items-center">
             <BsArrowDownCircle color="#AAFF00" size={26} />
           </div>
-          <StackOSInput value={toTokenAmount} showPrice price={stackPrice} disabled />
+          <StackOSInput value={toTokenAmount} showPrice price={stackPrice} disabled type="number" />
           <div className="flex flex-row justify-start items-center text-white my-6">
             {loading ? (
               <div className="flex flex-row justify-start items-center">

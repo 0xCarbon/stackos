@@ -46,10 +46,11 @@ const WalletSettings = () => {
           value={slippageAmount}
           onChangeInput={(value) => dispatch(setSlippageAmount(value))}
           disabled={enabled}
+          type="number"
         />
       </div>
       <p className="text-white mb-4">Transaction Deadline</p>
-      <StackOSInput disabled={enabled} />
+      <StackOSInput disabled={enabled} type="number" />
       <div className="flex flex-row justify-center items-center w-full mt-9">
         <div className="w-full child:w-full" onClick={() => dispatch(setSettingsStatus(false))}>
           <StackOSButton>Confirm Settings</StackOSButton>

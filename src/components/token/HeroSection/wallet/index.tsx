@@ -14,6 +14,7 @@ import { StackOSDropdown, StackOSIcon } from '@/components';
 import WalletSettings from './WalletSettings';
 import WalletHome from './wallet-home/index';
 import WalletTokenSelect from './WalletTokenSelect';
+import { stackAddresses, tokenList } from './helpers';
 
 interface Token {
   id: number;
@@ -56,110 +57,7 @@ const Wallet = () => {
   ];
 
   useEffect(() => {
-    const tokens: Tokens = {
-      Ethereum: [
-        {
-          id: 1,
-          title: 'ETH',
-          subtitle: 'Ether',
-          icon: 'eth',
-          coin: 'ethereum',
-          address: '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae',
-        },
-        {
-          id: 2,
-          title: 'USDC',
-          subtitle: 'USD Coin',
-          icon: 'usdc',
-          address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
-          coin: 'usd-coin',
-        },
-        {
-          id: 3,
-          title: 'USDT',
-          subtitle: 'Tether',
-          icon: 'usdt',
-          address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
-          coin: 'tether',
-        },
-        {
-          id: 43,
-          title: 'WETH',
-          subtitle: 'Wrapped Ether',
-          icon: 'weth',
-          address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-          coin: 'weth',
-        },
-      ],
-      'Polygon PoS': [
-        {
-          id: 1,
-          title: 'MATIC',
-          subtitle: 'Polygon',
-          icon: 'matic',
-          address: '0x0000000000000000000000000000000000001010',
-          coin: 'matic-network',
-        },
-        {
-          id: 2,
-          title: 'USDC',
-          subtitle: 'USD Coin',
-          icon: 'usdc',
-          address: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
-          coin: 'usd-coin',
-        },
-        {
-          id: 3,
-          title: 'USDT',
-          subtitle: 'Tether',
-          icon: 'usdt',
-          address: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
-          coin: 'tether',
-        },
-      ],
-      'Binance Smart Chain': [
-        {
-          id: 1,
-          title: 'BNB',
-          subtitle: 'Binance',
-          icon: 'bnb',
-          address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', //0x0000000000000000000000000000000000001002
-          coin: 'binancecoin',
-        },
-        {
-          id: 2,
-          title: 'BUSD',
-          subtitle: 'Binance USD',
-          icon: 'busd',
-          address: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
-          coin: 'binance-usd',
-        },
-        {
-          id: 3,
-          title: 'USDT',
-          subtitle: 'Tether',
-          icon: 'usdt',
-          coin: 'tether',
-          address: '0x55d398326f99059ff775485246999027b3197955',
-        },
-        {
-          id: 43,
-          title: 'WBNB',
-          subtitle: 'Wrapped BNB',
-          icon: 'wbnb',
-          address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-          coin: 'wbnb',
-        },
-      ],
-    };
-
-    const stackAddresses: any = {
-      Ethereum: '0x56A86d648c435DC707c8405B78e2Ae8eB4E60Ba4',
-      'Binance Smart Chain': '0x6855f7bb6287F94ddcC8915E37e73a3c9fEe5CF3',
-      'Polygon PoS': '0x980111ae1B84E50222C8843e3A7a038F36Fecd2b',
-    };
-
-    dispatch(setTokenOptions(tokens[networkSelected.title as keyof Tokens]));
+    dispatch(setTokenOptions(tokenList[networkSelected.title as keyof Tokens]));
     dispatch(setStackAddress(stackAddresses[networkSelected.title]));
   }, [networkSelected]);
 
@@ -193,38 +91,28 @@ const Wallet = () => {
   return (
     <>
       <div className="w-full max-w-[360px] flex flex-row gap-3 mb-5 duration-500">
-        <StackOSDropdown
-          className="w-full h-12 px-2 bg-main-green flex flex-row justify-center items-center rounded"
-          header="Select a network"
-          selected={networkSelected.id}
-          dropdownOptions={networkOptions}
-          onChangeSelection={(value) => onChangeNetwork(value)}
-        >
-          <StackOSIcon className="h-5 w-5" iconName={networkSelected.icon} />
-          <span className="text-[#111827] max-w-[90px] font-medium text-base ml-2 mr-3 whitespace-nowrap text-ellipsis overflow-hidden">
-            {networkSelected.title}
-          </span>
-        </StackOSDropdown>
-        <div className="flex flex-row justify-center items-center w-full">
-          {account?.address ? (
+        {account?.address && (
+          <>
+            <StackOSDropdown
+              className="w-full h-12 px-2 bg-main-green flex flex-row justify-center items-center rounded"
+              header="Select a network"
+              selected={networkSelected.id}
+              dropdownOptions={networkOptions}
+              onChangeSelection={(value) => onChangeNetwork(value)}
+            >
+              <StackOSIcon className="h-5 w-5" iconName={networkSelected.icon} />
+              <span className="text-[#111827] max-w-[90px] font-medium text-base ml-2 mr-3 whitespace-nowrap text-ellipsis overflow-hidden">
+                {networkSelected.title}
+              </span>
+            </StackOSDropdown>
             <div className="w-full gap-2 h-12 px-2 bg-[#374151] flex flex-row justify-center items-center rounded">
               <div className="h-6 w-6 bg-main-green rounded-full" />
               <span className="whitespace-nowrap text-ellipsis overflow-hidden text-[#FDFDFD] max-w-[120px]">
                 {account?.address}
               </span>
             </div>
-          ) : (
-            <button
-              type="button"
-              className="w-full bg-transparent border border-main-green text-main-green rounded-md px-2 py-3"
-              onClick={() => connect(metamask)}
-            >
-              {isConnecting && metamask?.id === pendingConnector?.id
-                ? 'Connecting Wallet...'
-                : 'Connect Wallet'}
-            </button>
-          )}
-        </div>
+          </>
+        )}
       </div>
       {isSettingsOpen && <WalletSettings />}
       {isTokenSelectOpen && <WalletTokenSelect />}
