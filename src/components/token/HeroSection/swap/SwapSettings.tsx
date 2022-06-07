@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { setSettingsStatus, setSlippageAmount } from 'src/redux/actions/general';
 import { StackOSButton, StackOSInput, StackOSSwitch } from '@/components';
 
-const WalletSettings = () => {
+const SwapSettings = () => {
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
   const { slippageAmount } = general;
@@ -73,4 +73,4 @@ const WalletSettings = () => {
   );
 };
 
-export default WalletSettings;
+export default SwapSettings;

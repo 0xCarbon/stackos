@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
-import Wallet from './wallet';
+import Swap from './swap';
 
 const HeroSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
@@ -19,11 +19,11 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
           <p className="text-white font-normal text-xl max-w-lg">{t('TOKEN_HERO_DESCRIPTION')}</p>
         </div>
         <div className="lg:hidden flex flex-col justify-center items-center duration-500">
-          <Wallet />
+          <Swap />
         </div>
 
         <div className="hidden lg:flex lg:flex-col lg:items-end duration-500">
-          <Wallet />
+          <Swap />
         </div>
       </div>
       <div

@@ -80,7 +80,7 @@ const tokenList: Tokens = {
       title: 'BNB',
       subtitle: 'Binance',
       icon: 'bnb',
-      address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', //0x0000000000000000000000000000000000001002
+      address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', // 0x0000000000000000000000000000000000001002
       coin: 'binancecoin',
     },
     {

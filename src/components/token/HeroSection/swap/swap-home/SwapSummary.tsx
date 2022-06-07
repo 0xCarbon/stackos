@@ -23,7 +23,7 @@ import {
   getBroadCastTransaction,
 } from '../../../../../services';
 
-const WalletSummary = () => {
+const SwapSummary = () => {
   const {
     data: transactionResponse,
     isLoading: isTransactionPending,
@@ -325,4 +325,4 @@ const WalletSummary = () => {
   );
 };
 
-export default WalletSummary;
+export default SwapSummary;

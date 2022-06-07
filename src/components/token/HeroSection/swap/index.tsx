@@ -11,9 +11,9 @@ import {
 } from 'src/redux/actions/general';
 import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSModal } from '@/components';
 
-import WalletSettings from './WalletSettings';
-import WalletHome from './wallet-home/index';
-import WalletTokenSelect from './WalletTokenSelect';
+import SwapSettings from './SwapSettings';
+import SwapHome from './swap-home/index';
+import SwapTokenSelect from './SwapTokenSelect';
 import { stackAddresses, tokenList } from './helpers';
 
 interface Token {
@@ -35,7 +35,7 @@ const ETHEREUM = 1;
 const BSC = 56;
 const POLYGON = 137;
 
-const Wallet = () => {
+const Swap = () => {
   const { data: account } = useAccount();
   const { activeChain, chains, switchNetwork } = useNetwork();
 
@@ -104,9 +104,9 @@ const Wallet = () => {
           </>
         )}
       </div>
-      {isSettingsOpen && <WalletSettings />}
-      {isTokenSelectOpen && <WalletTokenSelect />}
-      {!isSettingsOpen && !isTokenSelectOpen && <WalletHome />}
+      {isSettingsOpen && <SwapSettings />}
+      {isTokenSelectOpen && <SwapTokenSelect />}
+      {!isSettingsOpen && !isTokenSelectOpen && <SwapHome />}
       <StackOSModal
         size="small"
         showModal={isModalOpen}
@@ -133,4 +133,4 @@ const Wallet = () => {
   );
 };
 
-export default Wallet;
+export default Swap;

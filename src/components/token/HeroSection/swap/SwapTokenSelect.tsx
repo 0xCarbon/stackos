@@ -6,7 +6,7 @@ import { Separator } from '@radix-ui/react-separator';
 import { useEffect, useState } from 'react';
 import { StackOSIcon, StackOSInput } from '@/components';
 
-const WalletTokenSelect = () => {
+const SwapTokenSelect = () => {
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
   const { tokenOptions, tokenSelected } = general;
@@ -75,4 +75,4 @@ const WalletTokenSelect = () => {
   );
 };
 
-export default WalletTokenSelect;
+export default SwapTokenSelect;

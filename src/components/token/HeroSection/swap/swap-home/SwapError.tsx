@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { StackOSButton } from '@/components';
 import { setErrorStatus } from '../../../../../redux/actions/general';
 
-const WalletError = () => {
+const SwapError = () => {
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
   const { errorMessage } = general;
@@ -68,4 +68,4 @@ const WalletError = () => {
   );
 };
 
-export default WalletError;
+export default SwapError;

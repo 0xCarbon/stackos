@@ -20,10 +20,10 @@ import {
 import { fetchCoinPrice, fetchSwapQuote } from 'src/services';
 import { BsArrowDownCircle } from 'react-icons/bs';
 import { StackOSInput, StackOSButton, StackOSModal, StackOSIcon } from '@/components';
-import WalletError from './WalletError';
-import WalletSummary from './WalletSummary';
+import SwapError from './SwapError';
+import SwapSummary from './SwapSummary';
 
-const WalletHome = () => {
+const SwapHome = () => {
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
   const {
@@ -106,8 +106,8 @@ const WalletHome = () => {
 
   return (
     <div className="px-4 py-6 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
-      {isSummaryOpen && <WalletSummary />}
-      {isErrorOpen && <WalletError />}
+      {isSummaryOpen && <SwapSummary />}
+      {isErrorOpen && <SwapError />}
       {!isSummaryOpen && !isErrorOpen && (
         <>
           <div className="flex flex-row justify-between mb-7">
@@ -243,4 +243,4 @@ const WalletHome = () => {
   );
 };
 
-export default WalletHome;
+export default SwapHome;
