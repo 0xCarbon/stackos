@@ -8,6 +8,7 @@ import {
   setStackAddress,
   setTokenOptions,
   setTokenSelected,
+  setWalletModalStatus,
 } from 'src/redux/actions/general';
 import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSModal } from '@/components';
 
@@ -39,7 +40,7 @@ const Swap = () => {
   const { data: account } = useAccount();
   const { activeChain, chains, switchNetwork } = useNetwork();
 
-  const [isModalOpen, setModalStatus] = useState(false);
+  const [isAccountModalOpen, setAccountModalStatus] = useState(false);
 
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
@@ -94,7 +95,7 @@ const Swap = () => {
             </StackOSDropdown>
             <div
               className="w-full gap-2 h-12 px-2 bg-[#374151] flex flex-row justify-center items-center rounded hover:cursor-pointer"
-              onClick={() => setModalStatus(true)}
+              onClick={() => setAccountModalStatus(true)}
             >
               <div className="h-6 w-6 bg-main-green rounded-full" />
               <span className="whitespace-nowrap text-ellipsis overflow-hidden text-[#FDFDFD] max-w-[120px]">
@@ -109,12 +110,18 @@ const Swap = () => {
       {!isSettingsOpen && !isTokenSelectOpen && <SwapHome />}
       <StackOSModal
         size="small"
-        showModal={isModalOpen}
-        onCloseModal={() => setModalStatus(false)}
+        showModal={isAccountModalOpen}
+        onCloseModal={() => setAccountModalStatus(false)}
         className="text-center text-white"
         title={<span className="font-semibold text-xl text-[#F9FAFB]">Account</span>}
         footer={
-          <div className="flex flex-row justify-center items-center mb-8">
+          <div
+            className="flex flex-row justify-center items-center mb-8"
+            onClick={() => {
+              setAccountModalStatus(false);
+              dispatch(setWalletModalStatus(true));
+            }}
+          >
             <StackOSButton className="px-20">Change</StackOSButton>
           </div>
         }

@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useAccount, useConnect } from 'wagmi';
 import {
   setErrorMessage,
@@ -16,6 +16,7 @@ import {
   setSummaryStatus,
   setTokenSelectStatus,
   setToTokenAmount,
+  setWalletModalStatus,
 } from 'src/redux/actions/general';
 import { fetchCoinPrice, fetchSwapQuote } from 'src/services';
 import { BsArrowDownCircle } from 'react-icons/bs';
@@ -39,12 +40,11 @@ const SwapHome = () => {
     slippageAmount,
     isErrorOpen,
     isSummaryOpen,
+    isWalletModalOpen,
   } = general;
 
   const { connect, connectors, isConnecting, pendingConnector } = useConnect();
   const { data: account } = useAccount();
-
-  const [isModalOpen, setModalStatus] = useState(false);
 
   const metamask = connectors[0];
 
@@ -195,7 +195,7 @@ const SwapHome = () => {
               <button
                 type="button"
                 className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
-                onClick={() => setModalStatus(true)}
+                onClick={() => dispatch(setWalletModalStatus(true))}
               >
                 {isConnecting && metamask?.id === pendingConnector?.id
                   ? 'Connecting Wallet...'
@@ -206,14 +206,14 @@ const SwapHome = () => {
         </>
       )}
       <StackOSModal
-        showModal={isModalOpen}
-        onCloseModal={() => setModalStatus(false)}
+        showModal={isWalletModalOpen}
+        onCloseModal={() => dispatch(setWalletModalStatus(false))}
         className="text-center text-white"
         title={<span className="font-semibold text-xl text-[#F9FAFB]">Connect Wallet</span>}
         footer={
           <div
             className="text-center text-[#020305] px-9 py-1 rounded-md bg-[#FDFDFD] hover:cursor-pointer"
-            onClick={() => setModalStatus(false)}
+            onClick={() => dispatch(setWalletModalStatus(false))}
           >
             <span>Close</span>
           </div>
@@ -226,7 +226,7 @@ const SwapHome = () => {
               key={connector.id}
               onClick={() => {
                 connect(connector);
-                setModalStatus(false);
+                dispatch(setWalletModalStatus(false));
               }}
               type="button"
               className="px-2 py-2 mx-2 my-2 hover:bg-[#374151] duration-500 rounded-md"

@@ -17,6 +17,7 @@ export enum GeneralTypes {
   SET_SLIPPAGE_AMOUNT = '@general/SET_SLIPPAGE_AMOUNT',
   SET_ERROR_MESSAGE = '@general/SET_ERROR_MESSAGE',
   SET_SUMMARY_STATUS = '@general/SET_SUMMARY_STATUS',
+  SET_WALLET_MODAL_STATUS = '@general/SET_WALLET_MODAL_STATUS',
 }
 
 export interface SetSettingsStatus {
@@ -93,6 +94,10 @@ export interface SetSummaryStatus {
   type: GeneralTypes.SET_SUMMARY_STATUS;
 }
 
+export interface SetWalletModalStatus {
+  type: GeneralTypes.SET_WALLET_MODAL_STATUS;
+}
+
 export type GeneralActionTypes =
   | SetStackPrice
   | SetSettingsStatus
@@ -109,7 +114,8 @@ export type GeneralActionTypes =
   | SetNetworkSelected
   | SetSlippageAmount
   | SetErrorMessage
-  | SetSummaryStatus;
+  | SetSummaryStatus
+  | SetWalletModalStatus;
 
 export interface GeneralState {
   loading: boolean;
@@ -128,4 +134,5 @@ export interface GeneralState {
   slippageAmount: number;
   errorMessage: string;
   isSummaryOpen: boolean;
+  isWalletModalOpen: boolean;
 }

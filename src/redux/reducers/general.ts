@@ -30,6 +30,7 @@ const INITIAL_STATE: GeneralState = {
   slippageAmount: 0.1,
   errorMessage: '',
   isSummaryOpen: false,
+  isWalletModalOpen: false,
 };
 
 const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }) => {
@@ -81,6 +82,9 @@ const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }
 
     case GeneralTypes.SET_SUMMARY_STATUS:
       return { ...state, isSummaryOpen: payload.value };
+
+    case GeneralTypes.SET_WALLET_MODAL_STATUS:
+      return { ...state, isWalletModalOpen: payload.value };
 
     default:
       return state;
