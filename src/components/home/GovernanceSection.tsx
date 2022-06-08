@@ -27,71 +27,71 @@ const GovernanceSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translate(${offsetY * 0.006}px, -${offsetY * 0.006}px)` }}
-        className="md:hidden absolute w-[22.75rem] h-[24.75rem] right-[-19rem] top-[7rem] sm:right-[-19rem] sm:top-[4rem] duration-200"
+        className="selectDisable md:hidden absolute w-[22.75rem] h-[24.75rem] right-[-19rem] top-[7rem] sm:right-[-19rem] sm:top-[4rem] duration-200"
       >
         <Image
           src="/assets/home/governance-background-dribbles-sm.svg"
-          alt="technology background"
+          alt="governance-background-dribbles-sm"
           layout="fill"
         />
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.035}px, -${offsetY * 0.035}px)` }}
-        className="md:hidden absolute w-[10.87rem] h-[8.75rem] right-[-12.5rem] top-[22rem] sm:right-[-14rem] sm:top-[17rem] duration-200"
+        className="selectDisable md:hidden absolute w-[10.87rem] h-[8.75rem] right-[-12.5rem] top-[22rem] sm:right-[-14rem] sm:top-[17rem] duration-200"
       >
         <Image
           src="/assets/home/governance-background-circles-sm.svg"
-          alt="technology background"
+          alt="governance-background-circles-sm"
           layout="fill"
         />
       </div>
       <div
         style={{ transform: `translateX(-${offsetY * 0.01}px)` }}
-        className="hidden md:inline absolute w-[65rem] lg:w-[120rem] h-[28rem] lg:h-[52rem] right-[-10rem] top-[5rem] lg:right-[-15rem] xl:right-[-28rem] lg:top-[1rem] xl:top-[2.4rem] duration-200"
+        className="selectDisable hidden md:inline absolute w-[65rem] lg:w-[120rem] h-[28rem] lg:h-[52rem] right-[-10rem] top-[5rem] lg:right-[-15rem] xl:right-[-28rem] lg:top-[1rem] xl:top-[2.4rem] duration-200"
       >
         <Image
           src="/assets/home/governance-background-scribbles-md.svg"
-          alt="technology background"
+          alt="governance-background-scribbles-md"
           layout="fill"
         />
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.035}px, -${offsetY * 0.035}px)` }}
-        className="hidden md:inline lg:hidden absolute w-[8rem] lg:w-[120rem] h-[4rem] lg:h-[52rem] right-[4rem] top-[26rem] duration-200"
+        className="selectDisable hidden md:inline lg:hidden absolute w-[8rem] lg:w-[120rem] h-[4rem] lg:h-[52rem] right-[4rem] top-[26rem] duration-200"
       >
         <Image
           src="/assets/home/governance-background-circles-md.svg"
-          alt="technology background"
+          alt="governance-background-circles-md"
           layout="fill"
         />
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.02}px, -${offsetY * 0.02}px)` }}
-        className="hidden md:inline lg:hidden absolute w-[19.5rem] lg:w-[120rem] h-[7.063rem] lg:h-[52rem] right-[1rem] top-[24rem] duration-200"
+        className="selectDisablehidden md:inline lg:hidden absolute w-[19.5rem] lg:w-[120rem] h-[7.063rem] lg:h-[52rem] right-[1rem] top-[24rem] duration-200"
       >
         <Image
           src="/assets/home/governance-background-circle-md.svg"
-          alt="technology background"
+          alt="governance-background-circle-md"
           layout="fill"
         />
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.035}px, -${offsetY * 0.035}px)` }}
-        className="hidden lg:inline absolute w-[25.37rem] h-[16rem] right-[-7rem] top-[25rem] xl:right-[-3rem] xl:top-[23rem] duration-200"
+        className="selectDisable hidden lg:inline absolute w-[25.37rem] h-[16rem] right-[-7rem] top-[25rem] xl:right-[-3rem] xl:top-[23rem] duration-200"
       >
         <Image
           src="/assets/home/governance-background-circles-lg.svg"
-          alt="technology background"
+          alt="governance-background-circles-lg"
           layout="fill"
         />
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.02}px, -${offsetY * 0.02}px)` }}
-        className="hidden lg:inline absolute w-[24.25rem] h-[10.87rem] right-[16rem] top-[27rem] xl:right-[20rem] xl:top-[24rem] duration-200"
+        className="selectDisable hidden lg:inline absolute w-[24.25rem] h-[10.87rem] right-[16rem] top-[27rem] xl:right-[20rem] xl:top-[24rem] duration-200"
       >
         <Image
           src="/assets/home/governance-background-circle-lg.svg"
-          alt="technology background"
+          alt="governance-background-circle-lg"
           layout="fill"
         />
       </div>

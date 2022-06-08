@@ -27,22 +27,22 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
         </div>
       </div>
       <div
-        style={{ transform: `translate(${offsetY * 0.1}px, ${offsetY * 0.1}px)` }}
-        className="absolute w-[6rem] h-[6rem] top-[28rem] left-[-5rem] sm:top-[17rem] sm:left-[-8rem] md:left-[-4rem] lg:top-[15rem] 2xl:left-[-10rem] 2xl:top-[24rem] duration-500"
+        style={{ transform: `translate(${offsetY * 0.06}px, ${offsetY * 0.06}px)` }}
+        className="z-10 absolute w-[6rem] h-[6rem] top-[18rem] left-[-5rem] sm:top-[17rem] sm:left-[-8rem] md:left-[-4rem] lg:top-[15rem] 2xl:left-[-7rem] duration-200"
       >
-        <Image src="/assets/token/hero-layer1.svg" alt="background image" layout="fill" priority />
+        <Image src="/assets/token/hero-layer1.svg" alt="hero-layer1" layout="fill" priority />
       </div>
       <div
-        style={{ transform: `translate(-${offsetY * 0.06}px, ${offsetY * 0.06}px)` }}
-        className="hidden xl:inline w-[11rem] h-[11rem] right-[-7rem] top-[29rem] absolute duration-500"
+        style={{ transform: `translate(-${offsetY * 0.035}px, ${offsetY * 0.035}px)` }}
+        className="z-10 hidden xl:inline w-[11rem] h-[11rem] right-[-7rem] top-[23rem] absolute duration-200"
       >
-        <Image src="/assets/token/hero-layer2.svg" alt="background image" layout="fill" priority />
+        <Image src="/assets/token/hero-layer2.svg" alt="hero-layer2" layout="fill" priority />
       </div>
       <div
-        style={{ transform: `translate(${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
-        className="absolute w-[76rem] h-[69rem] xl:w-[100rem] xl:h-[75rem] sm:left-[-6rem] sm:top-[-7rem] md:top-[-12rem] md:left-[-4rem] lg:top-[-14rem] xl:top-[-8rem] xl:left-[-10rem] duration-500"
+        style={{ transform: `translate(-${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
+        className="selectDisable absolute w-[105rem] h-[50rem] sm:w-[92.5rem] sm:h-[38.62rem] top-[-8rem] sm:top-[-4rem] md:top-[-8rem] lg:top-[-9rem] xl:top-[-8rem] left-[-12rem] sm:left-[-14rem] md:left-[-12rem] xl:left-[-10rem] duration-200"
       >
-        <Image src="/assets/token/hero-layer3.svg" alt="background image" layout="fill" priority />
+        <Image src="/assets/token/hero-layer3.svg" alt="hero-layer3" layout="fill" priority />
       </div>
     </div>
   );

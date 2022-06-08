@@ -50,7 +50,9 @@ const SwapTokenSelect = () => {
           <div
             className={`
                     ${
-                      tokenSelected?.id === item.id ? 'bg-main-green text-[#111827]' : ''
+                      tokenSelected?.id === item.id
+                        ? 'bg-main-green text-[#111827]'
+                        : 'hover:bg-[#2f3743] duration-300'
                     } relative rounded-md text-white group flex flex-row justify-between items-center px-4 py-2 my-px text-sm cursor-pointer
                   `}
             onClick={() => onChangeToken(item.id)}

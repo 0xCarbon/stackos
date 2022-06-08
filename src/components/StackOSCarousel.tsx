@@ -37,7 +37,7 @@ const StackOSCarousel = () => {
   }
 
   return (
-    <div className="flex items-center">
+    <div className="z-50 flex items-center">
       <IoIosArrowBack
         onClick={() => handlePrevItem()}
         className="m-2 2xl:m-10 cursor-pointer hidden"
@@ -69,7 +69,13 @@ const StackOSCarousel = () => {
                 className="flex h-full w-full items-center justify-center bg-cover bg-carousel-circle"
               >
                 <div className="p-3 md:p-4 lg:p-5 h-full w-full hover:scale-105 duration-500">
-                  <Image height={60} width={60} src={partner.image} layout="responsive" />
+                  <Image
+                    alt={String(partner.id)}
+                    height={60}
+                    width={60}
+                    src={partner.image}
+                    layout="responsive"
+                  />
                 </div>
               </a>
             </div>

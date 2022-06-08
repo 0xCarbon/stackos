@@ -36,11 +36,11 @@ const PartnershipsSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translateX(-${offsetY * 0.01}px)` }}
-        className="opacity-60 absolute flex sm:hidden w-[40rem] h-[16.87rem] top-[0.1rem] right-[-18rem] duration-200"
+        className="selectDisable opacity-60 absolute flex sm:hidden w-[40rem] h-[16.87rem] top-[0.1rem] right-[-18rem] duration-200"
       >
         <Image
           src="/assets/home/governance-background-scribbles-md.svg"
-          alt="technology background"
+          alt="governance-background-scribbles-md"
           layout="fill"
         />
       </div>

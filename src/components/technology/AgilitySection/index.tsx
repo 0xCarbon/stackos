@@ -6,13 +6,13 @@ const AgilitySection = () => {
 
   return (
     <div className="w-full flex flex-col justify-center items-center text-center py-20">
-      <h2 className="text-[#F9FAFB] font-extrabold text-4xl lg:text-6xl mb-9">
+      <h2 className="z-10 text-[#F9FAFB] font-extrabold text-4xl lg:text-6xl mb-9">
         {t('TECHNOLOGY_AGILITY_TITLE')}
       </h2>
-      <span className="text-white font-normal text-xl max-w-xl lg:max-w-2xl mb-14">
+      <span className="z-10 text-white font-normal text-xl max-w-xl lg:max-w-2xl mb-14">
         {t('TECHNOLOGY_AGILITY_DESCRIPTION')}
       </span>
-      <div className="flex flex-row child:flex-1">
+      <div className="z-10 flex flex-row child:flex-1">
         <div className="flex flex-col items-center w-full lg:hidden">
           <Features />
         </div>

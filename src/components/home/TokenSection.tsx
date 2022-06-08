@@ -46,44 +46,44 @@ const TokenSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
-        className="hidden md:flex lg:hidden absolute w-[18rem] h-[14rem] top-[-5rem] right-[-5rem] duration-200"
+        className="selectDisable hidden md:flex lg:hidden absolute w-[18rem] h-[14rem] top-[-5rem] right-[-5rem] duration-200"
       >
         <Image
           src="/assets/home/token-background-scribbles-md.svg"
-          alt="technology background"
+          alt="token-background-scribbles-md"
           layout="fill"
           priority
         />
       </div>
       <div
         style={{ transform: `translate(${offsetY * 0.035}px, ${offsetY * 0.035}px)` }}
-        className="hidden md:flex lg:hidden absolute w-[9.43rem] h-[6.875rem] top-[-6rem] right-[5.6rem] duration-200"
+        className="selectDisable hidden md:flex lg:hidden absolute w-[9.43rem] h-[6.875rem] top-[-6rem] right-[5.6rem] duration-200"
       >
         <Image
           src="/assets/home/token-background-circles-md.svg"
-          alt="technology background"
+          alt="token-background-circles-md"
           layout="fill"
           priority
         />
       </div>
       <div
         style={{ transform: `translate(${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
-        className="z-0 hidden lg:flex absolute w-[69.25rem] h-[60rem] top-[-30rem] right-[-60rem] xl:top-[-28rem] xl:right-[-50rem] 2xl:right-[-48rem] duration-200"
+        className="selectDisable hidden lg:flex absolute w-[69.25rem] h-[60rem] top-[-30rem] right-[-60rem] xl:top-[-28rem] xl:right-[-50rem] 2xl:right-[-48rem] duration-200"
       >
         <Image
           src="/assets/home/token-background-scribbles-lg.svg"
-          alt="technology background"
+          alt="token-background-scribbles-lg"
           layout="fill"
           priority
         />
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.035}px, ${offsetY * 0.035}px)` }}
-        className="hidden lg:flex absolute w-[34.5rem] h-[30rem] top-[-18rem] right-[-32rem] 2xl:top-[-13rem] 2xl:right-[-25rem] duration-200"
+        className="selectDisable hidden lg:flex absolute w-[34.5rem] h-[30rem] top-[-18rem] right-[-32rem] 2xl:top-[-13rem] 2xl:right-[-25rem] duration-200"
       >
         <Image
           src="/assets/home/token-background-circles-lg.svg"
-          alt="technology background"
+          alt="token-background-circles-lg"
           layout="fill"
           priority
         />

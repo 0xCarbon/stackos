@@ -1,5 +1,4 @@
 import { Trans, useTranslation } from 'react-i18next';
-// import Image from 'next/image';
 import { BiCheck } from 'react-icons/bi';
 import { features } from './helpers';
 

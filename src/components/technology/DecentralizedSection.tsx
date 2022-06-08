@@ -38,15 +38,15 @@ const DecentralizedSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translate(${offsetY * 0.006}px, ${offsetY * 0.006}px)` }}
-        className="hidden sm:inline absolute w-[66rem] h-[55rem] top-[24rem] right-[-22rem] md:w-[77rem] md:h-[70rem] md:right-[-21rem] lg:w-[120rem] xl:h-[80rem] xl:w-[130rem] lg:h-[70rem] lg:right-[-35rem] lg:top-[-6rem] xl:right-[-37rem] xl:top-[-12rem] duration-200"
+        className="selectDisable hidden sm:inline absolute w-[66rem] h-[55rem] top-[24rem] right-[-22rem] md:w-[77rem] md:h-[70rem] md:right-[-21rem] lg:w-[120rem] xl:h-[80rem] xl:w-[130rem] lg:h-[70rem] lg:right-[-35rem] lg:top-[-6rem] xl:right-[-37rem] xl:top-[-12rem] duration-200"
       >
-        <Image src="/assets/technology/layer4.svg" alt="technology background" layout="fill" />
+        <Image src="/assets/technology/layer4.svg" alt="layer4" layout="fill" />
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.035}px, ${offsetY * 0.035}px)` }}
-        className="hidden md:inline absolute w-[7rem] h-[7rem] xl:w-[12.5rem] xl:h-[12.5rem] right-[-6rem] top-[60rem] md:right-[-4rem] lg:right-[-15rem] lg:top-[30rem]  duration-200"
+        className="selectDisable hidden md:inline absolute w-[7rem] h-[7rem] xl:w-[12.5rem] xl:h-[12.5rem] right-[-6rem] top-[60rem] md:right-[-4rem] lg:right-[-15rem] lg:top-[30rem]  duration-200"
       >
-        <Image src="/assets/technology/layer5.svg" alt="technology background" layout="fill" />
+        <Image src="/assets/technology/layer5.svg" alt="layer5" layout="fill" />
       </div>
     </div>
   );

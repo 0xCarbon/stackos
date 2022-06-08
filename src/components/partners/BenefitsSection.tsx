@@ -48,26 +48,26 @@ const BenefitsSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.006}px, ${offsetY * 0.006}px)` }}
-        className="z-0 opacity-80 absolute w-[49.375rem] lg:w-[41.625rem] xl:w-[65rem] h-[60rem] lg:h-[19.56rem] top-[59rem] sm:top-[34rem] lg:top-[20rem] xl:top-[20rem] left-[-9rem] md:left-[-2rem] lg:-left-[18rem] xl:-left-[25rem] duration-200"
+        className="selectDisable opacity-80 absolute w-[49.375rem] lg:w-[41.625rem] xl:w-[65rem] h-[60rem] lg:h-[19.56rem] top-[59rem] sm:top-[34rem] lg:top-[20rem] xl:top-[20rem] left-[-9rem] md:left-[-2rem] lg:-left-[18rem] xl:-left-[25rem] duration-200"
       >
         <Image
           src="/assets/partners/benefits-bg-partners.svg"
-          alt="background image"
+          alt="benefits-bg-partners"
           layout="fill"
           priority
         />
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.03}px, ${offsetY * 0.06}px)` }}
-        className="absolute w-[18.25rem] lg:w-[20rem] h-[13.25rem] lg:h-[15rem] top-[80rem] sm:top-[56rem] lg:top-[22rem] xl:top-[22rem] left-[16rem] md:left-[24rem] lg:-left-[6rem] xl:-left-[3rem] duration-200"
+        className="selectDisable absolute w-[18.25rem] lg:w-[20rem] h-[13.25rem] lg:h-[15rem] top-[80rem] sm:top-[56rem] lg:top-[22rem] xl:top-[22rem] left-[16rem] md:left-[24rem] lg:-left-[6rem] xl:-left-[3rem] duration-200"
       >
-        <Image src="/assets/partners/layer2.svg" alt="background image" layout="fill" priority />
+        <Image src="/assets/partners/layer2.svg" alt="layer2" layout="fill" priority />
       </div>
       <div
         style={{ transform: `translate(${offsetY * 0.1}px, ${offsetY * 0.1}px)` }}
-        className="lg:hidden absolute w-[10.31rem] lg:w-[3rem] xl:w-[3rem] h-[10.31rem] lg:h-[58rem] top-[76rem] sm:top-[54rem] lg:top-[5rem] xl:top-[4rem] left-[-14rem] sm:left-[-10rem] md:left-[-4rem] lg:left-[8rem] xl:left-[10rem] duration-200"
+        className="selectDisable lg:hidden absolute w-[10.31rem] lg:w-[3rem] xl:w-[3rem] h-[10.31rem] lg:h-[58rem] top-[76rem] sm:top-[54rem] lg:top-[5rem] xl:top-[4rem] left-[-14rem] sm:left-[-10rem] md:left-[-4rem] lg:left-[8rem] xl:left-[10rem] duration-200"
       >
-        <Image src="/assets/partners/layer3.svg" alt="background image" layout="fill" priority />
+        <Image src="/assets/partners/layer3.svg" alt="layer3" layout="fill" priority />
       </div>
     </div>
   );
