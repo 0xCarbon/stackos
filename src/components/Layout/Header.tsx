@@ -47,7 +47,7 @@ const Header = () => {
                   </a>
                 </Link>
                 <div className="-mr-2 flex items-center lg:hidden">
-                  <Popover.Button className="bg-[#1F2937] rounded-md p-2 inline-flex items-center justify-center text-[#D1D5DB] hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
+                  <Popover.Button className="z-10 bg-[#1F2937] rounded-md p-2 inline-flex items-center justify-center text-[#D1D5DB] hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
                     <span className="sr-only">Open main menu</span>
                     <MenuIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -57,7 +57,7 @@ const Header = () => {
             <div className="z-50 hidden ml-5 lg:flex lg:justify-between lg:space-x-3 2xl:space-x-7 lg:text-white lg:font-medium lg:text-[1.1rem] lg:items-center">
               {menus.map((item) => (
                 <Link key={item.id} href={item.href}>
-                  <a>{t(item.name)}</a>
+                  <a className="hover:text-main-green duration-500">{t(item.name)}</a>
                 </Link>
               ))}
               <FlyoutNav />
@@ -67,7 +67,7 @@ const Header = () => {
                 target="_blank"
                 href="https://app.stackos.io/"
                 rel="noreferrer"
-                className="flex items-center xl:ml-56 2xl:ml-auto justify-center px-4 2xl:px-6 py-2 border border-main-green rounded-md text-main-green text-sm"
+                className="flex items-center xl:ml-56 2xl:ml-auto justify-center px-4 2xl:px-6 py-2 border border-main-green rounded-md text-main-green text-sm hover:bg-main-green hover:text-main-blue font-medium duration-500"
               >
                 {t('HEADER_DEPLOY_BUTTON')}
               </a>
@@ -88,7 +88,7 @@ const Header = () => {
             focus
             className="absolute z-50 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden"
           >
-            <div className="rounded-lg shadow-md bg-[#1F2937] ring-1 ring-black ring-opacity-5 overflow-hidden">
+            <div className="z-10 rounded-lg shadow-md bg-[#1F2937] ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="px-5 pt-4 flex items-center justify-between">
                 <Link href="/">
                   <a className="w-36 h-8 lg:w-36 lg:h-8 xl:w-40 xl:h-10 2xl:w-48 2xl:h-12 xl:mr-2 2xl:mr-16 duration-500">
@@ -102,7 +102,7 @@ const Header = () => {
                   </a>
                 </Link>
                 <div className="-mr-2">
-                  <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
+                  <Popover.Button className="z-10 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>

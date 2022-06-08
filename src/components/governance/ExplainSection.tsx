@@ -6,15 +6,15 @@ const ExplainSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col text-white relative md:px-16 lg:px-0 child:duration-500">
+    <div className="flex flex-col text-white relative md:px-16 lg:px-0">
       <div className="z-10 flex flex-col lg:flex-row mb-24 lg:justify-between w-full">
         <div className="flex relative flex-col sm:mr-20 xl:w-[42.3rem] 2xl:w-[47rem]">
           <div>
-            <h1 className="leading-normal text-[2.5rem] xl:text-[3.8rem] font-extrabold mb-10 duration-500">
+            <h1 className="leading-normal text-[2.5rem] xl:text-[3.8rem] font-extrabold mb-10">
               {t('GOVERNANCE_EXPLAIN_TITLE')}
             </h1>
           </div>
-          <span className="lg:leading-[2rem] text-base font-normal xl:text-xl text-justify duration-500">
+          <span className="lg:leading-[2rem] text-base font-normal xl:text-xl text-justify">
             <Trans>{t('GOVERNANCE_EXPLAIN_DESCRIPTION')}</Trans>
           </span>
         </div>
@@ -35,8 +35,8 @@ const ExplainSection = ({ offsetY }: { offsetY: number }) => {
           </div>
         </div>
         <div
-          style={{ transform: `translate(${offsetY * 0.05}px, ${offsetY * 0.05}px)` }}
-          className="absolute w-[30rem] h-[25rem] right-[11rem] top-[30rem] md:right-[4.5rem] md:top-[25rem] lg:right-[-13.5rem] lg:top-[10rem] xl:right-[-14.5rem] xl:top-[8rem] 2xl:right-[-3.5rem] 2xl:top-[6rem] duration-500"
+          style={{ transform: `translate(${offsetY * 0.03}px, ${offsetY * 0.03}px)` }}
+          className="absolute w-[30rem] h-[25rem] right-[11rem] top-[30rem] md:right-[4.5rem] md:top-[25rem] lg:right-[-13.5rem] lg:top-[10rem] xl:right-[-14.5rem] xl:top-[8rem] 2xl:right-[-3.5rem] 2xl:top-[6rem] duration-300"
         >
           <Image src="/assets/governance/curves-1.svg" alt="curves" layout="fill" priority />
         </div>

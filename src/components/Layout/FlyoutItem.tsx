@@ -32,6 +32,7 @@ const FlyoutItem = ({ iconName, name, description, href }: Props) => {
     <a
       key={name}
       href={href}
+      target="blank"
       className="flex -m-3 p-3 text-4xl rounded-md text-main-green bg-dark-grey hover:bg-light-grey transition ease-in-out duration-150"
     >
       {icon}

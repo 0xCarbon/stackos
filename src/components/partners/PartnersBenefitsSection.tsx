@@ -46,7 +46,7 @@ const PartnersBenefitsSection = () => {
           </div>
         </div>
       </div>
-      <div className="lg:hidden absolute w-[150rem] md:w-[150rem] h-[80rem] top-[27rem] -left-[60rem]  duration-500">
+      <div className="lg:hidden absolute w-[150rem] md:w-[150rem] h-[80rem] top-[27rem] -left-[60rem]  duration-200">
         <Image
           src="/assets/partners/benefits-bg-partners-sm.svg"
           alt="background image"
@@ -54,7 +54,7 @@ const PartnersBenefitsSection = () => {
           priority
         />
       </div>
-      <div className="hidden lg:inline absolute w-[60rem] xl:w-[65rem] 2xl:w-[80rem] h-[58rem] -left-[14rem] xl:-left-[10rem] 2xl:-left-[13rem] top-[5rem] xl:top-[4rem] duration-500">
+      <div className="hidden lg:inline absolute w-[60rem] xl:w-[65rem] 2xl:w-[80rem] h-[58rem] -left-[14rem] xl:-left-[10rem] 2xl:-left-[13rem] top-[5rem] xl:top-[4rem] duration-200">
         <Image
           src="/assets/partners/benefits-bg-partners-lg.svg"
           alt="background image"

@@ -8,7 +8,7 @@ const DecentralizedSection = ({ offsetY }: { offsetY: number }) => {
 
   return (
     <div className="relative w-full flex flex-col justify-center items-center text-center py-20">
-      <div className="z-10">
+      <div className="flex flex-col items-center z-10">
         <h2 className="text-[#F4F4F4] font-extrabold text-4xl lg:text-6xl mb-9">
           {t('TECHNOLOGY_DECENTRALIZED_TITLE')}
         </h2>
@@ -16,7 +16,7 @@ const DecentralizedSection = ({ offsetY }: { offsetY: number }) => {
           {t('TECHNOLOGY_DECENTRALIZED_DESCRIPTION')}
         </span>
         <LearnMore />
-        <div className="mt-16 lg:mb-[30rem] flex flex-col lg:flex-row justify-center items-center">
+        <div className="mt-16 flex flex-col lg:flex-row justify-center items-center">
           <Card
             src="/assets/home/ipsum.svg"
             title={t('TECHNOLOGY_DECENTRALIZED_CARD1')}
@@ -37,14 +37,14 @@ const DecentralizedSection = ({ offsetY }: { offsetY: number }) => {
         </div>
       </div>
       <div
-        style={{ transform: `translate(${offsetY * 0.06}px, ${offsetY * 0.06}px)` }}
-        className="hidden sm:inline absolute w-[66rem] h-[55rem] top-[24rem] -right-40 md:w-[77rem] md:h-[70rem] md:right-[-10rem] lg:w-[120rem] lg:h-[70rem] lg:right-[-20rem] xl:right-[-15rem] duration-500"
+        style={{ transform: `translate(${offsetY * 0.006}px, ${offsetY * 0.006}px)` }}
+        className="hidden sm:inline absolute w-[66rem] h-[55rem] top-[24rem] right-[-22rem] md:w-[77rem] md:h-[70rem] md:right-[-21rem] lg:w-[120rem] xl:h-[80rem] xl:w-[130rem] lg:h-[70rem] lg:right-[-35rem] lg:top-[-6rem] xl:right-[-37rem] xl:top-[-12rem] duration-200"
       >
         <Image src="/assets/technology/layer4.svg" alt="technology background" layout="fill" />
       </div>
       <div
-        style={{ transform: `translate(-${offsetY * 0.05}px, ${offsetY * 0.03}px)` }}
-        className="hidden sm:inline absolute w-[7rem] h-[7rem] xl:w-[12.5rem] xl:h-[12.5rem] right-[-6rem] md:right-[-4rem] top-[60rem] duration-500"
+        style={{ transform: `translate(-${offsetY * 0.035}px, ${offsetY * 0.035}px)` }}
+        className="hidden md:inline absolute w-[7rem] h-[7rem] xl:w-[12.5rem] xl:h-[12.5rem] right-[-6rem] top-[60rem] md:right-[-4rem] lg:right-[-15rem] lg:top-[30rem]  duration-200"
       >
         <Image src="/assets/technology/layer5.svg" alt="technology background" layout="fill" />
       </div>

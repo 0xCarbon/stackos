@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { Card, LearnMore } from '@/components';
@@ -14,18 +15,26 @@ const DevelopersSection = ({ offsetY }: { offsetY: number }) => {
         <span className="text-white font-normal text-base max-w-md lg:max-w-lg 2xl:max-w-xl mb-3">
           {t('HOME_DEVELOPERS_DESCRIPTION')}
         </span>
-        <LearnMore />
+        <Link className="z-10" href="/developers" passHref>
+          <a className="z-10">
+            <LearnMore />
+          </a>
+        </Link>
         <div className="mt-16 flex flex-col justify-center items-center md:flex-row child:mb-10 child:md:mx-4 child:lg:mx-16 child:xl:mx-28 child:2xl:mx-28">
-          <Card
-            src="/assets/home/lorem.svg"
-            title={t('HOME_DEVELOPERS_CARD_TITLE')}
-            subtitle={t('HOME_DEVELOPERS_CARD_SUBTITLE1')}
-          />
-          <Card
-            src="/assets/home/ipsum.svg"
-            title={t('HOME_DEVELOPERS_CARD_TITLE')}
-            subtitle={t('HOME_DEVELOPERS_CARD_SUBTITLE2')}
-          />
+          <a href="https://docs.stackos.io/stackos-docs/" target="blank">
+            <Card
+              src="/assets/home/lorem.svg"
+              title={t('HOME_DEVELOPERS_CARD_TITLE')}
+              subtitle={t('HOME_DEVELOPERS_CARD_SUBTITLE1')}
+            />
+          </a>
+          <a href="https://discord.gg/yRk7CdjG" target="blank">
+            <Card
+              src="/assets/home/ipsum.svg"
+              title={t('HOME_DEVELOPERS_CARD_TITLE2')}
+              subtitle={t('HOME_DEVELOPERS_CARD_SUBTITLE2')}
+            />
+          </a>
         </div>
       </div>
       <div

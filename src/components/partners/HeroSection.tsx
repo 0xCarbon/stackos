@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
+import StackOSButton from '../StackOSButton';
 
 const HeroSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
@@ -14,28 +15,29 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
         {t('PARTNERS_HERO_DESCRIPTION')}
       </span>
       <div className="flex">
-        <button
-          type="button"
-          className="bg-main-green font-medium text-lg text-main-blue rounded-md py-4 px-6 lg:px-10"
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSc0xmMUWd8NAuG5PvpR9LXcIB1KItQPLGyUPKxA-WOFHZeiKA/viewform"
+          target="_blank"
+          rel="noreferrer"
         >
-          {t('PARTNERS_HERO_BUTTON')}
-        </button>
+          <StackOSButton>{t('PARTNERS_HERO_BUTTON')}</StackOSButton>
+        </a>
       </div>
       <div
-        style={{ transform: `translate(${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
-        className="absolute w-[20rem] lg:w-[25rem] h-[13rem] lg:h-[30rem] top-[8rem] lg:top-[-8rem] right-[-2rem] sm:-right-14 md:right-14 lg:left-[38rem] duration-500"
+        style={{ transform: `translate(${offsetY * 0.006}px, ${offsetY * 0.006}px)` }}
+        className="absolute w-[20rem] lg:w-[25rem] h-[13rem] lg:h-[30rem] top-[8rem] lg:top-[-8rem] right-[-2rem] sm:-right-14 md:right-14 lg:left-[38rem] duration-300"
       >
         <Image src="/assets/partners/hero1.svg" alt="background image" layout="fill" />
       </div>
       <div
-        style={{ transform: `translate(${offsetY * 0.06}px, ${offsetY * 0.06}px)` }}
-        className="absolute w-[15rem] lg:w-[20rem] h-[15rem] lg:h-[28rem] top-[9rem] lg:top-[-2rem] right-[0rem] sm:-right-14 md:right-14 lg:left-[42rem] duration-500"
+        style={{ transform: `translate(${offsetY * 0.035}px, ${offsetY * 0.035}px)` }}
+        className="absolute w-[15rem] lg:w-[20rem] h-[15rem] lg:h-[28rem] top-[9rem] lg:top-[-2rem] right-[0rem] sm:-right-14 md:right-14 lg:left-[42rem] duration-300"
       >
         <Image src="/assets/partners/hero2.svg" alt="background image" layout="fill" />
       </div>
       <div
-        style={{ transform: `translate(${offsetY * 0.1}px, ${offsetY * 0.1}px)` }}
-        className="absolute w-[10rem] lg:w-[10rem] h-[8rem] lg:h-[20rem] top-[5rem] lg:top-[-8rem] right-[-2rem] sm:-right-14 md:right-[1rem] lg:left-[53rem] duration-500"
+        style={{ transform: `translate(${offsetY * 0.06}px, ${offsetY * 0.06}px)` }}
+        className="absolute w-[10rem] lg:w-[10rem] h-[8rem] lg:h-[20rem] top-[5rem] lg:top-[-8rem] right-[-2rem] sm:-right-14 md:right-[1rem] lg:left-[53rem] duration-300"
       >
         <Image src="/assets/partners/hero3.svg" alt="background image" layout="fill" />
       </div>

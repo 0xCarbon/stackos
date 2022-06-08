@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Layout } from '@/components';
 import HeroSection from '@/components/governance/HeroSection';
 import ExplainSection from '@/components/governance/ExplainSection';
+import PartnersSection from '@/components/governance/PartnersSection';
 
 const Governance: NextPage = () => {
   const [offsetY, setOffsetY] = useState(0);
@@ -30,6 +31,7 @@ const Governance: NextPage = () => {
       <Layout>
         <HeroSection offsetY={offsetY} />
         <ExplainSection offsetY={offsetY} />
+        <PartnersSection />
       </Layout>
     </>
   );

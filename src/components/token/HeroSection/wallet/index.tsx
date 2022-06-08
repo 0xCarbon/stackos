@@ -147,7 +147,6 @@ const Wallet = () => {
   }, [networkSelected]);
 
   useEffect(() => {
-    console.log(tokenOptions);
     dispatch(setTokenSelected(tokenOptions[0]));
   }, [tokenOptions]);
 
