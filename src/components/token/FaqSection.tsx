@@ -1,8 +1,5 @@
-import { Disclosure } from '@headlessui/react';
-import { Separator } from '@radix-ui/react-separator';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
-import { BiChevronDown } from 'react-icons/bi';
 import FaqDisclosure from './FaqDisclosure';
 
 const FaqSection = ({ offsetY }: { offsetY: number }) => {
