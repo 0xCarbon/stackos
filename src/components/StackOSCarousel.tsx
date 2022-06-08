@@ -37,7 +37,7 @@ const StackOSCarousel = () => {
   }
 
   return (
-    <div className="z-50 flex items-center">
+    <div className="z-20 flex items-center">
       <IoIosArrowBack
         onClick={() => handlePrevItem()}
         className="m-2 2xl:m-10 cursor-pointer hidden"
