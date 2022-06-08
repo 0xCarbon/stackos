@@ -20,11 +20,14 @@ import {
 } from 'src/redux/actions/general';
 import { fetchCoinPrice, fetchSwapQuote } from 'src/services';
 import { BsArrowDownCircle } from 'react-icons/bs';
+import { useTranslation } from 'react-i18next';
 import { StackOSInput, StackOSButton, StackOSModal, StackOSIcon } from '@/components';
 import SwapError from './SwapError';
 import SwapSummary from './SwapSummary';
 
 const SwapHome = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
   const {
@@ -165,7 +168,7 @@ const SwapHome = () => {
                     fill="currentFill"
                   />
                 </svg>
-                <p className="mx-2 font-normal text-sm duration-500">Fetching best price...</p>
+                <p className="mx-2 font-normal text-sm duration-500">{t('SWAP_HOME_INFO1')}</p>
               </div>
             ) : (
               <>
@@ -176,7 +179,7 @@ const SwapHome = () => {
                     <span>{`($${fromTokenPrice})`}</span>
                   </span>
                 ) : (
-                  <p className="mx-2 font-normal text-sm duration-500">Enter an amount</p>
+                  <p className="mx-2 font-normal text-sm duration-500">{t('SWAP_HOME_INFO2')}</p>
                 )}
               </>
             )}
@@ -188,7 +191,7 @@ const SwapHome = () => {
                   className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
                   disabled={!fromTokenAmount || loading}
                 >
-                  Buy STACK
+                  {t('SWAP_HOME_BUTTON')}
                 </StackOSButton>
               </div>
             ) : (
@@ -207,15 +210,18 @@ const SwapHome = () => {
       )}
       <StackOSModal
         showModal={isWalletModalOpen}
-        onCloseModal={() => dispatch(setWalletModalStatus(false))}
         className="text-center text-white"
-        title={<span className="font-semibold text-xl text-[#F9FAFB]">Connect Wallet</span>}
+        title={
+          <span className="font-semibold text-xl text-[#F9FAFB]">
+            {t('SWAP_MODAL_WALLET_TITLE')}
+          </span>
+        }
         footer={
           <div
             className="text-center text-[#020305] px-9 py-1 rounded-md bg-[#FDFDFD] hover:cursor-pointer"
             onClick={() => dispatch(setWalletModalStatus(false))}
           >
-            <span>Close</span>
+            <span>{t('SWAP_MODAL_WALLET_FOOTER')}</span>
           </div>
         }
       >

@@ -10,6 +10,7 @@ import {
   setTokenSelected,
   setWalletModalStatus,
 } from 'src/redux/actions/general';
+import { useTranslation } from 'react-i18next';
 import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSModal } from '@/components';
 
 import SwapSettings from './SwapSettings';
@@ -37,6 +38,8 @@ const BSC = 56;
 const POLYGON = 137;
 
 const Swap = () => {
+  const { t } = useTranslation();
+
   const { data: account } = useAccount();
   const { activeChain, chains, switchNetwork } = useNetwork();
 
@@ -113,7 +116,11 @@ const Swap = () => {
         showModal={isAccountModalOpen}
         onCloseModal={() => setAccountModalStatus(false)}
         className="text-center text-white"
-        title={<span className="font-semibold text-xl text-[#F9FAFB]">Account</span>}
+        title={
+          <span className="font-semibold text-xl text-[#F9FAFB]">
+            {t('SWAP_MODAL_ACCOUNT_TITLE')}
+          </span>
+        }
         footer={
           <div
             className="flex flex-row justify-center items-center mb-8"
@@ -122,7 +129,7 @@ const Swap = () => {
               dispatch(setWalletModalStatus(true));
             }}
           >
-            <StackOSButton className="px-20">Change</StackOSButton>
+            <StackOSButton className="px-20">{t('SWAP_MODAL_ACCOUNT_FOOTER')}</StackOSButton>
           </div>
         }
       >

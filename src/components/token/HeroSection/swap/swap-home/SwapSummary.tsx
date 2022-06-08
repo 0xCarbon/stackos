@@ -15,6 +15,7 @@ import { useAccount, useProvider, useSendTransaction } from 'wagmi';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible';
 import { Separator } from '@radix-ui/react-separator';
 import { BigNumber } from 'ethers';
+import { useTranslation } from 'react-i18next';
 import { StackOSButton, StackOSIcon } from '@/components';
 import {
   createSwap,
@@ -24,6 +25,8 @@ import {
 } from '../../../../../services';
 
 const SwapSummary = () => {
+  const { t } = useTranslation();
+
   const {
     data: transactionResponse,
     isLoading: isTransactionPending,
@@ -147,7 +150,7 @@ const SwapSummary = () => {
             <p className="mx-2 font-normal text-sm duration-500">By 1inch</p>
           </a>
         ) : (
-          <span className="text-[#F9FAFB]">Summary</span>
+          <span className="text-[#F9FAFB]">{t('SWAP_SUMMARY_TITLE')}</span>
         )}
         {!isTransactionPending && (
           <BiCog
@@ -258,13 +261,11 @@ const SwapSummary = () => {
             <div className="flex flex-row justify-between items-center">
               <div className="flex flex-row">
                 <BiInfoCircle className="duration-500 text-xl" color="#CFCFCF" />
-                {expectedOutput > 0 ? (
+                {expectedOutput > 0 && (
                   <span className="mx-2 font-normal text-sm duration-500">
                     {`1 ${tokenSelected.title} = ${expectedOutput} STACK `}
                     <span>{`($${fromTokenPrice})`}</span>
                   </span>
-                ) : (
-                  <p className="mx-2 font-normal text-sm duration-500">Enter an amount</p>
                 )}
               </div>
               <CollapsibleTrigger asChild className="hover:cursor-pointer">
@@ -275,29 +276,26 @@ const SwapSummary = () => {
               <Separator className="h-px w-full bg-[#565A69] my-4" />
               <div className="overflow-y-scroll scrollbar flex flex-col h-28 pr-1 child:my-1">
                 <div className="flex flex-row justify-between">
-                  <span>Liquidity provider fee</span>
-                  <span>Value</span>
+                  <span>{t('SWAP_SUMMARY_ITEM1')}</span>
+                  <span>{t('SWAP_SUMMARY_ITEM1_VALUE')}</span>
                 </div>
                 <div className="flex flex-row justify-between">
-                  <span>{'<INTEGRATOR> fee'}</span>
+                  <span>{t('SWAP_SUMMARY_ITEM2')}</span>
                   <span>4.12 DAI</span>
                 </div>
                 <div className="flex flex-row justify-between">
-                  <span>Price impact</span>
+                  <span>{t('SWAP_SUMMARY_ITEM3')}</span>
                   <span>0.00%</span>
                 </div>
                 <div className="flex flex-row justify-between">
-                  <span>Minimum received</span>
+                  <span>{t('SWAP_SUMMARY_ITEM4')}</span>
                   <span>0.89 ETH</span>
                 </div>
                 <div className="flex flex-row justify-between">
-                  <span>Slippage tolerance</span>
+                  <span>{t('SWAP_SUMMARY_ITEM5')}</span>
                   <span>{`${slippageAmount}%`}</span>
                 </div>
-                <span>
-                  Output is estimated. You will receive at least 84.9572 DAI or the transaction will
-                  revert.
-                </span>
+                <span>{t('SWAP_SUMMARY_ITEM6')}</span>
               </div>
             </CollapsibleContent>
           </Collapsible>
@@ -310,14 +308,14 @@ const SwapSummary = () => {
               disabled={isTransactionPending}
               className={`${isTransactionPending && 'bg-[#FDFDFD]'}`}
             >
-              Close
+              {t('SWAP_SUMMARY_FOOTER1')}
             </StackOSButton>
           </div>
         </div>
       ) : (
         <div className="flex flex-row justify-center items-center mt-6 w-full">
           <div className="w-full child:w-full" onClick={() => handleSwap()}>
-            <StackOSButton>Add Tokens to Wallet</StackOSButton>
+            <StackOSButton>{t('SWAP_SUMMARY_FOOTER2')}</StackOSButton>
           </div>
         </div>
       )}
