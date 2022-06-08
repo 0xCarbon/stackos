@@ -68,7 +68,7 @@ const StackOSCarousel = () => {
                 rel="noreferrer"
                 className="flex h-full w-full items-center justify-center bg-cover bg-carousel-circle"
               >
-                <div className="p-3 md:p-4 lg:p-5 h-full w-full">
+                <div className="p-3 md:p-4 lg:p-5 h-full w-full hover:scale-105 duration-500">
                   <Image height={60} width={60} src={partner.image} layout="responsive" />
                 </div>
               </a>

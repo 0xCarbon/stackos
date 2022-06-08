@@ -41,7 +41,7 @@ const FlyoutNav = () => (
   <Popover className="relative z-50">
     {() => (
       <>
-        <Popover.Button className="rounded-md inline-flex items-center focus:outline-none">
+        <Popover.Button className="rounded-md inline-flex items-center focus:outline-none hover:text-main-green duration-500">
           <span>Resources</span>
           <ChevronDownIcon className="ml-2 h-5 w-5 group-hover:text-gray-500" aria-hidden="true" />
         </Popover.Button>

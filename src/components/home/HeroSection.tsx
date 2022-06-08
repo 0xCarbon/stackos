@@ -3,7 +3,9 @@ import Image from 'next/image';
 import Lottie from 'lottie-react';
 import { Separator } from '@radix-ui/react-separator';
 import React from 'react';
+import Link from 'next/link';
 import titleData from './helpers/hero-titles.json';
+import StackOSButton from '../StackOSButton';
 
 const HeroSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
@@ -22,19 +24,13 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
           <br />
           {t('HOME_HERO_SUBTITLE2')}
         </span>
-        <div className="flex space-x-4 child:font-medium child:min-w-[7rem]">
-          <button
-            type="button"
-            className="bg-main-green text-main-blue text-sm lg:text-lg rounded-md px-4 py-3 lg:px-10 lg:py-4"
-          >
-            {t('HOME_HERO_BUTTON1')}
-          </button>
-          <button
-            type="button"
-            className="bg-main-green text-main-blue text-sm lg:text-lg rounded-md px-4 py-3 lg:px-10 lg:py-4"
-          >
-            {t('HOME_HERO_BUTTON2')}
-          </button>
+        <div className="flex space-x-4 child:min-w-[7rem]">
+          <StackOSButton>{t('HOME_HERO_BUTTON1')}</StackOSButton>
+          <Link className="z-10" href="/token" passHref>
+            <a>
+              <StackOSButton>{t('HOME_HERO_BUTTON2')}</StackOSButton>
+            </a>
+          </Link>
         </div>
         <div className="flex mt-12 lg:mt-16 2xl:mt-40">
           <Separator className="w-[3px] bg-main-green mr-8" />

@@ -51,8 +51,8 @@ const WhyStackOSSection = ({ offsetY }: { offsetY: number }) => {
         </div>
       </div>
       <div
-        style={{ transform: `translateX(-${offsetY * 0.1}px` }}
-        className="absolute w-[60rem] h-56 -top-9 right-[-30rem] lg:-right-80 xl:-right-56 2xl:-right-36 duration-500"
+        style={{ transform: `translateX(-${offsetY * 0.006}px` }}
+        className="absolute w-[60rem] h-56 -top-9 right-[-30rem] lg:-right-80 xl:-right-56 2xl:-right-36 duration-300"
       >
         <Image src="/assets/developers/why-bg-developers.svg" layout="fill" />
       </div>

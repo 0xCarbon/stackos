@@ -6,9 +6,9 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative flex py-16">
+    <div className="relative flex mt-12 pb-16">
       <div className="z-10 flex flex-col justify-start lg:flex-row lg:child:flex-1">
-        <div className="lg:flex lg:flex-col mb-14">
+        <div className="lg:flex lg:flex-col mb-14 ">
           <div className="flex flex-row justify-start items-center mb-9 lg:mb-12">
             <h2 className="text-white font-extrabold text-4xl lg:text-6xl">
               {t('TECHNOLOGY_HERO_TITLE')}
@@ -16,8 +16,10 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
           </div>
           <span className="text-white font-normal text-xl">{t('TECHNOLOGY_HERO_DESCRIPTION')}</span>
         </div>
-        <div className="lg:hidden flex flex-row justify-between items-end">
-          <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
+        <div className="z-10 lg:hidden flex flex-row justify-between items-end">
+          <a href="https://docs.stackos.io" target="blank">
+            <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
+          </a>
           <span className="hidden sm:inline text-white font-light text-4xl">
             {t('TECHNOLOGY_HERO_SUBTITLE')}
           </span>
@@ -26,12 +28,14 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
           <span className="text-white font-light text-5xl mt-4 mb-14">
             {t('TECHNOLOGY_HERO_SUBTITLE')}
           </span>
-          <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
+          <a href="https://docs.stackos.io" target="blank">
+            <StackOSButton>{t('TECHNOLOGY_HERO_BUTTON')}</StackOSButton>
+          </a>
         </div>
       </div>
       <div
-        style={{ transform: `translate(${offsetY * 0.1}px, ${offsetY * 0.1}px)` }}
-        className="absolute sm:w-[25rem] sm:h-[20rem] lg:w-[40rem] lg:h-[45rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-11rem] md:right-[-3rem] lg:right-[-10rem] xl:right-[1.5rem] 2xl:right-[-28rem] top-[20rem] lg:top-[0rem] 2xl:top-[-4.5rem] duration-500"
+        style={{ transform: `translate(${offsetY * 0.006}px, ${offsetY * 0.006}px)` }}
+        className="absolute sm:w-[25rem] sm:h-[20rem] lg:w-[40rem] lg:h-[45rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-11rem] md:right-[-3rem] lg:right-[-10rem] xl:right-[1.5rem] 2xl:right-[-28rem] top-[20rem] lg:top-[0rem] 2xl:top-[-4.5rem] duration-200"
       >
         <Image
           draggable={false}
@@ -42,8 +46,8 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
         />
       </div>
       <div
-        style={{ transform: `translate(${offsetY * 0.06}px, ${offsetY * 0.06}px)` }}
-        className="absolute sm:w-[18.18rem] sm:h-[15rem] lg:w-[29.8rem] lg:h-[24.75rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-11rem] md:right-[-3rem] lg:right-[-10rem] xl:right-[1.5rem] 2xl:right-[-28rem] top-[20rem] lg:top-[9rem] 2xl:top-[-4.5rem] duration-500"
+        style={{ transform: `translate(${offsetY * 0.035}px, ${offsetY * 0.035}px)` }}
+        className="absolute sm:w-[18.18rem] sm:h-[15rem] lg:w-[29.8rem] lg:h-[24.75rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-11rem] md:right-[-3rem] lg:right-[-10rem] xl:right-[1.5rem] 2xl:right-[-28rem] top-[20rem] lg:top-[9rem] 2xl:top-[-4.5rem] duration-200"
       >
         <Image
           draggable={false}
@@ -55,7 +59,7 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translate(${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
-        className="absolute sm:w-[18.18rem] sm:h-[15rem] lg:w-[29.8rem] lg:h-[24.75rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-11rem] md:right-[-3rem] lg:right-[-10rem] xl:right-[1.5rem] 2xl:right-[-28rem] top-[20rem] lg:top-[9rem] 2xl:top-[-4.5rem] duration-500"
+        className="absolute sm:w-[18.18rem] sm:h-[15rem] lg:w-[29.8rem] lg:h-[24.75rem] 2xl:w-[58.3rem] 2xl:h-[48.3rem] right-[-11rem] md:right-[-3rem] lg:right-[-10rem] xl:right-[1.5rem] 2xl:right-[-28rem] top-[20rem] lg:top-[9rem] 2xl:top-[-4.5rem] duration-200"
       >
         <Image
           draggable={false}

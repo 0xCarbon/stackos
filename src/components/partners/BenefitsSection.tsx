@@ -6,14 +6,14 @@ const BenefitsSection = ({ offsetY }: { offsetY: number }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative flex flex-col mt-36 mb-[30rem] lg:mb-[7rem] text-center lg:text-left">
+    <div className="relative flex flex-col mt-36 mb-[18rem] sm:mb-[21rem] lg:mb-[5rem] text-center lg:text-left">
       <h1 className="text-main-green text-4xl lg:text-6xl font-extrabold">
         {t('PARTNERS_BENEFITS_TITLE')}
       </h1>
       <span className="text-[#F9FAFB] text-xl lg:text-4xl font-normal lg:font-light mt-5 mb-16 lg:mb-14">
         {t('PARTNERS_BENEFITS_DESCRIPTION')}
       </span>
-      <div className="w-full flex justify-center items-center">
+      <div className="z-10 w-full flex justify-center items-center">
         <div className="text-[#E5E7EB] w-full text-left grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <BenefitsCard
             tile="1"
@@ -47,8 +47,8 @@ const BenefitsSection = ({ offsetY }: { offsetY: number }) => {
         </div>
       </div>
       <div
-        style={{ transform: `translate(-${offsetY * 0.01}px, ${offsetY * 0.01}px)` }}
-        className="absolute w-[85rem] md:w-[150rem] lg:w-[60rem] xl:w-[65rem] h-[60rem] lg:h-[58rem] top-[70rem] sm:top-[38rem] lg:top-[5rem] xl:top-[4rem] -left-[4rem] md:-left-[25rem] lg:-left-[14rem] xl:-left-[10rem] duration-500"
+        style={{ transform: `translate(-${offsetY * 0.006}px, ${offsetY * 0.006}px)` }}
+        className="z-0 opacity-80 absolute w-[49.375rem] lg:w-[41.625rem] xl:w-[65rem] h-[60rem] lg:h-[19.56rem] top-[59rem] sm:top-[34rem] lg:top-[20rem] xl:top-[20rem] left-[-9rem] md:left-[-2rem] lg:-left-[18rem] xl:-left-[25rem] duration-200"
       >
         <Image
           src="/assets/partners/benefits-bg-partners.svg"
@@ -59,13 +59,13 @@ const BenefitsSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.03}px, ${offsetY * 0.06}px)` }}
-        className="absolute w-[3rem] md:w-[100rem] lg:w-[5rem] xl:w-[5rem] h-[3rem] lg:h-[58rem] top-[90rem] sm:top-[38rem] md:top-[60rem] lg:top-[7rem] xl:top-[4rem] left-[14rem] md:-left-[20rem] lg:-left-[4rem] xl:-left-[3rem] duration-500"
+        className="absolute w-[18.25rem] lg:w-[20rem] h-[13.25rem] lg:h-[15rem] top-[80rem] sm:top-[56rem] lg:top-[22rem] xl:top-[22rem] left-[16rem] md:left-[24rem] lg:-left-[6rem] xl:-left-[3rem] duration-200"
       >
         <Image src="/assets/partners/layer2.svg" alt="background image" layout="fill" priority />
       </div>
       <div
         style={{ transform: `translate(${offsetY * 0.1}px, ${offsetY * 0.1}px)` }}
-        className="absolute w-[8rem] md:w-[100rem] lg:w-[3rem] xl:w-[3rem] h-[8rem] lg:h-[58rem] top-[95rem] sm:top-[38rem] md:top-[65rem] lg:top-[5rem] xl:top-[4rem] left-[-5rem] md:-left-[45rem] lg:left-[8rem] xl:left-[10rem] duration-500"
+        className="lg:hidden absolute w-[10.31rem] lg:w-[3rem] xl:w-[3rem] h-[10.31rem] lg:h-[58rem] top-[76rem] sm:top-[54rem] lg:top-[5rem] xl:top-[4rem] left-[-14rem] sm:left-[-10rem] md:left-[-4rem] lg:left-[8rem] xl:left-[10rem] duration-200"
       >
         <Image src="/assets/partners/layer3.svg" alt="background image" layout="fill" priority />
       </div>
