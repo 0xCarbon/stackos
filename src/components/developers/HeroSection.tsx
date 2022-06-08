@@ -9,7 +9,7 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
 
   return (
     <div className="relative">
-      <div className="text-white mt-12 lg:flex uration-500">
+      <div className="text-white mt-12 lg:flex">
         <div className="max-w-md md:max-w-2xl lg:max-w-md xl:max-w-2xl mb-20 z-10">
           <h1 className="font-extrabold text-[2.5rem] xl:text-6xl mb-8">
             <span className="text-main-green ">{t('DEVELOPERS_HERO_SPAN_TITLE')}</span>
