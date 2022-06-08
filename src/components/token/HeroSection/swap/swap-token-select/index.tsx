@@ -4,7 +4,8 @@ import { IoMdClose } from 'react-icons/io';
 import { setTokenSelected, setTokenSelectStatus } from 'src/redux/actions/general';
 import { Separator } from '@radix-ui/react-separator';
 import { useEffect, useState } from 'react';
-import { StackOSIcon, StackOSInput } from '@/components';
+import { StackOSInput } from '@/components';
+import SwapTokenSelectInfo from './SwapTokenSelectInfo';
 
 const SwapTokenSelect = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,10 @@ const SwapTokenSelect = () => {
 
   const [searchInput, setSearchInput] = useState('');
   const [searchList, setSearchList] = useState(tokenOptions);
+
+  useEffect(() => {
+    setSearchList(tokenOptions);
+  }, [tokenOptions]);
 
   useEffect(() => {
     const newSearchList = tokenOptions?.filter(({ title }) =>
@@ -56,18 +61,7 @@ const SwapTokenSelect = () => {
             onClick={() => onChangeToken(item.id)}
             key={item.id}
           >
-            <div className="flex flex-row justify-center items-center">
-              <StackOSIcon className="mr-3 flex items-center" iconName={item.icon} />
-              <div className="flex flex-col justify-start">
-                <span className="font-semibold">{item.title}</span>
-                <span
-                  className={`${tokenSelected?.id === item.id && 'text-[#2D3948]'} text-[#888D9B]`}
-                >
-                  {item.subtitle}
-                </span>
-              </div>
-            </div>
-            <span>1.234</span>
+            <SwapTokenSelectInfo token={item} />
           </div>
         ))}
       </div>

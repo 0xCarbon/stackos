@@ -13,7 +13,7 @@ import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSModal } from '@/com
 
 import SwapSettings from './SwapSettings';
 import SwapHome from './swap-home/index';
-import SwapTokenSelect from './SwapTokenSelect';
+import SwapTokenSelect from './swap-token-select/index';
 import { stackAddresses, tokenList } from './helpers';
 
 interface Token {
