@@ -16,7 +16,14 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
         <div>
           <h1 className="leading-none text-4xl lg:text-6xl font-extrabold">
             {t('HOME_HERO_TITLE')}
-            <Lottie loop autoplay animationData={titleData} height={70} width="100%" />
+            <Lottie
+              className="mt-3"
+              loop
+              autoplay
+              animationData={titleData}
+              height={70}
+              width="100%"
+            />
           </h1>
         </div>
         <span className="text-base lg:text-xl font-normal my-10">

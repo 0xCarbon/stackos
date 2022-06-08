@@ -16,10 +16,10 @@ const PartnersSection = () => {
             key={item.img}
             className="relative flex flex-col justify-center items-center my-4 mx-5"
           >
-            <div className="w-10 h-10 lg:h-24 lg:w-24">
+            <div className=" relative w-36 h-32 lg:h-40 lg:w-40">
               <Image alt={item.title} src={item.img} layout="fill" objectFit="contain" />
             </div>
-            <p className="hidden lg:inline text-white mt-3">{item.title}</p>
+            <p className="hidden lg:inline text-white">{item.title}</p>
           </div>
         ))}
       </div>
