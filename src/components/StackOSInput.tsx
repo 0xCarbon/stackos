@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { BiChevronDown } from 'react-icons/bi';
+import { BiChevronDown, BiSearch } from 'react-icons/bi';
 import StackOSIcon from './StackOSIcon';
 
 interface Token {
@@ -11,12 +11,15 @@ interface Token {
 
 interface Props {
   onClickOption?: () => void;
-  onChangeInput?: (value: number) => void;
-  value?: number;
+  onChangeInput?: (value: any) => void;
+  value?: any;
   price?: number;
   disabled?: boolean;
   showPrice?: boolean;
   optionSelected?: Token;
+  type: string;
+  placeholder?: string;
+  iconLeft?: boolean;
 }
 
 const StackOSInput = ({
@@ -25,24 +28,33 @@ const StackOSInput = ({
   disabled,
   showPrice,
   optionSelected,
+  type = 'number',
+  placeholder = '0.00',
+  iconLeft,
   onClickOption = () => null,
   onChangeInput = () => null,
 }: Props) => (
   <div className="relative shadow-sm">
-    <div className="child:bg-[#374151] child:pl-3">
+    {iconLeft && (
+      <div className="absolute inset-y-0 left-0 pl-2 pt-[10px] flex items-start text-[#6B7280]">
+        <BiSearch />
+      </div>
+    )}
+    <div className={`child:bg-[#374151] ${iconLeft ? 'child:pl-8' : 'child:pl-3'}`}>
       <input
-        type="number"
+        type={type}
         name="price"
         id="price"
         min="0"
+        step="any"
         className={`block w-full h-full pr-12 text-white text-base outline-0 ${
           showPrice ? 'rounded-t-md pt-2' : 'rounded-md py-2'
-        }`}
-        placeholder="0.00"
+        } ${disabled && 'cursor-not-allowed'}`}
+        placeholder={placeholder}
         aria-describedby="price-currency"
         value={value}
         disabled={disabled}
-        onChange={(e) => onChangeInput(Number(e.target.value))}
+        onChange={(e) => onChangeInput(e.target.value)}
       />
       {showPrice && (
         <div className="flex flex-row justify-start items-center w-full h-full pb-2 rounded-b-md">

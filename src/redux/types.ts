@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
 export enum GeneralTypes {
   SET_LOADING = '@general/SET_LOADING',
@@ -8,11 +9,14 @@ export enum GeneralTypes {
   SET_EXPECTED_OUTPUT = '@general/SET_EXPECTED_OUTPUT',
   SET_SETTINGS_STATUS = '@general/SET_SETTINGS_STATUS',
   SET_TOKEN_SELECT_STATUS = '@general/SET_TOKEN_SELECT_STATUS',
+  SET_ERROR_STATUS = '@general/SET_ERROR_STATUS',
   SET_TOKEN_OPTIONS = '@general/SET_TOKEN_OPTIONS',
   SET_TOKEN_SELECTED = '@general/SET_TOKEN_SELECTED',
   SET_STACK_ADDRESS = '@general/SET_STACK_ADDRESS',
   SET_NETWORK_SELECTED = '@general/SET_NETWORK_SELECTED',
   SET_SLIPPAGE_AMOUNT = '@general/SET_SLIPPAGE_AMOUNT',
+  SET_ERROR_MESSAGE = '@general/SET_ERROR_MESSAGE',
+  SET_SUMMARY_STATUS = '@general/SET_SUMMARY_STATUS',
 }
 
 export interface SetSettingsStatus {
@@ -21,6 +25,10 @@ export interface SetSettingsStatus {
 
 export interface SetTokenSelectStatus {
   type: GeneralTypes.SET_TOKEN_SELECT_STATUS;
+}
+
+export interface SetErrorStatus {
+  type: GeneralTypes.SET_ERROR_STATUS;
 }
 
 export interface SetLoading {
@@ -77,10 +85,19 @@ export interface SetSlippageAmount {
   payload: { value: number };
 }
 
+export interface SetErrorMessage {
+  type: GeneralTypes.SET_ERROR_MESSAGE;
+}
+
+export interface SetSummaryStatus {
+  type: GeneralTypes.SET_SUMMARY_STATUS;
+}
+
 export type GeneralActionTypes =
   | SetStackPrice
   | SetSettingsStatus
   | SetTokenSelectStatus
+  | SetErrorStatus
   | SetLoading
   | SetFromTokenAmount
   | SetToTokenAmount
@@ -90,7 +107,9 @@ export type GeneralActionTypes =
   | SetTokenSelected
   | SetStackAddress
   | SetNetworkSelected
-  | SetSlippageAmount;
+  | SetSlippageAmount
+  | SetErrorMessage
+  | SetSummaryStatus;
 
 export interface GeneralState {
   loading: boolean;
@@ -101,9 +120,12 @@ export interface GeneralState {
   expectedOutput: number;
   isSettingsOpen: boolean;
   isTokenSelectOpen: boolean;
+  isErrorOpen: boolean;
   tokenOptions: any[];
   tokenSelected: any;
   stackAddress: string;
   networkSelected: any;
   slippageAmount: number;
+  errorMessage: string;
+  isSummaryOpen: boolean;
 }

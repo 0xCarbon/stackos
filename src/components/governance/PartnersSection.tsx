@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
-import partners from './helpers/partners';
+import partners from './helpers';
 
 const PartnersSection = () => {
   const { t } = useTranslation();

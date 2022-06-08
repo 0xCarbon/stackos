@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { Reducer } from '@reduxjs/toolkit';
 import { GeneralState, GeneralTypes } from '../types';
 
@@ -7,6 +8,7 @@ const INITIAL_STATE: GeneralState = {
   stackPrice: 0,
   isSettingsOpen: false,
   isTokenSelectOpen: false,
+  isErrorOpen: false,
   loading: false,
   fromTokenAmount: 0,
   toTokenAmount: 0,
@@ -26,6 +28,8 @@ const INITIAL_STATE: GeneralState = {
     icon: 'binance',
   },
   slippageAmount: 0.1,
+  errorMessage: '',
+  isSummaryOpen: false,
 };
 
 const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }) => {
@@ -35,6 +39,9 @@ const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }
 
     case GeneralTypes.SET_TOKEN_SELECT_STATUS:
       return { ...state, isTokenSelectOpen: payload.value };
+
+    case GeneralTypes.SET_ERROR_STATUS:
+      return { ...state, isErrorOpen: payload.value };
 
     case GeneralTypes.SET_LOADING:
       return { ...state, loading: payload.value };
@@ -68,6 +75,12 @@ const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }
 
     case GeneralTypes.SET_SLIPPAGE_AMOUNT:
       return { ...state, slippageAmount: payload.value };
+
+    case GeneralTypes.SET_ERROR_MESSAGE:
+      return { ...state, errorMessage: payload.value };
+
+    case GeneralTypes.SET_SUMMARY_STATUS:
+      return { ...state, isSummaryOpen: payload.value };
 
     default:
       return state;

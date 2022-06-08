@@ -8,7 +8,11 @@ function apiRequestUrl(apiUrl: string, methodName: string, queryParams: any) {
 }
 
 export const fetchSwapQuote = (payload: any, id: number) =>
-  fetch(apiRequestUrl(oneInchApiUrl + id, '/quote', payload)).then((res) => res.json());
+  fetch(apiRequestUrl(oneInchApiUrl + id, '/quote', payload))
+    .then((res) => res.json())
+    .catch((error) => {
+      console.error(error);
+    });
 
 export const fetchCoinPrice = (ids: string, vs_currencies: string) =>
   fetch(apiRequestUrl(coinGeckoUrl, '/simple/price', { ids, vs_currencies })).then((res) =>
@@ -36,11 +40,7 @@ export const fetchTransactionApproval = (tokenAddress: any, amount: any, id: num
       '/approve/transaction',
       amount ? { tokenAddress, amount } : { tokenAddress }
     )
-  )
-    .then((res) => res.json())
-    .catch((e) => {
-      console.log(e);
-    });
+  ).then((res) => res.json());
 
 export const createSwap = (payload: any, id: number) =>
   fetch(apiRequestUrl(oneInchApiUrl + id, '/swap', payload))
