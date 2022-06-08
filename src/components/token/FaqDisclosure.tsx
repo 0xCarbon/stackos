@@ -21,13 +21,18 @@ const FaqDisclosure = ({ title, content }: Props) => {
               <p className="font-bold text-[1.375rem]">{t(title)}</p>
               <BiChevronDown
                 className={`${
-                  open ? 'transform -rotate-180' : ''
+                  open ? 'transform rotate-180' : ''
                 } text-4xl text-main-green duration-500`}
               />
             </Disclosure.Button>
-            <Disclosure.Panel className="duration-500 mt-4">
-              <p className="font-normal text-xl text-white">{t(content)}</p>
-            </Disclosure.Panel>
+            <div className="duration-500">
+              <Disclosure.Panel
+                style={{ transition: 'ease-in-out', transitionDuration: '500ms' }}
+                className="duration-500 mt-4"
+              >
+                <p className="font-normal text-xl text-white">{t(content)}</p>
+              </Disclosure.Panel>
+            </div>
           </>
         )}
       </Disclosure>

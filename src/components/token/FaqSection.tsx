@@ -10,7 +10,7 @@ const FaqSection = ({ offsetY }: { offsetY: number }) => {
 
   return (
     <div className="relative w-full flex flex-col justify-center items-center text-center py-20">
-      <h2 className="z-50 text-white font-extrabold text-6xl mb-16">
+      <h2 className="z-10 text-white font-extrabold text-6xl mb-16">
         {t('TOKEN_FAQ_TITLE1')}
         <p className="text-main-green">{t('TOKEN_FAQ_TITLE2')}</p>
       </h2>
