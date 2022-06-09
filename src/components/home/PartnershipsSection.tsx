@@ -11,7 +11,7 @@ const PartnershipsSection = ({ offsetY }: { offsetY: number }) => {
   return (
     <div className="relative mt-0 md:mt-32 lg:mt-[19rem] flex flex-col justify-end items-end py-20">
       <div className="flex flex-row justify-end items-center mb-9 child:duration-500">
-        <h2 className="text-[#FFFFFF] font-extrabold text-4xl lg:text-6xl mx-5">
+        <h2 className="text-[#FFFFFF] font-extrabold text-4xl lg:text-5xl mx-5">
           {t('HOME_PARTNERSHIPS_TITLE')}
         </h2>
         <Separator className="h-10 lg:h-14 w-[0.4rem] lg:w-2 xl:w-2 2xl:w-[0.45rem] bg-main-green" />
@@ -36,11 +36,11 @@ const PartnershipsSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translateX(-${offsetY * 0.01}px)` }}
-        className="opacity-60 absolute flex sm:hidden w-[40rem] h-[16.87rem] top-[0.1rem] right-[-18rem] duration-200"
+        className="selectDisable opacity-60 absolute flex sm:hidden w-[40rem] h-[16.87rem] top-[0.1rem] right-[-18rem] duration-200"
       >
         <Image
           src="/assets/home/governance-background-scribbles-md.svg"
-          alt="technology background"
+          alt="governance-background-scribbles-md"
           layout="fill"
         />
       </div>

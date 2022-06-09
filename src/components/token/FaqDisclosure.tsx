@@ -17,7 +17,7 @@ const FaqDisclosure = ({ title, content }: Props) => {
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex w-full justify-between items-center text-white duration-500">
+            <Disclosure.Button className="flex w-full justify-between items-center text-white hover:text-main-green duration-500">
               <p className="font-bold text-[1.375rem]">{t(title)}</p>
               <BiChevronDown
                 className={`${

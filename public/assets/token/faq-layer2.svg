@@ -1,17 +1,3 @@
-<svg width="577" height="483" viewBox="0 0 577 483" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_1104_1755)">
-<path d="M515.85 14C578.696 76.7925 578.746 178.634 515.967 241.485C453.188 304.336 351.355 304.386 288.51 241.602C225.664 178.818 123.831 178.868 61.0518 241.719C-1.72717 304.57 -1.67694 406.436 61.1607 469.229" stroke="#FFFFE0" stroke-width="0.25" stroke-miterlimit="10" shape-rendering="crispEdges"/>
-</g>
-<defs>
-<filter id="filter0_d_1104_1755" x="0.875" y="0.911621" width="575.268" height="481.406" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset/>
-<feGaussianBlur stdDeviation="6.5"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1104_1755"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1104_1755" result="shape"/>
-</filter>
-</defs>
+<svg width="551" height="457" viewBox="0 0 551 457" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.85 1C565.696 63.7925 565.746 165.634 502.967 228.485C440.188 291.336 338.355 291.386 275.51 228.602C212.664 165.818 110.831 165.868 48.0518 228.719C-14.7272 291.57 -14.6769 393.436 48.1607 456.229" stroke="white" stroke-width="0.25" stroke-miterlimit="10"/>
 </svg>

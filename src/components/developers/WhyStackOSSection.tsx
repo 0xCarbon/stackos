@@ -35,7 +35,7 @@ const WhyStackOSSection = ({ offsetY }: { offsetY: number }) => {
   return (
     <div className="relative mt-28 mb-32">
       <div className="z-10">
-        <h2 className="text-white text-[2.5rem] lg:text-6xl font-extrabold">
+        <h2 className="z-10 text-white text-[2.5rem] lg:text-5xl font-extrabold">
           <span className="text-main-green">{t('DEVELOPERS_WHY_SPAN_TITLE')}</span>
           {t('DEVELOPERS_WHY_TITLE')}
         </h2>
@@ -52,9 +52,13 @@ const WhyStackOSSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translateX(-${offsetY * 0.006}px` }}
-        className="absolute w-[60rem] h-56 -top-9 right-[-30rem] lg:-right-80 xl:-right-56 2xl:-right-36 duration-300"
+        className="selectDisable absolute w-[60rem] h-56 -top-9 right-[-30rem] lg:-right-80 xl:-right-56 2xl:-right-36 duration-300"
       >
-        <Image src="/assets/developers/why-bg-developers.svg" layout="fill" />
+        <Image
+          alt="why-bg-developers"
+          src="/assets/developers/why-bg-developers.svg"
+          layout="fill"
+        />
       </div>
     </div>
   );

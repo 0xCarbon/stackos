@@ -29,12 +29,11 @@ const SwapSettings = () => {
   }
 
   return (
-    <div className="px-4 py-6 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
+    <div className="px-4 py-6 bg-[#1F2937] rounded-md w-[320px] sm:w-[360px] h-[340px] duration-500">
       <div className="flex flex-row justify-between mb-6">
         <span className="text-[#F9FAFB]">Settings</span>
         <IoMdClose
-          className="hover:cursor-pointer"
-          color="#CFCFCF"
+          className="hover:cursor-pointer text-[#CFCFCF] hover:text-[#e15b5b] duration-500"
           size={20}
           onClick={() => dispatch(setSettingsStatus(false))}
         />

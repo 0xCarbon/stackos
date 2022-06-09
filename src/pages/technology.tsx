@@ -16,6 +16,10 @@ const Technology: NextPage = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleChangeOffset);
+
+    return () => {
+      window.removeEventListener('scroll', handleChangeOffset);
+    };
   }, []);
 
   return (

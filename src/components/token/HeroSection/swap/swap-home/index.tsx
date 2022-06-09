@@ -105,7 +105,7 @@ const SwapHome = () => {
   };
 
   return (
-    <div className="px-4 py-6 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
+    <div className="px-4 py-6 bg-[#1F2937] rounded-md w-[320px] sm:w-[360px] h-[340px] duration-500">
       {isSummaryOpen && <SwapSummary />}
       {isErrorOpen && <SwapError />}
       {!isSummaryOpen && !isErrorOpen && (
@@ -115,14 +115,13 @@ const SwapHome = () => {
               href="https://app.1inch.io/"
               target="_blank"
               rel="noreferrer"
-              className="flex flex-row items-end mb-2 text-main-green hover:cursor-pointer"
+              className="flex flex-row items-end mb-2 text-main-green hover:cursor-pointer hover:scale-105 duration-500"
             >
               <BiLinkExternal className="duration-500 text-xl" color="#AAFF00" />
               <p className="mx-2 font-normal text-sm duration-500">By 1inch</p>
             </a>
             <BiCog
-              className="hover:cursor-pointer"
-              color="#CFCFCF"
+              className="hover:cursor-pointer text-[#CFCFCF] hover:text-main-green duration-500"
               size={20}
               onClick={() => dispatch(setSettingsStatus(true))}
             />
@@ -137,7 +136,11 @@ const SwapHome = () => {
             type="number"
           />
           <div className="relative z-10 h-1 flex flex-row justify-center items-center">
-            <BsArrowDownCircle color="#AAFF00" size={26} />
+            <BsArrowDownCircle
+              className="bg-[#1F2937] rounded-full p-[0.2rem]"
+              color="#AAFF00"
+              size={30}
+            />
           </div>
           <StackOSInput
             value={toTokenAmount}
@@ -194,7 +197,7 @@ const SwapHome = () => {
             ) : (
               <button
                 type="button"
-                className="w-full bg-transparent border border-main-green text-main-green rounded-md px-9 py-3"
+                className="w-full bg-transparent border border-main-green hover:bg-main-green text-main-green hover:text-main-blue duration-500 rounded-md px-9 py-3"
                 onClick={() => setModalStatus(true)}
               >
                 {isConnecting && metamask?.id === pendingConnector?.id
