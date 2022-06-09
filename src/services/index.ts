@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-const broadcastApiUrl = 'https://tx-gateway.1inch.io/v1.1/';
 const oneInchApiUrl = 'https://api.1inch.io/v4.0/';
 const coinGeckoUrl = 'https://api.coingecko.com/api/v3/';
 
@@ -23,15 +21,6 @@ export const fetchAllowance = (tokenAddress: any, walletAddress: any, id: number
   fetch(apiRequestUrl(oneInchApiUrl + id, '/approve/allowance', { tokenAddress, walletAddress }))
     .then((res) => res.json())
     .then((res) => res.allowance);
-
-export const getBroadCastTransaction = (rawTransaction: any, networkId: number) =>
-  fetch(`${broadcastApiUrl + networkId}/broadcast`, {
-    method: 'post',
-    body: JSON.stringify({ rawTransaction }),
-    headers: { 'Content-Type': 'application/json' },
-  })
-    .then((res) => res.json())
-    .then((res) => res.transactionHash);
 
 export const fetchTransactionApproval = (tokenAddress: any, amount: any, id: number) =>
   fetch(

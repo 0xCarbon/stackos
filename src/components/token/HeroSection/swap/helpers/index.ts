@@ -1,5 +1,6 @@
 interface Token {
   id: number;
+  chainId: number;
   title: string;
   icon: string;
   subtitle?: string;
@@ -17,14 +18,16 @@ const tokenList: Tokens = {
   Ethereum: [
     {
       id: 1,
+      chainId: 1,
       title: 'ETH',
       subtitle: 'Ether',
       icon: 'eth',
       coin: 'ethereum',
-      address: '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae',
+      address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
     },
     {
       id: 2,
+      chainId: 1,
       title: 'USDC',
       subtitle: 'USD Coin',
       icon: 'usdc',
@@ -33,6 +36,7 @@ const tokenList: Tokens = {
     },
     {
       id: 3,
+      chainId: 1,
       title: 'USDT',
       subtitle: 'Tether',
       icon: 'usdt',
@@ -40,7 +44,8 @@ const tokenList: Tokens = {
       coin: 'tether',
     },
     {
-      id: 43,
+      id: 4,
+      chainId: 1,
       title: 'WETH',
       subtitle: 'Wrapped Ether',
       icon: 'weth',
@@ -51,14 +56,16 @@ const tokenList: Tokens = {
   'Polygon PoS': [
     {
       id: 1,
+      chainId: 137,
       title: 'MATIC',
       subtitle: 'Polygon',
       icon: 'matic',
-      address: '0x0000000000000000000000000000000000001010',
+      address: '0x0000000000000000000000000000000000001010', // 0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
       coin: 'matic-network',
     },
     {
       id: 2,
+      chainId: 137,
       title: 'USDC',
       subtitle: 'USD Coin',
       icon: 'usdc',
@@ -67,6 +74,7 @@ const tokenList: Tokens = {
     },
     {
       id: 3,
+      chainId: 137,
       title: 'USDT',
       subtitle: 'Tether',
       icon: 'usdt',
@@ -77,14 +85,16 @@ const tokenList: Tokens = {
   'Binance Smart Chain': [
     {
       id: 1,
+      chainId: 56,
       title: 'BNB',
       subtitle: 'Binance',
       icon: 'bnb',
-      address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', // 0x0000000000000000000000000000000000001002
+      address: '0x0000000000000000000000000000000000001002',
       coin: 'binancecoin',
     },
     {
       id: 2,
+      chainId: 56,
       title: 'BUSD',
       subtitle: 'Binance USD',
       icon: 'busd',
@@ -93,6 +103,7 @@ const tokenList: Tokens = {
     },
     {
       id: 3,
+      chainId: 56,
       title: 'USDT',
       subtitle: 'Tether',
       icon: 'usdt',
@@ -100,7 +111,8 @@ const tokenList: Tokens = {
       address: '0x55d398326f99059ff775485246999027b3197955',
     },
     {
-      id: 43,
+      id: 4,
+      chainId: 56,
       title: 'WBNB',
       subtitle: 'Wrapped BNB',
       icon: 'wbnb',

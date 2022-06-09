@@ -1,7 +1,7 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   setErrorMessage,
   setErrorStatus,
@@ -17,18 +17,12 @@ import { Separator } from '@radix-ui/react-separator';
 import { BigNumber } from 'ethers';
 import { useTranslation } from 'react-i18next';
 import { StackOSButton, StackOSIcon } from '@/components';
-import {
-  createSwap,
-  fetchAllowance,
-  fetchTransactionApproval,
-  getBroadCastTransaction,
-} from '../../../../../services';
+import { createSwap, fetchAllowance, fetchTransactionApproval } from '../../../../../services';
 
 const SwapSummary = () => {
   const { t } = useTranslation();
 
   const {
-    data: transactionResponse,
     isLoading: isTransactionPending,
     isSuccess: isTransactionSuccess,
     sendTransaction,
@@ -49,22 +43,18 @@ const SwapSummary = () => {
   } = general;
 
   const swapParams = {
-    fromTokenAddress: tokenSelected.address,
+    fromTokenAddress:
+      tokenSelected.id === 1 ? '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' : tokenSelected.address,
     toTokenAddress: stackAddress,
     amount: fromTokenAmount * 10 ** 18,
     fromAddress: account?.address,
     slippage: slippageAmount,
     disableEstimate: true, // default false, error 400 'cannot estimate. Don't forget about miner fee. Try to leave the buffer of BNB for gas' on default
     allowPartialFill: false,
+    chainId: tokenSelected.chainId,
   };
 
   const [isCollapseOpen, setIsCollapseOpen] = useState(false);
-
-  useEffect(() => {
-    if (transactionResponse) {
-      getBroadCastTransaction(transactionResponse?.data, networkSelected.id);
-    }
-  }, [transactionResponse]);
 
   async function buildTxForApproveTradeWithRouter(tokenAddress: any, amount: any) {
     const transaction = await fetchTransactionApproval(tokenAddress, amount, networkSelected.id);
@@ -107,7 +97,6 @@ const SwapSummary = () => {
         0
       );
 
-      // const approveTxHash =
       sendTransaction({
         request: {
           to: transactionForSign.to,
@@ -115,13 +104,10 @@ const SwapSummary = () => {
           value: BigNumber.from(transactionForSign.value),
         },
       });
-
-      // if (approveTxHash)
     }
 
     const swapTransaction = await createSwap(swapParams, networkSelected.id);
 
-    // const swapTxHash =
     sendTransaction({
       request: {
         to: swapTransaction.to,
@@ -132,7 +118,6 @@ const SwapSummary = () => {
       },
     });
 
-    // if (swapTxHash)
     dispatch(setLoading(false));
   }
 

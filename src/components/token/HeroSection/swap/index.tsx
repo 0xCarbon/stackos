@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import {
   setNetworkSelected,
+  setSettingsStatus,
   setStackAddress,
   setTokenOptions,
   setTokenSelected,
+  setTokenSelectStatus,
   setWalletModalStatus,
 } from 'src/redux/actions/general';
 import { useTranslation } from 'react-i18next';
@@ -62,6 +64,8 @@ const Swap = () => {
   useEffect(() => {
     dispatch(setTokenOptions(tokenList[networkSelected.title as keyof Tokens]));
     dispatch(setStackAddress(stackAddresses[networkSelected.title]));
+    dispatch(setSettingsStatus(false));
+    dispatch(setTokenSelectStatus(false));
   }, [networkSelected]);
 
   useEffect(() => {
