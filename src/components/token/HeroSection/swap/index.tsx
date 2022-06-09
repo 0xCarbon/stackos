@@ -66,6 +66,7 @@ const Swap = () => {
     dispatch(setStackAddress(stackAddresses[networkSelected.title]));
     dispatch(setSettingsStatus(false));
     dispatch(setTokenSelectStatus(false));
+    switchNetwork?.(networkSelected.id);
   }, [networkSelected]);
 
   useEffect(() => {

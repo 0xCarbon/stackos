@@ -7,6 +7,7 @@ import { useAccount, useConnect } from 'wagmi';
 import {
   setErrorMessage,
   setErrorStatus,
+  setEstimatedGas,
   setExpectedOutput,
   setFromTokenAmount,
   setFromTokenPrice,
@@ -24,6 +25,7 @@ import { useTranslation } from 'react-i18next';
 import { StackOSInput, StackOSButton, StackOSModal, StackOSIcon } from '@/components';
 import SwapError from './SwapError';
 import SwapSummary from './SwapSummary';
+import { BigNumber, ethers } from 'ethers';
 
 const SwapHome = () => {
   const { t } = useTranslation();
@@ -81,6 +83,12 @@ const SwapHome = () => {
         dispatch(setErrorStatus(true));
         dispatch(setErrorMessage(quote?.description));
       }
+
+      dispatch(setEstimatedGas(quote?.estimatedGas));
+
+      console.log(BigNumber.from(quote?.estimatedGas));
+
+      console.log(ethers.utils.formatUnits(BigNumber.from(quote?.estimatedGas), 'gwei'));
 
       const result = Number(quote.toTokenAmount * 10 ** -18);
 

@@ -23,14 +23,15 @@ const INITIAL_STATE: GeneralState = {
   tokenSelected: { id: 1, title: 'ETH', icon: 'eth' },
   stackAddress: '',
   networkSelected: {
-    id: 56,
-    title: 'Binance Smart Chain',
-    icon: 'binance',
+    id: 137,
+    title: 'Polygon PoS',
+    icon: 'polygon',
   },
-  slippageAmount: 0.1,
+  slippageAmount: 0.5,
   errorMessage: '',
   isSummaryOpen: false,
   isWalletModalOpen: false,
+  estimatedGas: null,
 };
 
 const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }) => {
@@ -85,6 +86,9 @@ const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }
 
     case GeneralTypes.SET_WALLET_MODAL_STATUS:
       return { ...state, isWalletModalOpen: payload.value };
+
+    case GeneralTypes.SET_ESTIMATED_GAS:
+      return { ...state, estimatedGas: payload.value };
 
     default:
       return state;

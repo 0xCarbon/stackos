@@ -68,3 +68,7 @@ export function setSummaryStatus(value: boolean): GeneralActionTypes {
 export function setWalletModalStatus(value: boolean): GeneralActionTypes {
   return action(GeneralTypes.SET_WALLET_MODAL_STATUS, { value });
 }
+
+export function setEstimatedGas(value: number): GeneralActionTypes {
+  return action(GeneralTypes.SET_ESTIMATED_GAS, { value });
+}
