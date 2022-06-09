@@ -10,7 +10,7 @@ const TradeSection = () => {
       <div className="z-10 flex flex-col w-full justify-start">
         <div className="mb-24">
           <div className="flex flex-row justify-start items-center mb-9 lg:mb-12">
-            <h1 className="text-main-green font-extrabold text-6xl">
+            <h1 className="text-main-green font-extrabold text-5xl">
               {t('TOKEN_TRADE_TITLE1')}
               <span className="text-white">{t('TOKEN_TRADE_TITLE2')}</span>
             </h1>

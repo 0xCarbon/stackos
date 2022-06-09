@@ -7,7 +7,7 @@ const PartnersSection = () => {
 
   return (
     <div>
-      <h1 className="leading-normal text-[2.5rem] xl:text-[3.8rem] text-white font-extrabold mb-10">
+      <h1 className="leading-normal text-[2.5rem] xl:text-[3.5rem] text-white font-extrabold mb-10">
         {t('GOVERNANCE_BACKING_US')}
       </h1>
       <div className="grid grid-cols-2 lg:grid-cols-5 mb-10">

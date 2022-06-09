@@ -10,7 +10,7 @@ const ExplainSection = ({ offsetY }: { offsetY: number }) => {
       <div className="z-10 flex flex-col lg:flex-row mb-24 lg:justify-between w-full">
         <div className="flex relative flex-col sm:mr-20 xl:w-[42.3rem] 2xl:w-[47rem]">
           <div>
-            <h1 className="leading-normal text-[2.5rem] xl:text-[3.8rem] font-extrabold mb-10">
+            <h1 className="leading-normal text-[2.5rem] xl:text-[3.5rem] font-extrabold mb-10">
               {t('GOVERNANCE_EXPLAIN_TITLE')}
             </h1>
           </div>

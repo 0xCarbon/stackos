@@ -11,10 +11,10 @@ const TechnologySection = ({ offsetY }: { offsetY: number }) => {
     <div className="relative flex flex-col justify-end items-end mt-5 lg:mt-32 py-20">
       <div className="flex flex-row justify-end items-center mb-9 child:duration-500 z-10">
         <div className="justify-end flex flex-col space-y-3">
-          <h2 className="text-[#D9D9D9] font-light text-sm lg:text-4xl mx-5 text-right">
+          <h2 className="text-[#D9D9D9] font-light text-sm lg:text-3xl mx-5 text-right">
             {t('HOME_TECHNOLOGY_SUBTITLE')}
           </h2>
-          <h2 className="text-[#FFFFFF] font-extrabold text-[2.5rem] lg:text-6xl mx-5 text-right">
+          <h2 className="text-[#FFFFFF] font-extrabold text-[2.2rem] lg:text-5xl mx-5 text-right">
             {t('HOME_TECHNOLOGY_TITLE')}
           </h2>
         </div>

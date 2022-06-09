@@ -7,7 +7,7 @@ const BenefitsSection = ({ offsetY }: { offsetY: number }) => {
 
   return (
     <div className="relative flex flex-col mt-36 mb-[18rem] sm:mb-[21rem] lg:mb-[5rem] text-center lg:text-left">
-      <h1 className="text-main-green text-4xl lg:text-6xl font-extrabold">
+      <h1 className="text-main-green text-4xl lg:text-5xl font-extrabold">
         {t('PARTNERS_BENEFITS_TITLE')}
       </h1>
       <span className="text-[#F9FAFB] text-xl lg:text-4xl font-normal lg:font-light mt-5 mb-16 lg:mb-14">

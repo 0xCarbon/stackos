@@ -9,7 +9,7 @@ const DevelopersSection = ({ offsetY }: { offsetY: number }) => {
   return (
     <div className="relative w-full flex flex-col justify-center items-center text-center py-20 md:py-0 mt-[13rem] sm:mt-[16rem] md:mt-[3rem] xl:mt-[10rem]">
       <div className="z-10 flex flex-col justify-center items-center">
-        <h2 className="text-[#F4F4F4] font-extrabold text-4xl lg:text-6xl mb-9">
+        <h2 className="text-[#F4F4F4] font-extrabold text-4xl lg:text-5xl mb-9">
           {t('HOME_DEVELOPERS_TITLE')}
         </h2>
         <span className="text-white font-normal text-base max-w-md lg:max-w-lg 2xl:max-w-xl mb-3">

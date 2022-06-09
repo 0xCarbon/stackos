@@ -9,7 +9,7 @@ const DecentralizedSection = ({ offsetY }: { offsetY: number }) => {
   return (
     <div className="relative w-full flex flex-col justify-center items-center text-center py-20">
       <div className="flex flex-col items-center z-10">
-        <h2 className="text-[#F4F4F4] font-extrabold text-4xl lg:text-6xl mb-9">
+        <h2 className="text-[#F4F4F4] font-extrabold text-4xl lg:text-5xl mb-9">
           {t('TECHNOLOGY_DECENTRALIZED_TITLE')}
         </h2>
         <span className="text-white font-normal text-xl max-w-xl md:max-w-2xl mb-4">

@@ -11,7 +11,7 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
       <div className="z-10 flex flex-col w-full justify-start lg:flex-row lg:child:flex-1 duration-500">
         <div className="lg:flex lg:flex-col duration-500 mb-20">
           <div className="flex flex-row justify-start items-center mb-9">
-            <h1 className="text-white font-extrabold text-6xl">
+            <h1 className="text-white font-extrabold text-5xl">
               {t('TOKEN_HERO_TITLE1')}
               <p className="text-main-green">{t('TOKEN_HERO_TITLE2')}</p>
             </h1>
