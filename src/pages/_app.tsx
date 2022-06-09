@@ -14,9 +14,15 @@ import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 
-const apiKey = process.env.NEXT_PUBLIC_ALCHEMY_KEY;
 const ETHEREUM_MAINNET = 1;
+const BINANCE_MAINNET = 56;
 const POLYGON_MAINNET = 137;
+
+const rpcUrl: any = {
+  1: 'https://eth-mainnet.public.blastapi.io/',
+  56: 'https://bsc-dataseed.binance.org/',
+  137: 'https://polygon-rpc.com/',
+};
 
 const filteredChains = allChains.filter(
   (chain) => chain.id === ETHEREUM_MAINNET || chain.id === POLYGON_MAINNET
@@ -24,7 +30,7 @@ const filteredChains = allChains.filter(
 
 const binanceMainnet = {
   network: '',
-  id: 56,
+  id: BINANCE_MAINNET,
   name: 'Binance Smart Chain',
   nativeCurrency: {
     name: 'BNB',
@@ -48,41 +54,17 @@ const binanceMainnet = {
   },
 };
 
-const binanceTestnet = {
-  network: '',
-  id: 97,
-  name: 'Binance Testnet',
-  nativeCurrency: {
-    name: 'BNB',
-    symbol: 'BNB',
-    decimals: 18,
-  },
-  rpcUrls: {
-    default: 'https://data-seed-prebsc-1-s1.binance.org:8545',
-  },
-  blockExplorers: {
-    etherscan: {
-      name: 'BNB Smart Chain Explorer',
-      url: 'https://testnet.bscscan.com',
-    },
-    default: {
-      name: 'BNB Smart Chain Explorer',
-      url: 'https://testnet.bscscan.com',
-    },
-  },
-};
-
-const customChains =
-  process.env.NODE_ENV === 'development' ? [...filteredChains, binanceMainnet] : [binanceTestnet];
-
-const { chains, provider } = configureChains(customChains, [
-  jsonRpcProvider({
-    rpc: (chain) => ({
-      http: `${chain.rpcUrls.alchemy}/${apiKey}`,
+const { chains, provider } = configureChains(
+  [...filteredChains, binanceMainnet],
+  [
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: rpcUrl[chain.id],
+      }),
     }),
-  }),
-  publicProvider(),
-]);
+    publicProvider(),
+  ]
+);
 
 const client = createClient({
   autoConnect: true,

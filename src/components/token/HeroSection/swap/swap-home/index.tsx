@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useAccount, useConnect } from 'wagmi';
 import {
   setErrorMessage,
@@ -16,14 +16,18 @@ import {
   setSummaryStatus,
   setTokenSelectStatus,
   setToTokenAmount,
+  setWalletModalStatus,
 } from 'src/redux/actions/general';
 import { fetchCoinPrice, fetchSwapQuote } from 'src/services';
 import { BsArrowDownCircle } from 'react-icons/bs';
+import { useTranslation } from 'react-i18next';
 import { StackOSInput, StackOSButton, StackOSModal, StackOSIcon } from '@/components';
 import SwapError from './SwapError';
 import SwapSummary from './SwapSummary';
 
 const SwapHome = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
   const {
@@ -39,12 +43,11 @@ const SwapHome = () => {
     slippageAmount,
     isErrorOpen,
     isSummaryOpen,
+    isWalletModalOpen,
   } = general;
 
   const { connect, connectors, isConnecting, pendingConnector } = useConnect();
   const { data: account } = useAccount();
-
-  const [isModalOpen, setModalStatus] = useState(false);
 
   const metamask = connectors[0];
 
@@ -53,13 +56,15 @@ const SwapHome = () => {
   }, [fromTokenAmount, tokenSelected]);
 
   const swapParams = {
-    fromTokenAddress: tokenSelected.address,
+    fromTokenAddress:
+      tokenSelected.id === 1 ? '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' : tokenSelected.address,
     toTokenAddress: stackAddress,
     amount: fromTokenAmount * 10 ** 18,
     fromAddress: account?.address,
     slippage: slippageAmount,
     disableEstimate: true, // default false, error 400 'cannot estimate. Don't forget about miner fee. Try to leave the buffer of BNB for gas' on default
     allowPartialFill: false,
+    chainId: tokenSelected.chainId,
   };
 
   const fetchQuoteData = async () => {
@@ -168,7 +173,7 @@ const SwapHome = () => {
                     fill="currentFill"
                   />
                 </svg>
-                <p className="mx-2 font-normal text-sm duration-500">Fetching best price...</p>
+                <p className="mx-2 font-normal text-sm duration-500">{t('SWAP_HOME_INFO1')}</p>
               </div>
             ) : (
               <>
@@ -179,7 +184,7 @@ const SwapHome = () => {
                     <span>{`($${fromTokenPrice})`}</span>
                   </span>
                 ) : (
-                  <p className="mx-2 font-normal text-sm duration-500">Enter an amount</p>
+                  <p className="mx-2 font-normal text-sm duration-500">{t('SWAP_HOME_INFO2')}</p>
                 )}
               </>
             )}
@@ -191,14 +196,14 @@ const SwapHome = () => {
                   className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
                   disabled={!fromTokenAmount || loading}
                 >
-                  Buy STACK
+                  {t('SWAP_HOME_BUTTON')}
                 </StackOSButton>
               </div>
             ) : (
               <button
                 type="button"
                 className="w-full bg-transparent border border-main-green hover:bg-main-green text-main-green hover:text-main-blue duration-500 rounded-md px-9 py-3"
-                onClick={() => setModalStatus(true)}
+                onClick={() => dispatch(setWalletModalStatus(true))}
               >
                 {isConnecting && metamask?.id === pendingConnector?.id
                   ? 'Connecting Wallet...'
@@ -209,16 +214,19 @@ const SwapHome = () => {
         </>
       )}
       <StackOSModal
-        showModal={isModalOpen}
-        onCloseModal={() => setModalStatus(false)}
+        showModal={isWalletModalOpen}
         className="text-center text-white"
-        title={<span className="font-semibold text-xl text-[#F9FAFB]">Connect Wallet</span>}
+        title={
+          <span className="font-semibold text-xl text-[#F9FAFB]">
+            {t('SWAP_MODAL_WALLET_TITLE')}
+          </span>
+        }
         footer={
           <div
             className="text-center text-[#020305] px-9 py-1 rounded-md bg-[#FDFDFD] hover:cursor-pointer"
-            onClick={() => setModalStatus(false)}
+            onClick={() => dispatch(setWalletModalStatus(false))}
           >
-            <span>Close</span>
+            <span>{t('SWAP_MODAL_WALLET_FOOTER')}</span>
           </div>
         }
       >
@@ -229,7 +237,7 @@ const SwapHome = () => {
               key={connector.id}
               onClick={() => {
                 connect(connector);
-                setModalStatus(false);
+                dispatch(setWalletModalStatus(false));
               }}
               type="button"
               className="px-2 py-2 mx-2 my-2 hover:bg-[#374151] duration-500 rounded-md"

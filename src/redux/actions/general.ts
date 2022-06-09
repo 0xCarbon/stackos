@@ -64,3 +64,7 @@ export function setErrorMessage(value: string): GeneralActionTypes {
 export function setSummaryStatus(value: boolean): GeneralActionTypes {
   return action(GeneralTypes.SET_SUMMARY_STATUS, { value });
 }
+
+export function setWalletModalStatus(value: boolean): GeneralActionTypes {
+  return action(GeneralTypes.SET_WALLET_MODAL_STATUS, { value });
+}

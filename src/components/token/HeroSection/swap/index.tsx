@@ -5,15 +5,19 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import {
   setNetworkSelected,
+  setSettingsStatus,
   setStackAddress,
   setTokenOptions,
   setTokenSelected,
+  setTokenSelectStatus,
+  setWalletModalStatus,
 } from 'src/redux/actions/general';
+import { useTranslation } from 'react-i18next';
 import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSModal } from '@/components';
 
 import SwapSettings from './SwapSettings';
 import SwapHome from './swap-home/index';
-import SwapTokenSelect from './SwapTokenSelect';
+import SwapTokenSelect from './swap-token-select/index';
 import { stackAddresses, tokenList } from './helpers';
 
 interface Token {
@@ -36,10 +40,12 @@ const BSC = 56;
 const POLYGON = 137;
 
 const Swap = () => {
+  const { t } = useTranslation();
+
   const { data: account } = useAccount();
   const { activeChain, chains, switchNetwork } = useNetwork();
 
-  const [isModalOpen, setModalStatus] = useState(false);
+  const [isAccountModalOpen, setAccountModalStatus] = useState(false);
 
   const dispatch = useDispatch();
   const { general } = useSelector((state) => state);
@@ -58,6 +64,8 @@ const Swap = () => {
   useEffect(() => {
     dispatch(setTokenOptions(tokenList[networkSelected.title as keyof Tokens]));
     dispatch(setStackAddress(stackAddresses[networkSelected.title]));
+    dispatch(setSettingsStatus(false));
+    dispatch(setTokenSelectStatus(false));
   }, [networkSelected]);
 
   useEffect(() => {
@@ -94,7 +102,7 @@ const Swap = () => {
             </StackOSDropdown>
             <div
               className="w-full gap-2 h-12 px-2 bg-[#374151] flex flex-row justify-center items-center rounded hover:cursor-pointer"
-              onClick={() => setModalStatus(true)}
+              onClick={() => setAccountModalStatus(true)}
             >
               <div className="h-6 w-6 bg-main-green rounded-full" />
               <span className="whitespace-nowrap text-ellipsis overflow-hidden text-[#FDFDFD] max-w-[120px]">
@@ -109,13 +117,23 @@ const Swap = () => {
       {!isSettingsOpen && !isTokenSelectOpen && <SwapHome />}
       <StackOSModal
         size="small"
-        showModal={isModalOpen}
-        onCloseModal={() => setModalStatus(false)}
+        showModal={isAccountModalOpen}
+        onCloseModal={() => setAccountModalStatus(false)}
         className="text-center text-white"
-        title={<span className="font-semibold text-xl text-[#F9FAFB]">Account</span>}
+        title={
+          <span className="font-semibold text-xl text-[#F9FAFB]">
+            {t('SWAP_MODAL_ACCOUNT_TITLE')}
+          </span>
+        }
         footer={
-          <div className="flex flex-row justify-center items-center mb-8">
-            <StackOSButton className="px-20">Change</StackOSButton>
+          <div
+            className="flex flex-row justify-center items-center mb-8"
+            onClick={() => {
+              setAccountModalStatus(false);
+              dispatch(setWalletModalStatus(true));
+            }}
+          >
+            <StackOSButton className="px-20">{t('SWAP_MODAL_ACCOUNT_FOOTER')}</StackOSButton>
           </div>
         }
       >

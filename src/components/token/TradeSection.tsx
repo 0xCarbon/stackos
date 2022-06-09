@@ -22,9 +22,9 @@ const TradeSection = () => {
               </p>
             </div>
             <div className="hidden xl:flex xl:flex-col">
-              <div className="flex flex-row justify-center lg:justify-end child:flex-1 duration-500">
+              <div className="flex flex-row justify-center lg:justify-end child:flex-1 duration-500 gap-5">
                 {features.slice(0, 2).map((item) => (
-                  <div key={item.id} className="flex flex-col mb-16 px-5">
+                  <div key={item.id} className="flex flex-col mb-16 px-5 w-80">
                     <div className="flex flex-row justify-start mb-3 items-baseline md:items-center md:min-w-max duration-500">
                       <BiCheck className="mr-3" color="#AAFF00" size={14} />
                       <span className="text-white font-bold text-lg">
@@ -37,9 +37,9 @@ const TradeSection = () => {
                   </div>
                 ))}
               </div>
-              <div className="flex flex-row justify-center lg:justify-end child:flex-1 duration-500">
+              <div className="flex flex-row justify-center lg:justify-end child:flex-1 duration-500 gap-5">
                 {features.slice(2).map((item) => (
-                  <div key={item.id} className="flex flex-col mb-16 px-5">
+                  <div key={item.id} className="flex flex-col mb-16 px-5 w-80">
                     <div className="flex flex-row justify-start mb-3 items-baseline md:items-center md:min-w-max duration-500">
                       <BiCheck className="mr-3" color="#AAFF00" size={14} />
                       <span className="text-white font-bold text-lg">
@@ -55,7 +55,7 @@ const TradeSection = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row justify-center lg:justify-end xl:hidden duration-500">
+        <div className="hidden sm:flex flex-row justify-center lg:justify-end xl:hidden duration-500">
           {features.slice(0, 2).map((item) => (
             <div key={item.id} className="flex flex-col mb-16 px-5">
               <div className="flex flex-row justify-start mb-3 items-baseline md:items-center md:min-w-max duration-500">
@@ -70,9 +70,24 @@ const TradeSection = () => {
             </div>
           ))}
         </div>
-        <div className="flex flex-row justify-center lg:justify-end xl:hidden duration-500">
+        <div className="hidden sm:flex flex-row justify-center lg:justify-end xl:hidden duration-500">
           {features.slice(2).map((item) => (
             <div key={item.id} className="flex flex-col mb-16  px-5">
+              <div className="flex flex-row justify-start mb-3 items-baseline md:items-center md:min-w-max duration-500">
+                <BiCheck className="mr-3" color="#AAFF00" size={14} />
+                <span className="text-white font-bold text-lg">
+                  <Trans>{item.title}</Trans>
+                </span>
+              </div>
+              <span className="text-white font-normal text-sm w-full max-w-xs ml-7">
+                {t(item.subtitle)}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="flex sm:hidden flex-col justify-center lg:justify-end duration-500">
+          {features.map((item) => (
+            <div key={item.id} className="flex even:hidden flex-col mb-16">
               <div className="flex flex-row justify-start mb-3 items-baseline md:items-center md:min-w-max duration-500">
                 <BiCheck className="mr-3" color="#AAFF00" size={14} />
                 <span className="text-white font-bold text-lg">

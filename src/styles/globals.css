@@ -7,6 +7,8 @@
 @layer base {
   html {
     font-family: 'Inter';
+    overflow: unset !important;
+    padding-right: 0 !important;
   }
 }
 
