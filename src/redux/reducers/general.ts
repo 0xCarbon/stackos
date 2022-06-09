@@ -10,8 +10,8 @@ const INITIAL_STATE: GeneralState = {
   isTokenSelectOpen: false,
   isErrorOpen: false,
   loading: false,
-  fromTokenAmount: 0,
-  toTokenAmount: 0,
+  fromTokenAmount: null,
+  toTokenAmount: null,
   fromTokenPrice: 0,
   expectedOutput: 0,
   tokenOptions: [

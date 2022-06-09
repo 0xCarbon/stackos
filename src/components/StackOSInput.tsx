@@ -13,7 +13,7 @@ interface Props {
   onClickOption?: () => void;
   onChangeInput?: (value: any) => void;
   value?: any;
-  price?: number;
+  price?: number | null;
   disabled?: boolean;
   showPrice?: boolean;
   optionSelected?: Token;
@@ -47,7 +47,7 @@ const StackOSInput = ({
         id="price"
         min="0"
         step="any"
-        className={`block w-full h-full pr-12 text-white text-base outline-0 ${
+        className={`block w-full h-full pr-12 text-white text-2xl font-normal outline-0 ${
           showPrice ? 'rounded-t-md pt-2' : 'rounded-md py-2'
         } ${disabled && 'cursor-not-allowed'}`}
         placeholder={placeholder}
