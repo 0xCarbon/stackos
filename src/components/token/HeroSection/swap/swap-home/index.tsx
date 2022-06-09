@@ -21,9 +21,10 @@ import {
 import { fetchCoinPrice, fetchSwapQuote } from 'src/services';
 import { BsArrowDownCircle } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
-import { StackOSInput, StackOSButton, StackOSModal, StackOSIcon } from '@/components';
+import { StackOSInput, StackOSModal, StackOSIcon } from '@/components';
 import SwapError from './SwapError';
 import SwapSummary from './SwapSummary';
+import SwapButton from '../SwapButton';
 
 const SwapHome = () => {
   const { t } = useTranslation();
@@ -110,7 +111,7 @@ const SwapHome = () => {
   };
 
   return (
-    <div className="px-4 py-6 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
+    <div className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
       {isSummaryOpen && <SwapSummary />}
       {isErrorOpen && <SwapError />}
       {!isSummaryOpen && !isErrorOpen && (
@@ -192,12 +193,12 @@ const SwapHome = () => {
           <div className="flex flex-row justify-center items-center mt-6 w-full">
             {account?.address ? (
               <div className="w-full child:w-full" onClick={() => dispatch(setSummaryStatus(true))}>
-                <StackOSButton
+                <SwapButton
                   className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
                   disabled={!fromTokenAmount || loading}
                 >
                   {t('SWAP_HOME_BUTTON')}
-                </StackOSButton>
+                </SwapButton>
               </div>
             ) : (
               <button
