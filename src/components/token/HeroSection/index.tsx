@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import StackOSButton from '@/components/StackOSButton';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
+import StackOSButton from '@/components/StackOSButton';
 import Swap from './swap';
 
 const HeroSection = ({ offsetY }: { offsetY: number }) => {
