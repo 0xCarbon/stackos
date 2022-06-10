@@ -9,8 +9,8 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
 
   return (
     <div className="relative flex mt-16 mb-28 lg:mb-48">
-      <div className="z-10 flex flex-col w-full justify-start lg:flex-row lg:child:flex-1 duration-500">
-        <div className="lg:flex lg:flex-col duration-500 mb-20">
+      <div className="z-20 flex flex-col w-full justify-start lg:flex-row lg:child:flex-1 duration-500">
+        <div className="z-20 lg:flex lg:flex-col duration-500 mb-20">
           <div className="flex flex-row justify-start items-center mb-9">
             <h1 className="text-white font-extrabold text-5xl">
               {t('TOKEN_HERO_TITLE1')}
@@ -19,11 +19,11 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
           </div>
           <p className="text-white font-normal text-xl max-w-lg">{t('TOKEN_HERO_DESCRIPTION')}</p>
         </div>
-        <div className="hidden lg:hidden sm:flex flex-col justify-center items-center duration-500">
+        <div className="z-20 hidden lg:hidden sm:flex flex-col justify-center items-center duration-500">
           <Swap />
         </div>
 
-        <div className="hidden lg:flex lg:flex-col lg:items-end duration-500">
+        <div className="z-20 hidden lg:flex lg:flex-col lg:items-end duration-500">
           <Swap />
         </div>
         <div className="sm:hidden flex w-full justify-center">

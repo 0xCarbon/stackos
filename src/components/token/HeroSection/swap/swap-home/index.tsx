@@ -47,10 +47,8 @@ const SwapHome = () => {
     isWalletModalOpen,
   } = general;
 
-  const { connect, connectors, isConnecting, pendingConnector } = useConnect();
+  const { connect, connectors, isConnecting } = useConnect();
   const { data: account } = useAccount();
-
-  const metamask = connectors[0];
 
   useEffect(() => {
     fetchQuoteData();
@@ -206,9 +204,7 @@ const SwapHome = () => {
                 className="w-full bg-transparent border border-main-green hover:bg-main-green text-main-green hover:text-main-blue duration-500 rounded-md px-9 py-3"
                 onClick={() => dispatch(setWalletModalStatus(true))}
               >
-                {isConnecting && metamask?.id === pendingConnector?.id
-                  ? 'Connecting Wallet...'
-                  : 'Connect Wallet'}
+                {isConnecting ? 'Connecting Wallet...' : 'Connect Wallet'}
               </button>
             )}
           </div>

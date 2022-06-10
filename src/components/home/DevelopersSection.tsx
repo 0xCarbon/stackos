@@ -23,14 +23,14 @@ const DevelopersSection = ({ offsetY }: { offsetY: number }) => {
         <div className="mt-16 flex flex-col justify-center items-center md:flex-row child:mb-10 child:md:mx-4 child:lg:mx-16 child:xl:mx-28 child:2xl:mx-28">
           <a href="https://docs.stackos.io/stackos-docs/" target="blank">
             <Card
-              src="/assets/home/arte-support.svg"
+              src="/assets/home/arte-documentation.svg"
               title={t('HOME_DEVELOPERS_CARD_TITLE')}
               subtitle={t('HOME_DEVELOPERS_CARD_SUBTITLE1')}
             />
           </a>
           <a href="https://discord.gg/yRk7CdjG" target="blank">
             <Card
-              src="/assets/home/arte-documentation.svg"
+              src="/assets/home/arte-support.svg"
               title={t('HOME_DEVELOPERS_CARD_TITLE2')}
               subtitle={t('HOME_DEVELOPERS_CARD_SUBTITLE2')}
             />
