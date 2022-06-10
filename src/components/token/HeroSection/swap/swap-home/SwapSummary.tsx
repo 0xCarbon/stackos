@@ -16,8 +16,9 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/r
 import { Separator } from '@radix-ui/react-separator';
 import { BigNumber } from 'ethers';
 import { useTranslation } from 'react-i18next';
-import { StackOSButton, StackOSIcon } from '@/components';
+import { StackOSIcon } from '@/components';
 import { createSwap, fetchAllowance, fetchTransactionApproval } from '../../../../../services';
+import SwapButton from '../SwapButton';
 
 const SwapSummary = () => {
   const { t } = useTranslation();
@@ -49,7 +50,7 @@ const SwapSummary = () => {
     fromTokenAddress:
       tokenSelected.id === 1 ? '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' : tokenSelected.address,
     toTokenAddress: stackAddress,
-    amount: fromTokenAmount * 10 ** 18,
+    amount: fromTokenAmount && fromTokenAmount * 10 ** 18,
     fromAddress: account?.address,
     slippage: slippageAmount,
     disableEstimate: true, // default false, error 400 'cannot estimate. Don't forget about miner fee. Try to leave the buffer of BNB for gas' on default
@@ -133,7 +134,7 @@ const SwapSummary = () => {
 
   return (
     <div>
-      <div className={`flex flex-row justify-between ${!isCollapseOpen && 'mb-7'}`}>
+      <div className={`flex flex-row justify-between ${!isCollapseOpen && 'mb-5'}`}>
         {isTransactionPending || isTransactionSuccess ? (
           <a
             href="https://app.1inch.io/"
@@ -200,7 +201,7 @@ const SwapSummary = () => {
             isCollapseOpen ? 'flex-row' : 'flex-col'
           }`}
         >
-          <div className="flex flex-row justify-center items-center text-[#CDCDCD]">
+          <div className="flex flex-row justify-center mb-1 items-center text-[#CDCDCD]">
             <span>{`${fromTokenAmount}`}</span>
             <StackOSIcon className="px-2 flex items-center" iconName={tokenSelected.icon} />
             <span>{`${tokenSelected.title}`}</span>
@@ -213,14 +214,14 @@ const SwapSummary = () => {
             )}
           </div>
           <span className={`font-bold text-lg text-white ${!isCollapseOpen && 'hidden'}`}>
-            {(expectedOutput * fromTokenAmount)?.toFixed(4)}
+            {(fromTokenAmount && expectedOutput * fromTokenAmount)?.toFixed(4)}
           </span>
-          <div className="flex flex-row justify-center items-center text-[#CDCDCD]">
+          <div className="flex flex-row justify-center items-center mt-1 text-[#CDCDCD]">
             <StackOSIcon className="px-2 flex items-center" iconName="stackos" />
             <span>STACK</span>
           </div>
-          <span className={`font-bold text-4xl text-white ${isCollapseOpen && 'hidden'}`}>
-            {(expectedOutput * fromTokenAmount)?.toFixed(4)}
+          <span className={`font-bold text-4xl mt-2 text-white ${isCollapseOpen && 'hidden'}`}>
+            {(fromTokenAmount && expectedOutput * fromTokenAmount)?.toFixed(4)}
           </span>
         </div>
       )}
@@ -235,7 +236,7 @@ const SwapSummary = () => {
             <BsArrowRight color="#FFFFFF" className="mx-3" />
           </div>
           <span className="font-bold text-lg text-white">
-            {(expectedOutput * fromTokenAmount)?.toFixed(4)}
+            {(fromTokenAmount && expectedOutput * fromTokenAmount)?.toFixed(4)}
           </span>
           <div className="flex flex-row justify-center items-center text-[#CDCDCD]">
             <StackOSIcon className="px-2 flex items-center" iconName="stackos" />
@@ -257,7 +258,7 @@ const SwapSummary = () => {
               <div className="flex flex-row">
                 <BiInfoCircle className="duration-500 text-xl" color="#CFCFCF" />
                 {expectedOutput > 0 && (
-                  <span className="mx-2 font-normal text-sm duration-500">
+                  <span className="mx-2 font-normal text-xs text-[#cfcfcf] duration-500">
                     {`1 ${tokenSelected.title} = ${expectedOutput} STACK `}
                     <span>{`($${fromTokenPrice})`}</span>
                   </span>
@@ -269,7 +270,7 @@ const SwapSummary = () => {
             </div>
             <CollapsibleContent className="duration-500">
               <Separator className="h-px w-full bg-[#565A69] my-4" />
-              <div className="text-white font-normal text-xs overflow-y-scroll scrollbar flex flex-col h-28 pr-1 child:my-1">
+              <div className="overflow-y-scroll scrollbar flex flex-col h-28 text-[#cfcfcf] text-xs font-normal pr-1 child:my-1">
                 <div className="flex flex-row justify-between">
                   <span>{t('SWAP_SUMMARY_ITEM1')}</span>
                   <span>{t('SWAP_SUMMARY_ITEM1_VALUE')}</span>
@@ -294,18 +295,18 @@ const SwapSummary = () => {
       {isTransactionPending || isTransactionSuccess ? (
         <div className="flex flex-row justify-center items-center mt-6 w-full">
           <div className="w-full child:w-full" onClick={() => dispatch(setSummaryStatus(false))}>
-            <StackOSButton
+            <SwapButton
               disabled={isTransactionPending}
               className={`${isTransactionPending && 'bg-[#FDFDFD]'}`}
             >
               {t('SWAP_SUMMARY_FOOTER1')}
-            </StackOSButton>
+            </SwapButton>
           </div>
         </div>
       ) : (
         <div className="flex flex-row justify-center items-center mt-6 w-full">
           <div className="w-full child:w-full" onClick={() => handleSwap()}>
-            <StackOSButton>{t('SWAP_SUMMARY_FOOTER2')}</StackOSButton>
+            <SwapButton>{t('SWAP_SUMMARY_FOOTER2')}</SwapButton>
           </div>
         </div>
       )}

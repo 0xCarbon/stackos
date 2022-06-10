@@ -51,6 +51,7 @@ const SwapTokenSelect = () => {
         iconLeft
         value={searchInput}
         onChangeInput={(value) => setSearchInput(value)}
+        fontSize={16}
       />
       <Separator className="h-px w-full bg-[#565A69] my-4" />
       <div className="overflow-y-scroll scrollbar h-48 pr-1">

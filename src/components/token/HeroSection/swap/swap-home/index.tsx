@@ -22,9 +22,10 @@ import {
 import { fetchCoinPrice, fetchSwapQuote } from 'src/services';
 import { BsArrowDownCircle } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
-import { StackOSInput, StackOSButton, StackOSModal, StackOSIcon } from '@/components';
+import { StackOSInput, StackOSModal, StackOSIcon } from '@/components';
 import SwapError from './SwapError';
 import SwapSummary from './SwapSummary';
+import SwapButton from '../SwapButton';
 
 const SwapHome = () => {
   const { t } = useTranslation();
@@ -47,7 +48,7 @@ const SwapHome = () => {
     isWalletModalOpen,
   } = general;
 
-  const { connect, connectors, isConnecting, pendingConnector } = useConnect();
+  const { connect, connectors, isConnecting } = useConnect();
   const { data: account } = useAccount();
   const [insufficientBalance, setInsufficientBalance] = useState<boolean>(false);
   const [tokenBalance, setTokenBalance] = useState<number>(0);
@@ -73,8 +74,6 @@ const SwapHome = () => {
     }
   }, [fromTokenAmount, tokenBalance]);
 
-  const metamask = connectors[0];
-
   useEffect(() => {
     fetchQuoteData();
   }, [fromTokenAmount, tokenSelected]);
@@ -83,7 +82,7 @@ const SwapHome = () => {
     fromTokenAddress:
       tokenSelected.id === 1 ? '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' : tokenSelected.address,
     toTokenAddress: stackAddress,
-    amount: fromTokenAmount * 10 ** 18,
+    amount: fromTokenAmount && fromTokenAmount * 10 ** 18,
     fromAddress: account?.address,
     slippage: slippageAmount,
     disableEstimate: true, // default false, error 400 'cannot estimate. Don't forget about miner fee. Try to leave the buffer of BNB for gas' on default
@@ -98,7 +97,7 @@ const SwapHome = () => {
     dispatch(setFromTokenPrice(0));
     dispatch(setStackPrice(0));
 
-    if (fromTokenAmount > 0) {
+    if (fromTokenAmount && fromTokenAmount > 0) {
       const quote = await fetchSwapQuote(swapParams, networkSelected.id);
 
       if (quote?.statusCode >= 400) {
@@ -134,14 +133,13 @@ const SwapHome = () => {
 
     dispatch(setLoading(false));
   };
-
   return (
-    <div className="px-4 py-6 bg-[#1F2937] rounded-md w-[320px] sm:w-[360px] h-[340px] duration-500">
+    <div className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
       {isSummaryOpen && <SwapSummary />}
       {isErrorOpen && <SwapError />}
       {!isSummaryOpen && !isErrorOpen && (
         <>
-          <div className="flex flex-row justify-between mb-7">
+          <div className="flex flex-row justify-between mb-4">
             <a
               href="https://app.1inch.io/"
               target="_blank"
@@ -162,7 +160,7 @@ const SwapHome = () => {
             optionSelected={tokenSelected}
             onClickOption={() => dispatch(setTokenSelectStatus(true))}
             value={fromTokenAmount}
-            price={fromTokenPrice * fromTokenAmount}
+            price={fromTokenAmount && fromTokenPrice * fromTokenAmount}
             onChangeInput={(value) => dispatch(setFromTokenAmount(value))}
             type="number"
           />
@@ -176,7 +174,7 @@ const SwapHome = () => {
           <StackOSInput
             value={toTokenAmount}
             showPrice
-            price={stackPrice * toTokenAmount}
+            price={toTokenAmount && stackPrice * toTokenAmount}
             disabled
             type="number"
           />
@@ -218,12 +216,12 @@ const SwapHome = () => {
           <div className="flex flex-row justify-center items-center mt-6 w-full">
             {account?.address ? (
               <div className="w-full child:w-full" onClick={() => dispatch(setSummaryStatus(true))}>
-                <StackOSButton
+                <SwapButton
                   className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
                   disabled={!fromTokenAmount || loading || insufficientBalance}
                 >
                   {insufficientBalance ? 'Insufficient balance' : t('SWAP_HOME_BUTTON')}
-                </StackOSButton>
+                </SwapButton>
               </div>
             ) : (
               <button
@@ -231,9 +229,7 @@ const SwapHome = () => {
                 className="w-full bg-transparent border border-main-green hover:bg-main-green text-main-green hover:text-main-blue duration-500 rounded-md px-9 py-3"
                 onClick={() => dispatch(setWalletModalStatus(true))}
               >
-                {isConnecting && metamask?.id === pendingConnector?.id
-                  ? 'Connecting Wallet...'
-                  : 'Connect Wallet'}
+                {isConnecting ? 'Connecting Wallet...' : 'Connect Wallet'}
               </button>
             )}
           </div>

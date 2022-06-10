@@ -13,12 +13,13 @@ import {
   setWalletModalStatus,
 } from 'src/redux/actions/general';
 import { useTranslation } from 'react-i18next';
-import { StackOSButton, StackOSDropdown, StackOSIcon, StackOSModal } from '@/components';
+import { StackOSDropdown, StackOSIcon, StackOSModal } from '@/components';
 
 import SwapSettings from './SwapSettings';
 import SwapHome from './swap-home/index';
 import SwapTokenSelect from './swap-token-select/index';
 import { stackAddresses, tokenList } from './helpers';
+import SwapButton from './SwapButton';
 
 interface Token {
   id: number;
@@ -134,7 +135,7 @@ const Swap = () => {
               dispatch(setWalletModalStatus(true));
             }}
           >
-            <StackOSButton className="px-20">{t('SWAP_MODAL_ACCOUNT_FOOTER')}</StackOSButton>
+            <SwapButton className="px-20">{t('SWAP_MODAL_ACCOUNT_FOOTER')}</SwapButton>
           </div>
         }
       >
