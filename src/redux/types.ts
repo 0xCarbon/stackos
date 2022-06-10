@@ -119,8 +119,8 @@ export type GeneralActionTypes =
 
 export interface GeneralState {
   loading: boolean;
-  fromTokenAmount: number;
-  toTokenAmount: number;
+  fromTokenAmount: number | null;
+  toTokenAmount: number | null;
   fromTokenPrice: number;
   stackPrice: number;
   expectedOutput: number;

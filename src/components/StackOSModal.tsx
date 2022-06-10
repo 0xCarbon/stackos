@@ -21,7 +21,7 @@ const StackOSModal = ({
   size = 'full',
 }: Props) => (
   <Transition.Root show={showModal} as={Fragment}>
-    <Dialog as="div" className="relative z-10" onClose={() => onCloseModal()}>
+    <Dialog as="div" className="relative z-50" onClose={() => onCloseModal()}>
       <Transition.Child
         as={Fragment}
         enter="ease-out duration-300"

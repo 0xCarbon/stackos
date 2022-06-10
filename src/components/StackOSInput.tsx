@@ -13,13 +13,14 @@ interface Props {
   onClickOption?: () => void;
   onChangeInput?: (value: any) => void;
   value?: any;
-  price?: number;
+  price?: number | null;
   disabled?: boolean;
   showPrice?: boolean;
   optionSelected?: Token;
   type: string;
   placeholder?: string;
   iconLeft?: boolean;
+  fontSize?: number;
 }
 
 const StackOSInput = ({
@@ -33,11 +34,12 @@ const StackOSInput = ({
   iconLeft,
   onClickOption = () => null,
   onChangeInput = () => null,
+  fontSize = 24,
 }: Props) => (
   <div className="relative shadow-sm">
     {iconLeft && (
       <div className="absolute inset-y-0 left-0 pl-2 pt-[10px] flex items-start text-[#6B7280]">
-        <BiSearch />
+        <BiSearch className="text-xl flex place-self-start" />
       </div>
     )}
     <div className={`child:bg-[#374151] ${iconLeft ? 'child:pl-8' : 'child:pl-3'}`}>
@@ -47,12 +49,13 @@ const StackOSInput = ({
         id="price"
         min="0"
         step="any"
-        className={`block w-full h-full pr-12 text-white text-base outline-0 ${
+        style={{ fontSize: `${fontSize}px` }}
+        className={`block w-full h-full pr-12 text-white text-2xl font-normal outline-0 ${
           showPrice ? 'rounded-t-md pt-2' : 'rounded-md py-2'
         } ${disabled && 'cursor-not-allowed'}`}
         placeholder={placeholder}
         aria-describedby="price-currency"
-        value={value}
+        value={value || undefined}
         disabled={disabled}
         onChange={(e) => onChangeInput(e.target.value)}
       />
