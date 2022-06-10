@@ -55,7 +55,7 @@ const StackOSInput = ({
         } ${disabled && 'cursor-not-allowed'}`}
         placeholder={placeholder}
         aria-describedby="price-currency"
-        value={value}
+        value={value || undefined}
         disabled={disabled}
         onChange={(e) => onChangeInput(e.target.value)}
       />

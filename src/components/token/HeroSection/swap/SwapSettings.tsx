@@ -4,8 +4,17 @@ import { IoMdClose } from 'react-icons/io';
 import { useEffect, useState } from 'react';
 import { setSettingsStatus, setSlippageAmount } from 'src/redux/actions/general';
 import { useTranslation } from 'react-i18next';
-import { StackOSInput, StackOSSwitch } from '@/components';
+import { BiInfoCircle } from 'react-icons/bi';
+import { StackOSToggleGroup } from '@/components';
 import SwapButton from './SwapButton';
+
+const slippageValues = [
+  { title: '0.1%', value: 0.1 },
+  { title: '0.5%', value: 0.5 },
+  { title: '1%', value: 1 },
+  { title: '3%', value: 3 },
+  { title: 'custom', value: null },
+];
 
 const SwapSettings = () => {
   const { t } = useTranslation();
@@ -14,22 +23,17 @@ const SwapSettings = () => {
   const { general } = useSelector((state) => state);
   const { slippageAmount } = general;
 
-  const [enabled, setEnabled] = useState(true);
-  const [newSlippage, setNewSlippage] = useState(slippageAmount);
+  const [newSlippage, setNewSlippage] = useState<number | null>(slippageAmount);
 
   useEffect(() => {
-    setNewSlippage(0.1);
-  }, [enabled]);
-
-  function canConfirmSettings() {
-    if (enabled) return true;
-
-    return newSlippage !== slippageAmount;
-  }
+    setNewSlippage(0.5);
+  }, []);
 
   function onClickConfirm() {
-    dispatch(setSlippageAmount(newSlippage));
-    dispatch(setSettingsStatus(false));
+    if (newSlippage) {
+      dispatch(setSlippageAmount(newSlippage));
+      dispatch(setSettingsStatus(false));
+    }
   }
 
   return (
@@ -42,34 +46,21 @@ const SwapSettings = () => {
           onClick={() => dispatch(setSettingsStatus(false))}
         />
       </div>
-      <p className="text-white mb-3">{t('SWAP_SETTINGS_ITEM1')}</p>
-      <div className="flex flex-row child:flex-initial gap-3 mb-6">
-        <div
-          className={`flex justify-center items-center w-[40%] border rounded-md px-2 gap-2 ${
-            enabled ? 'border-main-green' : 'border-[#6B7280]'
-          }`}
-        >
-          <StackOSSwitch
-            value={enabled}
-            onChange={(a) => {
-              setEnabled(a);
-            }}
-          />
-          <span className={`${enabled ? 'text-main-green' : 'text-white'}`}>Auto</span>
-        </div>
-        <StackOSInput
-          value={newSlippage}
-          onChangeInput={(value) => setNewSlippage(value)}
-          disabled={enabled}
-          type="number"
-          placeholder="0.10"
-        />
+      <p className="text-white text-lg mb-3">{t('SWAP_SETTINGS_SUBTITLE')}</p>
+      <StackOSToggleGroup
+        defaultValue={newSlippage as number}
+        onChange={(value) => setNewSlippage(value.value)}
+        data={slippageValues}
+      />
+      <div className="flex mt-[1.93rem]">
+        <BiInfoCircle size={16} className="duration-500 text-xl mr-2" color="#CFCFCF" />
+        <span className="text-[#CFCFCF] text-[0.75rem] w-[17.5rem]">{t('SWAP_SETTINGS_INFO')}</span>
       </div>
-      <p className="text-white mb-4">{t('SWAP_SETTINGS_ITEM2')}</p>
-      <StackOSInput fontSize={16} disabled={enabled} type="number" placeholder="40" />
       <div className="flex flex-row justify-center items-center w-full mt-9">
         <div className="w-full child:w-full" onClick={() => onClickConfirm()}>
-          <SwapButton disabled={!canConfirmSettings()}>{t('SWAP_SETTINGS_FOOTER')}</SwapButton>
+          <SwapButton disabled={slippageAmount === newSlippage || !newSlippage}>
+            {t('SWAP_SETTINGS_FOOTER')}
+          </SwapButton>
         </div>
       </div>
     </div>

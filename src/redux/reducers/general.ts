@@ -27,7 +27,7 @@ const INITIAL_STATE: GeneralState = {
     title: 'Binance Smart Chain',
     icon: 'binance',
   },
-  slippageAmount: 0.1,
+  slippageAmount: 0.5,
   errorMessage: '',
   isSummaryOpen: false,
   isWalletModalOpen: false,
