@@ -203,14 +203,14 @@ const SwapSummary = () => {
             )}
           </div>
           <span className={`font-bold text-lg text-white ${!isCollapseOpen && 'hidden'}`}>
-            {(expectedOutput * fromTokenAmount)?.toFixed(4)}
+            {(expectedOutput * (fromTokenAmount as number))?.toFixed(4)}
           </span>
           <div className="flex flex-row justify-center items-center text-[#CDCDCD]">
             <StackOSIcon className="px-2 flex items-center" iconName="stackos" />
             <span>STACK</span>
           </div>
           <span className={`font-bold text-4xl text-white ${isCollapseOpen && 'hidden'}`}>
-            {(expectedOutput * fromTokenAmount)?.toFixed(4)}
+            {(expectedOutput * (fromTokenAmount as number))?.toFixed(4)}
           </span>
         </div>
       )}
@@ -225,7 +225,7 @@ const SwapSummary = () => {
             <BsArrowRight color="#FFFFFF" className="mx-3" />
           </div>
           <span className="font-bold text-lg text-white">
-            {(expectedOutput * fromTokenAmount)?.toFixed(4)}
+            {(expectedOutput * (fromTokenAmount as number))?.toFixed(4)}
           </span>
           <div className="flex flex-row justify-center items-center text-[#CDCDCD]">
             <StackOSIcon className="px-2 flex items-center" iconName="stackos" />
