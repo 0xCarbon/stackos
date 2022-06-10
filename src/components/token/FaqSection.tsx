@@ -17,19 +17,19 @@ const FaqSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translate(${offsetY * 0.05}px, ${offsetY * 0.05}px)` }}
-        className="selectDisable absolute w-[18rem] h-[18rem] left-[-15rem] top-0 sm:left-[-18rem] md:left-[-13rem] xl:left-[-8rem] duration-200"
+        className="selectDisable absolute w-[18rem] h-[18rem] left-[-20rem] top-[-5rem] sm:left-[-22rem] md:left-[-16rem] md:top-[-8rem] lg:top-[-12rem] xl:left-[-7rem] xl:lg:top-[-7rem] duration-200"
       >
         <Image src="/assets/token/faq-layer1.svg" alt="layer1" layout="fill" priority />
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.02}px, ${offsetY * 0.02}px)` }}
-        className="selectDisable absolute w-[34rem] h-[28rem] left-[-28rem] top-[-5rem] md:left-[-23rem] duration-200"
+        className="selectDisable absolute w-[34rem] h-[28rem] left-[-22rem] sm:left-[-24rem] md:left-[-20rem] xl:left-[-10rem] top-[-8rem] md:top-[-12rem] lg:top-[-16rem] xl:top-[-10rem] duration-200"
       >
         <Image src="/assets/token/faq-layer2.svg" alt="layer2" layout="fill" priority />
       </div>
       <div
         style={{ transform: `translate(${offsetY * 0.006}px, ${offsetY * 0.006}px)` }}
-        className="selectDisable absolute w-[22rem] h-[17rem] left-[-15rem] top-[-15rem] duration-200"
+        className="selectDisable absolute w-[22rem] h-[17rem] left-[-19rem] sm:left-[-22rem] md:left-[-15rem] xl:left-[-7rem] 2xl:left-[1rem] top-[5rem] md:top-[-18rem] lg:top-[-28rem] xl:top-[-23rem] duration-200"
       >
         <Image src="/assets/token/faq-layer3.svg" alt="layer3" layout="fill" priority />
       </div>
