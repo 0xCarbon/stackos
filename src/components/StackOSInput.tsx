@@ -20,6 +20,7 @@ interface Props {
   type: string;
   placeholder?: string;
   iconLeft?: boolean;
+  fontSize?: number;
 }
 
 const StackOSInput = ({
@@ -33,6 +34,7 @@ const StackOSInput = ({
   iconLeft,
   onClickOption = () => null,
   onChangeInput = () => null,
+  fontSize = 24,
 }: Props) => (
   <div className="relative shadow-sm">
     {iconLeft && (
@@ -47,6 +49,7 @@ const StackOSInput = ({
         id="price"
         min="0"
         step="any"
+        style={{ fontSize: `${fontSize}px` }}
         className={`block w-full h-full pr-12 text-white text-2xl font-normal outline-0 ${
           showPrice ? 'rounded-t-md pt-2' : 'rounded-md py-2'
         } ${disabled && 'cursor-not-allowed'}`}
