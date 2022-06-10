@@ -39,7 +39,7 @@ const StackOSInput = ({
   <div className="relative shadow-sm">
     {iconLeft && (
       <div className="absolute inset-y-0 left-0 pl-2 pt-[10px] flex items-start text-[#6B7280]">
-        <BiSearch />
+        <BiSearch className="text-xl flex place-self-start" />
       </div>
     )}
     <div className={`child:bg-[#374151] ${iconLeft ? 'child:pl-8' : 'child:pl-3'}`}>
