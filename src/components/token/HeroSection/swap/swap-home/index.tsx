@@ -2,8 +2,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
-import { useEffect } from 'react';
-import { useAccount, useConnect } from 'wagmi';
+import { useEffect, useState } from 'react';
+import { useAccount, useBalance, useConnect } from 'wagmi';
 import {
   setErrorMessage,
   setErrorStatus,
@@ -25,7 +25,6 @@ import { useTranslation } from 'react-i18next';
 import { StackOSInput, StackOSButton, StackOSModal, StackOSIcon } from '@/components';
 import SwapError from './SwapError';
 import SwapSummary from './SwapSummary';
-import { BigNumber, ethers } from 'ethers';
 
 const SwapHome = () => {
   const { t } = useTranslation();
@@ -50,6 +49,29 @@ const SwapHome = () => {
 
   const { connect, connectors, isConnecting, pendingConnector } = useConnect();
   const { data: account } = useAccount();
+  const [insufficientBalance, setInsufficientBalance] = useState<boolean>(false);
+  const [tokenBalance, setTokenBalance] = useState<number>(0);
+
+  const { refetch } = useBalance({
+    addressOrName: account?.address,
+    token: tokenSelected?.id === 1 ? null : tokenSelected?.address,
+    chainId: tokenSelected?.chainId,
+    onSuccess(data) {
+      setTokenBalance(Number(data?.formatted));
+    },
+  });
+
+  useEffect(() => {
+    refetch();
+  }, [networkSelected]);
+
+  useEffect(() => {
+    setInsufficientBalance(false);
+
+    if (fromTokenAmount && (tokenBalance === 0 || tokenBalance < fromTokenAmount)) {
+      setInsufficientBalance(true);
+    }
+  }, [fromTokenAmount, tokenBalance]);
 
   const metamask = connectors[0];
 
@@ -85,10 +107,6 @@ const SwapHome = () => {
       }
 
       dispatch(setEstimatedGas(quote?.estimatedGas));
-
-      console.log(BigNumber.from(quote?.estimatedGas));
-
-      console.log(ethers.utils.formatUnits(BigNumber.from(quote?.estimatedGas), 'gwei'));
 
       const result = Number(quote.toTokenAmount * 10 ** -18);
 
@@ -202,9 +220,9 @@ const SwapHome = () => {
               <div className="w-full child:w-full" onClick={() => dispatch(setSummaryStatus(true))}>
                 <StackOSButton
                   className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
-                  disabled={!fromTokenAmount || loading}
+                  disabled={!fromTokenAmount || loading || insufficientBalance}
                 >
-                  {t('SWAP_HOME_BUTTON')}
+                  {insufficientBalance ? 'Insufficient balance' : t('SWAP_HOME_BUTTON')}
                 </StackOSButton>
               </div>
             ) : (

@@ -16,7 +16,8 @@ const SwapTokenSelectInfo = ({ token }: Props) => {
 
   useBalance({
     addressOrName: account?.address,
-    token: token?.address,
+    token: token?.id === 1 ? null : token?.address,
+    chainId: token?.chainId,
     onSuccess(data) {
       setTokenBalance(Number(data?.formatted));
     },
