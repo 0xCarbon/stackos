@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import StackOSButton from '@/components/StackOSButton';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import Swap from './swap';
@@ -18,12 +19,17 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
           </div>
           <p className="text-white font-normal text-xl max-w-lg">{t('TOKEN_HERO_DESCRIPTION')}</p>
         </div>
-        <div className="lg:hidden flex flex-col justify-center items-center duration-500">
+        <div className="hidden lg:hidden sm:flex flex-col justify-center items-center duration-500">
           <Swap />
         </div>
 
         <div className="hidden lg:flex lg:flex-col lg:items-end duration-500">
           <Swap />
+        </div>
+        <div className="sm:hidden flex w-full justify-center">
+          <a href="https://app.1inch.io/#/137/swap/MATIC/STACK" target="_blank" rel="noreferrer">
+            <StackOSButton>{t('TOKEN_SWAP_HERO_BUTTON')}</StackOSButton>
+          </a>
         </div>
       </div>
       <div
