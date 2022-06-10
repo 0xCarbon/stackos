@@ -135,7 +135,7 @@ const SwapHome = () => {
             onClickOption={() => dispatch(setTokenSelectStatus(true))}
             value={fromTokenAmount}
             price={fromTokenAmount && fromTokenPrice * fromTokenAmount}
-            onChangeInput={(value) => dispatch(setFromTokenAmount(value))}
+            onChangeInput={(value) => dispatch(setFromTokenAmount(value.replace(/^0+/, '')))}
             type="number"
           />
           <div className="relative z-10 h-1 flex flex-row justify-center items-center">
