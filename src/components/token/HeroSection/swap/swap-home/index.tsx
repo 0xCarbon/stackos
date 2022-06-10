@@ -107,14 +107,13 @@ const SwapHome = () => {
 
     dispatch(setLoading(false));
   };
-
   return (
     <div className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
       {isSummaryOpen && <SwapSummary />}
       {isErrorOpen && <SwapError />}
       {!isSummaryOpen && !isErrorOpen && (
         <>
-          <div className="flex flex-row justify-between mb-7">
+          <div className="flex flex-row justify-between mb-4">
             <a
               href="https://app.1inch.io/"
               target="_blank"
