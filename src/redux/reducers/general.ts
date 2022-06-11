@@ -15,22 +15,55 @@ const INITIAL_STATE: GeneralState = {
   fromTokenPrice: 0,
   expectedOutput: 0,
   tokenOptions: [
-    { id: 1, title: 'ETH', icon: 'eth' },
-    { id: 2, title: 'USDC', icon: 'usdc' },
-    { id: 3, title: 'USDT', icon: 'usdt' },
-    { id: 43, title: 'WETH', icon: 'weth' },
+    {
+      id: 1,
+      chainId: 137,
+      title: 'MATIC',
+      subtitle: 'Polygon',
+      icon: 'matic',
+      address: '0x0000000000000000000000000000000000001010',
+      coin: 'matic-network',
+    },
+    {
+      id: 2,
+      chainId: 137,
+      title: 'USDC',
+      subtitle: 'USD Coin',
+      icon: 'usdc',
+      address: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+      coin: 'usd-coin',
+    },
+    {
+      id: 3,
+      chainId: 137,
+      title: 'USDT',
+      subtitle: 'Tether',
+      icon: 'usdt',
+      address: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
+      coin: 'tether',
+    },
   ],
-  tokenSelected: { id: 1, title: 'ETH', icon: 'eth' },
+  tokenSelected: {
+    id: 1,
+    chainId: 137,
+    title: 'MATIC',
+    subtitle: 'Polygon',
+    icon: 'matic',
+    address: '0x0000000000000000000000000000000000001010',
+    coin: 'matic-network',
+  },
   stackAddress: '',
   networkSelected: {
-    id: 56,
-    title: 'Binance Smart Chain',
-    icon: 'binance',
+    id: 137,
+    title: 'Polygon PoS',
+    icon: 'polygon',
   },
   slippageAmount: 0.5,
   errorMessage: '',
   isSummaryOpen: false,
   isWalletModalOpen: false,
+  estimatedGas: null,
+  tokenBalance: undefined,
 };
 
 const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }) => {
@@ -85,6 +118,31 @@ const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }
 
     case GeneralTypes.SET_WALLET_MODAL_STATUS:
       return { ...state, isWalletModalOpen: payload.value };
+
+    case GeneralTypes.SET_ESTIMATED_GAS:
+      return { ...state, estimatedGas: payload.value };
+
+    case GeneralTypes.SET_TOKEN_BALANCE:
+      return { ...state, tokenBalance: payload.value };
+
+    case GeneralTypes.RESET_STATE:
+      return {
+        ...state,
+        stackPrice: 0,
+        isSettingsOpen: false,
+        isTokenSelectOpen: false,
+        isErrorOpen: false,
+        loading: false,
+        fromTokenAmount: null,
+        toTokenAmount: null,
+        fromTokenPrice: 0,
+        expectedOutput: 0,
+        slippageAmount: 0.5,
+        errorMessage: '',
+        isSummaryOpen: false,
+        isWalletModalOpen: false,
+        estimatedGas: null,
+      };
 
     default:
       return state;

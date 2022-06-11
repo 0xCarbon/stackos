@@ -23,7 +23,7 @@ const tokenList: Tokens = {
       subtitle: 'Ether',
       icon: 'eth',
       coin: 'ethereum',
-      address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+      address: '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae',
     },
     {
       id: 2,
@@ -60,7 +60,7 @@ const tokenList: Tokens = {
       title: 'MATIC',
       subtitle: 'Polygon',
       icon: 'matic',
-      address: '0x0000000000000000000000000000000000001010', // 0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+      address: '0x0000000000000000000000000000000000001010',
       coin: 'matic-network',
     },
     {

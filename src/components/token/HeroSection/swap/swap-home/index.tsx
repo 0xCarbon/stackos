@@ -2,11 +2,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
-import { useEffect } from 'react';
-import { useAccount, useConnect } from 'wagmi';
+import { useEffect, useRef, useState } from 'react';
+import { useAccount, useConnect, useNetwork } from 'wagmi';
 import {
   setErrorMessage,
   setErrorStatus,
+  setEstimatedGas,
   setExpectedOutput,
   setFromTokenAmount,
   setFromTokenPrice,
@@ -25,6 +26,7 @@ import { StackOSInput, StackOSModal, StackOSIcon } from '@/components';
 import SwapError from './SwapError';
 import SwapSummary from './SwapSummary';
 import SwapButton from '../SwapButton';
+import SwapGetBalance from './SwapGetBalance';
 
 const SwapHome = () => {
   const { t } = useTranslation();
@@ -45,10 +47,31 @@ const SwapHome = () => {
     isErrorOpen,
     isSummaryOpen,
     isWalletModalOpen,
+    tokenBalance,
   } = general;
 
   const { connect, connectors, isConnecting } = useConnect();
+  const { activeChain } = useNetwork();
   const { data: account } = useAccount();
+  const [insufficientBalance, setInsufficientBalance] = useState<boolean>(false);
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    formRef?.current?.reset();
+  }, [activeChain]);
+
+  useEffect(() => {
+    setInsufficientBalance(false);
+
+    if (
+      fromTokenAmount &&
+      tokenBalance !== undefined &&
+      (tokenBalance === 0 || tokenBalance < fromTokenAmount)
+    ) {
+      setInsufficientBalance(true);
+    }
+  }, [fromTokenAmount, tokenBalance]);
 
   useEffect(() => {
     fetchQuoteData();
@@ -58,7 +81,7 @@ const SwapHome = () => {
     fromTokenAddress:
       tokenSelected.id === 1 ? '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' : tokenSelected.address,
     toTokenAddress: stackAddress,
-    amount: fromTokenAmount && fromTokenAmount * 10 ** 18,
+    amount: `${fromTokenAmount}000000000000000000`,
     fromAddress: account?.address,
     slippage: slippageAmount,
     disableEstimate: true, // default false, error 400 'cannot estimate. Don't forget about miner fee. Try to leave the buffer of BNB for gas' on default
@@ -80,6 +103,8 @@ const SwapHome = () => {
         dispatch(setErrorStatus(true));
         dispatch(setErrorMessage(quote?.description));
       }
+
+      dispatch(setEstimatedGas(quote?.estimatedGas));
 
       const result = Number(quote.toTokenAmount * 10 ** -18);
 
@@ -107,6 +132,7 @@ const SwapHome = () => {
 
     dispatch(setLoading(false));
   };
+
   return (
     <div className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
       {isSummaryOpen && <SwapSummary />}
@@ -129,29 +155,31 @@ const SwapHome = () => {
               onClick={() => dispatch(setSettingsStatus(true))}
             />
           </div>
-          <StackOSInput
-            showPrice
-            optionSelected={tokenSelected}
-            onClickOption={() => dispatch(setTokenSelectStatus(true))}
-            value={fromTokenAmount}
-            price={fromTokenAmount && fromTokenPrice * fromTokenAmount}
-            onChangeInput={(value) => dispatch(setFromTokenAmount(value))}
-            type="number"
-          />
-          <div className="relative z-10 h-1 flex flex-row justify-center items-center">
-            <BsArrowDownCircle
-              className="bg-[#1F2937] rounded-full p-[0.2rem]"
-              color="#AAFF00"
-              size={30}
+          <form ref={formRef}>
+            <StackOSInput
+              showPrice
+              optionSelected={tokenSelected}
+              onClickOption={() => dispatch(setTokenSelectStatus(true))}
+              value={fromTokenAmount || undefined}
+              price={fromTokenAmount && fromTokenPrice * fromTokenAmount}
+              onChangeInput={(value) => dispatch(setFromTokenAmount(value))}
+              type="number"
             />
-          </div>
-          <StackOSInput
-            value={toTokenAmount}
-            showPrice
-            price={toTokenAmount && stackPrice * toTokenAmount}
-            disabled
-            type="number"
-          />
+            <div className="relative z-10 h-1 flex flex-row justify-center items-center">
+              <BsArrowDownCircle
+                className="bg-[#1F2937] rounded-full p-[0.2rem]"
+                color="#AAFF00"
+                size={30}
+              />
+            </div>
+            <StackOSInput
+              value={toTokenAmount || undefined}
+              showPrice
+              price={toTokenAmount && stackPrice * toTokenAmount}
+              disabled
+              type="number"
+            />
+          </form>
           <div className="flex flex-row justify-start items-center text-white my-6">
             {loading ? (
               <div className="flex flex-row justify-start items-center">
@@ -190,12 +218,16 @@ const SwapHome = () => {
           <div className="flex flex-row justify-center items-center mt-6 w-full">
             {account?.address ? (
               <div className="w-full child:w-full" onClick={() => dispatch(setSummaryStatus(true))}>
-                <SwapButton
-                  className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
-                  disabled={!fromTokenAmount || loading}
-                >
-                  {t('SWAP_HOME_BUTTON')}
-                </SwapButton>
+                {tokenBalance === null ? (
+                  <SwapGetBalance />
+                ) : (
+                  <SwapButton
+                    className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
+                    disabled={!fromTokenAmount || loading || insufficientBalance}
+                  >
+                    {insufficientBalance ? 'Insufficient balance' : t('SWAP_HOME_BUTTON')}
+                  </SwapButton>
+                )}
               </div>
             ) : (
               <button

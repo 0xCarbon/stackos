@@ -41,13 +41,16 @@ const SwapSummary = () => {
     slippageAmount,
     networkSelected,
     stackAddress,
+    estimatedGas,
+    stackPrice,
+    toTokenAmount,
   } = general;
 
   const swapParams = {
     fromTokenAddress:
       tokenSelected.id === 1 ? '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' : tokenSelected.address,
     toTokenAddress: stackAddress,
-    amount: fromTokenAmount && fromTokenAmount * 10 ** 18,
+    amount: `${fromTokenAmount}000000000000000000`,
     fromAddress: account?.address,
     slippage: slippageAmount,
     disableEstimate: true, // default false, error 400 'cannot estimate. Don't forget about miner fee. Try to leave the buffer of BNB for gas' on default
@@ -56,6 +59,16 @@ const SwapSummary = () => {
   };
 
   const [isCollapseOpen, setIsCollapseOpen] = useState(false);
+
+  let priceImpact = '';
+
+  if (toTokenAmount && fromTokenAmount) {
+    priceImpact = (
+      ((stackPrice * toTokenAmount - fromTokenPrice * fromTokenAmount) /
+        (fromTokenPrice * fromTokenAmount)) *
+      100
+    )?.toFixed(3);
+  }
 
   async function buildTxForApproveTradeWithRouter(tokenAddress: any, amount: any) {
     const transaction = await fetchTransactionApproval(tokenAddress, amount, networkSelected.id);
@@ -80,6 +93,7 @@ const SwapSummary = () => {
 
   async function handleSwap() {
     dispatch(setLoading(true));
+    setIsCollapseOpen(false);
 
     const allowance = await fetchAllowance(
       swapParams.fromTokenAddress,
@@ -235,16 +249,16 @@ const SwapSummary = () => {
         </div>
       ) : (
         <div
-          className={`flex flex-row justify-start items-center text-white ${
+          className={`flex flex-row justify-start items-center text-white duration-500 ${
             !isCollapseOpen && 'my-6'
           }`}
         >
           <Collapsible
             open={isCollapseOpen}
             onOpenChange={() => setIsCollapseOpen(!isCollapseOpen)}
-            className="w-full"
+            className="w-full duration-500"
           >
-            <div className="flex flex-row justify-between items-center">
+            <div className="flex flex-row justify-between items-center duration-500">
               <div className="flex flex-row">
                 <BiInfoCircle className="duration-500 text-xl" color="#CFCFCF" />
                 {expectedOutput > 0 && (
@@ -258,7 +272,7 @@ const SwapSummary = () => {
                 {isCollapseOpen ? <BiChevronUp /> : <BiChevronDown />}
               </CollapsibleTrigger>
             </div>
-            <CollapsibleContent>
+            <CollapsibleContent className="duration-500">
               <Separator className="h-px w-full bg-[#565A69] my-4" />
               <div className="overflow-y-scroll scrollbar flex flex-col h-28 text-[#cfcfcf] text-xs font-normal pr-1 child:my-1">
                 <div className="flex flex-row justify-between">
@@ -267,21 +281,16 @@ const SwapSummary = () => {
                 </div>
                 <div className="flex flex-row justify-between">
                   <span>{t('SWAP_SUMMARY_ITEM2')}</span>
-                  <span>4.12 DAI</span>
+                  <span>{`${estimatedGas}`}</span>
                 </div>
                 <div className="flex flex-row justify-between">
                   <span>{t('SWAP_SUMMARY_ITEM3')}</span>
-                  <span>0.00%</span>
+                  <span>{`${priceImpact}%`}</span>
                 </div>
                 <div className="flex flex-row justify-between">
                   <span>{t('SWAP_SUMMARY_ITEM4')}</span>
-                  <span>0.89 ETH</span>
-                </div>
-                <div className="flex flex-row justify-between">
-                  <span>{t('SWAP_SUMMARY_ITEM5')}</span>
                   <span>{`${slippageAmount}%`}</span>
                 </div>
-                <span>{t('SWAP_SUMMARY_ITEM6')}</span>
               </div>
             </CollapsibleContent>
           </Collapsible>

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { IoMdClose } from 'react-icons/io';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { setSettingsStatus, setSlippageAmount } from 'src/redux/actions/general';
 import { useTranslation } from 'react-i18next';
 import { BiInfoCircle } from 'react-icons/bi';
@@ -24,10 +24,6 @@ const SwapSettings = () => {
   const { slippageAmount } = general;
 
   const [newSlippage, setNewSlippage] = useState<number | null>(slippageAmount);
-
-  useEffect(() => {
-    setNewSlippage(0.5);
-  }, []);
 
   function onClickConfirm() {
     if (newSlippage) {
