@@ -44,7 +44,7 @@ const StackOSInput = ({
     )}
     <div className={`child:bg-[#374151] ${iconLeft ? 'child:pl-8' : 'child:pl-3'}`}>
       <input
-        type={type}
+        type="string"
         name="price"
         id="price"
         min="0"
@@ -55,8 +55,17 @@ const StackOSInput = ({
         } ${disabled && 'cursor-not-allowed'}`}
         placeholder={placeholder}
         aria-describedby="price-currency"
-        value={value || undefined}
+        value={value || ''}
         disabled={disabled}
+        onKeyPress={(event) => {
+          if (
+            type === 'number' &&
+            ((value?.toString().includes('.') && event.key === '.') ||
+              (event.key !== '.' && !Number.isInteger(Number(event.key))))
+          ) {
+            event.preventDefault();
+          }
+        }}
         onChange={(e) => onChangeInput(e.target.value)}
       />
       {showPrice && (
