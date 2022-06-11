@@ -4,6 +4,7 @@ import { useAccount, useNetwork } from 'wagmi';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import {
+  resetState,
   setNetworkSelected,
   setSettingsStatus,
   setStackAddress,
@@ -63,6 +64,9 @@ const Swap = () => {
   ];
 
   useEffect(() => {
+    if (activeChain && activeChain?.id !== networkSelected?.id) {
+      dispatch(resetState());
+    }
     dispatch(setTokenOptions(tokenList[networkSelected.title as keyof Tokens]));
     dispatch(setStackAddress(stackAddresses[networkSelected.title]));
     dispatch(setSettingsStatus(false));
@@ -93,7 +97,7 @@ const Swap = () => {
             <StackOSDropdown
               className="w-full h-12 px-2 bg-main-green flex flex-row justify-center items-center rounded"
               header="Select a network"
-              selected={networkSelected.id}
+              selected={networkSelected?.id}
               dropdownOptions={networkOptions}
               onChangeSelection={(value) => switchNetwork?.(value)}
             >

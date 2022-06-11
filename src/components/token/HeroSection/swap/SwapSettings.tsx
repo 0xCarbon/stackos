@@ -25,10 +25,6 @@ const SwapSettings = () => {
 
   const [newSlippage, setNewSlippage] = useState<number | null>(slippageAmount);
 
-  useEffect(() => {
-    setNewSlippage(0.5);
-  }, []);
-
   function onClickConfirm() {
     if (newSlippage) {
       dispatch(setSlippageAmount(newSlippage));
