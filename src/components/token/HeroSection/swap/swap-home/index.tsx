@@ -81,7 +81,9 @@ const SwapHome = () => {
     fromTokenAddress:
       tokenSelected.id === 1 ? '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' : tokenSelected.address,
     toTokenAddress: stackAddress,
-    amount: `${fromTokenAmount}000000000000000000`,
+    amount: fromTokenAmount?.toString().includes('.')
+      ? fromTokenAmount && fromTokenAmount * 10 ** 18
+      : `${fromTokenAmount}000000000000000000`,
     fromAddress: account?.address,
     slippage: slippageAmount,
     disableEstimate: true, // default false, error 400 'cannot estimate. Don't forget about miner fee. Try to leave the buffer of BNB for gas' on default
