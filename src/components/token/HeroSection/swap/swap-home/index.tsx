@@ -57,7 +57,11 @@ const SwapHome = () => {
   useEffect(() => {
     setInsufficientBalance(false);
 
-    if (fromTokenAmount && tokenBalance && (tokenBalance === 0 || tokenBalance < fromTokenAmount)) {
+    if (
+      fromTokenAmount &&
+      tokenBalance !== undefined &&
+      (tokenBalance === 0 || tokenBalance < fromTokenAmount)
+    ) {
       setInsufficientBalance(true);
     }
   }, [fromTokenAmount, tokenBalance]);
