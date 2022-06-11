@@ -20,6 +20,7 @@ export enum GeneralTypes {
   SET_WALLET_MODAL_STATUS = '@general/SET_WALLET_MODAL_STATUS',
   SET_ESTIMATED_GAS = '@general/SET_ESTIMATED_GAS',
   SET_TOKEN_BALANCE = '@general/SET_TOKEN_BALANCE',
+  RESET_STATE = '@general/RESET_STATE',
 }
 
 export interface SetSettingsStatus {
@@ -109,6 +110,9 @@ export interface SetTokenBalance {
   type: GeneralTypes.SET_TOKEN_BALANCE;
   payload: { value: number | undefined | null };
 }
+export interface ResetState {
+  type: GeneralTypes.RESET_STATE;
+}
 
 export type GeneralActionTypes =
   | SetStackPrice
@@ -129,7 +133,8 @@ export type GeneralActionTypes =
   | SetSummaryStatus
   | SetWalletModalStatus
   | SetEstimatedGas
-  | SetTokenBalance;
+  | SetTokenBalance
+  | ResetState;
 
 export interface GeneralState {
   loading: boolean;

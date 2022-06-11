@@ -2,8 +2,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
-import { useEffect, useState } from 'react';
-import { useAccount, useConnect } from 'wagmi';
+import { useEffect, useRef, useState } from 'react';
+import { useAccount, useConnect, useNetwork } from 'wagmi';
 import {
   setErrorMessage,
   setErrorStatus,
@@ -51,8 +51,15 @@ const SwapHome = () => {
   } = general;
 
   const { connect, connectors, isConnecting } = useConnect();
+  const { activeChain } = useNetwork();
   const { data: account } = useAccount();
   const [insufficientBalance, setInsufficientBalance] = useState<boolean>(false);
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    formRef?.current?.reset();
+  }, [activeChain]);
 
   useEffect(() => {
     setInsufficientBalance(false);
@@ -125,6 +132,7 @@ const SwapHome = () => {
 
     dispatch(setLoading(false));
   };
+
   return (
     <div className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
       {isSummaryOpen && <SwapSummary />}
@@ -147,29 +155,31 @@ const SwapHome = () => {
               onClick={() => dispatch(setSettingsStatus(true))}
             />
           </div>
-          <StackOSInput
-            showPrice
-            optionSelected={tokenSelected}
-            onClickOption={() => dispatch(setTokenSelectStatus(true))}
-            value={fromTokenAmount}
-            price={fromTokenAmount && fromTokenPrice * fromTokenAmount}
-            onChangeInput={(value) => dispatch(setFromTokenAmount(value))}
-            type="number"
-          />
-          <div className="relative z-10 h-1 flex flex-row justify-center items-center">
-            <BsArrowDownCircle
-              className="bg-[#1F2937] rounded-full p-[0.2rem]"
-              color="#AAFF00"
-              size={30}
+          <form ref={formRef}>
+            <StackOSInput
+              showPrice
+              optionSelected={tokenSelected}
+              onClickOption={() => dispatch(setTokenSelectStatus(true))}
+              value={fromTokenAmount || undefined}
+              price={fromTokenAmount && fromTokenPrice * fromTokenAmount}
+              onChangeInput={(value) => dispatch(setFromTokenAmount(value))}
+              type="number"
             />
-          </div>
-          <StackOSInput
-            value={toTokenAmount}
-            showPrice
-            price={toTokenAmount && stackPrice * toTokenAmount}
-            disabled
-            type="number"
-          />
+            <div className="relative z-10 h-1 flex flex-row justify-center items-center">
+              <BsArrowDownCircle
+                className="bg-[#1F2937] rounded-full p-[0.2rem]"
+                color="#AAFF00"
+                size={30}
+              />
+            </div>
+            <StackOSInput
+              value={toTokenAmount || undefined}
+              showPrice
+              price={toTokenAmount && stackPrice * toTokenAmount}
+              disabled
+              type="number"
+            />
+          </form>
           <div className="flex flex-row justify-start items-center text-white my-6">
             {loading ? (
               <div className="flex flex-row justify-start items-center">

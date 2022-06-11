@@ -125,6 +125,25 @@ const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }
     case GeneralTypes.SET_TOKEN_BALANCE:
       return { ...state, tokenBalance: payload.value };
 
+    case GeneralTypes.RESET_STATE:
+      return {
+        ...state,
+        stackPrice: 0,
+        isSettingsOpen: false,
+        isTokenSelectOpen: false,
+        isErrorOpen: false,
+        loading: false,
+        fromTokenAmount: null,
+        toTokenAmount: null,
+        fromTokenPrice: 0,
+        expectedOutput: 0,
+        slippageAmount: 0.5,
+        errorMessage: '',
+        isSummaryOpen: false,
+        isWalletModalOpen: false,
+        estimatedGas: null,
+      };
+
     default:
       return state;
   }

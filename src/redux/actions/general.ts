@@ -76,3 +76,7 @@ export function setEstimatedGas(value: number): GeneralActionTypes {
 export function setTokenBalance(value: number | undefined | null): GeneralActionTypes {
   return action(GeneralTypes.SET_TOKEN_BALANCE, { value });
 }
+
+export function resetState(): GeneralActionTypes {
+  return action(GeneralTypes.RESET_STATE);
+}
