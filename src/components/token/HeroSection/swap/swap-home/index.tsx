@@ -162,9 +162,21 @@ const SwapHome = () => {
               showPrice
               optionSelected={tokenSelected}
               onClickOption={() => dispatch(setTokenSelectStatus(true))}
-              value={fromTokenAmount || undefined}
+              value={fromTokenAmount}
               price={fromTokenAmount && fromTokenPrice * fromTokenAmount}
-              onChangeInput={(value) => dispatch(setFromTokenAmount(value))}
+              onChangeInput={(value) => {
+                if (value && Number(value) !== 0 && Array.from(value)[0] === '0') {
+                  value = value?.replace(/^0+/, '');
+
+                  if (value.includes('.')) {
+                    value = value?.replace('.', '0.');
+                  }
+                } else if (Number(value?.replace('.', '')) === 0 && value.includes('.')) {
+                  value = value?.replace(/^0+/, '')?.replace('.', '0.');
+                }
+
+                dispatch(setFromTokenAmount(value));
+              }}
               type="number"
             />
             <div className="relative z-10 h-1 flex flex-row justify-center items-center">
@@ -224,8 +236,8 @@ const SwapHome = () => {
                   <SwapGetBalance />
                 ) : (
                   <SwapButton
-                    className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
-                    disabled={!fromTokenAmount || loading || insufficientBalance}
+                    className={`${Number(fromTokenAmount) > 0 && !loading && 'text-[#020305]'}`}
+                    disabled={!(Number(fromTokenAmount) > 0) || loading || insufficientBalance}
                   >
                     {insufficientBalance ? 'Insufficient balance' : t('SWAP_HOME_BUTTON')}
                   </SwapButton>
