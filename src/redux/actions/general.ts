@@ -72,3 +72,7 @@ export function setWalletModalStatus(value: boolean): GeneralActionTypes {
 export function setEstimatedGas(value: number): GeneralActionTypes {
   return action(GeneralTypes.SET_ESTIMATED_GAS, { value });
 }
+
+export function setTokenBalance(value: number | undefined | null): GeneralActionTypes {
+  return action(GeneralTypes.SET_TOKEN_BALANCE, { value });
+}

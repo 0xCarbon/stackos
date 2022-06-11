@@ -7,6 +7,7 @@ import {
   setNetworkSelected,
   setSettingsStatus,
   setStackAddress,
+  setTokenBalance,
   setTokenOptions,
   setTokenSelected,
   setTokenSelectStatus,
@@ -44,7 +45,7 @@ const Swap = () => {
   const { t } = useTranslation();
 
   const { data: account } = useAccount();
-  const { activeChain, chains, switchNetwork } = useNetwork();
+  const { activeChain, chains, switchNetwork, isSuccess, switchNetworkAsync } = useNetwork();
 
   const [isAccountModalOpen, setAccountModalStatus] = useState(false);
 
@@ -63,16 +64,22 @@ const Swap = () => {
   ];
 
   useEffect(() => {
+    setupSwap();
+  }, [networkSelected]);
+
+  async function setupSwap() {
     dispatch(setTokenOptions(tokenList[networkSelected.title as keyof Tokens]));
+    dispatch(setTokenSelected(tokenList[networkSelected.title as keyof Tokens][0]));
     dispatch(setStackAddress(stackAddresses[networkSelected.title]));
     dispatch(setSettingsStatus(false));
     dispatch(setTokenSelectStatus(false));
-    switchNetwork?.(networkSelected.id);
-  }, [networkSelected]);
+    await switchNetworkAsync?.(networkSelected.id);
+    dispatch(setTokenBalance(null));
+  }
 
   useEffect(() => {
     dispatch(setTokenSelected(tokenOptions[0]));
-  }, [tokenOptions]);
+  }, [isSuccess]);
 
   useEffect(() => {
     setupNetwork();

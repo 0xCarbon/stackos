@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
 import { useEffect, useState } from 'react';
-import { useAccount, useBalance, useConnect } from 'wagmi';
+import { useAccount, useConnect } from 'wagmi';
 import {
   setErrorMessage,
   setErrorStatus,
@@ -26,6 +26,7 @@ import { StackOSInput, StackOSModal, StackOSIcon } from '@/components';
 import SwapError from './SwapError';
 import SwapSummary from './SwapSummary';
 import SwapButton from '../SwapButton';
+import SwapGetBalance from './SwapGetBalance';
 
 const SwapHome = () => {
   const { t } = useTranslation();
@@ -46,30 +47,17 @@ const SwapHome = () => {
     isErrorOpen,
     isSummaryOpen,
     isWalletModalOpen,
+    tokenBalance,
   } = general;
 
   const { connect, connectors, isConnecting } = useConnect();
   const { data: account } = useAccount();
   const [insufficientBalance, setInsufficientBalance] = useState<boolean>(false);
-  const [tokenBalance, setTokenBalance] = useState<number>(0);
-
-  const { refetch } = useBalance({
-    addressOrName: account?.address,
-    token: tokenSelected?.id === 1 ? null : tokenSelected?.address,
-    chainId: tokenSelected?.chainId,
-    onSuccess(data) {
-      setTokenBalance(Number(data?.formatted));
-    },
-  });
-
-  useEffect(() => {
-    refetch();
-  }, [networkSelected]);
 
   useEffect(() => {
     setInsufficientBalance(false);
 
-    if (fromTokenAmount && (tokenBalance === 0 || tokenBalance < fromTokenAmount)) {
+    if (fromTokenAmount && tokenBalance && (tokenBalance === 0 || tokenBalance < fromTokenAmount)) {
       setInsufficientBalance(true);
     }
   }, [fromTokenAmount, tokenBalance]);
@@ -216,12 +204,16 @@ const SwapHome = () => {
           <div className="flex flex-row justify-center items-center mt-6 w-full">
             {account?.address ? (
               <div className="w-full child:w-full" onClick={() => dispatch(setSummaryStatus(true))}>
-                <SwapButton
-                  className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
-                  disabled={!fromTokenAmount || loading || insufficientBalance}
-                >
-                  {insufficientBalance ? 'Insufficient balance' : t('SWAP_HOME_BUTTON')}
-                </SwapButton>
+                {tokenBalance === null ? (
+                  <SwapGetBalance />
+                ) : (
+                  <SwapButton
+                    className={`${fromTokenAmount && !loading && 'text-[#020305]'}`}
+                    disabled={!fromTokenAmount || loading || insufficientBalance}
+                  >
+                    {insufficientBalance ? 'Insufficient balance' : t('SWAP_HOME_BUTTON')}
+                  </SwapButton>
+                )}
               </div>
             ) : (
               <button
