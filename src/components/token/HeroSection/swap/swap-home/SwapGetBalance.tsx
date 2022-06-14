@@ -2,14 +2,14 @@
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { useAccount, useBalance } from 'wagmi';
 import SwapButton from '../SwapButton';
-import { setTokenBalance } from '../../../../../redux/actions/general';
+import { setTokenBalance } from '../../../../../redux/actions/swap';
 
 const SwapGetBalance = () => {
   const { data: account } = useAccount();
 
   const dispatch = useDispatch();
-  const { general } = useSelector((state) => state);
-  const { tokenSelected } = general;
+  const { swap } = useSelector((state) => state);
+  const { tokenSelected } = swap;
 
   useBalance({
     addressOrName: account?.address,

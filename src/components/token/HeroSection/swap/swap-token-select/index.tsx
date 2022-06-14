@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { IoMdClose } from 'react-icons/io';
-import { setTokenSelected, setTokenSelectStatus } from 'src/redux/actions/general';
+import { setTokenSelected, setTokenSelectStatus } from '@/redux/actions/swap';
 import { Separator } from '@radix-ui/react-separator';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,8 +12,8 @@ const SwapTokenSelect = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
-  const { general } = useSelector((state) => state);
-  const { tokenOptions, tokenSelected } = general;
+  const { swap } = useSelector((state) => state);
+  const { tokenOptions, tokenSelected } = swap;
 
   const [searchInput, setSearchInput] = useState('');
   const [searchList, setSearchList] = useState(tokenOptions);

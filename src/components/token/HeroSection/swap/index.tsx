@@ -13,7 +13,7 @@ import {
   setTokenSelected,
   setTokenSelectStatus,
   setWalletModalStatus,
-} from 'src/redux/actions/general';
+} from '@/redux/actions/swap';
 import { useTranslation } from 'react-i18next';
 import { StackOSDropdown, StackOSIcon, StackOSModal } from '@/components';
 
@@ -51,8 +51,8 @@ const Swap = () => {
   const [isAccountModalOpen, setAccountModalStatus] = useState(false);
 
   const dispatch = useDispatch();
-  const { general } = useSelector((state) => state);
-  const { isSettingsOpen, isTokenSelectOpen, networkSelected, tokenOptions } = general;
+  const { swap } = useSelector((state) => state);
+  const { isSettingsOpen, isTokenSelectOpen, networkSelected, tokenOptions } = swap;
 
   const ethereumChain = chains.find((chain) => chain.id === ETHEREUM);
   const binanceChain = chains.find((chain) => chain.id === BSC);

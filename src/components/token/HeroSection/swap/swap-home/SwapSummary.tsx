@@ -8,7 +8,7 @@ import {
   setLoading,
   setSettingsStatus,
   setSummaryStatus,
-} from 'src/redux/actions/general';
+} from '@/redux/actions/swap';
 import { BiChevronDown, BiChevronUp, BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
 import { BsArrowDownCircle, BsArrowRight } from 'react-icons/bs';
 import { useAccount, useProvider, useSendTransaction } from 'wagmi';
@@ -32,7 +32,7 @@ const SwapSummary = () => {
   const { data: account } = useAccount();
   const dispatch = useDispatch();
   const provider = useProvider();
-  const { general } = useSelector((state) => state);
+  const { swap } = useSelector((state) => state);
   const {
     fromTokenAmount,
     tokenSelected,
@@ -44,7 +44,7 @@ const SwapSummary = () => {
     estimatedGas,
     stackPrice,
     toTokenAmount,
-  } = general;
+  } = swap;
 
   const swapParams = {
     fromTokenAddress:

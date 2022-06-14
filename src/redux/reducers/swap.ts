@@ -1,10 +1,10 @@
 /* eslint-disable default-param-last */
 import { Reducer } from '@reduxjs/toolkit';
-import { GeneralState, GeneralTypes } from '../types';
+import { SwapState, SwapTypes } from '../types';
 
-import * as Actions from '../actions/general';
+import * as Actions from '../actions/swap';
 
-const INITIAL_STATE: GeneralState = {
+const INITIAL_STATE: SwapState = {
   stackPrice: 0,
   isSettingsOpen: false,
   isTokenSelectOpen: false,
@@ -66,66 +66,66 @@ const INITIAL_STATE: GeneralState = {
   tokenBalance: undefined,
 };
 
-const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }) => {
+const reducer: Reducer<SwapState> = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
-    case GeneralTypes.SET_SETTINGS_STATUS:
+    case SwapTypes.SET_SETTINGS_STATUS:
       return { ...state, isSettingsOpen: payload.value };
 
-    case GeneralTypes.SET_TOKEN_SELECT_STATUS:
+    case SwapTypes.SET_TOKEN_SELECT_STATUS:
       return { ...state, isTokenSelectOpen: payload.value };
 
-    case GeneralTypes.SET_ERROR_STATUS:
+    case SwapTypes.SET_ERROR_STATUS:
       return { ...state, isErrorOpen: payload.value };
 
-    case GeneralTypes.SET_LOADING:
+    case SwapTypes.SET_LOADING:
       return { ...state, loading: payload.value };
 
-    case GeneralTypes.SET_STACK_PRICE:
+    case SwapTypes.SET_STACK_PRICE:
       return { ...state, stackPrice: payload.value };
 
-    case GeneralTypes.SET_FROM_TOKEN_AMOUNT:
+    case SwapTypes.SET_FROM_TOKEN_AMOUNT:
       return { ...state, fromTokenAmount: payload.value };
 
-    case GeneralTypes.SET_TO_TOKEN_AMOUNT:
+    case SwapTypes.SET_TO_TOKEN_AMOUNT:
       return { ...state, toTokenAmount: payload.value };
 
-    case GeneralTypes.SET_FROM_TOKEN_PRICE:
+    case SwapTypes.SET_FROM_TOKEN_PRICE:
       return { ...state, fromTokenPrice: payload.value };
 
-    case GeneralTypes.SET_EXPECTED_OUTPUT:
+    case SwapTypes.SET_EXPECTED_OUTPUT:
       return { ...state, expectedOutput: payload.value };
 
-    case GeneralTypes.SET_TOKEN_OPTIONS:
+    case SwapTypes.SET_TOKEN_OPTIONS:
       return { ...state, tokenOptions: payload.value };
 
-    case GeneralTypes.SET_TOKEN_SELECTED:
+    case SwapTypes.SET_TOKEN_SELECTED:
       return { ...state, tokenSelected: payload.value };
 
-    case GeneralTypes.SET_STACK_ADDRESS:
+    case SwapTypes.SET_STACK_ADDRESS:
       return { ...state, stackAddress: payload.value };
 
-    case GeneralTypes.SET_NETWORK_SELECTED:
+    case SwapTypes.SET_NETWORK_SELECTED:
       return { ...state, networkSelected: payload.value };
 
-    case GeneralTypes.SET_SLIPPAGE_AMOUNT:
+    case SwapTypes.SET_SLIPPAGE_AMOUNT:
       return { ...state, slippageAmount: payload.value };
 
-    case GeneralTypes.SET_ERROR_MESSAGE:
+    case SwapTypes.SET_ERROR_MESSAGE:
       return { ...state, errorMessage: payload.value };
 
-    case GeneralTypes.SET_SUMMARY_STATUS:
+    case SwapTypes.SET_SUMMARY_STATUS:
       return { ...state, isSummaryOpen: payload.value };
 
-    case GeneralTypes.SET_WALLET_MODAL_STATUS:
+    case SwapTypes.SET_WALLET_MODAL_STATUS:
       return { ...state, isWalletModalOpen: payload.value };
 
-    case GeneralTypes.SET_ESTIMATED_GAS:
+    case SwapTypes.SET_ESTIMATED_GAS:
       return { ...state, estimatedGas: payload.value };
 
-    case GeneralTypes.SET_TOKEN_BALANCE:
+    case SwapTypes.SET_TOKEN_BALANCE:
       return { ...state, tokenBalance: payload.value };
 
-    case GeneralTypes.RESET_STATE:
+    case SwapTypes.RESET_STATE:
       return {
         ...state,
         stackPrice: 0,
@@ -149,5 +149,5 @@ const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }
   }
 };
 
-export const GeneralActions = Actions;
+export const SwapActions = Actions;
 export default reducer;

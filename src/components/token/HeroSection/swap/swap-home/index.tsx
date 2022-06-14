@@ -18,7 +18,7 @@ import {
   setTokenSelectStatus,
   setToTokenAmount,
   setWalletModalStatus,
-} from 'src/redux/actions/general';
+} from '@/redux/actions/swap';
 import { fetchCoinPrice, fetchSwapQuote } from 'src/services';
 import { BsArrowDownCircle } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
@@ -32,7 +32,7 @@ const SwapHome = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
-  const { general } = useSelector((state) => state);
+  const { swap } = useSelector((state) => state);
   const {
     stackPrice,
     loading,
@@ -48,7 +48,7 @@ const SwapHome = () => {
     isSummaryOpen,
     isWalletModalOpen,
     tokenBalance,
-  } = general;
+  } = swap;
 
   const { connect, connectors, isConnecting } = useConnect();
   const { activeChain } = useNetwork();
