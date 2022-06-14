@@ -19,7 +19,7 @@ const TokenSection = ({ offsetY }: { offsetY: number }) => {
       <p className="text-white font-normal text-base lg:text-xl xl:text-xl 2xl:text-xl max-w-xl lg:max-w-2xl xl:max-w-2xl 2xl:max-w-3xl mb-3 lg:mb-6 2xl:mb-10 duration-500">
         {t('HOME_TOKEN_DESCRIPTION')}
       </p>
-      <Link className="z-10" href="/token" passHref>
+      <Link className="z-10" href="/token" aria-label="redirect to token page">
         <a className="z-10">
           <LearnMore />
         </a>
