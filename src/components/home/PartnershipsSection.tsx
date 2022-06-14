@@ -19,7 +19,7 @@ const PartnershipsSection = ({ offsetY }: { offsetY: number }) => {
       <p className="text-white font-normal text-base text-right mb-3 lg:mb-6 2xl:mb-10 lg:text-xl max-w-xl lg:max-w-2xl 2xl:max-w-3xl duration-500 ">
         {t('HOME_PARTNERSHIPS_DESCRIPTION')}
       </p>
-      <Link className="z-10" href="/partners" passHref>
+      <Link className="z-10" href="/partners" aria-label="redirect to partners page">
         <a className="z-10">
           <LearnMore />
         </a>

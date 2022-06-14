@@ -9,11 +9,11 @@ import { StackOSToggleGroup } from '@/components';
 import SwapButton from './SwapButton';
 
 const slippageValues = [
-  { title: '0.1%', value: 0.1 },
-  { title: '0.5%', value: 0.5 },
-  { title: '1%', value: 1 },
-  { title: '3%', value: 3 },
-  { title: 'custom', value: null },
+  { id: 1, title: '0.1%', value: 0.1 },
+  { id: 2, title: '0.5%', value: 0.5 },
+  { id: 3, title: '1%', value: 1 },
+  { id: 4, title: '3%', value: 3 },
+  { id: 5, title: 'custom', value: null },
 ];
 
 const SwapSettings = () => {

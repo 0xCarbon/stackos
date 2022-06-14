@@ -19,7 +19,7 @@ const GovernanceSection = ({ offsetY }: { offsetY: number }) => {
         <span className="flex text-white font-normal text-base lg:text-xl max-w-lg lg:max-w-xl mb-3 lg:mb-6 2xl:mb-10">
           {t('HOME_GOVERNANCE_DESCRIPTION')}
         </span>
-        <Link className="z-10" href="/governance" passHref>
+        <Link className="z-10" href="/governance" aria-label="redirect to governance page">
           <a className="z-10">
             <LearnMore />
           </a>

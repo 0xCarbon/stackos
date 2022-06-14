@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { TiPlus } from 'react-icons/ti';
+import Link from 'next/link';
 import { Card, LearnMore } from '@/components';
 
 const DecentralizedSection = ({ offsetY }: { offsetY: number }) => {
@@ -15,7 +16,11 @@ const DecentralizedSection = ({ offsetY }: { offsetY: number }) => {
         <span className="text-white font-normal text-xl max-w-xl md:max-w-2xl mb-4">
           {t('TECHNOLOGY_DECENTRALIZED_DESCRIPTION')}
         </span>
-        <LearnMore />
+        <Link className="z-10" href="" aria-label="">
+          <a className="z-10">
+            <LearnMore />
+          </a>
+        </Link>
         <div className="mt-16 flex flex-col lg:flex-row justify-center items-center">
           <Card
             src="/assets/home/ipsum.svg"

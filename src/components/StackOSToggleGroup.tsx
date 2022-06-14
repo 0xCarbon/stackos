@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import * as ToggleGroup from '@radix-ui/react-toggle-group';
 import React, { useEffect, useState } from 'react';
 
 interface Item {
+  id: number;
   title: string;
   value: number | null;
 }
@@ -23,7 +25,7 @@ const StackOSToggleGroup: React.FC<Props> = ({ data, onChange, defaultValue }) =
       if (itemInData) {
         setSelected(itemInData);
       } else {
-        setSelected({ title: 'custom', value: defaultValue });
+        setSelected({ id: 5, title: 'custom', value: defaultValue });
         setCustomValue(defaultValue);
       }
     }
@@ -55,6 +57,7 @@ const StackOSToggleGroup: React.FC<Props> = ({ data, onChange, defaultValue }) =
           title={item.title}
           value={String(item.value)}
           onClick={() => handleOnChange(item)}
+          key={item.id}
         >
           {item.title === 'custom' ? (
             <input
