@@ -25,7 +25,7 @@ const TechnologySection = ({ offsetY }: { offsetY: number }) => {
           {t('HOME_TECHNOLOGY_DESCRIPTION')}
         </p>
       </div>
-      <Link className="z-10" href="/technology" passHref>
+      <Link className="z-10" href="/technology" aria-label="redirect to technology page">
         <a className="z-10">
           <LearnMore />
         </a>

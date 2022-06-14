@@ -15,7 +15,7 @@ const DevelopersSection = ({ offsetY }: { offsetY: number }) => {
         <span className="text-white font-normal text-base max-w-md lg:max-w-lg 2xl:max-w-xl mb-3">
           {t('HOME_DEVELOPERS_DESCRIPTION')}
         </span>
-        <Link className="z-10" href="/developers" passHref>
+        <Link className="z-10" href="/developers" aria-label="redirect to developers page">
           <a className="z-10">
             <LearnMore />
           </a>

@@ -14,12 +14,12 @@ const Footer = () => {
           <div className="flex text-sm font-extralight text-main-grey">
             <a href="https://docsend.com/view/wq7qxzjk7zsd3wph" target="blank">
               <div className="flex mr-4 hover:text-white duration-200">
-                <Image src="/assets/layout/paper.svg" width={9} height={12} />
+                <Image src="/assets/layout/paper.svg" width={9} height={12} alt="paper" />
                 <p className="ml-[0.44rem]">{t('FOOTER_WHITEPAPER')}</p>
               </div>
             </a>
             <div className="flex hover:text-white duration-200">
-              <Image src="/assets/layout/ambassador.svg" width={10} height={12} />
+              <Image src="/assets/layout/ambassador.svg" width={10} height={12} alt="ambassador" />
               <p className="ml-[0.44rem]">{t('FOOTER_AMBASSADOR')}</p>
             </div>
           </div>
@@ -30,6 +30,7 @@ const Footer = () => {
             href="https://twitter.com/DeployOnStackOS"
             target="blank"
           >
+            <span className="sr-only">Twitter link</span>
             <BsTwitter />
           </a>
           <a
@@ -37,6 +38,7 @@ const Footer = () => {
             href="https://t.me/StackOS"
             target="blank"
           >
+            <span className="sr-only">Telegram link</span>
             <BsTelegram />
           </a>
           <a
@@ -44,6 +46,7 @@ const Footer = () => {
             href="https://discord.com/invite/yRk7CdjG"
             target="blank"
           >
+            <span className="sr-only">Discord link</span>
             <FaDiscord />
           </a>
         </div>
