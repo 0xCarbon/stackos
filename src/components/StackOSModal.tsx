@@ -5,21 +5,10 @@ interface Props {
   showModal: boolean;
   onCloseModal?: () => void;
   children?: ReactNode;
-  title?: ReactNode;
-  footer?: ReactNode;
-  className?: string;
   size?: string;
 }
 
-const StackOSModal = ({
-  showModal,
-  onCloseModal = () => null,
-  children,
-  title,
-  footer,
-  className,
-  size = 'full',
-}: Props) => (
+const StackOSModal = ({ showModal, onCloseModal = () => null, children, size = 'full' }: Props) => (
   <Transition.Root show={showModal} as={Fragment}>
     <Dialog as="div" className="relative z-50" onClose={() => onCloseModal()}>
       <Transition.Child
@@ -50,13 +39,7 @@ const StackOSModal = ({
                 size === 'small' && 'max-w-xs sm:max-w-xs'
               }`}
             >
-              <div>
-                <div className={className}>
-                  <Dialog.Title as="h3">{title}</Dialog.Title>
-                  {children}
-                </div>
-              </div>
-              {footer}
+              {children}
             </Dialog.Panel>
           </Transition.Child>
         </div>

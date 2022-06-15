@@ -2,9 +2,9 @@
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { IoMdClose } from 'react-icons/io';
 import { useState } from 'react';
-import { setSettingsStatus, setSlippageAmount } from '@/redux/actions/swap';
 import { useTranslation } from 'react-i18next';
 import { BiInfoCircle } from 'react-icons/bi';
+import { setSettingsStatus, setSlippageAmount } from '@/redux/actions/swap';
 import { StackOSToggleGroup } from '@/components';
 import SwapButton from './SwapButton';
 

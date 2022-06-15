@@ -7,7 +7,7 @@ import { Separator } from '@radix-ui/react-separator';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StackOSButton } from '@/components';
-import { setErrorStatus } from '../../../../../redux/actions/swap';
+import { setErrorStatus } from '../../../../redux/actions/swap';
 
 const SwapError = () => {
   const { t } = useTranslation();

@@ -3,6 +3,7 @@ import { useAccount, useNetwork } from 'wagmi';
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'src/redux/hooks';
+import { useTranslation } from 'react-i18next';
 import {
   resetState,
   setNetworkSelected,
@@ -14,14 +15,15 @@ import {
   setTokenSelectStatus,
   setWalletModalStatus,
 } from '@/redux/actions/swap';
-import { useTranslation } from 'react-i18next';
 import { StackOSDropdown, StackOSIcon, StackOSModal } from '@/components';
 
 import SwapSettings from './SwapSettings';
-import SwapHome from './swap-home/index';
+import SwapHome from './SwapHome';
 import SwapTokenSelect from './swap-token-select/index';
 import { stackAddresses, tokenList } from './helpers';
 import SwapButton from './SwapButton';
+import SwapSummary from './SwapSummary';
+import SwapError from './SwapError';
 
 interface Token {
   id: number;
@@ -52,7 +54,14 @@ const Swap = () => {
 
   const dispatch = useDispatch();
   const { swap } = useSelector((state) => state);
-  const { isSettingsOpen, isTokenSelectOpen, networkSelected, tokenOptions } = swap;
+  const {
+    isSettingsOpen,
+    isTokenSelectOpen,
+    networkSelected,
+    tokenOptions,
+    isSummaryOpen,
+    isErrorOpen,
+  } = swap;
 
   const ethereumChain = chains.find((chain) => chain.id === ETHEREUM);
   const binanceChain = chains.find((chain) => chain.id === BSC);
@@ -127,18 +136,27 @@ const Swap = () => {
       </div>
       {isSettingsOpen && <SwapSettings />}
       {isTokenSelectOpen && <SwapTokenSelect />}
-      {!isSettingsOpen && !isTokenSelectOpen && <SwapHome />}
+      {isSummaryOpen && <SwapSummary />}
+      {isErrorOpen && <SwapError />}
+      {!isSettingsOpen && !isTokenSelectOpen && !isSummaryOpen && !isErrorOpen && <SwapHome />}
       <StackOSModal
         size="small"
         showModal={isAccountModalOpen}
         onCloseModal={() => setAccountModalStatus(false)}
-        className="text-center text-white"
-        title={
+      >
+        <div className="flex flex-col justify-center items-center text-center text-white">
           <span className="font-semibold text-xl text-[#F9FAFB]">
             {t('SWAP_MODAL_ACCOUNT_TITLE')}
           </span>
-        }
-        footer={
+          <div className="py-6 flex flex-col justify-center items-center">
+            <div className="w-full max-w-[186px] gap-2 h-12 px-2 bg-[#374151] flex flex-row justify-center items-center rounded">
+              <div className="h-6 w-6 bg-main-green rounded-full" />
+              <span className="whitespace-nowrap text-ellipsis overflow-hidden text-[#FDFDFD] max-w-[120px]">
+                {account?.address}
+              </span>
+            </div>
+            <span className="mt-4">{`Connected with ${account?.connector?.id}`}</span>
+          </div>
           <div
             className="flex flex-row justify-center items-center mb-8"
             onClick={() => {
@@ -148,16 +166,6 @@ const Swap = () => {
           >
             <SwapButton className="px-20">{t('SWAP_MODAL_ACCOUNT_FOOTER')}</SwapButton>
           </div>
-        }
-      >
-        <div className="py-6 flex flex-col justify-center items-center">
-          <div className="w-full max-w-[186px] gap-2 h-12 px-2 bg-[#374151] flex flex-row justify-center items-center rounded">
-            <div className="h-6 w-6 bg-main-green rounded-full" />
-            <span className="whitespace-nowrap text-ellipsis overflow-hidden text-[#FDFDFD] max-w-[120px]">
-              {account?.address}
-            </span>
-          </div>
-          <span className="mt-4">{`Connected with ${account?.connector?.id}`}</span>
         </div>
       </StackOSModal>
     </>

@@ -142,6 +142,7 @@ const reducer: Reducer<SwapState> = (state = INITIAL_STATE, { type, payload }) =
         isSummaryOpen: false,
         isWalletModalOpen: false,
         estimatedGas: null,
+        tokenBalance: null,
       };
 
     default:

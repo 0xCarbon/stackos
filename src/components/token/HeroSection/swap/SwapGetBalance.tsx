@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { useAccount, useBalance } from 'wagmi';
-import SwapButton from '../SwapButton';
-import { setTokenBalance } from '../../../../../redux/actions/swap';
+import SwapButton from './SwapButton';
+import { setTokenBalance } from '../../../../redux/actions/swap';
 
 const SwapGetBalance = () => {
   const { data: account } = useAccount();
