@@ -1,14 +1,9 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useDispatch, useSelector } from 'src/redux/hooks';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'src/redux/hooks';
 import { useState } from 'react';
-import {
-  setErrorMessage,
-  setErrorStatus,
-  setLoading,
-  setSettingsStatus,
-  setSummaryStatus,
-} from 'src/redux/actions/general';
 import { BiChevronDown, BiChevronUp, BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
 import { BsArrowDownCircle, BsArrowRight } from 'react-icons/bs';
 import { useAccount, useProvider, useSendTransaction } from 'wagmi';
@@ -16,6 +11,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/r
 import { Separator } from '@radix-ui/react-separator';
 import { BigNumber } from 'ethers';
 import { useTranslation } from 'react-i18next';
+import { GeneralActions } from '@/redux/swap';
 import { StackOSIcon } from '@/components';
 import { createSwap, fetchAllowance, fetchTransactionApproval } from '../../../../../services';
 import SwapButton from '../SwapButton';
@@ -76,8 +72,8 @@ const SwapSummary = () => {
     const transaction = await fetchTransactionApproval(tokenAddress, amount, networkSelected.id);
 
     if (transaction?.statusCode >= 400) {
-      dispatch(setErrorStatus(true));
-      dispatch(setErrorMessage(transaction?.description));
+      dispatch(GeneralActions.setErrorStatus(true));
+      dispatch(GeneralActions.setErrorMessage(transaction?.description));
     }
 
     const gasLimit = await provider.estimateGas({
@@ -94,7 +90,7 @@ const SwapSummary = () => {
   }
 
   async function handleSwap() {
-    dispatch(setLoading(true));
+    dispatch(GeneralActions.setLoading(true));
     setIsCollapseOpen(false);
 
     const allowance = await fetchAllowance(
@@ -104,8 +100,8 @@ const SwapSummary = () => {
     );
 
     if (allowance?.statusCode >= 400) {
-      dispatch(setErrorStatus(true));
-      dispatch(setErrorMessage(allowance?.description));
+      dispatch(GeneralActions.setErrorStatus(true));
+      dispatch(GeneralActions.setErrorMessage(allowance?.description));
     }
 
     if (allowance == 0) {
@@ -135,7 +131,7 @@ const SwapSummary = () => {
       },
     });
 
-    dispatch(setLoading(false));
+    dispatch(GeneralActions.setLoading(false));
   }
 
   return (
@@ -159,7 +155,7 @@ const SwapSummary = () => {
             className="hover:cursor-pointer"
             color="#CFCFCF"
             size={20}
-            onClick={() => dispatch(setSettingsStatus(true))}
+            onClick={() => dispatch(GeneralActions.setSettingsStatus(true))}
           />
         )}
       </div>
@@ -300,7 +296,10 @@ const SwapSummary = () => {
       )}
       {isTransactionPending || isTransactionSuccess ? (
         <div className="flex flex-row justify-center items-center mt-6 w-full">
-          <div className="w-full child:w-full" onClick={() => dispatch(setSummaryStatus(false))}>
+          <div
+            className="w-full child:w-full"
+            onClick={() => dispatch(GeneralActions.setSummaryStatus(false))}
+          >
             <SwapButton
               disabled={isTransactionPending}
               className={`${isTransactionPending && 'bg-[#FDFDFD]'}`}

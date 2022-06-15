@@ -11,8 +11,7 @@ import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 
-import { Provider } from 'react-redux';
-import store from '../redux/store';
+import { wrapper } from '../redux/store';
 
 const ETHEREUM_MAINNET = 1;
 const BINANCE_MAINNET = 56;
@@ -93,11 +92,9 @@ const client = createClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={client}>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+      <Component {...pageProps} />
     </WagmiConfig>
   );
 }
 
-export default appWithTranslation(MyApp);
+export default wrapper.withRedux(appWithTranslation(MyApp));

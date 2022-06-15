@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useDispatch, useSelector } from 'src/redux/hooks';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'src/redux/hooks';
 import { IoMdClose } from 'react-icons/io';
-import { setTokenSelected, setTokenSelectStatus } from 'src/redux/actions/general';
 import { Separator } from '@radix-ui/react-separator';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { GeneralActions } from '@/redux/swap';
 import { StackOSInput } from '@/components';
 import SwapTokenSelectInfo from './SwapTokenSelectInfo';
 
@@ -31,7 +32,7 @@ const SwapTokenSelect = () => {
   }, [searchInput]);
 
   function onChangeToken(value: number) {
-    dispatch(setTokenSelected(tokenOptions.find((option) => option.id === value)));
+    dispatch(GeneralActions.setTokenSelected(tokenOptions.find((option) => option.id === value)));
   }
 
   return (
@@ -42,7 +43,7 @@ const SwapTokenSelect = () => {
           className="hover:cursor-pointer"
           color="#CFCFCF"
           size={20}
-          onClick={() => dispatch(setTokenSelectStatus(false))}
+          onClick={() => dispatch(GeneralActions.setTokenSelectStatus(false))}
         />
       </div>
       <StackOSInput

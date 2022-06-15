@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions';
-import { GeneralActionTypes, GeneralTypes } from '../types';
+import { GeneralActionTypes, GeneralTypes } from './types';
 
 export function setSettingsStatus(value: boolean): GeneralActionTypes {
   return action(GeneralTypes.SET_SETTINGS_STATUS, { value });
@@ -79,4 +79,16 @@ export function setTokenBalance(value: number | undefined | null): GeneralAction
 
 export function resetState(): GeneralActionTypes {
   return action(GeneralTypes.RESET_STATE);
+}
+
+export function getQuoteDataRequest(swapParams: any, networkId: number): GeneralActionTypes {
+  return action(GeneralTypes.GET_QUOTE_DATA_REQUEST, { swapParams, networkId });
+}
+
+export function getQuoteDataSuccess(toTokenAmount: number): GeneralActionTypes {
+  return action(GeneralTypes.GET_QUOTE_DATA_SUCCESS, { toTokenAmount });
+}
+
+export function getQuoteDataFailure(): GeneralActionTypes {
+  return action(GeneralTypes.GET_QUOTE_DATA_FAILURE);
 }

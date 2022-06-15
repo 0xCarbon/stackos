@@ -1,13 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useDispatch, useSelector } from 'src/redux/hooks';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'src/redux/hooks';
 import { BiChevronDown, BiChevronUp, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
 import { MdErrorOutline } from 'react-icons/md';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/react-collapsible';
 import { Separator } from '@radix-ui/react-separator';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { GeneralActions } from '@/redux/swap';
 import { StackOSButton } from '@/components';
-import { setErrorStatus } from '../../../../../redux/actions/general';
 
 const SwapError = () => {
   const { t } = useTranslation();
@@ -58,7 +59,10 @@ const SwapError = () => {
         </CollapsibleContent>
       </Collapsible>
       <div className="flex flex-row justify-center items-center mt-6 w-full">
-        <div className="w-full child:w-full" onClick={() => dispatch(setErrorStatus(false))}>
+        <div
+          className="w-full child:w-full"
+          onClick={() => dispatch(GeneralActions.setErrorStatus(false))}
+        >
           <StackOSButton className="bg-[#FDFDFD]">{t('SWAP_ERROR_FOOTER')}</StackOSButton>
         </div>
       </div>

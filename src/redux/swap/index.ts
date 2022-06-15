@@ -1,8 +1,8 @@
 /* eslint-disable default-param-last */
 import { Reducer } from '@reduxjs/toolkit';
-import { GeneralState, GeneralTypes } from '../types';
+import { GeneralState, GeneralTypes } from './types';
 
-import * as Actions from '../actions/general';
+import * as Actions from './actions';
 
 const INITIAL_STATE: GeneralState = {
   stackPrice: 0,
@@ -124,6 +124,30 @@ const reducer: Reducer<GeneralState> = (state = INITIAL_STATE, { type, payload }
 
     case GeneralTypes.SET_TOKEN_BALANCE:
       return { ...state, tokenBalance: payload.value };
+
+    case GeneralTypes.GET_QUOTE_DATA_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        toTokenAmount: 0,
+        expectedOutput: 0,
+        fromTokenPrice: 0,
+        stackPrice: 0,
+      };
+
+    case GeneralTypes.GET_QUOTE_DATA_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        toTokenAmount: payload.toTokenAmount,
+      };
+
+    case GeneralTypes.GET_QUOTE_DATA_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        isErrorOpen: true,
+      };
 
     case GeneralTypes.RESET_STATE:
       return {

@@ -1,27 +1,14 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useDispatch, useSelector } from 'src/redux/hooks';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'src/redux/hooks';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
 import { useEffect, useRef, useState } from 'react';
 import { useAccount, useConnect, useNetwork } from 'wagmi';
-import {
-  setErrorMessage,
-  setErrorStatus,
-  setEstimatedGas,
-  setExpectedOutput,
-  setFromTokenAmount,
-  setFromTokenPrice,
-  setLoading,
-  setSettingsStatus,
-  setStackPrice,
-  setSummaryStatus,
-  setTokenSelectStatus,
-  setToTokenAmount,
-  setWalletModalStatus,
-} from 'src/redux/actions/general';
 import { fetchCoinPrice, fetchSwapQuote } from 'src/services';
 import { BsArrowDownCircle } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
+import { GeneralActions } from '@/redux/swap';
 import { StackOSInput, StackOSModal, StackOSIcon } from '@/components';
 import SwapError from './SwapError';
 import SwapSummary from './SwapSummary';
@@ -92,47 +79,50 @@ const SwapHome = () => {
   };
 
   const fetchQuoteData = async () => {
-    dispatch(setLoading(true));
-    dispatch(setToTokenAmount(0));
-    dispatch(setExpectedOutput(0));
-    dispatch(setFromTokenPrice(0));
-    dispatch(setStackPrice(0));
+    // dispatch(GeneralActions.getQuoteDataRequest(swapParams, networkSelected.id));
+    dispatch(GeneralActions.setLoading(true));
+    dispatch(GeneralActions.setToTokenAmount(0));
+    dispatch(GeneralActions.setExpectedOutput(0));
+    dispatch(GeneralActions.setFromTokenPrice(0));
+    dispatch(GeneralActions.setStackPrice(0));
 
     if (fromTokenAmount && fromTokenAmount > 0) {
       const quote = await fetchSwapQuote(swapParams, networkSelected.id);
 
       if (quote?.statusCode >= 400) {
-        dispatch(setErrorStatus(true));
-        dispatch(setErrorMessage(quote?.description));
+        dispatch(GeneralActions.setErrorStatus(true));
+        dispatch(GeneralActions.setErrorMessage(quote?.description));
       }
 
-      dispatch(setEstimatedGas(quote?.estimatedGas));
+      dispatch(GeneralActions.setEstimatedGas(quote?.estimatedGas));
 
       const result = Number(quote.toTokenAmount * 10 ** -18);
 
       const stack = await fetchCoinPrice('stackos', 'usd');
 
       if (stack?.statusCode >= 400) {
-        dispatch(setErrorStatus(true));
-        dispatch(setErrorMessage(stack?.description));
+        dispatch(GeneralActions.setErrorStatus(true));
+        dispatch(GeneralActions.setErrorMessage(stack?.description));
       }
 
       const tokenIn = await fetchCoinPrice(tokenSelected.coin, 'usd');
 
       if (tokenIn?.statusCode >= 400) {
-        dispatch(setErrorStatus(true));
-        dispatch(setErrorMessage(tokenIn?.description));
+        dispatch(GeneralActions.setErrorStatus(true));
+        dispatch(GeneralActions.setErrorMessage(tokenIn?.description));
       }
 
-      dispatch(setFromTokenPrice(tokenIn[tokenSelected.coin]?.usd));
+      dispatch(GeneralActions.setFromTokenPrice(tokenIn[tokenSelected.coin]?.usd));
 
-      dispatch(setStackPrice(stack?.stackos?.usd));
+      dispatch(GeneralActions.setStackPrice(stack?.stackos?.usd));
 
-      dispatch(setToTokenAmount(Number(result?.toFixed(5))));
-      dispatch(setExpectedOutput(Number(((1 / fromTokenAmount) * result)?.toFixed(4))));
+      dispatch(GeneralActions.setToTokenAmount(Number(result?.toFixed(5))));
+      dispatch(
+        GeneralActions.setExpectedOutput(Number(((1 / fromTokenAmount) * result)?.toFixed(4)))
+      );
     }
 
-    dispatch(setLoading(false));
+    dispatch(GeneralActions.setLoading(false));
   };
 
   return (
@@ -154,14 +144,14 @@ const SwapHome = () => {
             <BiCog
               className="hover:cursor-pointer text-[#CFCFCF] hover:text-main-green duration-500"
               size={20}
-              onClick={() => dispatch(setSettingsStatus(true))}
+              onClick={() => dispatch(GeneralActions.setSettingsStatus(true))}
             />
           </div>
           <form ref={formRef}>
             <StackOSInput
               showPrice
               optionSelected={tokenSelected}
-              onClickOption={() => dispatch(setTokenSelectStatus(true))}
+              onClickOption={() => dispatch(GeneralActions.setTokenSelectStatus(true))}
               value={fromTokenAmount}
               price={fromTokenAmount && fromTokenPrice * fromTokenAmount}
               onChangeInput={(value) => {
@@ -175,7 +165,7 @@ const SwapHome = () => {
                   value = value?.replace(/^0+/, '')?.replace('.', '0.');
                 }
 
-                dispatch(setFromTokenAmount(value));
+                dispatch(GeneralActions.setFromTokenAmount(value));
               }}
               type="number"
             />
@@ -231,7 +221,10 @@ const SwapHome = () => {
           </div>
           <div className="flex flex-row justify-center items-center mt-6 w-full">
             {account?.address ? (
-              <div className="w-full child:w-full" onClick={() => dispatch(setSummaryStatus(true))}>
+              <div
+                className="w-full child:w-full"
+                onClick={() => dispatch(GeneralActions.setSummaryStatus(true))}
+              >
                 {tokenBalance === null ? (
                   <SwapGetBalance />
                 ) : (
@@ -247,7 +240,7 @@ const SwapHome = () => {
               <button
                 type="button"
                 className="w-full bg-transparent border border-main-green hover:bg-main-green text-main-green hover:text-main-blue duration-500 rounded-md px-9 py-3"
-                onClick={() => dispatch(setWalletModalStatus(true))}
+                onClick={() => dispatch(GeneralActions.setWalletModalStatus(true))}
               >
                 {isConnecting ? 'Connecting Wallet...' : 'Connect Wallet'}
               </button>
@@ -266,7 +259,7 @@ const SwapHome = () => {
         footer={
           <div
             className="text-center text-[#020305] px-9 py-1 rounded-md bg-[#FDFDFD] hover:cursor-pointer"
-            onClick={() => dispatch(setWalletModalStatus(false))}
+            onClick={() => dispatch(GeneralActions.setWalletModalStatus(false))}
           >
             <span>{t('SWAP_MODAL_WALLET_FOOTER')}</span>
           </div>
@@ -279,7 +272,7 @@ const SwapHome = () => {
               key={connector.id}
               onClick={() => {
                 connect(connector);
-                dispatch(setWalletModalStatus(false));
+                dispatch(GeneralActions.setWalletModalStatus(false));
               }}
               type="button"
               className="px-2 py-2 mx-2 my-2 hover:bg-[#374151] duration-500 rounded-md"

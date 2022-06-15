@@ -2,7 +2,8 @@
 import { useAccount, useNetwork } from 'wagmi';
 
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'src/redux/hooks';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'src/redux/hooks';
 import {
   resetState,
   setNetworkSelected,
@@ -13,7 +14,8 @@ import {
   setTokenSelected,
   setTokenSelectStatus,
   setWalletModalStatus,
-} from 'src/redux/actions/general';
+} from 'src/redux/swap/actions';
+
 import { useTranslation } from 'react-i18next';
 import { StackOSDropdown, StackOSIcon, StackOSModal } from '@/components';
 

@@ -21,6 +21,10 @@ export enum GeneralTypes {
   SET_ESTIMATED_GAS = '@general/SET_ESTIMATED_GAS',
   SET_TOKEN_BALANCE = '@general/SET_TOKEN_BALANCE',
   RESET_STATE = '@general/RESET_STATE',
+
+  GET_QUOTE_DATA_REQUEST = '@general/GET_QUOTE_DATA_REQUEST',
+  GET_QUOTE_DATA_SUCCESS = '@general/GET_QUOTE_DATA_SUCCESS',
+  GET_QUOTE_DATA_FAILURE = '@general/GET_QUOTE_DATA_FAILURE',
 }
 
 export interface SetSettingsStatus {
@@ -110,8 +114,23 @@ export interface SetTokenBalance {
   type: GeneralTypes.SET_TOKEN_BALANCE;
   payload: { value: number | undefined | null };
 }
+
 export interface ResetState {
   type: GeneralTypes.RESET_STATE;
+}
+
+export interface GetQuoteData {
+  type: GeneralTypes.GET_QUOTE_DATA_REQUEST;
+  payload: { swapParams: any; networkId: number };
+}
+
+export interface GetQuoteDataSuccess {
+  type: GeneralTypes.GET_QUOTE_DATA_SUCCESS;
+  payload: { toTokenAmount: number };
+}
+
+export interface GetQuoteDataFailure {
+  type: GeneralTypes.GET_QUOTE_DATA_FAILURE;
 }
 
 export type GeneralActionTypes =
@@ -134,7 +153,10 @@ export type GeneralActionTypes =
   | SetWalletModalStatus
   | SetEstimatedGas
   | SetTokenBalance
-  | ResetState;
+  | ResetState
+  | GetQuoteData
+  | GetQuoteDataSuccess
+  | GetQuoteDataFailure;
 
 export interface GeneralState {
   loading: boolean;
@@ -156,4 +178,10 @@ export interface GeneralState {
   isWalletModalOpen: boolean;
   estimatedGas: number | null;
   tokenBalance: number | undefined;
+}
+
+export interface Quote {
+  estimatedGas: number;
+  fromTokenAmount: number;
+  toTokenAmount: number;
 }

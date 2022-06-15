@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useDispatch, useSelector } from 'src/redux/hooks';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'src/redux/hooks';
 import { IoMdClose } from 'react-icons/io';
 import { useState } from 'react';
-import { setSettingsStatus, setSlippageAmount } from 'src/redux/actions/general';
 import { useTranslation } from 'react-i18next';
 import { BiInfoCircle } from 'react-icons/bi';
+import { GeneralActions } from '@/redux/swap';
 import { StackOSToggleGroup } from '@/components';
 import SwapButton from './SwapButton';
 
@@ -27,8 +28,8 @@ const SwapSettings = () => {
 
   function onClickConfirm() {
     if (newSlippage) {
-      dispatch(setSlippageAmount(newSlippage));
-      dispatch(setSettingsStatus(false));
+      dispatch(GeneralActions.setSlippageAmount(newSlippage));
+      dispatch(GeneralActions.setSettingsStatus(false));
     }
   }
 
@@ -39,7 +40,7 @@ const SwapSettings = () => {
         <IoMdClose
           className="hover:cursor-pointer text-[#CFCFCF] hover:text-[#e15b5b] duration-500"
           size={20}
-          onClick={() => dispatch(setSettingsStatus(false))}
+          onClick={() => dispatch(GeneralActions.setSettingsStatus(false))}
         />
       </div>
       <p className="text-white text-lg mb-3">{t('SWAP_SETTINGS_SUBTITLE')}</p>

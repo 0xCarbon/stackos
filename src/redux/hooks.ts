@@ -3,13 +3,8 @@
 
 import type { ChangeEvent } from 'react';
 import { useEffect, useRef } from 'react';
-import {
-  TypedUseSelectorHook,
-  useDispatch as useReduxDispatch,
-  useSelector as useReduxSelector,
-} from 'react-redux';
-
-import type { ApplicationDispatch, ApplicationState } from './store';
+import { TypedUseSelectorHook, useSelector as useReduxSelector } from 'react-redux';
+import { ApplicationState } from './store';
 
 export const useForm =
   <TContent>(defaultValues: TContent) =>
@@ -33,7 +28,6 @@ export const useForm =
     form.reset();
   };
 
-// https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 export const useInterval = (callback: Function, delay: number) => {
   const savedCallback = useRef<Function>();
   useEffect(() => {
@@ -48,8 +42,5 @@ export const useInterval = (callback: Function, delay: number) => {
     }
   }, [delay]);
 };
-
-// Use throughout your app instead of plain `useDispatch` and `useSelector`
-export const useDispatch = () => useReduxDispatch<ApplicationDispatch>();
 
 export const useSelector: TypedUseSelectorHook<ApplicationState> = useReduxSelector;
