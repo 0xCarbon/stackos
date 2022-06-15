@@ -7,7 +7,7 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
 
   return (
     <div className="relative flex flex-col mt-20">
-      <h1 className="z-10 text-white text-4xl lg:text-5xl font-extrabold">
+      <h1 className="z-10 text-white text-4xl lg:text-6xl font-extrabold">
         <span className="text-main-green">{t('PARTNERS_HERO_SPAN_TITLE')}</span>
         {t('PARTNERS_HERO_TITLE')}
       </h1>

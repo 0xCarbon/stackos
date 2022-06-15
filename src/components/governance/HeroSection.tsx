@@ -9,7 +9,7 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
     <div className="flex text-white relative mb-14 lg:mb-4 mt-14 md:mt-24 2xl:mt-6 lg:mt-auto md:px-16 lg:px-0">
       <div className="w-full flex flex-col lg:flex-row mb-4 lg:justify-between ">
         <div className="z-10 flex flex-col md:w-[34rem] lg:w-[32rem] xl:w-[40rem]">
-          <h1 className="leading-normal text-[2.5rem] xl:text-[3.5rem] font-extrabold mb-5">
+          <h1 className="leading-normal text-4xl xl:text-6xl font-extrabold mb-5">
             {t('GOVERNANCE_HERO_TITLE1')}
             <span className="text-main-green font-extrabold">{t('GOVERNANCE_HERO_TITLE2')}</span>
           </h1>

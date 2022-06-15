@@ -10,7 +10,7 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
       <div className="z-10 flex flex-col justify-start lg:flex-row lg:child:flex-1">
         <div className="lg:flex lg:flex-col mb-14 ">
           <div className="flex flex-row justify-start items-center mb-9 lg:mb-12">
-            <h2 className="z-10 text-white font-extrabold text-4xl lg:text-5xl">
+            <h2 className="z-10 text-white font-extrabold text-4xl lg:text-6xl">
               {t('TECHNOLOGY_HERO_TITLE')}
             </h2>
           </div>
