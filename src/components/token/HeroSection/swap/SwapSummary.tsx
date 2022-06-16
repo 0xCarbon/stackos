@@ -2,13 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { useState } from 'react';
-import {
-  setErrorMessage,
-  setErrorStatus,
-  setLoading,
-  setSettingsStatus,
-  setSummaryStatus,
-} from 'src/redux/actions/general';
 import { BiChevronDown, BiChevronUp, BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';
 import { BsArrowDownCircle, BsArrowRight } from 'react-icons/bs';
 import { useAccount, useProvider, useSendTransaction } from 'wagmi';
@@ -16,9 +9,16 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@radix-ui/r
 import { Separator } from '@radix-ui/react-separator';
 import { BigNumber } from 'ethers';
 import { useTranslation } from 'react-i18next';
+import {
+  setErrorMessage,
+  setErrorStatus,
+  setLoading,
+  setSettingsStatus,
+  setSummaryStatus,
+} from '@/redux/actions/swap';
 import { StackOSIcon } from '@/components';
-import { createSwap, fetchAllowance, fetchTransactionApproval } from '../../../../../services';
-import SwapButton from '../SwapButton';
+import { createSwap, fetchAllowance, fetchTransactionApproval } from '../../../../services';
+import SwapButton from './SwapButton';
 
 const SwapSummary = () => {
   const { t } = useTranslation();
@@ -32,7 +32,7 @@ const SwapSummary = () => {
   const { data: account } = useAccount();
   const dispatch = useDispatch();
   const provider = useProvider();
-  const { general } = useSelector((state) => state);
+  const { swap } = useSelector((state) => state);
   const {
     fromTokenAmount,
     tokenSelected,
@@ -44,7 +44,7 @@ const SwapSummary = () => {
     estimatedGas,
     stackPrice,
     toTokenAmount,
-  } = general;
+  } = swap;
 
   const swapParams = {
     fromTokenAddress:

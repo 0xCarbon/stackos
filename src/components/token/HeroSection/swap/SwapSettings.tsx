@@ -2,9 +2,9 @@
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { IoMdClose } from 'react-icons/io';
 import { useState } from 'react';
-import { setSettingsStatus, setSlippageAmount } from 'src/redux/actions/general';
 import { useTranslation } from 'react-i18next';
 import { BiInfoCircle } from 'react-icons/bi';
+import { setSettingsStatus, setSlippageAmount } from '@/redux/actions/swap';
 import { StackOSToggleGroup } from '@/components';
 import SwapButton from './SwapButton';
 
@@ -20,8 +20,8 @@ const SwapSettings = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
-  const { general } = useSelector((state) => state);
-  const { slippageAmount } = general;
+  const { swap } = useSelector((state) => state);
+  const { slippageAmount } = swap;
 
   const [newSlippage, setNewSlippage] = useState<number | null>(slippageAmount);
 

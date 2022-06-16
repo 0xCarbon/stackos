@@ -1,19 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { IoMdClose } from 'react-icons/io';
-import { setTokenSelected, setTokenSelectStatus } from 'src/redux/actions/general';
 import { Separator } from '@radix-ui/react-separator';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StackOSInput } from '@/components';
+import { setTokenSelected, setTokenSelectStatus } from '@/redux/actions/swap';
 import SwapTokenSelectInfo from './SwapTokenSelectInfo';
+import SwapInput from '../SwapInput';
 
 const SwapTokenSelect = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
-  const { general } = useSelector((state) => state);
-  const { tokenOptions, tokenSelected } = general;
+  const { swap } = useSelector((state) => state);
+  const { tokenOptions, tokenSelected } = swap;
 
   const [searchInput, setSearchInput] = useState('');
   const [searchList, setSearchList] = useState(tokenOptions);
@@ -45,7 +45,7 @@ const SwapTokenSelect = () => {
           onClick={() => dispatch(setTokenSelectStatus(false))}
         />
       </div>
-      <StackOSInput
+      <SwapInput
         type="text"
         placeholder="Search for tokens"
         iconLeft

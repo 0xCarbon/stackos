@@ -1,8 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import general from './general';
+import swap from './swap';
 
 const rootReducer = combineReducers({
-  general,
+  swap,
 });
 
 export default rootReducer;

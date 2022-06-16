@@ -19,11 +19,7 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
           </div>
           <p className="text-white font-normal text-xl max-w-lg">{t('TOKEN_HERO_DESCRIPTION')}</p>
         </div>
-        <div className="z-20 hidden lg:hidden sm:flex flex-col justify-center items-center duration-500">
-          <Swap />
-        </div>
-
-        <div className="z-20 hidden lg:flex lg:flex-col lg:items-end duration-500">
+        <div className="z-20 hidden sm:flex flex-col justify-center items-center lg:items-end duration-500">
           <Swap />
         </div>
         <div className="sm:hidden flex w-full justify-center">

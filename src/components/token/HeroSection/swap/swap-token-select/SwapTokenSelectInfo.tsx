@@ -8,8 +8,8 @@ interface Props {
 }
 
 const SwapTokenSelectInfo = ({ token }: Props) => {
-  const { general } = useSelector((state) => state);
-  const { tokenSelected } = general;
+  const { swap } = useSelector((state) => state);
+  const { tokenSelected } = swap;
   const [tokenBalance, setTokenBalance] = useState(0);
 
   const { data: account } = useAccount();

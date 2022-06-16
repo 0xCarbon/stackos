@@ -1,120 +1,120 @@
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
-export enum GeneralTypes {
-  SET_LOADING = '@general/SET_LOADING',
-  SET_STACK_PRICE = '@general/SET_STACK_PRICE',
-  SET_FROM_TOKEN_AMOUNT = '@general/SET_FROM_TOKEN_AMOUNT',
-  SET_TO_TOKEN_AMOUNT = '@general/SET_TO_TOKEN_AMOUNT',
-  SET_FROM_TOKEN_PRICE = '@general/SET_FROM_TOKEN_PRICE',
-  SET_EXPECTED_OUTPUT = '@general/SET_EXPECTED_OUTPUT',
-  SET_SETTINGS_STATUS = '@general/SET_SETTINGS_STATUS',
-  SET_TOKEN_SELECT_STATUS = '@general/SET_TOKEN_SELECT_STATUS',
-  SET_ERROR_STATUS = '@general/SET_ERROR_STATUS',
-  SET_TOKEN_OPTIONS = '@general/SET_TOKEN_OPTIONS',
-  SET_TOKEN_SELECTED = '@general/SET_TOKEN_SELECTED',
-  SET_STACK_ADDRESS = '@general/SET_STACK_ADDRESS',
-  SET_NETWORK_SELECTED = '@general/SET_NETWORK_SELECTED',
-  SET_SLIPPAGE_AMOUNT = '@general/SET_SLIPPAGE_AMOUNT',
-  SET_ERROR_MESSAGE = '@general/SET_ERROR_MESSAGE',
-  SET_SUMMARY_STATUS = '@general/SET_SUMMARY_STATUS',
-  SET_WALLET_MODAL_STATUS = '@general/SET_WALLET_MODAL_STATUS',
-  SET_ESTIMATED_GAS = '@general/SET_ESTIMATED_GAS',
-  SET_TOKEN_BALANCE = '@general/SET_TOKEN_BALANCE',
-  RESET_STATE = '@general/RESET_STATE',
+export enum SwapTypes {
+  SET_LOADING = '@swap/SET_LOADING',
+  SET_STACK_PRICE = '@swap/SET_STACK_PRICE',
+  SET_FROM_TOKEN_AMOUNT = '@swap/SET_FROM_TOKEN_AMOUNT',
+  SET_TO_TOKEN_AMOUNT = '@swap/SET_TO_TOKEN_AMOUNT',
+  SET_FROM_TOKEN_PRICE = '@swap/SET_FROM_TOKEN_PRICE',
+  SET_EXPECTED_OUTPUT = '@swap/SET_EXPECTED_OUTPUT',
+  SET_SETTINGS_STATUS = '@swap/SET_SETTINGS_STATUS',
+  SET_TOKEN_SELECT_STATUS = '@swap/SET_TOKEN_SELECT_STATUS',
+  SET_ERROR_STATUS = '@swap/SET_ERROR_STATUS',
+  SET_TOKEN_OPTIONS = '@swap/SET_TOKEN_OPTIONS',
+  SET_TOKEN_SELECTED = '@swap/SET_TOKEN_SELECTED',
+  SET_STACK_ADDRESS = '@swap/SET_STACK_ADDRESS',
+  SET_NETWORK_SELECTED = '@swap/SET_NETWORK_SELECTED',
+  SET_SLIPPAGE_AMOUNT = '@swap/SET_SLIPPAGE_AMOUNT',
+  SET_ERROR_MESSAGE = '@swap/SET_ERROR_MESSAGE',
+  SET_SUMMARY_STATUS = '@swap/SET_SUMMARY_STATUS',
+  SET_WALLET_MODAL_STATUS = '@swap/SET_WALLET_MODAL_STATUS',
+  SET_ESTIMATED_GAS = '@swap/SET_ESTIMATED_GAS',
+  SET_TOKEN_BALANCE = '@swap/SET_TOKEN_BALANCE',
+  RESET_STATE = '@swap/RESET_STATE',
 }
 
 export interface SetSettingsStatus {
-  type: GeneralTypes.SET_SETTINGS_STATUS;
+  type: SwapTypes.SET_SETTINGS_STATUS;
 }
 
 export interface SetTokenSelectStatus {
-  type: GeneralTypes.SET_TOKEN_SELECT_STATUS;
+  type: SwapTypes.SET_TOKEN_SELECT_STATUS;
 }
 
 export interface SetErrorStatus {
-  type: GeneralTypes.SET_ERROR_STATUS;
+  type: SwapTypes.SET_ERROR_STATUS;
 }
 
 export interface SetLoading {
-  type: GeneralTypes.SET_LOADING;
+  type: SwapTypes.SET_LOADING;
 }
 
 export interface SetStackPrice {
-  type: GeneralTypes.SET_STACK_PRICE;
+  type: SwapTypes.SET_STACK_PRICE;
   payload: { value: number };
 }
 
 export interface SetFromTokenAmount {
-  type: GeneralTypes.SET_FROM_TOKEN_AMOUNT;
+  type: SwapTypes.SET_FROM_TOKEN_AMOUNT;
   payload: { value: number };
 }
 
 export interface SetToTokenAmount {
-  type: GeneralTypes.SET_TO_TOKEN_AMOUNT;
+  type: SwapTypes.SET_TO_TOKEN_AMOUNT;
   payload: { value: number };
 }
 
 export interface SetFromTokenPrice {
-  type: GeneralTypes.SET_FROM_TOKEN_PRICE;
+  type: SwapTypes.SET_FROM_TOKEN_PRICE;
   payload: { value: number };
 }
 
 export interface SetExpectedOutput {
-  type: GeneralTypes.SET_EXPECTED_OUTPUT;
+  type: SwapTypes.SET_EXPECTED_OUTPUT;
   payload: { value: number };
 }
 
 export interface SetTokenOptions {
-  type: GeneralTypes.SET_TOKEN_OPTIONS;
+  type: SwapTypes.SET_TOKEN_OPTIONS;
   payload: { value: any[] };
 }
 
 export interface SetTokenSelected {
-  type: GeneralTypes.SET_TOKEN_SELECTED;
+  type: SwapTypes.SET_TOKEN_SELECTED;
   payload: { value: any };
 }
 
 export interface SetStackAddress {
-  type: GeneralTypes.SET_STACK_ADDRESS;
+  type: SwapTypes.SET_STACK_ADDRESS;
   payload: { value: string };
 }
 
 export interface SetNetworkSelected {
-  type: GeneralTypes.SET_NETWORK_SELECTED;
+  type: SwapTypes.SET_NETWORK_SELECTED;
   payload: { value: any };
 }
 
 export interface SetSlippageAmount {
-  type: GeneralTypes.SET_SLIPPAGE_AMOUNT;
+  type: SwapTypes.SET_SLIPPAGE_AMOUNT;
   payload: { value: number };
 }
 
 export interface SetErrorMessage {
-  type: GeneralTypes.SET_ERROR_MESSAGE;
+  type: SwapTypes.SET_ERROR_MESSAGE;
 }
 
 export interface SetSummaryStatus {
-  type: GeneralTypes.SET_SUMMARY_STATUS;
+  type: SwapTypes.SET_SUMMARY_STATUS;
 }
 
 export interface SetWalletModalStatus {
-  type: GeneralTypes.SET_WALLET_MODAL_STATUS;
+  type: SwapTypes.SET_WALLET_MODAL_STATUS;
 }
 
 export interface SetEstimatedGas {
-  type: GeneralTypes.SET_ESTIMATED_GAS;
+  type: SwapTypes.SET_ESTIMATED_GAS;
   payload: { value: number };
 }
 
 export interface SetTokenBalance {
-  type: GeneralTypes.SET_TOKEN_BALANCE;
+  type: SwapTypes.SET_TOKEN_BALANCE;
   payload: { value: number | undefined | null };
 }
 export interface ResetState {
-  type: GeneralTypes.RESET_STATE;
+  type: SwapTypes.RESET_STATE;
 }
 
-export type GeneralActionTypes =
+export type SwapActionTypes =
   | SetStackPrice
   | SetSettingsStatus
   | SetTokenSelectStatus
@@ -136,7 +136,7 @@ export type GeneralActionTypes =
   | SetTokenBalance
   | ResetState;
 
-export interface GeneralState {
+export interface SwapState {
   loading: boolean;
   fromTokenAmount: number | null;
   toTokenAmount: number | null;

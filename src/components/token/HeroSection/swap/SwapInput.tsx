@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { BiChevronDown, BiSearch } from 'react-icons/bi';
-import StackOSIcon from './StackOSIcon';
+import StackOSIcon from '../../../StackOSIcon';
 
 interface Token {
   id: number;
@@ -23,7 +23,7 @@ interface Props {
   fontSize?: number;
 }
 
-const StackOSInput = ({
+const SwapInput = ({
   value,
   price,
   disabled,
@@ -98,4 +98,4 @@ const StackOSInput = ({
   </div>
 );
 
-export default StackOSInput;
+export default SwapInput;
