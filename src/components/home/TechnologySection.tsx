@@ -80,7 +80,7 @@ const TechnologySection = ({ offsetY }: { offsetY: number }) => {
           layout="fill"
         />
       </div>
-      <div className="selectDisable absolute flex w-[18.75rem] h-[16.87rem] top-[30rem] md:w-[20rem] md:h-[18rem] md:top-[7.5rem] md:right-[22rem] lg:w-[26rem] lg:h-[24rem] lg:right-[30rem] xl:w-[29.5rem] xl:h-[27rem] xl:right-[50rem] mx-auto right-0 left-0 duration-500">
+      <div className="selectDisable absolute flex w-[18.75rem] h-[16.87rem] top-[30rem] md:w-[20rem] md:h-[18rem] md:top-[6rem] md:right-[22rem] lg:w-[26rem] lg:h-[24rem] lg:right-[30rem] xl:w-[29.5rem] xl:h-[27rem] xl:right-[50rem] xl:top-[2rem] mx-auto right-0 left-0 duration-500">
         <Image src="/assets/home/diagram.svg" alt="diagram" layout="fill" priority />
       </div>
     </div>

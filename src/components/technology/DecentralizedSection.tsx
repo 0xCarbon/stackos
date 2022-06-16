@@ -23,18 +23,21 @@ const DecentralizedSection = ({ offsetY }: { offsetY: number }) => {
         </Link>
         <div className="mt-16 flex flex-col lg:flex-row justify-center items-center">
           <Card
+            clickable={false}
             src="/assets/home/ipsum.svg"
             title={t('TECHNOLOGY_DECENTRALIZED_CARD1')}
             subtitle={t('TECHNOLOGY_DECENTRALIZED_CARD1_TEXT')}
           />
           <TiPlus className="text-4xl my-5 xl:mx-10" color="#AAFF00" />
           <Card
+            clickable={false}
             src="/assets/home/phone.jpg"
             title={t('TECHNOLOGY_DECENTRALIZED_CARD2')}
             subtitle={t('TECHNOLOGY_DECENTRALIZED_CARD2_TEXT')}
           />
           <TiPlus className="text-4xl my-5 xl:mx-10" color="#AAFF00" />
           <Card
+            clickable={false}
             src="/assets/home/lorem.svg"
             title={t('TECHNOLOGY_DECENTRALIZED_CARD3')}
             subtitle={t('TECHNOLOGY_DECENTRALIZED_CARD3_TEXT')}
