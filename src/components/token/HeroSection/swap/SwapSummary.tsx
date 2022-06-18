@@ -139,7 +139,7 @@ const SwapSummary = () => {
   }
 
   return (
-    <div>
+    <div className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
       <div className={`flex flex-row justify-between ${!isCollapseOpen && 'mb-5'}`}>
         {isTransactionPending || isTransactionSuccess ? (
           <a
