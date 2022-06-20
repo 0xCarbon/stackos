@@ -43,7 +43,7 @@ const Footer = () => {
           </a>
           <a
             className="hover:text-main-blue hover:bg-main-green duration-500"
-            href="https://discord.com/invite/yRk7CdjG"
+            href="https://discord.com/invite/W3phTcR8sS"
             target="blank"
           >
             <span className="sr-only">Discord link</span>
