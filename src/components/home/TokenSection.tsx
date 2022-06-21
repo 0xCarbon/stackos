@@ -28,19 +28,19 @@ const TokenSection = ({ offsetY }: { offsetY: number }) => {
       <div className="flex flex-col justify-around h-full md:h-[20rem] lg:h-[27rem]">
         <div className="flex flex-row mt-20 2xl:mt-16 flex-wrap md:h-30 lg:h-44 md:space-x-16 2xl:space-x-32">
           <div className="w-[16rem] lg:w-[18.8rem] xl:w-[21.8rem] mb-10">
-            <ExplainCard iconName="globe" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
+            <ExplainCard iconName="globe" description={t('HOME_TOKEN_NOTE_1')} />
           </div>
           <div className="w-[16rem] lg:w-[18.8rem] xl:w-[21.8rem] mb-10">
-            <ExplainCard iconName="annotation" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
+            <ExplainCard iconName="annotation" description={t('HOME_TOKEN_NOTE_2')} />
           </div>
         </div>
 
         <div className="flex flex-row flex-wrap md:h-30 lg:h-44 md:space-x-16 2xl:space-x-32">
           <div className="w-[16rem] lg:w-[18.8rem] xl:w-[21.8rem] mb-10">
-            <ExplainCard iconName="bolt" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
+            <ExplainCard iconName="bolt" description={t('HOME_TOKEN_NOTE_3')} />
           </div>
           <div className="w-[16rem] lg:w-[18.8rem] xl:w-[21.8rem] mb-10">
-            <ExplainCard iconName="bolt" description={t('HOME_TOKEN_NOTE_DESCRIPTION')} />
+            <ExplainCard iconName="bolt" description={t('HOME_TOKEN_NOTE_4')} />
           </div>
         </div>
       </div>
