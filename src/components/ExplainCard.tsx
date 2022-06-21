@@ -2,7 +2,11 @@ import React from 'react';
 import { HiOutlineAnnotation, HiOutlineLightningBolt } from 'react-icons/hi';
 import { BiGlobe, BiBlock } from 'react-icons/bi';
 import { Trans } from 'react-i18next';
-import Image from 'next/image';
+import { FaDocker } from 'react-icons/fa';
+import { IoMdRocket } from 'react-icons/io';
+import { MdMoneyOff } from 'react-icons/md';
+import { GoGistSecret, GoGraph } from 'react-icons/go';
+import { RiComputerLine } from 'react-icons/ri';
 
 interface Props {
   iconName?: keyof Icons;
@@ -25,24 +29,23 @@ export interface Icons {
 const ExplainCard: React.FC<Props> = ({ iconName = 'default', description }) => {
   const icons: Icons = {
     annotation: (
-      <HiOutlineAnnotation className="duration-500 text-[2rem] lg:text-[2.4rem]" color="#111827" />
+      <HiOutlineAnnotation className="duration-500 text-[2rem] lg:text-[2.4rem] text-[#111827]" />
     ),
-    globe: <BiGlobe className="duration-500 text-[2rem] lg:text-[2.4rem]" color="#111827" />,
+    globe: <BiGlobe className="duration-500 text-[2rem] lg:text-[2.4rem] text-[#111827]" />,
     bolt: (
-      <HiOutlineLightningBolt
-        className="duration-500 text-[2rem] lg:text-[2.4rem]"
-        color="#111827"
-      />
+      <HiOutlineLightningBolt className="duration-500 text-[2rem] lg:text-[2.4rem] text-[#111827]" />
     ),
-    rocket: <Image src="/assets/developers/rocket-icon-developers.svg" width={40} height={40} />,
-    monitor: <Image src="/assets/developers/monitor-icon-developers.svg" width={27} height={25} />,
-    graphs: <Image src="/assets/developers/graphs-icon-developers.svg" width={28} height={25} />,
-    docker: <Image src="/assets/developers/docker-icon-developers.svg" width={36} height={25} />,
-    money: <Image src="/assets/developers/money-icon-developers.svg" width={30} height={30} />,
+    rocket: <IoMdRocket className="duration-500 text-[2rem] lg:text-[2.4rem] text-[#111827]" />,
+    monitor: (
+      <RiComputerLine className="duration-500 text-[2rem] lg:text-[2.4rem] text-[#111827]" />
+    ),
+    graphs: <GoGraph className="duration-500 text-[2rem] lg:text-[2.4rem] text-[#111827]" />,
+    docker: <FaDocker className="duration-500 text-[2rem] lg:text-[2.4rem] text-[#111827]" />,
+    money: <MdMoneyOff className="duration-500 text-[2rem] lg:text-[2.4rem] text-[#111827]" />,
     anonymous: (
-      <Image src="/assets/developers/anonymous-icon-developers.svg" width={29} height={28} />
+      <GoGistSecret className="duration-500 text-[2rem] lg:text-[2.4rem] text-[#111827]" />
     ),
-    default: <BiBlock className="duration-500 text-[2rem] lg:text-[2.4rem]" color="#111827" />,
+    default: <BiBlock className="duration-500 text-[2rem] lg:text-[2.4rem] text-[#111827]" />,
   };
 
   const icon = icons[iconName];

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import partners from '@/components/home/helpers';
 
 const StackOSCarousel = () => {
@@ -36,7 +37,7 @@ const StackOSCarousel = () => {
   }
 
   return (
-    <div className="flex items-center">
+    <div className="z-20 flex items-center">
       <IoIosArrowBack
         onClick={() => handlePrevItem()}
         className="m-2 2xl:m-10 cursor-pointer hidden"
@@ -54,6 +55,8 @@ const StackOSCarousel = () => {
         swipeScrollTolerance={500}
         showStatus={false}
         showIndicators={false}
+        emulateTouch={false}
+        swipeable={false}
         className="h-20 md:h-[6.5rem] lg:h-[8.5rem] 2xl:h-36 w-[15rem] md:w-[34rem] lg:w-[46rem] 2xl:w-[58rem]"
       >
         {partners.map((partner) => (
@@ -65,8 +68,14 @@ const StackOSCarousel = () => {
                 rel="noreferrer"
                 className="flex h-full w-full items-center justify-center bg-cover bg-carousel-circle"
               >
-                <div className="p-3 md:p-4 lg:p-5 h-full w-full">
-                  <Image height={60} width={60} src={partner.image} layout="responsive" />
+                <div className="p-3 md:p-4 lg:p-5 h-full w-full hover:scale-105 duration-500">
+                  <Image
+                    alt={String(partner.id)}
+                    height={60}
+                    width={60}
+                    src={partner.image}
+                    layout="responsive"
+                  />
                 </div>
               </a>
             </div>

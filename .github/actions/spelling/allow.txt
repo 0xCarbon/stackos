@@ -1,3 +1,4 @@
+autoplay
 keyof
 ethereum
 abi
@@ -34,3 +35,10 @@ Continous
 draggable
 testnet
 testnets
+WHITEPAPER
+extralight
+flyout
+whitepaper
+whitepaper
+Flyout
+clickable
