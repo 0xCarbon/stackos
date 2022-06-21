@@ -13,18 +13,8 @@ const HeroSection = ({ offsetY }: { offsetY: number }) => {
   return (
     <div className="flex text-white relative mt-14 md:mt-20 lg:mt-24 xl:mt-48">
       <div className="z-10 flex flex-col">
-<<<<<<< HEAD
         <h1 className="leading-none text-4xl lg:text-6xl font-extrabold">{t('HOME_HERO_TITLE')}</h1>
         <Lottie className="mt-3" loop autoplay animationData={titleData} height={70} width="100%" />
-
-=======
-        <div>
-          <h1 className="leading-none text-4xl lg:text-6xl font-extrabold">
-            {t('HOME_HERO_TITLE')}
-            <Lottie loop autoplay animationData={titleData} height={70} width="100%" />
-          </h1>
-        </div>
->>>>>>> main
         <span className="text-base lg:text-xl font-normal my-10">
           {t('HOME_HERO_SUBTITLE1')}
           <br />
