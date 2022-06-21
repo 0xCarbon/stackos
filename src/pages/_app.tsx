@@ -101,3 +101,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default appWithTranslation(MyApp);
+
+// @ts-ignore
+if (typeof window !== 'undefined' && window.Cypress) {
+  // @ts-ignore
+  window.store = store;
+  console.log(window);
+}

@@ -135,7 +135,10 @@ const SwapHome = () => {
   };
 
   return (
-    <div className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
+    <div
+      data-cy="swap-home"
+      className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500"
+    >
       <div className="flex flex-row justify-between mb-4">
         <a
           href="https://app.1inch.io/"
@@ -147,6 +150,7 @@ const SwapHome = () => {
           <p className="mx-2 font-normal text-sm duration-500">By 1inch</p>
         </a>
         <BiCog
+          data-cy="settings"
           className="hover:cursor-pointer text-[#CFCFCF] hover:text-main-green duration-500"
           size={20}
           onClick={() => dispatch(setSettingsStatus(true))}
@@ -240,6 +244,7 @@ const SwapHome = () => {
           </div>
         ) : (
           <button
+            data-cy="home-button"
             type="button"
             className="w-full bg-transparent border border-main-green hover:bg-main-green text-main-green hover:text-main-blue duration-500 rounded-md px-9 py-3"
             onClick={() => dispatch(setWalletModalStatus(true))}

@@ -33,7 +33,10 @@ const SwapSettings = () => {
   }
 
   return (
-    <div className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
+    <div
+      data-cy="swap-settings"
+      className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500"
+    >
       <div className="flex flex-row justify-between mb-6">
         <span className="text-[#F9FAFB] text-xl font-semibold">{t('SWAP_SETTINGS_TITLE')}</span>
         <IoMdClose
@@ -53,7 +56,11 @@ const SwapSettings = () => {
         <span className="text-[#CFCFCF] text-[0.75rem] w-[17.5rem]">{t('SWAP_SETTINGS_INFO')}</span>
       </div>
       <div className="flex flex-row justify-center items-center w-full mt-9">
-        <div className="w-full child:w-full" onClick={() => onClickConfirm()}>
+        <div
+          data-cy="settings-button"
+          className="w-full child:w-full"
+          onClick={() => onClickConfirm()}
+        >
           <SwapButton disabled={slippageAmount === newSlippage || !newSlippage}>
             {t('SWAP_SETTINGS_FOOTER')}
           </SwapButton>

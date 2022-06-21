@@ -1,9 +1,9 @@
 {
   "extends": "../tsconfig.json",
-  "include": ["./**/*.ts"],
+  "include": ["./**/*.ts", "./**/*.js"],
   "exclude": [],
   "compilerOptions": {
-    "types": ["cypress", "@percy/cypress"],
+    "types": ["cypress"],
     "lib": ["es2015", "dom"],
     "isolatedModules": false,
     "allowJs": true,

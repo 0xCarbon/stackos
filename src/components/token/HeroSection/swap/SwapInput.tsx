@@ -36,7 +36,7 @@ const SwapInput = ({
   onChangeInput = () => null,
   fontSize = 24,
 }: Props) => (
-  <div className="relative shadow-sm">
+  <div data-cy="input" className="relative shadow-sm">
     {iconLeft && (
       <div className="absolute inset-y-0 left-0 pl-2 pt-[10px] flex items-start text-[#6B7280]">
         <BiSearch className="text-xl flex place-self-start" />
