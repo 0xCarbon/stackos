@@ -1,3 +1,25 @@
+
+# ignore hex colors
+(?:[\\0][xX]|\\u|[uU]\+|#x?|\%23)[0-9a-fA-FgGrR_]{2,}(?:[uUlL]{0,3}|u\d+)\b
+
+# ignore imports
+import(?:["'\s]*([\w*{}\n, ]+)from\s*)?["'\s]*([@\w/_-]+)["'\s]*;?
+
+# ignore URL's
+https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)\b
+
+# ignore name of tag's in jsx
+<[a-zA-Z0-9]*? \b
+
+# ignore file path
+\/[-a-zA-Z0-9@:%._\+~#=]*\.[a-zA-Z0-9()]{1,6}\b
+
+# <a> tag href
+<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1
+
+# href
+href:([" '])(.*?)\1
+
 # patch hunk comments
 ^\@\@ -\d+(?:,\d+|) \+\d+(?:,\d+|) \@\@ .*
 # git index header
@@ -42,25 +64,14 @@ sha256:[0-9a-f]+
 [<({"'>][0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[<'"})>]
 # hex digits including css/html color classes:
 (?:[\\0][xX]|\\u|[uU]\+|#x?|\%23)[0-9a-fA-FgGrR_]{2,}(?:[uUlL]{0,3}|u\d+)\b
-# integrity
-integrity="sha\d+-[-a-zA-Z=;:/0-9+]{40,}"
 
 # .desktop mime types
 ^MimeTypes?=.*$
 # .desktop localized entries
 ^[A-Z][a-z]+\[[a-z]+\]=.*$
 
-# IServiceProvider
-\bI(?=(?:[A-Z][a-z]{2,})+\b)
-
-# crypt
-"\$2[ayb]\$.{56}"
-
 # Input to GitHub JSON
 content: "[-a-zA-Z=;:/0-9+]*="
-
-# Python stringprefix / binaryprefix
-\b(?:B|BR|Br|F|FR|Fr|R|RB|RF|Rb|Rf|U|UR|Ur|b|bR|br|f|fR|fr|r|rB|rF|rb|rf|u|uR|ur)'
 
 # Regular expressions for (P|p)assword
 \([A-Z]\|[a-z]\)[a-z]+
@@ -71,16 +82,6 @@ content: "[-a-zA-Z=;:/0-9+]*="
 
 # Go regular expressions
 regexp\.MustCompile\(`[^`]*`\)
-
-# kubernetes pod status lists
-# https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase
-\w+(?:-\w+)+\s+\d+/\d+\s+(?:Running|Pending|Succeeded|Failed|Unknown)\s+
-
-# kubectl - pods in CrashLoopBackOff
-\w+-[0-9a-f]+-\w+\s+\d+/\d+\s+CrashLoopBackOff\s+
-
-# posthog secrets
-posthog\.init\((['"])phc_[^"',]+\g{-1},
 
 # Update Lorem based on your content (requires `ge` and `w` from https://github.com/jsoref/spelling; and `review` from https://github.com/check-spelling/check-spelling/wiki/Looking-for-items-locally )
 # grep lorem .github/actions/spelling/patterns.txt|perl -pne 's/.*i..\?://;s/\).*//' |tr '|' "\n"|sort -f |xargs -n1 ge|perl -pne 's/^[^:]*://'|sort -u|w|sed -e 's/ .*//'|w|review -
@@ -108,36 +109,5 @@ posthog\.init\((['"])phc_[^"',]+\g{-1},
 [#]backwards
 # version suffix <word>v#
 [Vv]\d+(?:\b|(?=[a-zA-Z_]))
-# Compiler flags
-[\t >"'`=(](?:-J|)-[DPWXY]
-[\t "'`=(]-[DPWXYLlf]
-,-B
 # curl arguments
 \b(?:\\n|)curl(?:\s+-[a-zA-Z]+)+
-# set arguments
-\bset\s+-[abefiuox]+\b
-# tar arguments
-\b(?:\\n|)tar(?:\s+-[a-zA-Z]+|\s[a-z]+)+
-# macOS temp folders
-/var/folders/\w\w/[+\w]+/(?:T|-Caches-)/
-
-# ignore hex colors
-(?:[\\0][xX]|\\u|[uU]\+|#x?|\%23)[0-9a-fA-FgGrR_]{2,}(?:[uUlL]{0,3}|u\d+)\b
-
-# ignore imports
-import(?:["'\s]*([\w*{}\n, ]+)from\s*)?["'\s]*([@\w/_-]+)["'\s]*;?
-
-# ignore URL's
-https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)\b
-
-# ignore name of tag's in jsx
-<[a-zA-Z0-9]*? \b
-
-# ignore file path
-\/[-a-zA-Z0-9@:%._\+~#=]*\.[a-zA-Z0-9()]{1,6}\b
-
-# <a> tag href
-<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\b
-
-# href
-href:([" '])(.*?)\b
