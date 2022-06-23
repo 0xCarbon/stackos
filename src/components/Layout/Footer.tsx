@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Footer = () => {
   const { t } = useTranslation();
-  const hamburgur = 1;
+
   return (
     <div>
       <div className="flex flex-col md:flex-row md:justify-between lg:mt-56 px-5 md:px-0 max-w-[23rem] sm:max-w-[33.75rem] md:max-w-[45rem] lg:max-w-[60rem] xl:max-w-[71.25rem] mx-auto">
