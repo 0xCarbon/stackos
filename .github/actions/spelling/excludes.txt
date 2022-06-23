@@ -16,6 +16,7 @@ ignore$
 \.min\.
 \.mod$
 \.mp[34]$
+\.webp$
 \.png$
 \.wav$
 ^\.github/
