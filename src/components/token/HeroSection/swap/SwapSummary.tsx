@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { useState } from 'react';
@@ -108,7 +107,7 @@ const SwapSummary = () => {
       dispatch(setErrorMessage(allowance?.description));
     }
 
-    if (allowance == 0) {
+    if (Number(allowance) === 0) {
       const transactionForSign = await buildTxForApproveTradeWithRouter(
         swapParams.fromTokenAddress,
         0

@@ -72,7 +72,7 @@ const TechnologySection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.006}px, -${offsetY * 0.006}px)` }}
-        className="selectDisablehidden md:inline lg:hidden absolute w-[6.25rem] h-[6.87rem] left-[-3rem] top-[10rem] duration-200"
+        className="selectDisable hidden md:inline lg:hidden absolute w-[6.25rem] h-[6.87rem] left-[-3rem] top-[10rem] duration-200"
       >
         <Image
           src="/assets/home/technology-background-md.svg"

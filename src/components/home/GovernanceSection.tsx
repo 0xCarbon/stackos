@@ -67,7 +67,7 @@ const GovernanceSection = ({ offsetY }: { offsetY: number }) => {
       </div>
       <div
         style={{ transform: `translate(-${offsetY * 0.02}px, -${offsetY * 0.02}px)` }}
-        className="selectDisablehidden md:inline lg:hidden absolute w-[19.5rem] lg:w-[120rem] h-[7.063rem] lg:h-[52rem] right-[1rem] top-[24rem] duration-200"
+        className="selectDisable hidden md:inline lg:hidden absolute w-[19.5rem] lg:w-[120rem] h-[7.063rem] lg:h-[52rem] right-[1rem] top-[24rem] duration-200"
       >
         <Image
           src="/assets/home/governance-background-circle-md.svg"
