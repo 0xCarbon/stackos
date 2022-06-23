@@ -5,8 +5,10 @@
 (?:^|/)vendor/
 (?:^|/)styles/
 (?:^|/)cypress/
+(?:^|/)src/components/home/helpers/hero-titles.json
 ignore$
 \.avi$
+\.DS_Store$
 \.ico$
 \.jpe?g$
 \.lock$
@@ -19,4 +21,3 @@ ignore$
 ^\.github/
 \.eslintrc
 \.svg$
-^\src/components/home/helpers/hero-titles.json
