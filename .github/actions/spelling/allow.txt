@@ -1,5 +1,4 @@
-autoplay
-keyof
+autoplaykeyof
 ethereum
 abi
 api
