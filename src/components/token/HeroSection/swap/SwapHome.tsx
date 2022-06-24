@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { BiCog, BiInfoCircle, BiLinkExternal } from 'react-icons/bi';

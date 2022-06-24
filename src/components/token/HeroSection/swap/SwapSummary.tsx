@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from 'src/redux/hooks';
 import { useState } from 'react';
@@ -108,7 +107,7 @@ const SwapSummary = () => {
       dispatch(setErrorMessage(allowance?.description));
     }
 
-    if (allowance == 0) {
+    if (Number(allowance) === 0) {
       const transactionForSign = await buildTxForApproveTradeWithRouter(
         swapParams.fromTokenAddress,
         0
@@ -139,7 +138,7 @@ const SwapSummary = () => {
   }
 
   return (
-    <div>
+    <div className="px-4 py-4 bg-[#1F2937] rounded-md w-[360px] h-[340px] duration-500">
       <div className={`flex flex-row justify-between ${!isCollapseOpen && 'mb-5'}`}>
         {isTransactionPending || isTransactionSuccess ? (
           <a
