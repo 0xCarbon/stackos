@@ -106,5 +106,4 @@ export default appWithTranslation(MyApp);
 if (typeof window !== 'undefined' && window.Cypress) {
   // @ts-ignore
   window.store = store;
-  console.log(window);
 }
