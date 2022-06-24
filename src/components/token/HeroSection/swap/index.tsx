@@ -107,7 +107,10 @@ const Swap = () => {
 
   return (
     <>
-      <div className="w-full max-w-[360px] flex flex-row gap-3 mb-5 duration-500">
+      <div
+        data-cy="account-connected"
+        className="w-full max-w-[360px] flex flex-row gap-3 mb-5 duration-500"
+      >
         {account?.address && (
           <>
             <StackOSDropdown

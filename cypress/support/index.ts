@@ -1,6 +1,6 @@
 // @ts-check
-import '@cypress/code-coverage/support';
 import './commands';
+import 'cypress-metamask-plugin/support/commands';
 import { isMobile } from './utils';
 
 beforeEach(() => {

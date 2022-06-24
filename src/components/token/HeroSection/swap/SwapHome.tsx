@@ -254,13 +254,17 @@ const SwapHome = () => {
         )}
       </div>
       <StackOSModal showModal={isWalletModalOpen}>
-        <div className="flex flex-col justify-center items-center text-center text-white">
+        <div
+          data-cy="swap-connect-modal"
+          className="flex flex-col justify-center items-center text-center text-white"
+        >
           <span className="font-semibold text-xl text-[#F9FAFB]">
             {t('SWAP_MODAL_WALLET_TITLE')}
           </span>
           <div className="py-6 flex flex-col sm:flex-row justify-center items-center">
             {connectors.map((connector) => (
               <button
+                data-cy={`swap-${connector.id}`}
                 disabled={!connector.ready}
                 key={connector.id}
                 onClick={() => {
