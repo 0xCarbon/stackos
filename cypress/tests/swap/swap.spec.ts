@@ -3,6 +3,7 @@ describe('Swap component', () => {
     const { SECRET_WORDS, PASSWORD, NETWORK_NAME } = Cypress.env();
 
     cy.setupMetamask(SECRET_WORDS, NETWORK_NAME, PASSWORD);
+    cy.showTestnetsInMetamask();
     cy.changeMetamaskNetwork('mainnet');
     cy.visit('/token');
   });
@@ -16,11 +17,12 @@ describe('Swap component', () => {
     cy.getBySel('home-button').click();
     cy.getBySel('swap-connect-modal').should('be.visible');
     cy.getBySel('swap-metaMask').click();
+    cy.allowMetamaskToAddAndSwitchNetwork();
     cy.getBySel('account-connected').should('be.visible');
   });
 
   it('open swap settings', () => {
-    cy.getBySel('settings').click();
+    cy.getBySel('settings').click({ force: true });
     cy.getBySel('swap-settings').should('be.visible');
     cy.getBySel('settings-button').should('have.text', 'Confirm Settings');
     cy.window()

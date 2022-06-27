@@ -9,11 +9,10 @@
     "build:analyze": "npm run build && npm run analyze",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress run",
-    "cypress:open": "cypress open",
+    "cypress": "CYPRESS_REMOTE_DEBUGGING_PORT=9222 cypress run --browser chrome --headed",
+    "cypress:open": "CYPRESS_REMOTE_DEBUGGING_PORT=9222 cypress open",
     "cypress:open:mobile": "cypress open --config viewportWidth=375,viewportHeight=667",
     "cypress:run:mobile": "cypress run --config viewportWidth=375,viewportHeight=667",
-    "cy:open": "CYPRESS_REMOTE_DEBUGGING_PORT=9222 cypress open",
     "tsc": "tsc"
   },
   "dependencies": {
@@ -31,7 +30,7 @@
     "@reduxjs/toolkit": "1.8.2",
     "@stitches/react": "1.2.7",
     "babel-plugin-istanbul": "6.1.1",
-    "cypress-metamask-plugin": "git://github.com/0xCarbon/cypress-metamask-plugin.git#db22f3ec377c641bf34c6323728639aefd469873",
+    "cypress-metamask-plugin": "git://github.com/0xCarbon/cypress-metamask-plugin.git#99cf2329b46e6ea5d628005e3c6de97ba8ecafa2",
     "ethers": "5.6.6",
     "lottie-react": "2.2.1",
     "next": "12.1.6",
