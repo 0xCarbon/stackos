@@ -1,4 +1,4 @@
-import { BsTwitter, BsTelegram } from 'react-icons/bs';
+import { BsTwitter, BsTelegram, BsMedium } from 'react-icons/bs';
 import { FaDiscord } from 'react-icons/fa';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
@@ -48,6 +48,14 @@ const Footer = () => {
           >
             <span className="sr-only">Discord link</span>
             <FaDiscord />
+          </a>
+          <a
+            className="hover:text-main-blue hover:bg-main-green duration-500"
+            href="https://medium.com/stackos"
+            target="blank"
+          >
+            <span className="sr-only">Medium link</span>
+            <BsMedium />
           </a>
         </div>
       </div>
