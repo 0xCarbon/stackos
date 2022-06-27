@@ -33,3 +33,5 @@ describe('Swap component', () => {
       });
   });
 });
+
+export {};
